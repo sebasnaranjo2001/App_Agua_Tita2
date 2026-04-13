@@ -6,12 +6,14 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector3 posicionInicial;
+    private Transform padreInicial;
 
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        posicionInicial = transform.position;
+        posicionInicial = transform.localPosition;
+        padreInicial = transform.parent;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -31,6 +33,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void ResetPosition()
     {
-        transform.position = posicionInicial;
+        transform.SetParent(padreInicial);
+        transform.localPosition = posicionInicial;
     }
 }

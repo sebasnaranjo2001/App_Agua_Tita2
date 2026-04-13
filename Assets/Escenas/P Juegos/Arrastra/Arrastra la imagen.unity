@@ -189,12 +189,12 @@ RectTransform:
   m_Children:
   - {fileID: 244616444}
   - {fileID: 890115899}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 799058430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 540, y: 960}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_AnchoredPosition: {x: 0, y: 824}
+  m_SizeDelta: {x: 668.18494, y: 1843.2924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &203114325
 GameObject:
@@ -280,8 +280,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -480,6 +480,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244616443}
   m_CullTransparentMesh: 1
+--- !u!1 &257814007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257814009}
+  - component: {fileID: 257814008}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &257814008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257814007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1c6d8ac272a544ab20348e137e26e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManagerDrag
+  fases:
+  - textos:
+    - Cerrar el grifo mientras te cepillas los dientes
+    - Usar la lavadora solo con carga completa
+    - Reutilizar el agua de lavar frutas y verduras para regar plantas
+    imagenes:
+    - {fileID: 1971540193066915010, guid: dece6217c092fdd4b8d7df81f7c1ce43, type: 3}
+    - {fileID: 5510808911844168611, guid: 7eb92075152baed42a6b07b55cd877a7, type: 3}
+    - {fileID: -6306788481463315149, guid: f9563b69898705c44b1613a220b324d8, type: 3}
+    respuestasCorrectas:
+    - A
+    - B
+    - C
+  - textos:
+    - Instalar regaderas ahorradoras
+    - "Reparar fugas en grifos y tuber\xEDas  "
+    - Colocar una botella llena dentro del tanque del inodoro para reducir consumo
+    imagenes:
+    - {fileID: -7862552186104320438, guid: 4dd0687e0d0e9a74281d704de03513d5, type: 3}
+    - {fileID: 2052965223457372369, guid: c6fd0eb0c9607ba45913a565d4baf51a, type: 3}
+    - {fileID: -2622274588649961750, guid: 35d7b0a9b2214ce4b8eab9295ee49d55, type: 3}
+    respuestasCorrectas:
+    - A
+    - B
+    - C
+  - textos:
+    - "Regar las plantas temprano en la ma\xF1ana o al atardecer"
+    - Usar un balde en lugar de la manguera para lavar el auto
+    - "Acumular agua de lluvia para uso dom\xE9stico"
+    imagenes:
+    - {fileID: -3401144464124983210, guid: 0d71c2cb3d998f5459aa852443028649, type: 3}
+    - {fileID: -1513749530005827869, guid: 0c3a915610c2a1b418e9d5d6c27dcfef, type: 3}
+    - {fileID: -1976608420530717740, guid: 6020f7ca638855945a405617dc1839d5, type: 3}
+    respuestasCorrectas:
+    - A
+    - B
+    - C
+  zonas:
+  - {fileID: 1487581962}
+  - {fileID: 942610947}
+  - {fileID: 1886741942}
+  items:
+  - {fileID: 1201993770}
+  - {fileID: 555758147}
+  - {fileID: 1646939430}
+  textosUI:
+  - {fileID: 2002253989}
+  - {fileID: 1154114476}
+  - {fileID: 203114327}
+  imagenesUI:
+  - {fileID: 1487581960}
+  - {fileID: 942610945}
+  - {fileID: 1886741940}
+  panelFinal: {fileID: 104933032}
+--- !u!4 &257814009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257814007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 665.71356, y: 756.30383, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &266634327
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +1032,7 @@ GameObject:
   - component: {fileID: 555758144}
   - component: {fileID: 555758143}
   - component: {fileID: 555758146}
+  - component: {fileID: 555758147}
   m_Layer: 5
   m_Name: B
   m_TagString: Untagged
@@ -948,7 +1047,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555758141}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -958,8 +1057,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 372.51, y: -152.22998}
-  m_SizeDelta: {x: 247.1854, y: 104.7303}
+  m_AnchoredPosition: {x: 372.51, y: -202.16003}
+  m_SizeDelta: {x: 247.1854, y: 204.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555758143
 MonoBehaviour:
@@ -1055,6 +1154,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &555758147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555758141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a871975b774b334d8b2e35bb7ec655d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragItem
 --- !u!1 &777562907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1335,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 777562908}
+  - {fileID: 104933035}
   m_Father: {fileID: 824447146}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1274,7 +1386,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 799058432}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 257814008}
+        m_TargetAssemblyTypeName: GameManagerDrag, Assembly-CSharp
+        m_MethodName: Comprobar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &799058432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,6 +1820,7 @@ GameObject:
   - component: {fileID: 942610944}
   - component: {fileID: 942610946}
   - component: {fileID: 942610945}
+  - component: {fileID: 942610947}
   m_Layer: 5
   m_Name: zona2
   m_TagString: Untagged
@@ -1760,6 +1885,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942610943}
   m_CullTransparentMesh: 1
+--- !u!114 &942610947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942610943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0f10044aea85c49b785a3014cb9462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropZone
+  idCorrecto: 
+  idActual: 
 --- !u!1 &1154114474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,8 +1983,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1910,6 +2049,7 @@ GameObject:
   - component: {fileID: 1201993767}
   - component: {fileID: 1201993766}
   - component: {fileID: 1201993769}
+  - component: {fileID: 1201993770}
   m_Layer: 5
   m_Name: A
   m_TagString: Untagged
@@ -1924,7 +2064,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1201993764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1934,8 +2074,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 372.51, y: -511}
-  m_SizeDelta: {x: 247.1854, y: 104.7303}
+  m_AnchoredPosition: {x: 372.51, y: 172.07007}
+  m_SizeDelta: {x: 247.1854, y: 204.58997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201993766
 MonoBehaviour:
@@ -2031,6 +2171,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1201993770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201993764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a871975b774b334d8b2e35bb7ec655d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragItem
 --- !u!1 &1246467532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,7 +2302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Ahorro domestico y fugas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2378,6 +2530,7 @@ GameObject:
   - component: {fileID: 1487581959}
   - component: {fileID: 1487581961}
   - component: {fileID: 1487581960}
+  - component: {fileID: 1487581962}
   m_Layer: 5
   m_Name: zona1
   m_TagString: Untagged
@@ -2442,6 +2595,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487581958}
   m_CullTransparentMesh: 1
+--- !u!114 &1487581962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487581958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0f10044aea85c49b785a3014cb9462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropZone
+  idCorrecto: 
+  idActual: 
 --- !u!1 &1609341181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2592,6 +2759,7 @@ GameObject:
   - component: {fileID: 1646939427}
   - component: {fileID: 1646939426}
   - component: {fileID: 1646939429}
+  - component: {fileID: 1646939430}
   m_Layer: 5
   m_Name: C
   m_TagString: Untagged
@@ -2606,7 +2774,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646939424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2616,8 +2784,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 372.51, y: 222.00006}
-  m_SizeDelta: {x: 247.1854, y: 104.7303}
+  m_AnchoredPosition: {x: 372.51, y: -560.93005}
+  m_SizeDelta: {x: 247.1854, y: 204.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1646939426
 MonoBehaviour:
@@ -2713,6 +2881,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1646939430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646939424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a871975b774b334d8b2e35bb7ec655d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragItem
 --- !u!1 &1679783262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2950,6 +3130,7 @@ GameObject:
   - component: {fileID: 1886741939}
   - component: {fileID: 1886741941}
   - component: {fileID: 1886741940}
+  - component: {fileID: 1886741942}
   m_Layer: 5
   m_Name: zona3
   m_TagString: Untagged
@@ -3014,6 +3195,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886741938}
   m_CullTransparentMesh: 1
+--- !u!114 &1886741942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886741938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0f10044aea85c49b785a3014cb9462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropZone
+  idCorrecto: 
+  idActual: 
 --- !u!1 &2002253987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,8 +3293,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3157,5 +3352,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 518532158}
   - {fileID: 824447146}
-  - {fileID: 104933035}
   - {fileID: 1843562431}
+  - {fileID: 257814009}
