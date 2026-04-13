@@ -6,26 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Escenas/Pantalla de carga/Pantalla de carga.unity
+    path: Assets/Escenas/P Carga/Pantalla de carga.unity
     guid: ee7ec81da103b1640897866b7d1aa03b
   - enabled: 1
-    path: Assets/Escenas/Pantalla Menu/Menu.unity
+    path: Assets/Escenas/P Menu/Menu.unity
     guid: a09cf75aab4875344b88f9c6f57e5a0d
   - enabled: 1
-    path: Assets/Escenas/Pantalla Juegos/z_juegos.unity
+    path: Assets/Escenas/P Juegos/z_juegos.unity
     guid: 73ea321c04db60441a69a7053bdf8993
   - enabled: 1
-    path: Assets/Escenas/Pantalla Juegos/cuestionario/Cuestionario.unity
+    path: Assets/Escenas/P Juegos/cuestionario/Cuestionario.unity
     guid: 5a0ee93efcdd3d146947b2267a13ab8d
   - enabled: 1
-    path: "Assets/Escenas/Pantalla Juegos/im\xE1gen/Busca error en la imagen.unity"
+    path: "Assets/Escenas/P Juegos/im\xE1gen/Busca error en la imagen.unity"
     guid: 128c2d4be1e9f544fb4d338c39907d89
   - enabled: 1
-    path: Assets/Escenas/Pantalla Juegos/Arrastra/Arrastra la imagen.unity
+    path: Assets/Escenas/P Juegos/Arrastra/Arrastra la imagen.unity
     guid: e356f4a489d9c5b4fa220cc1d8d7076b
   - enabled: 1
-    path: Assets/Escenas/Pantalla Ducha/Duchometro.unity
+    path: Assets/Escenas/P Ducha/Duchometro.unity
     guid: 5f1ae0564a8d41142bc8c014e10c78d1
+  - enabled: 1
+    path: Assets/Escenas/P Guia/Guia.unity
+    guid: 8ba044a6fbaf8e84285415217b47e341
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
