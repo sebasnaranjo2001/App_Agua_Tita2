@@ -10,7 +10,7 @@ public class GameManagerDrag : MonoBehaviour
     {
         public string[] textos;
         public Sprite[] imagenes;
-        public string[] respuestasCorrectas;
+        public string[] respuestasCorrectas; // A, B, C
     }
 
     public Fase[] fases;
@@ -35,22 +35,26 @@ public class GameManagerDrag : MonoBehaviour
     {
         Fase f = fases[faseActual];
 
+        // 🔹 Textos
         for (int i = 0; i < textosUI.Length; i++)
         {
             textosUI[i].text = f.textos[i];
         }
 
+        // 🔹 Imágenes
         for (int i = 0; i < imagenesUI.Length; i++)
         {
             imagenesUI[i].sprite = f.imagenes[i];
         }
 
+        // 🔹 Asignar respuestas correctas automáticamente
         for (int i = 0; i < zonas.Length; i++)
         {
-            zonas[i].idCorrecto = f.respuestasCorrectas[i];
-            zonas[i].idActual = "";
+            zonas[i].idCorrecto = f.respuestasCorrectas[i].Trim().ToUpper();
+            zonas[i].ResetZona();
         }
 
+        // 🔹 Resetear posiciones
         foreach (DragItem item in items)
         {
             item.ResetPosition();
@@ -59,34 +63,66 @@ public class GameManagerDrag : MonoBehaviour
 
     public void Comprobar()
     {
-        bool correcto = true;
+        bool todoCorrecto = true;
 
         foreach (DropZone zona in zonas)
         {
-            if (zona.idActual != zona.idCorrecto)
+            string actual = zona.idActual.Replace("(Clone)", "").Trim().ToUpper();
+            string correcto = zona.idCorrecto.Trim().ToUpper();
+
+            // 🔴 Si está vacío → incorrecto
+            if (string.IsNullOrEmpty(actual))
             {
-                correcto = false;
-                break;
+                zona.MarcarIncorrecto();
+                todoCorrecto = false;
+            }
+            // 🔴 Si no coincide → incorrecto
+            else if (actual != correcto)
+            {
+                zona.MarcarIncorrecto();
+                todoCorrecto = false;
+            }
+            // 🟢 Correcto
+            else
+            {
+                zona.MarcarCorrecto();
             }
         }
 
-        if (correcto)
+        if (todoCorrecto)
         {
-            faseActual++;
-
-            if (faseActual >= fases.Length)
-            {
-                panelFinal.SetActive(true);
-            }
-            else
-            {
-                CargarFase();
-            }
+            Invoke("SiguienteFase", 1.5f);
         }
         else
         {
-            foreach (DragItem item in items)
-                item.ResetPosition();
+            Invoke("Resetear", 1.5f);
+        }
+    }
+
+    void Resetear()
+    {
+        foreach (DropZone zona in zonas)
+        {
+            zona.ResetZona();
+        }
+
+        foreach (DragItem item in items)
+        {
+            item.ResetPosition();
+        }
+    }
+
+    void SiguienteFase()
+    {
+        faseActual++;
+
+        if (faseActual >= fases.Length)
+        {
+            panelFinal.SetActive(true);
+        }
+        else
+        {
+            CargarFase();
         }
     }
 
