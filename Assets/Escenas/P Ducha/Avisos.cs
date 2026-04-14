@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Avisos : MonoBehaviour
 {
@@ -19,8 +20,11 @@ public class Avisos : MonoBehaviour
     public GameObject botonAnadirGrande;
     public GameObject panelBotonesPequenos;
 
+    [Header("Configuración de Escena")]
+    public string nombreEscenaCronometro = "Cronometro";
+
     private CanvasGroup cgAviso;
-    private int contadorMiembros = 0;
+    public int contadorMiembros = 0; // Lo puse public para que lo veas en el inspector
     private Coroutine rutinaDesvanecer;
 
     [Header("Gestión de Selección")]
@@ -34,10 +38,15 @@ public class Avisos : MonoBehaviour
 
     void Start()
     {
-        // Estado inicial: Niño y Botón Grande visibles. Panel pequeño oculto.
-        if (botonAnadirGrande != null) botonAnadirGrande.SetActive(true);
-        if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(false);
-        if (imagenNino != null) imagenNino.SetActive(true);
+        // --- NUEVO: Sincronizar con el Manejador al iniciar la escena ---
+        if (ManejadorRegistro.instance != null)
+        {
+            // Le pedimos al manejador cuántos miembros hay en su lista
+            contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
+
+            // Si ya hay gente, actualizamos la interfaz de inmediato
+            ActualizarInterfazSegunContador();
+        }
 
         if (imagenLimite != null)
         {
@@ -47,6 +56,31 @@ public class Avisos : MonoBehaviour
 
         if (avisoCreaMiembro != null) avisoCreaMiembro.SetActive(false);
         if (avisoSeleccionaMiembro != null) avisoSeleccionaMiembro.SetActive(false);
+    }
+
+    // --- NUEVO: Función para poner la UI en orden según cuántos miembros hay ---
+    void ActualizarInterfazSegunContador()
+    {
+        if (contadorMiembros > 0)
+        {
+            if (imagenNino != null) imagenNino.SetActive(false);
+            if (botonAnadirGrande != null) botonAnadirGrande.SetActive(false);
+            if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(true);
+        }
+        else
+        {
+            if (imagenNino != null) imagenNino.SetActive(true);
+            if (botonAnadirGrande != null) botonAnadirGrande.SetActive(true);
+            if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(false);
+        }
+    }
+
+    public void PuenteGuardar()
+    {
+        if (ManejadorRegistro.instance != null)
+        {
+            ManejadorRegistro.instance.GuardarDatos();
+        }
     }
 
     public void IntentarAbrirRegistro()
@@ -84,15 +118,17 @@ public class Avisos : MonoBehaviour
 
     public void NotificarMiembroGuardado()
     {
-        contadorMiembros++;
-
-        // Al guardar el primero, hacemos el intercambio de botones
-        if (contadorMiembros >= 1)
+        // Recalculamos directamente desde la lista real para evitar errores
+        if (ManejadorRegistro.instance != null)
         {
-            if (imagenNino != null) imagenNino.SetActive(false);
-            if (botonAnadirGrande != null) botonAnadirGrande.SetActive(false);
-            if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(true);
+            contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
         }
+        else
+        {
+            contadorMiembros++;
+        }
+
+        ActualizarInterfazSegunContador();
     }
 
     public void RegistrarSeleccion(SeleccionMiembros nuevoMiembro)
@@ -101,22 +137,31 @@ public class Avisos : MonoBehaviour
         {
             miembroSeleccionado.Deseleccionar();
         }
+
         miembroSeleccionado = nuevoMiembro;
+
+        if (ManejadorRegistro.instance != null && nuevoMiembro != null)
+        {
+            ManejadorRegistro.instance.nombreSeleccionado = nuevoMiembro.gameObject.name;
+        }
     }
 
     public void ClickEnContinuar()
     {
+        // Ahora contadorMiembros estará sincronizado
         if (contadorMiembros == 0)
         {
             if (avisoCreaMiembro != null) StartCoroutine(MostrarAvisoTemporal(avisoCreaMiembro));
             return;
         }
+
         if (miembroSeleccionado == null)
         {
             if (avisoSeleccionaMiembro != null) StartCoroutine(MostrarAvisoTemporal(avisoSeleccionaMiembro));
             return;
         }
-        if (ventanaSiguiente != null) ventanaSiguiente.SetActive(true);
+
+        SceneManager.LoadScene(nombreEscenaCronometro);
     }
 
     public void ClickEnEliminar()
@@ -127,29 +172,27 @@ public class Avisos : MonoBehaviour
             return;
         }
 
-        // --- NUEVA LÓGICA DE SINCRONIZACIÓN ---
-        // Le pedimos al ManejadorRegistro que borre los datos internos usando el nombre del objeto
         if (ManejadorRegistro.instance != null)
         {
             ManejadorRegistro.instance.RemoverMiembroDeLaLista(miembroSeleccionado.gameObject.name);
+            ManejadorRegistro.instance.nombreSeleccionado = "";
         }
 
-        Debug.Log("Eliminando objeto: " + miembroSeleccionado.gameObject.name);
         GameObject objetoABorrar = miembroSeleccionado.gameObject;
-
         miembroSeleccionado = null;
         Destroy(objetoABorrar);
 
-        contadorMiembros--;
-
-        // Si ya no quedan miembros, volvemos al estado inicial (Botón Grande y Niño)
-        if (contadorMiembros <= 0)
+        // Actualizamos el contador después de eliminar
+        if (ManejadorRegistro.instance != null)
         {
-            contadorMiembros = 0;
-            if (imagenNino != null) imagenNino.SetActive(true);
-            if (botonAnadirGrande != null) botonAnadirGrande.SetActive(true);
-            if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(false);
+            contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
         }
+        else
+        {
+            contadorMiembros--;
+        }
+
+        ActualizarInterfazSegunContador();
     }
 
     IEnumerator MostrarAvisoTemporal(GameObject aviso)
