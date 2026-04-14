@@ -518,10 +518,6 @@ MonoBehaviour:
     - {fileID: 1971540193066915010, guid: dece6217c092fdd4b8d7df81f7c1ce43, type: 3}
     - {fileID: 5510808911844168611, guid: 7eb92075152baed42a6b07b55cd877a7, type: 3}
     - {fileID: -6306788481463315149, guid: f9563b69898705c44b1613a220b324d8, type: 3}
-    respuestasCorrectas:
-    - A
-    - B
-    - C
   - textos:
     - Instalar regaderas ahorradoras
     - "Reparar fugas en grifos y tuber\xEDas  "
@@ -530,10 +526,6 @@ MonoBehaviour:
     - {fileID: -7862552186104320438, guid: 4dd0687e0d0e9a74281d704de03513d5, type: 3}
     - {fileID: 2052965223457372369, guid: c6fd0eb0c9607ba45913a565d4baf51a, type: 3}
     - {fileID: -2622274588649961750, guid: 35d7b0a9b2214ce4b8eab9295ee49d55, type: 3}
-    respuestasCorrectas:
-    - A
-    - B
-    - C
   - textos:
     - "Regar las plantas temprano en la ma\xF1ana o al atardecer"
     - Usar un balde en lugar de la manguera para lavar el auto
@@ -542,10 +534,6 @@ MonoBehaviour:
     - {fileID: -3401144464124983210, guid: 0d71c2cb3d998f5459aa852443028649, type: 3}
     - {fileID: -1513749530005827869, guid: 0c3a915610c2a1b418e9d5d6c27dcfef, type: 3}
     - {fileID: -1976608420530717740, guid: 6020f7ca638855945a405617dc1839d5, type: 3}
-    respuestasCorrectas:
-    - A
-    - B
-    - C
   zonas:
   - {fileID: 1487581962}
   - {fileID: 942610947}
@@ -1729,7 +1717,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'COMPLETADO
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1897,8 +1887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0f10044aea85c49b785a3014cb9462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropZone
-  idCorrecto: 
-  idActual: 
+  objetoCorrecto: {fileID: 555758147}
+  objetoActual: {fileID: 555758147}
 --- !u!1 &1154114474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,8 +2597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0f10044aea85c49b785a3014cb9462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropZone
-  idCorrecto: 
-  idActual: 
+  objetoCorrecto: {fileID: 1201993770}
+  objetoActual: {fileID: 1201993770}
 --- !u!1 &1609341181
 GameObject:
   m_ObjectHideFlags: 0
@@ -3207,8 +3197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0f10044aea85c49b785a3014cb9462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropZone
-  idCorrecto: 
-  idActual: 
+  objetoCorrecto: {fileID: 1646939430}
+  objetoActual: {fileID: 1646939430}
 --- !u!1 &2002253987
 GameObject:
   m_ObjectHideFlags: 0

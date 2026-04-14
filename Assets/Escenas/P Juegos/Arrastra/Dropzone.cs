@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class DropZone : MonoBehaviour, IDropHandler
 {
-    public string idCorrecto;
-    public string idActual;
+    public DragItem objetoCorrecto;   // El objeto que debe ir aquí
+    public DragItem objetoActual;     // El objeto soltado
 
     private Image imagen;
 
@@ -23,8 +23,13 @@ public class DropZone : MonoBehaviour, IDropHandler
             item.transform.SetParent(transform);
             item.transform.localPosition = Vector3.zero;
 
-            idActual = item.gameObject.name.Replace("(Clone)", "").Trim().ToUpper();
+            objetoActual = item;
         }
+    }
+
+    public bool EsCorrecto()
+    {
+        return objetoActual == objetoCorrecto;
     }
 
     public void MarcarCorrecto()
@@ -37,14 +42,9 @@ public class DropZone : MonoBehaviour, IDropHandler
         imagen.color = new Color(1f, 0.6f, 0.6f);
     }
 
-    public void ResetColor()
-    {
-        imagen.color = Color.white;
-    }
-
     public void ResetZona()
     {
-        idActual = "";
-        ResetColor();
+        objetoActual = null;
+        imagen.color = Color.white;
     }
 }

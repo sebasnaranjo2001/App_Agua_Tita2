@@ -8,18 +8,17 @@ public class GameManagerDrag : MonoBehaviour
     [System.Serializable]
     public class Fase
     {
-        public string[] textos;
-        public Sprite[] imagenes;
-        public string[] respuestasCorrectas; // A, B, C
+        public string[] textos;          // Textos de A, B, C
+        public Sprite[] imagenes;       // Imágenes de Zona1, Zona2, Zona3
     }
 
     public Fase[] fases;
 
-    public DropZone[] zonas;
-    public DragItem[] items;
+    public DropZone[] zonas;           // Zona1, Zona2, Zona3
+    public DragItem[] items;           // A, B, C
 
-    public TMP_Text[] textosUI;
-    public Image[] imagenesUI;
+    public TMP_Text[] textosUI;        // Textos visuales de A, B, C
+    public Image[] imagenesUI;         // Imágenes visuales de Zona1,2,3
 
     public GameObject panelFinal;
 
@@ -35,26 +34,25 @@ public class GameManagerDrag : MonoBehaviour
     {
         Fase f = fases[faseActual];
 
-        // 🔹 Textos
+        // Cambiar textos
         for (int i = 0; i < textosUI.Length; i++)
         {
             textosUI[i].text = f.textos[i];
         }
 
-        // 🔹 Imágenes
+        // Cambiar imágenes
         for (int i = 0; i < imagenesUI.Length; i++)
         {
             imagenesUI[i].sprite = f.imagenes[i];
         }
 
-        // 🔹 Asignar respuestas correctas automáticamente
-        for (int i = 0; i < zonas.Length; i++)
+        // Resetear zonas
+        foreach (DropZone zona in zonas)
         {
-            zonas[i].idCorrecto = f.respuestasCorrectas[i].Trim().ToUpper();
-            zonas[i].ResetZona();
+            zona.ResetZona();
         }
 
-        // 🔹 Resetear posiciones
+        // Resetear posiciones de A, B, C
         foreach (DragItem item in items)
         {
             item.ResetPosition();
@@ -67,25 +65,20 @@ public class GameManagerDrag : MonoBehaviour
 
         foreach (DropZone zona in zonas)
         {
-            string actual = zona.idActual.Replace("(Clone)", "").Trim().ToUpper();
-            string correcto = zona.idCorrecto.Trim().ToUpper();
-
-            // 🔴 Si está vacío → incorrecto
-            if (string.IsNullOrEmpty(actual))
+            // Si no hay objeto soltado
+            if (zona.objetoActual == null)
             {
                 zona.MarcarIncorrecto();
                 todoCorrecto = false;
             }
-            // 🔴 Si no coincide → incorrecto
-            else if (actual != correcto)
-            {
-                zona.MarcarIncorrecto();
-                todoCorrecto = false;
-            }
-            // 🟢 Correcto
-            else
+            else if (zona.EsCorrecto())
             {
                 zona.MarcarCorrecto();
+            }
+            else
+            {
+                zona.MarcarIncorrecto();
+                todoCorrecto = false;
             }
         }
 
