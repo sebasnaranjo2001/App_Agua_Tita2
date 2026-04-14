@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class ManejadorRegistro : MonoBehaviour
 {
+    // Permitimos que otros scripts accedan a este manejador
+    public static ManejadorRegistro instance;
+
     [Header("Configuración de Entrada")]
     public TMP_InputField inputNombre;
     public TMP_InputField inputEdad;
@@ -21,10 +24,14 @@ public class ManejadorRegistro : MonoBehaviour
 
     public List<DatosMiembro> listaDeMiembros = new List<DatosMiembro>();
 
-    // --- NUEVO: Esto se ejecuta al iniciar el juego ---
+    void Awake()
+    {
+        // Configuramos la instancia para el equipo
+        if (instance == null) instance = this;
+    }
+
     void Start()
     {
-        // Esto bloquea el teclado para que solo acepte números en la edad
         if (inputEdad != null)
         {
             inputEdad.contentType = TMP_InputField.ContentType.IntegerNumber;
@@ -35,7 +42,7 @@ public class ManejadorRegistro : MonoBehaviour
     {
         if (string.IsNullOrEmpty(inputNombre.text) || string.IsNullOrEmpty(inputEdad.text))
         {
-            Debug.LogWarning("¡Sebas, llena ambos campos!");
+            Debug.LogWarning("¡Sebas, hay que llenar ambos campos!");
             return;
         }
 
@@ -46,6 +53,12 @@ public class ManejadorRegistro : MonoBehaviour
 
         CrearItemEnLista(nuevoMiembro.nombre, nuevoMiembro.edad);
 
+        // Notificamos al sistema de Avisos que el grupo tiene un nuevo integrante
+        if (Avisos.instance != null)
+        {
+            Avisos.instance.NotificarMiembroGuardado();
+        }
+
         inputNombre.text = "";
         inputEdad.text = "";
     }
@@ -53,9 +66,10 @@ public class ManejadorRegistro : MonoBehaviour
     void CrearItemEnLista(string nombre, string edad)
     {
         GameObject nuevoItem = Instantiate(prefabMiembro, contenedorLista);
-
-        // --- NUEVO: Mueve el nuevo miembro al principio de la lista (ARRIBA) ---
         nuevoItem.transform.SetAsFirstSibling();
+
+        // IMPORTANTE: Ponemos el nombre del miembro al objeto para poder borrarlo luego
+        nuevoItem.name = nombre;
 
         TMP_Text[] textos = nuevoItem.GetComponentsInChildren<TMP_Text>();
 
@@ -64,5 +78,13 @@ public class ManejadorRegistro : MonoBehaviour
             textos[0].text = nombre;
             textos[1].text = edad + " años";
         }
+    }
+
+    // --- NUEVA FUNCIÓN PARA ELIMINAR DATOS ---
+    public void RemoverMiembroDeLaLista(string nombreBuscado)
+    {
+        // Buscamos en nuestra lista y eliminamos los datos que coincidan con el nombre
+        listaDeMiembros.RemoveAll(m => m.nombre == nombreBuscado);
+        Debug.Log("Datos eliminados de la lista interna para: " + nombreBuscado);
     }
 }
