@@ -19,8 +19,24 @@ public class ManejadorRegistro : MonoBehaviour
     public string nombreSeleccionado;
     public List<DatosMiembro> listaDeMiembros = new List<DatosMiembro>();
 
+    // --- NUEVA ESTRUCTURA PARA CADA BAÑO ---
     [System.Serializable]
-    public class DatosMiembro { public string nombre; public string edad; }
+    public class RegistroBano
+    {
+        public float duracion;
+        public string fecha;
+        public string hora;
+    }
+
+    [System.Serializable]
+    public class DatosMiembro
+    {
+        public string nombre;
+        public string edad;
+        public float mejorTiempo;
+        // Aquí se guardarán los últimos 5 baños de este miembro
+        public List<RegistroBano> historialBanos = new List<RegistroBano>();
+    }
 
     [System.Serializable]
     public class ListaWrapper { public List<DatosMiembro> miembros = new List<DatosMiembro>(); }
@@ -31,6 +47,7 @@ public class ManejadorRegistro : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            CargarDatosDelTelefono();
             SceneManager.sceneLoaded += AlCargarEscena;
         }
         else { Destroy(gameObject); }
@@ -38,43 +55,43 @@ public class ManejadorRegistro : MonoBehaviour
 
     void OnDestroy() { SceneManager.sceneLoaded -= AlCargarEscena; }
 
+    void Start() { RefrescarListaVisual(); }
+
     void AlCargarEscena(Scene escena, LoadSceneMode modo)
     {
-        // Limpiamos referencias viejas para que no use cosas de la escena anterior
         inputNombre = null;
         inputEdad = null;
         contenedorLista = null;
 
-        // --- SUPER BÚSQUEDA (Incluso en objetos apagados) ---
         inputNombre = BuscarEnTodaLaEscena<TMP_InputField>("InputNombre");
         inputEdad = BuscarEnTodaLaEscena<TMP_InputField>("InputEdad");
 
         GameObject objCont = BuscarObjetoAunApagado("ContenedorLista");
         if (objCont) contenedorLista = objCont.transform;
 
-        // Si encontramos el contenedor en esta escena, refrescamos la vista
         if (contenedorLista != null)
         {
-            Debug.Log("✅ ¡Todo encontrado con éxito! Ya puedes registrar.");
             RefrescarListaVisual();
         }
     }
 
     public void GuardarDatos()
     {
-        // Si no se han encontrado los inputs, intentamos buscarlos una última vez
         if (inputNombre == null) inputNombre = BuscarEnTodaLaEscena<TMP_InputField>("InputNombre");
         if (inputEdad == null) inputEdad = BuscarEnTodaLaEscena<TMP_InputField>("InputEdad");
 
-        if (inputNombre == null || inputEdad == null)
-        {
-            Debug.LogError("❌ Error: No encuentro los campos de texto. Revisa sus nombres en la jerarquía.");
-            return;
-        }
-
+        if (inputNombre == null || inputEdad == null) return;
         if (string.IsNullOrEmpty(inputNombre.text) || string.IsNullOrEmpty(inputEdad.text)) return;
 
-        DatosMiembro nuevoMiembro = new DatosMiembro { nombre = inputNombre.text, edad = inputEdad.text };
+        // Al crear uno nuevo, la lista de historial empieza vacía
+        DatosMiembro nuevoMiembro = new DatosMiembro
+        {
+            nombre = inputNombre.text,
+            edad = inputEdad.text,
+            mejorTiempo = 0,
+            historialBanos = new List<RegistroBano>()
+        };
+
         listaDeMiembros.Add(nuevoMiembro);
 
         CrearItemEnLista(nuevoMiembro.nombre, nuevoMiembro.edad);
@@ -111,14 +128,14 @@ public class ManejadorRegistro : MonoBehaviour
     public void RemoverMiembroDeLaLista(string nombreBuscado)
     {
         listaDeMiembros.RemoveAll(m => m.nombre == nombreBuscado);
-        PlayerPrefs.DeleteKey("Tiempo_" + nombreBuscado);
         GuardarEnDisco();
     }
 
-    void GuardarEnDisco()
+    public void GuardarEnDisco()
     {
         ListaWrapper wrapper = new ListaWrapper { miembros = listaDeMiembros };
-        PlayerPrefs.SetString("ListaUsuarios", JsonUtility.ToJson(wrapper));
+        string json = JsonUtility.ToJson(wrapper);
+        PlayerPrefs.SetString("ListaUsuarios", json);
         PlayerPrefs.Save();
     }
 
@@ -127,14 +144,16 @@ public class ManejadorRegistro : MonoBehaviour
         if (PlayerPrefs.HasKey("ListaUsuarios"))
         {
             string json = PlayerPrefs.GetString("ListaUsuarios");
-            listaDeMiembros = JsonUtility.FromJson<ListaWrapper>(json).miembros;
+            ListaWrapper wrapper = JsonUtility.FromJson<ListaWrapper>(json);
+
+            if (wrapper != null && wrapper.miembros != null)
+            {
+                listaDeMiembros = wrapper.miembros;
+            }
         }
     }
 
-    void Start() { CargarDatosDelTelefono(); }
-
-    // --- HERRAMIENTAS DE BÚSQUEDA RECURSIVA ---
-
+    // --- HERRAMIENTAS DE BÚSQUEDA ---
     T BuscarEnTodaLaEscena<T>(string nombre) where T : Component
     {
         GameObject obj = BuscarObjetoAunApagado(nombre);
