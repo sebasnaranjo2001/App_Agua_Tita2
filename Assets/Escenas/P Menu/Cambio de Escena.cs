@@ -3,12 +3,48 @@ using UnityEngine.SceneManagement;
 
 public class CambiarEscena : MonoBehaviour
 {
-    // Nombre de la escena a la que quieres ir
+    [Header("Configuración")]
     public string nombreEscena;
 
-    // Método que se llamará desde el botón
+    // --- FUNCIÓN 1: La de siempre (Inicio, Volver, etc.) ---
     public void IrAEscena()
     {
-        SceneManager.LoadScene(nombreEscena);
+        if (!string.IsNullOrEmpty(nombreEscena))
+        {
+            SceneManager.LoadScene(nombreEscena);
+        }
+    }
+
+    // --- FUNCIÓN PARA EL CRONÓMETRO: Guarda y cambia de escena ---
+    public void IrAEscenaGuardando()
+    {
+        // Buscamos tu script llamado 'Cronometro'
+        Cronometro scriptDucha = Object.FindFirstObjectByType<Cronometro>();
+
+        if (scriptDucha != null)
+        {
+            // Intentamos llamar a la función de guardado
+            scriptDucha.GuardarTiempoFinal();
+            Debug.Log("Datos del cronómetro enviados al registro.");
+        }
+
+        // Cambiamos de escena
+        IrAEscena();
+    }
+
+    // --- FUNCIÓN ESPECIAL: Para el botón Empezar (Duchómetro) ---
+    public void IrAEscenaSiHayMiembro()
+    {
+        if (ManejadorRegistro.instance != null)
+        {
+            if (!string.IsNullOrEmpty(ManejadorRegistro.instance.nombreSeleccionado))
+            {
+                SceneManager.LoadScene(nombreEscena);
+            }
+            else
+            {
+                Debug.Log("Bloqueado: No hay miembro seleccionado.");
+            }
+        }
     }
 }

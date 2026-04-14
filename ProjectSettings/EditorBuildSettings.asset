@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/P Guia/Guia.unity
     guid: 8ba044a6fbaf8e84285415217b47e341
+  - enabled: 1
+    path: Assets/Escenas/P Ducha/Cronometro.unity
+    guid: c67879b7f86907b4ca14dc52a5e719b3
+  - enabled: 1
+    path: Assets/Escenas/P Ducha/Ranking.unity
+    guid: b012a3ada22f42240a0f043e0507a345
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
