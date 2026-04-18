@@ -649,9 +649,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ManejadorNavegacion, Assembly-CSharp
-        m_MethodName: IrAlMenuPrincipal
+      - m_Target: {fileID: 1812419887}
+        m_TargetAssemblyTypeName: NavegacionMenuPrincipal, Assembly-CSharp
+        m_MethodName: IrAInicio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1040,8 +1040,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.8630066, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.0048828125, y: 0}
+  m_SizeDelta: {x: -505.93994, y: -1040}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &391576589
 MonoBehaviour:
@@ -1428,9 +1428,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ManejadorNavegacion, Assembly-CSharp
-        m_MethodName: IrARegistro
+      - m_Target: {fileID: 1812419887}
+        m_TargetAssemblyTypeName: NavegacionMenuPrincipal, Assembly-CSharp
+        m_MethodName: IrAJuegos
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1533,8 +1533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 444.71002, y: -1245}
-  m_SizeDelta: {x: 872.08, y: 2305.081}
+  m_AnchoredPosition: {x: 663.76, y: -1245}
+  m_SizeDelta: {x: 1310.2, y: 2305.081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561916026
 MonoBehaviour:
@@ -1754,8 +1754,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.1226, y: 111.16339}
-  m_SizeDelta: {x: 773.3524, y: 1882.1987}
+  m_AnchoredPosition: {x: 9.2018, y: 111.16339}
+  m_SizeDelta: {x: 1129.6737, y: 1882.1987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &654552428
 MonoBehaviour:
@@ -1894,7 +1894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -3.592912, y: -0.000061035156}
+  m_AnchoredPosition: {x: -3.592912, y: 0}
   m_SizeDelta: {x: 887.42, y: 1644.4878}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &714608150
@@ -1958,7 +1958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.999878, y: 0}
+  m_AnchoredPosition: {x: 5, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &715143274
@@ -2721,8 +2721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.12812042, y: -0.0007272139}
-  m_SizeDelta: {x: 880.7463, y: 2490.398}
+  m_AnchoredPosition: {x: -3.0487, y: -94.30244}
+  m_SizeDelta: {x: 1318.8462, y: 2198.3315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1165569717
 GameObject:
@@ -3668,8 +3668,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1054, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1080, y: 0}
+  m_SizeDelta: {x: 505.9399, y: 1040}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1617817612
 GameObject:
@@ -4000,6 +4000,7 @@ RectTransform:
   - {fileID: 210302946}
   - {fileID: 549548925}
   - {fileID: 1934376315}
+  - {fileID: 1812419886}
   m_Father: {fileID: 1670029950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4082,7 +4083,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.997986, y: 71}
+  m_AnchoredPosition: {x: 19.998047, y: 71}
   m_SizeDelta: {x: 1140.49, y: 1468.9265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800585192
@@ -4303,6 +4304,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1812419885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812419886}
+  - component: {fileID: 1812419887}
+  m_Layer: 5
+  m_Name: ManejadorMenuPrincipal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1812419886
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812419885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1770890897}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1812419887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812419885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7daedab1556c9449adde9c92ffda2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NavegacionMenuPrincipal
+  panelJuegos: {fileID: 1805522760}
+  panelInicio: {fileID: 790081288}
+  panelGuia: {fileID: 1579377806}
+  fondoBarra: {fileID: 1770890898}
+  btnJuegos: {fileID: 549548922}
+  btnInicio: {fileID: 210302943}
+  btnGuia: {fileID: 1934376312}
+  colorJuegos: {r: 0.79215693, g: 0.6745098, b: 0.427451, a: 1}
+  colorInicio: {r: 0.454902, g: 0.7294118, b: 0.80392164, a: 1}
+  colorGuia: {r: 0.8235295, g: 0.5019608, b: 0.32941177, a: 1}
+  duracion: 0.6
 --- !u!1 &1827466977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,8 +4400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.862915, y: 21.824951}
-  m_SizeDelta: {x: 1140.49, y: 2382.85}
+  m_AnchoredPosition: {x: -0.0025634766, y: -117.55957}
+  m_SizeDelta: {x: -0.0049, y: -950.2727}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827466979
 MonoBehaviour:
@@ -4624,9 +4684,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ManejadorNavegacion, Assembly-CSharp
-        m_MethodName: IrARanking
+      - m_Target: {fileID: 1812419887}
+        m_TargetAssemblyTypeName: NavegacionMenuPrincipal, Assembly-CSharp
+        m_MethodName: IrAGuia
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

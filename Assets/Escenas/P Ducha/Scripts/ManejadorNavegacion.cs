@@ -47,20 +47,15 @@ public class ManejadorNavegacion : MonoBehaviour
     {
         if (panelActual == "cronometro")
         {
-            // Salida vertical
             MoverPanel(panelCronometro, new Vector2(0, distanciaY));
-            // Teletransportamos el registro ABAJO antes de que suba
             panelRegistro.anchoredPosition = new Vector2(0, -distanciaY);
             MoverPanel(panelRegistro, Vector2.zero);
         }
         else
         {
-            // Salida horizontal (desde Ranking)
-            // Teletransportamos el registro a la IZQUIERDA antes de que entre
             panelRegistro.anchoredPosition = new Vector2(-distanciaX, 0);
             MoverPanel(panelRegistro, Vector2.zero);
             MoverPanel(panelRanking, new Vector2(distanciaX, 0));
-            // Aseguramos que el cronómetro esté arriba y no estorbe
             panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
         }
 
@@ -75,11 +70,9 @@ public class ManejadorNavegacion : MonoBehaviour
             if (scriptBuscador != null) scriptBuscador.ActualizarInterfaz();
             if (scriptCronometro != null) scriptCronometro.ReiniciarTodo();
 
-            // Al ir al cronómetro, mandamos los otros hacia ABAJO
             MoverPanel(panelRegistro, new Vector2(0, -distanciaY));
             MoverPanel(panelRanking, new Vector2(0, -distanciaY));
 
-            // Teletransportamos cronómetro ARRIBA antes de que caiga
             panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
             MoverPanel(panelCronometro, Vector2.zero);
 
@@ -100,20 +93,15 @@ public class ManejadorNavegacion : MonoBehaviour
 
             if (panelActual == "cronometro")
             {
-                // Salida vertical
                 MoverPanel(panelCronometro, new Vector2(0, -distanciaY));
-                // Teletransportamos ranking ARRIBA antes de que caiga
                 panelRanking.anchoredPosition = new Vector2(0, distanciaY);
                 MoverPanel(panelRanking, Vector2.zero);
             }
             else
             {
-                // Salida horizontal (desde Registro)
-                // Teletransportamos ranking a la DERECHA antes de que entre
                 panelRanking.anchoredPosition = new Vector2(distanciaX, 0);
                 MoverPanel(panelRanking, Vector2.zero);
                 MoverPanel(panelRegistro, new Vector2(-distanciaX, 0));
-                // Aseguramos que el cronómetro esté arriba
                 panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
             }
 
@@ -128,7 +116,7 @@ public class ManejadorNavegacion : MonoBehaviour
 
     private void MoverPanel(RectTransform panel, Vector2 destino)
     {
-        // Cancelamos cualquier movimiento previo para evitar conflictos
+        if (panel == null) return;
         LeanTween.cancel(panel.gameObject);
         LeanTween.move(panel, destino, duracionCapa).setEase(tipoSuavizado);
     }
@@ -140,14 +128,33 @@ public class ManejadorNavegacion : MonoBehaviour
         if (btnIrInicio) btnIrInicio.interactable = (panelActivo != "cronometro");
     }
 
+    // --- FUNCIÓN CORREGIDA PARA EVITAR EL ERROR ROJO ---
     void MostrarAvisoTemporal(GameObject aviso)
     {
+        // 1. Verificamos que el objeto exista en el Inspector
         if (aviso == null) return;
+
+        // 2. Cancelamos cualquier animación que estuviera haciendo antes 
+        // para que no se "vuelva loco" si el usuario da clics repetidos
+        LeanTween.cancel(aviso);
+
         aviso.SetActive(true);
         aviso.transform.localScale = Vector3.zero;
+
+        // Animación de entrada
         LeanTween.scale(aviso, Vector3.one, 0.5f).setEaseOutBack();
-        LeanTween.delayedCall(2.5f, () => {
-            LeanTween.scale(aviso, Vector3.zero, 0.5f).setEaseInBack().setOnComplete(() => aviso.SetActive(false));
+
+        // 3. Usamos la versión de delayedCall que se ata al GameObject.
+        // Si el objeto se destruye o el script para, esta llamada se cancela sola.
+        LeanTween.delayedCall(aviso, 2.5f, () => {
+
+            // 4. Verificación final antes de ejecutar el cierre
+            if (aviso != null)
+            {
+                LeanTween.scale(aviso, Vector3.zero, 0.5f).setEaseInBack().setOnComplete(() => {
+                    if (aviso != null) aviso.SetActive(false);
+                });
+            }
         });
     }
 }
