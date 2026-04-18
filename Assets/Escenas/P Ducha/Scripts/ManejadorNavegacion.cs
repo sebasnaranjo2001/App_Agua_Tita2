@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class ManejadorNavegacion : MonoBehaviour
 {
-    [Header("Paneles")]
+    [Header("Paneles (RectTransform)")]
     public RectTransform panelRegistro;
     public RectTransform panelCronometro;
     public RectTransform panelRanking;
@@ -17,18 +17,27 @@ public class ManejadorNavegacion : MonoBehaviour
     [Header("Scripts de Actualización")]
     public BuscadorDeMiembros scriptBuscador;
     public ManejadorRanking scriptRanking;
-    public Cronometro scriptCronometro; // <-- ASIGNA ESTO EN EL INSPECTOR
+    public Cronometro scriptCronometro;
 
     [Header("Mensajes de Aviso")]
     public GameObject avisoCreaMiembro;
     public GameObject avisoSeleccionaMiembro;
 
+    [Header("Configuración de Animación")]
+    public float duracionCapa = 0.8f;
+    public LeanTweenType tipoSuavizado = LeanTweenType.easeOutCubic;
+
+    private float distanciaX = 1100f;
+    private float distanciaY = 2000f;
+    private string panelActual = "registro";
+
     private void Start()
     {
         panelRegistro.anchoredPosition = Vector2.zero;
-        panelCronometro.anchoredPosition = new Vector2(1500, 0);
-        panelRanking.anchoredPosition = new Vector2(1500, 0);
+        panelRanking.anchoredPosition = new Vector2(distanciaX, 0);
+        panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
 
+        panelActual = "registro";
         ActualizarEstadoBotones("registro");
     }
 
@@ -36,7 +45,26 @@ public class ManejadorNavegacion : MonoBehaviour
 
     public void IrARegistro()
     {
-        MoverPanel(panelRegistro);
+        if (panelActual == "cronometro")
+        {
+            // Salida vertical
+            MoverPanel(panelCronometro, new Vector2(0, distanciaY));
+            // Teletransportamos el registro ABAJO antes de que suba
+            panelRegistro.anchoredPosition = new Vector2(0, -distanciaY);
+            MoverPanel(panelRegistro, Vector2.zero);
+        }
+        else
+        {
+            // Salida horizontal (desde Ranking)
+            // Teletransportamos el registro a la IZQUIERDA antes de que entre
+            panelRegistro.anchoredPosition = new Vector2(-distanciaX, 0);
+            MoverPanel(panelRegistro, Vector2.zero);
+            MoverPanel(panelRanking, new Vector2(distanciaX, 0));
+            // Aseguramos que el cronómetro esté arriba y no estorbe
+            panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
+        }
+
+        panelActual = "registro";
         ActualizarEstadoBotones("registro");
     }
 
@@ -44,13 +72,18 @@ public class ManejadorNavegacion : MonoBehaviour
     {
         if (ManejadorRegistro.instance != null && !string.IsNullOrEmpty(ManejadorRegistro.instance.nombreSeleccionado))
         {
-            // 1. Refrescar nombre en el cronómetro
             if (scriptBuscador != null) scriptBuscador.ActualizarInterfaz();
-
-            // 2. REINICIO VISUAL: Limpiamos el cronómetro antes de mostrarlo
             if (scriptCronometro != null) scriptCronometro.ReiniciarTodo();
 
-            MoverPanel(panelCronometro);
+            // Al ir al cronómetro, mandamos los otros hacia ABAJO
+            MoverPanel(panelRegistro, new Vector2(0, -distanciaY));
+            MoverPanel(panelRanking, new Vector2(0, -distanciaY));
+
+            // Teletransportamos cronómetro ARRIBA antes de que caiga
+            panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
+            MoverPanel(panelCronometro, Vector2.zero);
+
+            panelActual = "cronometro";
             ActualizarEstadoBotones("cronometro");
         }
         else
@@ -65,7 +98,26 @@ public class ManejadorNavegacion : MonoBehaviour
         {
             if (scriptRanking != null) scriptRanking.GenerarRanking();
 
-            MoverPanel(panelRanking);
+            if (panelActual == "cronometro")
+            {
+                // Salida vertical
+                MoverPanel(panelCronometro, new Vector2(0, -distanciaY));
+                // Teletransportamos ranking ARRIBA antes de que caiga
+                panelRanking.anchoredPosition = new Vector2(0, distanciaY);
+                MoverPanel(panelRanking, Vector2.zero);
+            }
+            else
+            {
+                // Salida horizontal (desde Registro)
+                // Teletransportamos ranking a la DERECHA antes de que entre
+                panelRanking.anchoredPosition = new Vector2(distanciaX, 0);
+                MoverPanel(panelRanking, Vector2.zero);
+                MoverPanel(panelRegistro, new Vector2(-distanciaX, 0));
+                // Aseguramos que el cronómetro esté arriba
+                panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
+            }
+
+            panelActual = "ranking";
             ActualizarEstadoBotones("ranking");
         }
         else
@@ -74,20 +126,18 @@ public class ManejadorNavegacion : MonoBehaviour
         }
     }
 
-    private void MoverPanel(RectTransform destino)
+    private void MoverPanel(RectTransform panel, Vector2 destino)
     {
-        LeanTween.moveX(panelRegistro, -1500, 0.4f).setEaseInExpo();
-        LeanTween.moveX(panelCronometro, -1500, 0.4f).setEaseInExpo();
-        LeanTween.moveX(panelRanking, -1500, 0.4f).setEaseInExpo();
-
-        destino.anchoredPosition = new Vector2(1500, 0);
-        LeanTween.moveX(destino, 0, 0.6f).setEaseOutBack();
+        // Cancelamos cualquier movimiento previo para evitar conflictos
+        LeanTween.cancel(panel.gameObject);
+        LeanTween.move(panel, destino, duracionCapa).setEase(tipoSuavizado);
     }
 
     private void ActualizarEstadoBotones(string panelActivo)
     {
         if (btnIrRegistro) btnIrRegistro.interactable = (panelActivo != "registro");
         if (btnIrRanking) btnIrRanking.interactable = (panelActivo != "ranking");
+        if (btnIrInicio) btnIrInicio.interactable = (panelActivo != "cronometro");
     }
 
     void MostrarAvisoTemporal(GameObject aviso)

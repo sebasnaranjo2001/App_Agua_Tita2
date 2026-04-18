@@ -20,7 +20,6 @@ public class Avisos : MonoBehaviour
     public GameObject panelBotonesPequenos;
 
     private CanvasGroup cgAviso;
-    public int contadorMiembros = 0;
     private Coroutine rutinaDesvanecer;
 
     [Header("Gestión de Selección")]
@@ -37,12 +36,6 @@ public class Avisos : MonoBehaviour
     {
         navegador = Object.FindFirstObjectByType<ManejadorNavegacion>();
 
-        if (ManejadorRegistro.instance != null)
-        {
-            contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
-            ActualizarInterfazSegunContador();
-        }
-
         if (imagenLimite != null)
         {
             cgAviso = imagenLimite.GetComponent<CanvasGroup>();
@@ -51,29 +44,43 @@ public class Avisos : MonoBehaviour
 
         if (avisoCreaMiembro != null) avisoCreaMiembro.SetActive(false);
         if (avisoSeleccionaMiembro != null) avisoSeleccionaMiembro.SetActive(false);
+
+        // Al arrancar, verificamos el estado de la lista
+        ActualizarInterfazSegunContador();
     }
 
+    // --- ESTA FUNCIÓN AHORA ES INFALIBLE ---
     public void ActualizarInterfazSegunContador()
     {
-        bool hayMiembros = (contadorMiembros > 0);
+        if (ManejadorRegistro.instance == null) return;
+
+        // Le preguntamos la verdad absoluta al Manejador de Registro
+        int totalMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
+        bool hayMiembros = (totalMiembros > 0);
+
+        // Controlamos los objetos según si hay o no gente
         if (imagenNino != null) imagenNino.SetActive(!hayMiembros);
         if (botonAnadirGrande != null) botonAnadirGrande.SetActive(!hayMiembros);
         if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(hayMiembros);
+
+        Debug.Log("Sincronizando interfaz: ¿Hay miembros? " + hayMiembros);
     }
 
-    // --- FUNCIÓN PARA EL BOTÓN GUARDAR ---
     public void PuenteGuardar()
     {
         if (ManejadorRegistro.instance != null)
         {
             ManejadorRegistro.instance.GuardarDatos();
+            // No hace falta llamar a actualizar aquí porque 
+            // ManejadorRegistro llamará a NotificarMiembroGuardado()
         }
     }
 
-    // --- FUNCIÓN PARA BOTÓN GRANDE Y BOTÓN PEQUEÑO (+) ---
     public void IntentarAbrirRegistro()
     {
-        if (contadorMiembros < 7)
+        int total = ManejadorRegistro.instance.listaDeMiembros.Count;
+
+        if (total < 7)
         {
             if (ventanaRegistro != null) ventanaRegistro.SetActive(true);
             if (imagenLimite != null) imagenLimite.SetActive(false);
@@ -106,9 +113,7 @@ public class Avisos : MonoBehaviour
 
     public void NotificarMiembroGuardado()
     {
-        if (ManejadorRegistro.instance != null)
-            contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
-
+        // Forzamos el refresco total de la pantalla
         ActualizarInterfazSegunContador();
     }
 
@@ -125,7 +130,9 @@ public class Avisos : MonoBehaviour
 
     public void ClickEnContinuar()
     {
-        if (contadorMiembros == 0)
+        int total = ManejadorRegistro.instance.listaDeMiembros.Count;
+
+        if (total == 0)
         {
             if (avisoCreaMiembro != null) StartCoroutine(MostrarAvisoTemporal(avisoCreaMiembro));
             return;
@@ -142,19 +149,19 @@ public class Avisos : MonoBehaviour
     {
         if (miembroSeleccionado == null) return;
 
+        string nombreABorrar = miembroSeleccionado.gameObject.name;
+
         if (ManejadorRegistro.instance != null)
         {
-            ManejadorRegistro.instance.RemoverMiembroDeLaLista(miembroSeleccionado.gameObject.name);
+            ManejadorRegistro.instance.RemoverMiembroDeLaLista(nombreABorrar);
             ManejadorRegistro.instance.nombreSeleccionado = "";
         }
 
         Destroy(miembroSeleccionado.gameObject);
         miembroSeleccionado = null;
 
-        if (ManejadorRegistro.instance != null)
-            contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
-
-        ActualizarInterfazSegunContador();
+        // Esperamos un milisegundo a que Unity termine de borrar el objeto y actualizamos
+        Invoke("ActualizarInterfazSegunContador", 0.05f);
     }
 
     IEnumerator MostrarAvisoTemporal(GameObject aviso)

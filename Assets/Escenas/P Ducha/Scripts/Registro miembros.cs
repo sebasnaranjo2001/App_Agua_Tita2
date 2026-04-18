@@ -53,9 +53,14 @@ public class ManejadorRegistro : MonoBehaviour
     // --- REGLAS DE TEXTO (Nombre y Edad) ---
     void ConfigurarInputs()
     {
-        // Solo permite números en la edad
-        if (inputEdad != null) inputEdad.contentType = TMP_InputField.ContentType.IntegerNumber;
+        // Configuración de la Edad
+        if (inputEdad != null)
+        {
+            inputEdad.contentType = TMP_InputField.ContentType.IntegerNumber;
+            inputEdad.characterLimit = 3; // <--- AGREGADO: Máximo 3 números
+        }
 
+        // Configuración del Nombre
         if (inputNombre != null)
         {
             inputNombre.characterLimit = 10; // Máximo 10 letras
@@ -90,7 +95,6 @@ public class ManejadorRegistro : MonoBehaviour
         GuardarEnDisco();
 
         // --- ACTUALIZACIÓN EN TIEMPO REAL ---
-        // Esto avisa al script Avisos.cs que oculte la imagen de "Añadir Miembro"
         if (Avisos.instance != null)
         {
             Avisos.instance.NotificarMiembroGuardado();
@@ -128,7 +132,6 @@ public class ManejadorRegistro : MonoBehaviour
         GuardarEnDisco();
         RefrescarListaVisual();
 
-        // También avisamos aquí por si borramos al último miembro
         if (Avisos.instance != null) Avisos.instance.NotificarMiembroGuardado();
     }
 
