@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Avisos : MonoBehaviour
 {
@@ -20,16 +19,14 @@ public class Avisos : MonoBehaviour
     public GameObject botonAnadirGrande;
     public GameObject panelBotonesPequenos;
 
-    [Header("Configuración de Escena")]
-    public string nombreEscenaCronometro = "Cronometro";
-
     private CanvasGroup cgAviso;
-    public int contadorMiembros = 0; // Lo puse public para que lo veas en el inspector
+    public int contadorMiembros = 0;
     private Coroutine rutinaDesvanecer;
 
     [Header("Gestión de Selección")]
     public SeleccionMiembros miembroSeleccionado;
-    public GameObject ventanaSiguiente;
+
+    private ManejadorNavegacion navegador;
 
     void Awake()
     {
@@ -38,13 +35,11 @@ public class Avisos : MonoBehaviour
 
     void Start()
     {
-        // --- NUEVO: Sincronizar con el Manejador al iniciar la escena ---
+        navegador = Object.FindFirstObjectByType<ManejadorNavegacion>();
+
         if (ManejadorRegistro.instance != null)
         {
-            // Le pedimos al manejador cuántos miembros hay en su lista
             contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
-
-            // Si ya hay gente, actualizamos la interfaz de inmediato
             ActualizarInterfazSegunContador();
         }
 
@@ -58,23 +53,15 @@ public class Avisos : MonoBehaviour
         if (avisoSeleccionaMiembro != null) avisoSeleccionaMiembro.SetActive(false);
     }
 
-    // --- NUEVO: Función para poner la UI en orden según cuántos miembros hay ---
-    void ActualizarInterfazSegunContador()
+    public void ActualizarInterfazSegunContador()
     {
-        if (contadorMiembros > 0)
-        {
-            if (imagenNino != null) imagenNino.SetActive(false);
-            if (botonAnadirGrande != null) botonAnadirGrande.SetActive(false);
-            if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(true);
-        }
-        else
-        {
-            if (imagenNino != null) imagenNino.SetActive(true);
-            if (botonAnadirGrande != null) botonAnadirGrande.SetActive(true);
-            if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(false);
-        }
+        bool hayMiembros = (contadorMiembros > 0);
+        if (imagenNino != null) imagenNino.SetActive(!hayMiembros);
+        if (botonAnadirGrande != null) botonAnadirGrande.SetActive(!hayMiembros);
+        if (panelBotonesPequenos != null) panelBotonesPequenos.SetActive(hayMiembros);
     }
 
+    // --- FUNCIÓN PARA EL BOTÓN GUARDAR ---
     public void PuenteGuardar()
     {
         if (ManejadorRegistro.instance != null)
@@ -83,11 +70,12 @@ public class Avisos : MonoBehaviour
         }
     }
 
+    // --- FUNCIÓN PARA BOTÓN GRANDE Y BOTÓN PEQUEÑO (+) ---
     public void IntentarAbrirRegistro()
     {
         if (contadorMiembros < 7)
         {
-            ventanaRegistro.SetActive(true);
+            if (ventanaRegistro != null) ventanaRegistro.SetActive(true);
             if (imagenLimite != null) imagenLimite.SetActive(false);
         }
         else
@@ -102,11 +90,11 @@ public class Avisos : MonoBehaviour
 
     IEnumerator MostrarYDesvanecer()
     {
+        if (cgAviso == null) yield break;
         cgAviso.alpha = 1f;
         imagenLimite.SetActive(true);
         yield return new WaitForSeconds(3f);
-        float tiempo = 0;
-        float duracionFade = 1f;
+        float tiempo = 0; float duracionFade = 1f;
         while (tiempo < duracionFade)
         {
             tiempo += Time.deltaTime;
@@ -118,15 +106,8 @@ public class Avisos : MonoBehaviour
 
     public void NotificarMiembroGuardado()
     {
-        // Recalculamos directamente desde la lista real para evitar errores
         if (ManejadorRegistro.instance != null)
-        {
             contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
-        }
-        else
-        {
-            contadorMiembros++;
-        }
 
         ActualizarInterfazSegunContador();
     }
@@ -134,43 +115,32 @@ public class Avisos : MonoBehaviour
     public void RegistrarSeleccion(SeleccionMiembros nuevoMiembro)
     {
         if (miembroSeleccionado != null && miembroSeleccionado != nuevoMiembro)
-        {
             miembroSeleccionado.Deseleccionar();
-        }
 
         miembroSeleccionado = nuevoMiembro;
 
         if (ManejadorRegistro.instance != null && nuevoMiembro != null)
-        {
             ManejadorRegistro.instance.nombreSeleccionado = nuevoMiembro.gameObject.name;
-        }
     }
 
     public void ClickEnContinuar()
     {
-        // Ahora contadorMiembros estará sincronizado
         if (contadorMiembros == 0)
         {
             if (avisoCreaMiembro != null) StartCoroutine(MostrarAvisoTemporal(avisoCreaMiembro));
             return;
         }
-
         if (miembroSeleccionado == null)
         {
             if (avisoSeleccionaMiembro != null) StartCoroutine(MostrarAvisoTemporal(avisoSeleccionaMiembro));
             return;
         }
-
-        SceneManager.LoadScene(nombreEscenaCronometro);
+        if (navegador != null) navegador.IrACronometro();
     }
 
     public void ClickEnEliminar()
     {
-        if (miembroSeleccionado == null)
-        {
-            if (avisoSeleccionaMiembro != null) StartCoroutine(MostrarAvisoTemporal(avisoSeleccionaMiembro));
-            return;
-        }
+        if (miembroSeleccionado == null) return;
 
         if (ManejadorRegistro.instance != null)
         {
@@ -178,19 +148,11 @@ public class Avisos : MonoBehaviour
             ManejadorRegistro.instance.nombreSeleccionado = "";
         }
 
-        GameObject objetoABorrar = miembroSeleccionado.gameObject;
+        Destroy(miembroSeleccionado.gameObject);
         miembroSeleccionado = null;
-        Destroy(objetoABorrar);
 
-        // Actualizamos el contador después de eliminar
         if (ManejadorRegistro.instance != null)
-        {
             contadorMiembros = ManejadorRegistro.instance.listaDeMiembros.Count;
-        }
-        else
-        {
-            contadorMiembros--;
-        }
 
         ActualizarInterfazSegunContador();
     }

@@ -1,25 +1,23 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class ManejadorRegistro : MonoBehaviour
 {
     public static ManejadorRegistro instance;
 
-    [Header("Referencias de UI (Búsqueda Automática)")]
+    [Header("Referencias de UI")]
     public TMP_InputField inputNombre;
     public TMP_InputField inputEdad;
     public Transform contenedorLista;
 
-    [Header("Importante: Arrastra aquí el bloque azul")]
+    [Header("Configuración del Prefab")]
     public GameObject prefabMiembro;
 
-    [Header("Datos Guardados")]
+    [Header("Datos en Memoria")]
     public string nombreSeleccionado;
     public List<DatosMiembro> listaDeMiembros = new List<DatosMiembro>();
 
-    // --- NUEVA ESTRUCTURA PARA CADA BAÑO ---
     [System.Serializable]
     public class RegistroBano
     {
@@ -34,7 +32,6 @@ public class ManejadorRegistro : MonoBehaviour
         public string nombre;
         public string edad;
         public float mejorTiempo;
-        // Aquí se guardarán los últimos 5 baños de este miembro
         public List<RegistroBano> historialBanos = new List<RegistroBano>();
     }
 
@@ -43,47 +40,43 @@ public class ManejadorRegistro : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            CargarDatosDelTelefono();
-            SceneManager.sceneLoaded += AlCargarEscena;
-        }
+        if (instance == null) { instance = this; CargarDatosDelTelefono(); }
         else { Destroy(gameObject); }
     }
 
-    void OnDestroy() { SceneManager.sceneLoaded -= AlCargarEscena; }
-
-    void Start() { RefrescarListaVisual(); }
-
-    void AlCargarEscena(Scene escena, LoadSceneMode modo)
+    void Start()
     {
-        inputNombre = null;
-        inputEdad = null;
-        contenedorLista = null;
+        RefrescarListaVisual();
+        ConfigurarInputs();
+    }
 
-        inputNombre = BuscarEnTodaLaEscena<TMP_InputField>("InputNombre");
-        inputEdad = BuscarEnTodaLaEscena<TMP_InputField>("InputEdad");
+    // --- REGLAS DE TEXTO (Nombre y Edad) ---
+    void ConfigurarInputs()
+    {
+        // Solo permite números en la edad
+        if (inputEdad != null) inputEdad.contentType = TMP_InputField.ContentType.IntegerNumber;
 
-        GameObject objCont = BuscarObjetoAunApagado("ContenedorLista");
-        if (objCont) contenedorLista = objCont.transform;
-
-        if (contenedorLista != null)
+        if (inputNombre != null)
         {
-            RefrescarListaVisual();
+            inputNombre.characterLimit = 10; // Máximo 10 letras
+            inputNombre.onValueChanged.AddListener(delegate { ValidarNombre(); });
+        }
+    }
+
+    void ValidarNombre()
+    {
+        if (inputNombre.text.Length > 0)
+        {
+            string texto = inputNombre.text;
+            // Pone la primera letra en Mayúscula automáticamente
+            inputNombre.text = char.ToUpper(texto[0]) + texto.Substring(1);
         }
     }
 
     public void GuardarDatos()
     {
-        if (inputNombre == null) inputNombre = BuscarEnTodaLaEscena<TMP_InputField>("InputNombre");
-        if (inputEdad == null) inputEdad = BuscarEnTodaLaEscena<TMP_InputField>("InputEdad");
-
-        if (inputNombre == null || inputEdad == null) return;
         if (string.IsNullOrEmpty(inputNombre.text) || string.IsNullOrEmpty(inputEdad.text)) return;
 
-        // Al crear uno nuevo, la lista de historial empieza vacía
         DatosMiembro nuevoMiembro = new DatosMiembro
         {
             nombre = inputNombre.text,
@@ -93,11 +86,16 @@ public class ManejadorRegistro : MonoBehaviour
         };
 
         listaDeMiembros.Add(nuevoMiembro);
-
         CrearItemEnLista(nuevoMiembro.nombre, nuevoMiembro.edad);
-        if (Avisos.instance != null) Avisos.instance.NotificarMiembroGuardado();
-
         GuardarEnDisco();
+
+        // --- ACTUALIZACIÓN EN TIEMPO REAL ---
+        // Esto avisa al script Avisos.cs que oculte la imagen de "Añadir Miembro"
+        if (Avisos.instance != null)
+        {
+            Avisos.instance.NotificarMiembroGuardado();
+        }
+
         inputNombre.text = "";
         inputEdad.text = "";
     }
@@ -112,7 +110,6 @@ public class ManejadorRegistro : MonoBehaviour
     void CrearItemEnLista(string nombre, string edad)
     {
         if (contenedorLista == null || prefabMiembro == null) return;
-
         GameObject nuevoItem = Instantiate(prefabMiembro, contenedorLista);
         nuevoItem.transform.SetAsFirstSibling();
         nuevoItem.name = nombre;
@@ -129,6 +126,10 @@ public class ManejadorRegistro : MonoBehaviour
     {
         listaDeMiembros.RemoveAll(m => m.nombre == nombreBuscado);
         GuardarEnDisco();
+        RefrescarListaVisual();
+
+        // También avisamos aquí por si borramos al último miembro
+        if (Avisos.instance != null) Avisos.instance.NotificarMiembroGuardado();
     }
 
     public void GuardarEnDisco()
@@ -145,41 +146,7 @@ public class ManejadorRegistro : MonoBehaviour
         {
             string json = PlayerPrefs.GetString("ListaUsuarios");
             ListaWrapper wrapper = JsonUtility.FromJson<ListaWrapper>(json);
-
-            if (wrapper != null && wrapper.miembros != null)
-            {
-                listaDeMiembros = wrapper.miembros;
-            }
+            if (wrapper != null && wrapper.miembros != null) listaDeMiembros = wrapper.miembros;
         }
-    }
-
-    // --- HERRAMIENTAS DE BÚSQUEDA ---
-    T BuscarEnTodaLaEscena<T>(string nombre) where T : Component
-    {
-        GameObject obj = BuscarObjetoAunApagado(nombre);
-        if (obj) return obj.GetComponent<T>();
-        return null;
-    }
-
-    GameObject BuscarObjetoAunApagado(string nombre)
-    {
-        GameObject[] raices = SceneManager.GetActiveScene().GetRootGameObjects();
-        foreach (GameObject r in raices)
-        {
-            Transform t = BuscarRecursivo(r.transform, nombre);
-            if (t != null) return t.gameObject;
-        }
-        return null;
-    }
-
-    Transform BuscarRecursivo(Transform padre, string nombre)
-    {
-        if (padre.name == nombre) return padre;
-        foreach (Transform hijo in padre)
-        {
-            Transform resultado = BuscarRecursivo(hijo, nombre);
-            if (resultado != null) return resultado;
-        }
-        return null;
     }
 }

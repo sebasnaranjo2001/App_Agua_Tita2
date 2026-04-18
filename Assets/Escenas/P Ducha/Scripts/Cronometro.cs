@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using TMP_Text = TMPro.TMP_Text;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -38,11 +38,11 @@ public class Cronometro : MonoBehaviour
         }
     }
 
+    // --- FUNCIÓN RESTAURADA PARA QUITAR EL ERROR ROJO ---
     public void GuardarTiempoFinal()
     {
         if (tiempoTranscurrido > 0)
         {
-            Debug.Log("Guardando tiempo final de la ducha...");
             GuardarEnHistorialInterno();
         }
     }
@@ -62,10 +62,13 @@ public class Cronometro : MonoBehaviour
     IEnumerator SecuenciaGuardadoAutomatico()
     {
         SetEstadoBotones(false, false, true, false, false);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.7f);
+
         GuardarEnHistorialInterno();
+
         SetEstadoBotones(false, false, false, true, false);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.7f);
+
         SetEstadoBotones(false, false, false, false, true);
     }
 
@@ -73,7 +76,7 @@ public class Cronometro : MonoBehaviour
     {
         tiempoTranscurrido = 0f;
         ActualizarInterfazUI();
-        textoCronometro.color = colorVerde;
+        if (textoCronometro != null) textoCronometro.color = colorVerde;
         SetEstadoBotones(true, false, false, false, false);
     }
 
@@ -123,9 +126,10 @@ public class Cronometro : MonoBehaviour
     {
         int minutos = Mathf.FloorToInt(tiempoTranscurrido / 60);
         int segundos = Mathf.FloorToInt(tiempoTranscurrido % 60);
-        textoCronometro.text = string.Format("{0:00}:{1:00}", minutos, segundos);
+        if (textoCronometro != null) textoCronometro.text = string.Format("{0:00}:{1:00}", minutos, segundos);
+
         float litrosTotales = (tiempoTranscurrido / 60f) * litrosPorMinuto;
-        textoConsumo.text = litrosTotales.ToString("F1") + " L";
+        if (textoConsumo != null) textoConsumo.text = litrosTotales.ToString("F1") + " L";
     }
 
     void ManejarTransicionDeColor()
@@ -140,7 +144,7 @@ public class Cronometro : MonoBehaviour
     {
         tiempoTranscurrido = 0f;
         ActualizarInterfazUI();
-        textoCronometro.color = colorVerde;
+        if (textoCronometro != null) textoCronometro.color = colorVerde;
         SetEstadoBotones(true, false, false, false, false);
     }
 }
