@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SpotWaterManager : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class SpotWaterManager : MonoBehaviour
     public GameObject[] level1Errors;
     public GameObject[] level2Errors;
     public GameObject[] level3Errors;
+
+    [Header("Ir a otra escena y panel")]
+    public string nombreEscenaDestino;   // Escena donde está el panel
+    public string nombrePanelDestino;    // Nombre exacto del panel
+    public float tiempoEspera = 3f;      // Segundos de espera
 
     int currentLevel = 0;
     int found = 0;
@@ -90,13 +97,34 @@ public class SpotWaterManager : MonoBehaviour
     void NextLevel()
     {
         if (currentLevel == 0)
+        {
             LoadLevel(1);
-
+        }
         else if (currentLevel == 1)
+        {
             LoadLevel(2);
-
+        }
         else
+        {
             finalPanel.SetActive(true);
+            StartCoroutine(CargarPanelDespues());
+        }
+    }
+
+    IEnumerator CargarPanelDespues()
+    {
+        yield return new WaitForSeconds(tiempoEspera);
+
+        SceneManager.LoadScene(nombreEscenaDestino);
+
+        yield return null; // Espera 1 frame
+
+        GameObject panel = GameObject.Find(nombrePanelDestino);
+
+        if (panel != null)
+        {
+            panel.SetActive(true);
+        }
     }
 
     void UpdateCounter()

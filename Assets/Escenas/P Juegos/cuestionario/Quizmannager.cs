@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class QuizManager : MonoBehaviour
 {
@@ -16,12 +17,17 @@ public class QuizManager : MonoBehaviour
 
     public Pregunta[] preguntas;
 
-    public TMP_Text textoPregunta;        // ✅ TMP
+    public TMP_Text textoPregunta;
     public Image imagenPregunta;
-    public Button[] botones;              // tamaño 3
+    public Button[] botones;
 
     public GameObject panelFinal;
-    public TMP_Text textoResultado;       // ✅ TMP
+    public TMP_Text textoResultado;
+
+    [Header("Panel de otra escena")]
+    public string nombreEscenaDestino;   // Escena donde está el panel
+    public string nombrePanelDestino;    // Nombre exacto del panel
+    public float tiempoEspera = 3f;
 
     private int indicePregunta = 0;
     private int aciertos = 0;
@@ -38,7 +44,6 @@ public class QuizManager : MonoBehaviour
 
         textoPregunta.text = p.pregunta;
 
-        // 🖼️ Imagen
         if (p.imagen != null)
         {
             imagenPregunta.sprite = p.imagen;
@@ -101,10 +106,26 @@ public class QuizManager : MonoBehaviour
     {
         panelFinal.SetActive(true);
         textoResultado.text = "Aciertos: " + aciertos + "/" + preguntas.Length;
+
+        StartCoroutine(CargarPanelDespues());
+    }
+
+    IEnumerator CargarPanelDespues()
+    {
+        yield return new WaitForSeconds(tiempoEspera);
+
+        SceneManager.LoadScene(nombreEscenaDestino);
+
+        yield return null; // Espera un frame para que cargue la escena
+
+        GameObject panel = GameObject.Find(nombrePanelDestino);
+
+        if (panel != null)
+            panel.SetActive(true);
     }
 
     public void VolverAlMenu()
     {
-        SceneManager.LoadScene("Pantalla de juegos");
+        SceneManager.LoadScene("Menu");
     }
 }
