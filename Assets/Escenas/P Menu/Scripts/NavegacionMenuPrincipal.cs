@@ -20,14 +20,48 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public float duracion = 0.6f;
     private float distH = 1200f; // Ajusta según tu resolución
 
+    // Variable estática para recordar qué panel abrir al cargar la escena
+    public static string panelAbridor = "inicio";
+
     void Start()
     {
-        // Posición inicial: Inicio al centro
-        panelJuegos.anchoredPosition = new Vector2(-distH, 0);
-        panelInicio.anchoredPosition = Vector2.zero;
-        panelGuia.anchoredPosition = new Vector2(distH, 0);
+        // Al arrancar, verificamos qué panel debe estar en el centro
+        ConfigurarPanelInicial();
+    }
 
-        ActualizarInterfaz("inicio");
+    private void ConfigurarPanelInicial()
+    {
+        if (panelAbridor == "juegos")
+        {
+            // Posicionamos los paneles para que Juegos esté al centro
+            panelJuegos.anchoredPosition = new Vector2(0, 0);
+            panelInicio.anchoredPosition = new Vector2(distH, 0);
+            panelGuia.anchoredPosition = new Vector2(distH * 2, 0);
+
+            ActualizarInterfaz("juegos");
+        }
+        else if (panelAbridor == "guia")
+        {
+            // Posicionamos los paneles para que Guía esté al centro
+            panelJuegos.anchoredPosition = new Vector2(-distH * 2, 0);
+            panelInicio.anchoredPosition = new Vector2(-distH, 0);
+            panelGuia.anchoredPosition = new Vector2(0, 0);
+
+            ActualizarInterfaz("guia");
+        }
+        else
+        {
+            // Posicionamiento estándar: Inicio al centro
+            panelJuegos.anchoredPosition = new Vector2(-distH, 0);
+            panelInicio.anchoredPosition = Vector2.zero;
+            panelGuia.anchoredPosition = new Vector2(distH, 0);
+
+            ActualizarInterfaz("inicio");
+        }
+
+        // Importante: Resetear la variable para que la próxima vez entre por Inicio
+        // a menos que otro script la cambie de nuevo.
+        panelAbridor = "inicio";
     }
 
     public void IrAJuegos()
@@ -50,6 +84,10 @@ public class NavegacionMenuPrincipal : MonoBehaviour
 
     private void MoverPaneles(Vector2 posJue, Vector2 posIni, Vector2 posGui)
     {
+        LeanTween.cancel(panelJuegos.gameObject);
+        LeanTween.cancel(panelInicio.gameObject);
+        LeanTween.cancel(panelGuia.gameObject);
+
         LeanTween.move(panelJuegos, posJue, duracion).setEase(LeanTweenType.easeOutCubic);
         LeanTween.move(panelInicio, posIni, duracion).setEase(LeanTweenType.easeOutCubic);
         LeanTween.move(panelGuia, posGui, duracion).setEase(LeanTweenType.easeOutCubic);
@@ -58,27 +96,32 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     private void ActualizarInterfaz(string activa)
     {
         // 1. Bloquear/Desbloquear botones
-        btnJuegos.interactable = (activa != "juegos");
-        btnInicio.interactable = (activa != "inicio");
-        btnGuia.interactable = (activa != "guia");
+        if (btnJuegos) btnJuegos.interactable = (activa != "juegos");
+        if (btnInicio) btnInicio.interactable = (activa != "inicio");
+        if (btnGuia) btnGuia.interactable = (activa != "guia");
 
         // 2. Cambiar color de la barra con transición suave
         Color colorDestino = colorInicio;
         if (activa == "juegos") colorDestino = colorJuegos;
         if (activa == "guia") colorDestino = colorGuia;
 
-        LeanTween.value(fondoBarra.gameObject, fondoBarra.color, colorDestino, duracion)
-            .setOnUpdate((Color c) => fondoBarra.color = c);
+        if (fondoBarra != null)
+        {
+            LeanTween.cancel(fondoBarra.gameObject);
+            LeanTween.value(fondoBarra.gameObject, fondoBarra.color, colorDestino, duracion)
+                .setOnUpdate((Color c) => fondoBarra.color = c);
+        }
 
         // 3. "Marcar" el botón (Efecto de escala)
-        AnimarEscalaBoton(btnJuegos, activa == "juegos");
-        AnimarEscalaBoton(btnInicio, activa == "inicio");
-        AnimarEscalaBoton(btnGuia, activa == "guia");
+        if (btnJuegos) AnimarEscalaBoton(btnJuegos, activa == "juegos");
+        if (btnInicio) AnimarEscalaBoton(btnInicio, activa == "inicio");
+        if (btnGuia) AnimarEscalaBoton(btnGuia, activa == "guia");
     }
 
     private void AnimarEscalaBoton(Button btn, bool esActivo)
     {
         float escala = esActivo ? 1.2f : 1.0f;
+        LeanTween.cancel(btn.gameObject);
         LeanTween.scale(btn.gameObject, Vector3.one * escala, 0.3f).setEaseOutBack();
     }
 }
