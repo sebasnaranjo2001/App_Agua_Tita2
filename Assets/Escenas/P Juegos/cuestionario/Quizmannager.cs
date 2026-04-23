@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class QuizManager : MonoBehaviour
 {
@@ -24,17 +23,14 @@ public class QuizManager : MonoBehaviour
     public GameObject panelFinal;
     public TMP_Text textoResultado;
 
-    [Header("Panel de otra escena")]
-    public string nombreEscenaDestino;   // Escena donde está el panel
-    public string nombrePanelDestino;    // Nombre exacto del panel
-    public float tiempoEspera = 3f;
-
     private int indicePregunta = 0;
     private int aciertos = 0;
 
     void Start()
     {
-        panelFinal.SetActive(false);
+        if (panelFinal != null)
+            panelFinal.SetActive(false);
+
         MostrarPregunta();
     }
 
@@ -104,24 +100,11 @@ public class QuizManager : MonoBehaviour
 
     void MostrarResultado()
     {
-        panelFinal.SetActive(true);
-        textoResultado.text = "Aciertos: " + aciertos + "/" + preguntas.Length;
+        if (panelFinal != null)
+            panelFinal.SetActive(true);
 
-        StartCoroutine(CargarPanelDespues());
-    }
-
-    IEnumerator CargarPanelDespues()
-    {
-        yield return new WaitForSeconds(tiempoEspera);
-
-        SceneManager.LoadScene(nombreEscenaDestino);
-
-        yield return null; // Espera un frame para que cargue la escena
-
-        GameObject panel = GameObject.Find(nombrePanelDestino);
-
-        if (panel != null)
-            panel.SetActive(true);
+        if (textoResultado != null)
+            textoResultado.text = "Aciertos: " + aciertos + "/" + preguntas.Length;
     }
 
     public void VolverAlMenu()

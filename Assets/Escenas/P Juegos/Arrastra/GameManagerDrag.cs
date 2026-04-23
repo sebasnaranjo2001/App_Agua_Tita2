@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class GameManagerDrag : MonoBehaviour
 {
@@ -22,11 +21,6 @@ public class GameManagerDrag : MonoBehaviour
     [Header("Panel Final")]
     public GameObject panelFinal;
 
-    [Header("Configuración Escena")]
-    public string nombreEscenaDestino;
-    public string nombrePanelDestino;
-    public float tiempoEspera = 3f;
-
     private int faseActual = 0;
 
     void Start()
@@ -34,23 +28,23 @@ public class GameManagerDrag : MonoBehaviour
         if (panelFinal != null) panelFinal.SetActive(false);
 
         // Cargamos la fase pero SIN resetear posiciones al puro inicio
-        // para no chocar con el Start de los items
         CargarFase(false);
     }
 
     void CargarFase(bool resetearPosiciones = true)
     {
         if (fases == null || fases.Length == 0) return;
+
         Fase f = fases[faseActual];
 
-        // Llenar textos con protección
+        // Llenar textos
         for (int i = 0; i < textosUI.Length; i++)
         {
             if (textosUI[i] != null && i < f.textos.Length)
                 textosUI[i].text = f.textos[i];
         }
 
-        // Llenar imágenes con protección
+        // Llenar imágenes
         for (int i = 0; i < imagenesUI.Length; i++)
         {
             if (imagenesUI[i] != null && i < f.imagenes.Length)
@@ -62,7 +56,6 @@ public class GameManagerDrag : MonoBehaviour
             if (zona != null) zona.ResetZona();
         }
 
-        // Solo reseteamos posiciones si no es el primer arranque
         if (resetearPosiciones)
         {
             foreach (DragItem item in items)
@@ -96,36 +89,38 @@ public class GameManagerDrag : MonoBehaviour
             }
         }
 
-        if (todoCorrecto) Invoke("SiguienteFase", 1.5f);
-        else Invoke("Resetear", 1.5f);
+        if (todoCorrecto)
+            Invoke("SiguienteFase", 1.5f);
+        else
+            Invoke("Resetear", 1.5f);
     }
 
     void Resetear()
     {
-        foreach (DropZone zona in zonas) if (zona != null) zona.ResetZona();
-        foreach (DragItem item in items) if (item != null) item.ResetPosition();
+        foreach (DropZone zona in zonas)
+            if (zona != null) zona.ResetZona();
+
+        foreach (DragItem item in items)
+            if (item != null) item.ResetPosition();
     }
 
     void SiguienteFase()
     {
         faseActual++;
+
         if (faseActual >= fases.Length)
         {
-            if (panelFinal != null) panelFinal.SetActive(true);
-            StartCoroutine(CargarPanelDespues());
+            if (panelFinal != null)
+                panelFinal.SetActive(true);
         }
-        else CargarFase(true);
+        else
+        {
+            CargarFase(true);
+        }
     }
 
-    IEnumerator CargarPanelDespues()
+    public void Volver()
     {
-        yield return new WaitForSeconds(tiempoEspera);
-        SceneManager.LoadScene(nombreEscenaDestino);
-        yield return new WaitForSeconds(0.1f);
-
-        GameObject panel = GameObject.Find(nombrePanelDestino);
-        if (panel != null) panel.SetActive(true);
+        SceneManager.LoadScene("Menu");
     }
-
-    public void Volver() => SceneManager.LoadScene("Menu");
 }

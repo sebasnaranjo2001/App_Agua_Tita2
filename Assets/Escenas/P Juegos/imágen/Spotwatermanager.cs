@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class SpotWaterManager : MonoBehaviour
 {
@@ -17,18 +16,15 @@ public class SpotWaterManager : MonoBehaviour
     public GameObject[] level2Errors;
     public GameObject[] level3Errors;
 
-    [Header("Ir a otra escena y panel")]
-    public string nombreEscenaDestino;   // Escena donde está el panel
-    public string nombrePanelDestino;    // Nombre exacto del panel
-    public float tiempoEspera = 3f;      // Segundos de espera
-
     int currentLevel = 0;
     int found = 0;
     int totalErrors = 2;
 
     void Start()
     {
-        finalPanel.SetActive(false);
+        if (finalPanel != null)
+            finalPanel.SetActive(false);
+
         LoadLevel(0);
     }
 
@@ -47,20 +43,27 @@ public class SpotWaterManager : MonoBehaviour
         foreach (GameObject[] lvl in levels)
         {
             foreach (GameObject obj in lvl)
-                obj.SetActive(false);
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
         }
 
         foreach (GameObject obj in levels[level])
         {
-            obj.SetActive(true);
+            if (obj != null)
+            {
+                obj.SetActive(true);
 
-            obj.GetComponent<Button>().interactable = true;
+                obj.GetComponent<Button>().interactable = true;
 
-            obj.GetComponent<Image>().color =
-                new Color(1, 1, 1, 0);
+                obj.GetComponent<Image>().color =
+                    new Color(1, 1, 1, 0);
+            }
         }
 
-        mainImage.sprite = levelImages[level];
+        if (mainImage != null)
+            mainImage.sprite = levelImages[level];
 
         UpdateCounter();
     }
@@ -84,14 +87,17 @@ public class SpotWaterManager : MonoBehaviour
 
     public void WrongClick()
     {
-        feedbackRed.gameObject.SetActive(true);
+        if (feedbackRed != null)
+            feedbackRed.gameObject.SetActive(true);
+
         CancelInvoke("HideRed");
         Invoke("HideRed", 0.5f);
     }
 
     void HideRed()
     {
-        feedbackRed.gameObject.SetActive(false);
+        if (feedbackRed != null)
+            feedbackRed.gameObject.SetActive(false);
     }
 
     void NextLevel()
@@ -106,29 +112,19 @@ public class SpotWaterManager : MonoBehaviour
         }
         else
         {
-            finalPanel.SetActive(true);
-            StartCoroutine(CargarPanelDespues());
-        }
-    }
-
-    IEnumerator CargarPanelDespues()
-    {
-        yield return new WaitForSeconds(tiempoEspera);
-
-        SceneManager.LoadScene(nombreEscenaDestino);
-
-        yield return null; // Espera 1 frame
-
-        GameObject panel = GameObject.Find(nombrePanelDestino);
-
-        if (panel != null)
-        {
-            panel.SetActive(true);
+            if (finalPanel != null)
+                finalPanel.SetActive(true);
         }
     }
 
     void UpdateCounter()
     {
-        scoreText.text = "Errores: " + found + "/2";
+        if (scoreText != null)
+            scoreText.text = "Errores: " + found + "/2";
+    }
+
+    public void VolverAlMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
