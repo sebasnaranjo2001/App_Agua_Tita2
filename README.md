@@ -16,6 +16,17 @@ Para que el proyecto funcione correctamente, se deben tener en cuenta los siguie
 
 ---
 
+## 🕹️ Guía de Prueba del Prototipo (Instrucciones de uso)
+
+Para probar todas las funcionalidades implementadas en este avance, siga estos pasos:
+
+1. **Navegación General:** Utilice la **Barra de Navegación Inferior**. Cada icono activa un panel diferente (Inicio, Juegos, Guía) o bien puede entrar al Duchometro.
+2. **Probar el Duchómetro:** Haga clic en registrar miembros para empezar a usar este duchometr. Pulse el botón de empezar para activar el cronómetro y ver el cálculo de litros de agua ademas en la ventana de ranking podra sivualizar la lista de todos los miembros que se han duchado en orden de menor a mayor tiempo y podra ver los 5 ultimos baños de cada perosna y podria ver un reto aleatorio a realizar la persona que mas se demoro bañandose.
+3. **Probar la Guía:** Haga clic en el icono del libro. Use el botón **"Signt"** para avanzar y el botón **"Atrás"** para retroceder entre los consejos de ahorro.
+4. **Probar Minijuegos:** En la sección de juegos, seleccione una de las tres actividades. Preguntas de opcion multiple, buscar el error y arrastar la imagen con su enunciado.
+
+---
+
 ## 🚀 ¿Qué se puede probar en este prototipo?
 
 El usuario puede interactuar con las siguientes mecánicas y secciones principales:
