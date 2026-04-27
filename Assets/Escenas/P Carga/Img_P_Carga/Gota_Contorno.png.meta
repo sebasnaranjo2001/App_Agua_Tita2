@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7c2c07139a4f76549bb397d0c062ce13
+guid: 52747e07e0d1cc140908029e6e7583c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8270650529198246311
-    second: Gota_0
+      213: 592276598860955487
+    second: Gota_Contorno_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gota_0
+      name: Gota_Contorno_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 0
-        width: 408
-        height: 512
+        x: 113
+        y: 57
+        width: 271
+        height: 367
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a9024626d047c270800000000000000
-      internalID: 8270650529198246311
+      spriteID: f5f32ebbd60383800800000000000000
+      internalID: 592276598860955487
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gota_0: 8270650529198246311
+      Gota_Contorno_0: 592276598860955487
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
