@@ -50,20 +50,17 @@ public class ManejadorRegistro : MonoBehaviour
         ConfigurarInputs();
     }
 
-    // --- REGLAS DE TEXTO (Nombre y Edad) ---
     void ConfigurarInputs()
     {
-        // Configuración de la Edad
         if (inputEdad != null)
         {
             inputEdad.contentType = TMP_InputField.ContentType.IntegerNumber;
-            inputEdad.characterLimit = 3; // <--- AGREGADO: Máximo 3 números
+            inputEdad.characterLimit = 3;
         }
 
-        // Configuración del Nombre
         if (inputNombre != null)
         {
-            inputNombre.characterLimit = 10; // Máximo 10 letras
+            inputNombre.characterLimit = 10;
             inputNombre.onValueChanged.AddListener(delegate { ValidarNombre(); });
         }
     }
@@ -73,7 +70,6 @@ public class ManejadorRegistro : MonoBehaviour
         if (inputNombre.text.Length > 0)
         {
             string texto = inputNombre.text;
-            // Pone la primera letra en Mayúscula automáticamente
             inputNombre.text = char.ToUpper(texto[0]) + texto.Substring(1);
         }
     }
@@ -94,7 +90,6 @@ public class ManejadorRegistro : MonoBehaviour
         CrearItemEnLista(nuevoMiembro.nombre, nuevoMiembro.edad);
         GuardarEnDisco();
 
-        // --- ACTUALIZACIÓN EN TIEMPO REAL ---
         if (Avisos.instance != null)
         {
             Avisos.instance.NotificarMiembroGuardado();
@@ -140,6 +135,23 @@ public class ManejadorRegistro : MonoBehaviour
         ListaWrapper wrapper = new ListaWrapper { miembros = listaDeMiembros };
         string json = JsonUtility.ToJson(wrapper);
         PlayerPrefs.SetString("ListaUsuarios", json);
+
+        // --- NUEVA LÓGICA PARA EL SWIPER (Duchómetro) ---
+        // Revisamos si existe al menos un baño registrado en toda la lista de miembros
+        bool hayAlMenosUnBano = false;
+        foreach (DatosMiembro m in listaDeMiembros)
+        {
+            if (m.historialBanos != null && m.historialBanos.Count > 0)
+            {
+                hayAlMenosUnBano = true;
+                break; // Con uno que encontremos es suficiente
+            }
+        }
+
+        // Guardamos la señal para el script ManejadorSwiperHorizontal
+        PlayerPrefs.SetInt("HayDatosDucha", hayAlMenosUnBano ? 1 : 0);
+        // ------------------------------------------------
+
         PlayerPrefs.Save();
     }
 
