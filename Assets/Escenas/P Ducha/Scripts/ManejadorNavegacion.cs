@@ -33,15 +33,36 @@ public class ManejadorNavegacion : MonoBehaviour
 
     private void Start()
     {
+        // 1. Configuración inicial por defecto (como siempre)
         panelRegistro.anchoredPosition = Vector2.zero;
         panelRanking.anchoredPosition = new Vector2(distanciaX, 0);
         panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
 
         panelActual = "registro";
         ActualizarEstadoBotones("registro");
+
+        // --- LÓGICA DE ENTRADA DIRECTA (SIN ANIMACIÓN) ---
+        if (NavegacionMenuPrincipal.panelAbridor == "ranking")
+        {
+            NavegacionMenuPrincipal.panelAbridor = "";
+
+            // Llamamos a la lógica del ranking (datos) pero NO a la animación
+            if (scriptRanking != null) scriptRanking.GenerarRanking();
+
+            // Movemos las posiciones DE GOLPE (sin LeanTween)
+            panelRanking.anchoredPosition = Vector2.zero;
+            panelRegistro.anchoredPosition = new Vector2(-distanciaX, 0);
+            panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
+
+            // Actualizamos el estado interno para que los botones sepan dónde estamos
+            panelActual = "ranking";
+            ActualizarEstadoBotones("ranking");
+        }
     }
 
     public void IrAlMenuPrincipal() => SceneManager.LoadScene("Menu");
+
+    // --- LAS FUNCIONES DE ABAJO SIGUEN IGUAL CON SU ANIMACIÓN ---
 
     public void IrARegistro()
     {
@@ -128,27 +149,17 @@ public class ManejadorNavegacion : MonoBehaviour
         if (btnIrInicio) btnIrInicio.interactable = (panelActivo != "cronometro");
     }
 
-    // --- FUNCIÓN CORREGIDA PARA EVITAR EL ERROR ROJO ---
     void MostrarAvisoTemporal(GameObject aviso)
     {
-        // 1. Verificamos que el objeto exista en el Inspector
         if (aviso == null) return;
 
-        // 2. Cancelamos cualquier animación que estuviera haciendo antes 
-        // para que no se "vuelva loco" si el usuario da clics repetidos
         LeanTween.cancel(aviso);
-
         aviso.SetActive(true);
         aviso.transform.localScale = Vector3.zero;
 
-        // Animación de entrada
         LeanTween.scale(aviso, Vector3.one, 0.5f).setEaseOutBack();
 
-        // 3. Usamos la versión de delayedCall que se ata al GameObject.
-        // Si el objeto se destruye o el script para, esta llamada se cancela sola.
         LeanTween.delayedCall(aviso, 2.5f, () => {
-
-            // 4. Verificación final antes de ejecutar el cierre
             if (aviso != null)
             {
                 LeanTween.scale(aviso, Vector3.zero, 0.5f).setEaseInBack().setOnComplete(() => {

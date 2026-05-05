@@ -1,113 +1,82 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
-public class ManejadorSwiperHorizontal : MonoBehaviour, IDragHandler, IEndDragHandler
+public class ManejadorSwiper2 : MonoBehaviour
 {
-    [Header("Control de Registros (Automático)")]
-    public bool hayRegistros = false;
-    public GameObject tarjetaLider;
+    [Header("Textos del Líder (Ranking)")]
+    public TextMeshProUGUI txtNombreLider;
+    public TextMeshProUGUI txtTiempoLider;
 
-    [Header("Referencias UI")]
-    public RectTransform contenedor;
-    public List<LayoutElement> puntos;
-
-    [Header("Colores")]
-    public Color colorActivo = Color.white;
-    public Color colorInactivo = new Color(1f, 1f, 1f, 0.3f);
-
-    [Header("Ajustes de Movimiento")]
-    public float anchoTarjeta = 739f;
-    public float espacioEntreTarjetas = 50f;
-    public float sensibilidadSwipe = 20f;
-
-    [Header("Ajustes Visuales Puntos")]
-    public float tamañoPuntoActivo = 60f;
-    public float tamañoPuntoInactivo = 40f;
-
-    private int indexActual = 0;
-    private Vector2 posInicialContenedor;
+    [Header("Configuración de Escena")]
+    public GameObject tarjetaRanking;
+    public string nombreEscenaDuchometro = "Duchometro";
 
     void Start()
     {
-        // 1. Primero preguntamos a la memoria si hay datos guardados
-        // Buscamos la llave "HayDatosDucha". Si no existe, devuelve 0.
-        int registroExiste = PlayerPrefs.GetInt("HayDatosDucha", 0);
-        hayRegistros = (registroExiste == 1);
-
-        ConfigurarInicio();
-
-        posInicialContenedor = contenedor.anchoredPosition;
-        ActualizarIndicadores(true);
+        // 1. Verificamos si hay datos guardados para mostrar la tarjeta
+        // Esta señal la manda el script ManejadorRegistro al guardar
+        if (PlayerPrefs.GetInt("HayDatosDucha", 0) == 1)
+        {
+            CargarLiderMenu();
+        }
+        else
+        {
+            // Si no hay nadie con tiempos, ocultamos la tarjeta de ranking
+            if (tarjetaRanking != null) tarjetaRanking.SetActive(false);
+        }
     }
 
-    void ConfigurarInicio()
+    void CargarLiderMenu()
     {
-        // 2. Si la memoria dice que NO hay registros, ocultamos la tarjeta 1 y el punto 1
-        if (!hayRegistros)
-        {
-            if (tarjetaLider != null) tarjetaLider.SetActive(false);
+        string json = PlayerPrefs.GetString("ListaUsuarios", "");
+        if (string.IsNullOrEmpty(json)) return;
 
-            if (puntos.Count > 0)
+        try
+        {
+            ManejadorRegistro.ListaWrapper wrapper = JsonUtility.FromJson<ManejadorRegistro.ListaWrapper>(json);
+
+            if (wrapper != null && wrapper.miembros != null && wrapper.miembros.Count > 0)
             {
-                puntos[0].gameObject.SetActive(false);
-                puntos.RemoveAt(0); // El sistema de navegación ahora ignora ese punto
+                ManejadorRegistro.DatosMiembro mejor = null;
+                float record = float.MaxValue;
+
+                // Buscamos al miembro con el tiempo más bajo (el más ahorrador)
+                foreach (var m in wrapper.miembros)
+                {
+                    if (m.mejorTiempo > 0 && m.mejorTiempo < record)
+                    {
+                        record = m.mejorTiempo;
+                        mejor = m;
+                    }
+                }
+
+                if (mejor != null)
+                {
+                    // Asignamos nombre sin etiquetas de negrita
+                    txtNombreLider.text = mejor.nombre;
+
+                    // Formateamos tiempo m:ss (Ej: 5:08)
+                    int min = Mathf.FloorToInt(mejor.mejorTiempo / 60);
+                    int seg = Mathf.FloorToInt(mejor.mejorTiempo % 60);
+                    txtTiempoLider.text = string.Format("{0}:{1:00} min", min, seg);
+                }
             }
         }
-    }
-
-    public void OnDrag(PointerEventData eventData) { }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        float diferenciaX = eventData.pressPosition.x - eventData.position.x;
-
-        // puntos.Count ahora es dinámico (será 2 o 3 dependiendo de los registros)
-        if (diferenciaX > sensibilidadSwipe && indexActual < puntos.Count - 1)
+        catch (System.Exception e)
         {
-            indexActual++;
-            Mover();
-        }
-        else if (diferenciaX < -sensibilidadSwipe && indexActual > 0)
-        {
-            indexActual--;
-            Mover();
+            Debug.LogError("Error al cargar el líder: " + e.Message);
         }
     }
 
-    void Mover()
+    // FUNCIÓN PARA EL BOTÓN DE LA TARJETA EN EL SWIPER
+    public void IrAlDuchometroRanking()
     {
-        float nuevaX = posInicialContenedor.x - (indexActual * (anchoTarjeta + espacioEntreTarjetas));
+        // 1. Dejamos el recado en el buzón estático
+        NavegacionMenuPrincipal.panelAbridor = "ranking";
 
-        LeanTween.cancel(contenedor.gameObject);
-        LeanTween.move(contenedor, new Vector2(nuevaX, contenedor.anchoredPosition.y), 0.5f)
-            .setEase(LeanTweenType.easeOutBack);
-
-        ActualizarIndicadores(false);
-    }
-
-    void ActualizarIndicadores(bool instantaneo)
-    {
-        for (int i = 0; i < puntos.Count; i++)
-        {
-            bool esActivo = (i == indexActual);
-            float tamañoObjetivo = esActivo ? tamañoPuntoActivo : tamañoPuntoInactivo;
-            Color colorObjetivo = esActivo ? colorActivo : colorInactivo;
-            float tiempo = instantaneo ? 0f : 0.3f;
-
-            LayoutElement el = puntos[i];
-            Image img = puntos[i].GetComponent<Image>();
-
-            LeanTween.cancel(el.gameObject);
-            LeanTween.value(el.gameObject, el.preferredWidth, tamañoObjetivo, tiempo)
-                .setOnUpdate((float val) => {
-                    el.preferredWidth = val;
-                    el.preferredHeight = val;
-                });
-
-            if (img != null) LeanTween.color(img.rectTransform, colorObjetivo, tiempo);
-        }
+        // 2. Saltamos a la escena del Duchómetro
+        // Asegúrate de que el nombre coincida con tu Build Settings
+        SceneManager.LoadScene(nombreEscenaDuchometro);
     }
 }
