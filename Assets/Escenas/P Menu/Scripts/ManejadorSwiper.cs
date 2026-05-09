@@ -9,17 +9,13 @@ public class ManejadorSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
     public RectTransform contenedor;
     public TextMeshProUGUI txtFrase;
 
-    [Header("Indicadores de Progreso")]
-    public LayoutElement[] puntos; // Arrastra los 3 puntos aquí
+    [Header("Indicadores (3 puntos)")]
+    public LayoutElement[] puntos;
     public Color colorActivo = Color.white;
-    public Color colorInactivo = new Color(1f, 1f, 1f, 0.3f); // Blanco con transparencia
+    public Color colorInactivo = new Color(1f, 1f, 1f, 0.3f);
 
-    [Header("Configuración del Contenido")]
+    [Header("Configuración")]
     [TextArea(3, 10)] public string[] frases;
-
-    [Header("Ajustes de Movimiento")]
-    public float altoTarjeta = 573f;
-    public float espacioEntreTarjetas = 100f;
     public float sensibilidadSwipe = 20f;
 
     [Header("Ajustes Visuales Puntos")]
@@ -28,42 +24,68 @@ public class ManejadorSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private int indexActual = 0;
     private Vector2 posInicialContenedor;
+    private float pasoTotal = 0;
 
     void Start()
     {
+        // Cambiar frase aleatoria
         if (frases.Length > 0 && txtFrase != null)
             txtFrase.text = frases[Random.Range(0, frases.Length)];
 
+        // Guardamos la posición inicial EXACTA tal cual está en el editor
         if (contenedor != null)
+        {
             posInicialContenedor = contenedor.anchoredPosition;
+        }
 
         ActualizarIndicadores(true);
     }
 
-    public void OnDrag(PointerEventData eventData) { }
+    public void OnDrag(PointerEventData eventData) { } // Obligatorio para detectar swipe
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        float diferenciaY = eventData.pressPosition.y - eventData.position.y;
+        // Si no hemos calculado el paso todavía, lo hacemos al primer toque
+        if (pasoTotal <= 0) CalcularPaso();
 
-        if (diferenciaY < -sensibilidadSwipe && indexActual < 2)
+        float diferenciaX = eventData.pressPosition.x - eventData.position.x;
+
+        // Movimiento a la izquierda (Siguiente)
+        if (diferenciaX > sensibilidadSwipe && indexActual < puntos.Length - 1)
         {
             indexActual++;
             MoverContenedor();
         }
-        else if (diferenciaY > sensibilidadSwipe && indexActual > 0)
+        // Movimiento a la derecha (Anterior)
+        else if (diferenciaX < -sensibilidadSwipe && indexActual > 0)
         {
             indexActual--;
             MoverContenedor();
         }
     }
 
+    void CalcularPaso()
+    {
+        HorizontalLayoutGroup layout = contenedor.GetComponent<HorizontalLayoutGroup>();
+        if (layout != null && contenedor.childCount > 0)
+        {
+            float anchoTarjeta = contenedor.GetChild(0).GetComponent<RectTransform>().rect.width;
+            pasoTotal = anchoTarjeta + layout.spacing;
+        }
+        else
+        {
+            // Valor de respaldo si falla la detección (ajustar si tus tarjetas son distintas)
+            pasoTotal = 800f;
+        }
+    }
+
     void MoverContenedor()
     {
-        float nuevaY = posInicialContenedor.y + (indexActual * (altoTarjeta + espacioEntreTarjetas));
+        // Lógica de posición basada en tu configuración: Pivot X = 0
+        float nuevaX = posInicialContenedor.x - (indexActual * pasoTotal);
 
         LeanTween.cancel(contenedor.gameObject);
-        LeanTween.move(contenedor, new Vector2(contenedor.anchoredPosition.x, nuevaY), 0.5f)
+        LeanTween.move(contenedor, new Vector2(nuevaX, contenedor.anchoredPosition.y), 0.5f)
             .setEase(LeanTweenType.easeOutBack);
 
         ActualizarIndicadores(false);
@@ -71,31 +93,28 @@ public class ManejadorSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void ActualizarIndicadores(bool instantaneo)
     {
+        if (puntos == null || puntos.Length == 0) return;
+
         for (int i = 0; i < puntos.Length; i++)
         {
+            if (puntos[i] == null) continue;
+
             bool esActivo = (i == indexActual);
             float tamañoObjetivo = esActivo ? tamañoPuntoActivo : tamañoPuntoInactivo;
             Color colorObjetivo = esActivo ? colorActivo : colorInactivo;
             float tiempo = instantaneo ? 0f : 0.3f;
 
             LayoutElement el = puntos[i];
-            Image img = puntos[i].GetComponent<Image>();
+            Image img = el.GetComponent<Image>();
 
-            // 1. Animamos el Ancho y el Alto al mismo tiempo para que siga siendo un círculo
             LeanTween.cancel(el.gameObject);
-
-            // Animación de tamaño
             LeanTween.value(el.gameObject, el.preferredHeight, tamañoObjetivo, tiempo)
                 .setOnUpdate((float val) => {
                     el.preferredHeight = val;
                     el.preferredWidth = val;
                 });
 
-            // 2. Animación de color
-            if (img != null)
-            {
-                LeanTween.color(img.rectTransform, colorObjetivo, tiempo);
-            }
+            if (img != null) LeanTween.color(img.rectTransform, colorObjetivo, tiempo);
         }
     }
 }

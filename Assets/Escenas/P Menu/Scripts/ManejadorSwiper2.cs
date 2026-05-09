@@ -12,7 +12,8 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
     public TextMeshProUGUI txtTiempoLider;
 
     [Header("Indicadores de Progreso")]
-    public LayoutElement[] puntos; // Arrastra los 3 puntos aquí
+    public LayoutElement[] puntos;
+    public GameObject contenedorPuntos; // Arrastra el objeto PADRE de los puntos aquí
     public Color colorActivo = Color.white;
     public Color colorInactivo = new Color(1f, 1f, 1f, 0.3f);
 
@@ -30,24 +31,35 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private int indexActual = 0;
     private Vector2 posInicialContenedor;
+    private int totalTarjetasActivas = 1;
 
     void Start()
     {
-        // 1. Cargamos los datos del líder (Tu función original)
+        // 1. Lógica de activación por datos
         if (PlayerPrefs.GetInt("HayDatosDucha", 0) == 1)
         {
+            if (tarjetaRanking != null) tarjetaRanking.SetActive(true);
             CargarLiderMenu();
+            totalTarjetasActivas = 2; // Ranking + Video
         }
         else
         {
             if (tarjetaRanking != null) tarjetaRanking.SetActive(false);
-            // Si falta la tarjeta, podrías desactivar el primer punto si quisieras
+            totalTarjetasActivas = 1; // Solo Video
+            indexActual = 0;
         }
 
         // 2. Guardamos posición inicial
         if (contenedor != null)
+        {
             posInicialContenedor = contenedor.anchoredPosition;
+            if (totalTarjetasActivas == 1)
+            {
+                contenedor.anchoredPosition = posInicialContenedor;
+            }
+        }
 
+        // 3. Ejecutamos la actualización de indicadores
         ActualizarIndicadores(true);
     }
 
@@ -55,10 +67,12 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Movimiento Horizontal (Derecha a Izquierda)
+        // Bloqueo de movimiento si no hay nada que navegar
+        if (totalTarjetasActivas <= 1) return;
+
         float diferenciaX = eventData.pressPosition.x - eventData.position.x;
 
-        if (diferenciaX > sensibilidadSwipe && indexActual < puntos.Length - 1)
+        if (diferenciaX > sensibilidadSwipe && indexActual < totalTarjetasActivas - 1)
         {
             indexActual++;
             MoverContenedor();
@@ -72,7 +86,6 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void MoverContenedor()
     {
-        // Calculamos la posición en X (restando para avanzar a la derecha)
         float nuevaX = posInicialContenedor.x - (indexActual * (anchoTarjeta + espacioEntreTarjetas));
 
         LeanTween.cancel(contenedor.gameObject);
@@ -84,9 +97,36 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void ActualizarIndicadores(bool instantaneo)
     {
+        if (contenedorPuntos == null) return;
+
+        // --- EL ARREGLO CLAVE ESTÁ AQUÍ ---
+        if (totalTarjetasActivas <= 1)
+        {
+            // Si solo hay una tarjeta (Video), apagamos TODO el objeto de puntos
+            contenedorPuntos.SetActive(false);
+            return; // Salimos de la función para no procesar nada más
+        }
+        else
+        {
+            // Si hay más de una tarjeta, nos aseguramos de que esté encendido
+            contenedorPuntos.SetActive(true);
+        }
+
+        // Si llegamos aquí, es porque hay más de una tarjeta y debemos animar los puntos
         for (int i = 0; i < puntos.Length; i++)
         {
             if (puntos[i] == null) continue;
+
+            // Apagamos los puntos individuales que no se usan (por si el array tiene 3 pero solo hay 2 tarjetas)
+            if (i >= totalTarjetasActivas)
+            {
+                puntos[i].gameObject.SetActive(false);
+                continue;
+            }
+            else
+            {
+                puntos[i].gameObject.SetActive(true);
+            }
 
             bool esActivo = (i == indexActual);
             float tamañoObjetivo = esActivo ? tamañoPuntoActivo : tamañoPuntoInactivo;
@@ -98,14 +138,12 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
             LeanTween.cancel(el.gameObject);
 
-            // Animación de tamaño (igual que el script 1)
             LeanTween.value(el.gameObject, el.preferredHeight, tamañoObjetivo, tiempo)
                 .setOnUpdate((float val) => {
                     el.preferredHeight = val;
                     el.preferredWidth = val;
                 });
 
-            // Animación de color
             if (img != null)
             {
                 LeanTween.color(img.rectTransform, colorObjetivo, tiempo);
@@ -113,8 +151,7 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    // --- FUNCIONES DE LÓGICA DE RANKING (SIN CAMBIOS) ---
-
+    // --- LÓGICA DE RANKING (SIN CAMBIOS) ---
     public void IrAlDuchometroRanking()
     {
         NavegacionMenuPrincipal.panelAbridor = "ranking";
