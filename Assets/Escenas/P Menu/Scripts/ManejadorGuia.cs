@@ -1,67 +1,60 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ManejadorGuia : MonoBehaviour
 {
-    [Header("Referencias de UI")]
-    public GameObject[] avisos; // Arrastra tus 3 avisos aquí
-    public GameObject botonSiguiente;
-    public GameObject botonAnterior;
+    [Header("Panel Principal")]
+    public GameObject botonesPrincipales;
 
-    private int indiceActual;
+    [Header("Paneles de Zonas")]
+    public GameObject panelBano;
+    public GameObject panelCocina;
+    public GameObject panelLavanderia; // O ducha, según cómo lo nombraste
+    public GameObject panelJardin;
 
-    void OnEnable() // Se ejecuta cada vez que el panel de Guía se activa
+    // --- FUNCIONES PARA LOS BOTONES ---
+
+    public void AbrirBano() => TransicionA(panelBano);
+    public void AbrirCocina() => TransicionA(panelCocina);
+    public void AbrirLavanderia() => TransicionA(panelLavanderia);
+    public void AbrirJardin() => TransicionA(panelJardin);
+
+    // Función para regresar al menú de la guía
+    public void VolverADashboard()
     {
-        // 1. Elegimos un aviso al azar para empezar
-        indiceActual = Random.Range(0, avisos.Length);
-        ActualizarPantalla();
+        // Buscamos cuál panel está activo para cerrarlo
+        GameObject panelActivo = ObtenerPanelActivo();
+
+        if (panelActivo != null)
+        {
+            LeanTween.scale(panelActivo, Vector3.zero, 0.25f).setEase(LeanTweenType.easeInBack).setOnComplete(() => {
+                panelActivo.SetActive(false);
+                botonesPrincipales.SetActive(true);
+                botonesPrincipales.transform.localScale = Vector3.zero;
+                LeanTween.scale(botonesPrincipales, Vector3.one, 0.35f).setEase(LeanTweenType.easeOutBack);
+            });
+        }
     }
 
-    public void IrSiguiente()
+    // Lógica interna de la animación
+    private void TransicionA(GameObject panelDestino)
     {
-        if (indiceActual < avisos.Length - 1)
-        {
-            indiceActual++;
-            ActualizarPantalla();
-        }
+        // 1. Achicamos y apagamos el menú principal
+        LeanTween.scale(botonesPrincipales, Vector3.zero, 0.25f).setEase(LeanTweenType.easeInBack).setOnComplete(() => {
+            botonesPrincipales.SetActive(false);
+
+            // 2. Encendemos y agrandamos el panel de la zona
+            panelDestino.SetActive(true);
+            panelDestino.transform.localScale = Vector3.zero;
+            LeanTween.scale(panelDestino, Vector3.one, 0.35f).setEase(LeanTweenType.easeOutBack);
+        });
     }
 
-    public void IrAnterior()
+    private GameObject ObtenerPanelActivo()
     {
-        if (indiceActual > 0)
-        {
-            indiceActual--;
-            ActualizarPantalla();
-        }
-    }
-
-    void ActualizarPantalla()
-    {
-        // Apagamos todos los avisos y encendemos solo el actual
-        for (int i = 0; i < avisos.Length; i++)
-        {
-            avisos[i].SetActive(i == indiceActual);
-        }
-
-        // Lógica de botones que pediste:
-        // Si es el primero (0), solo siguiente.
-        // Si es el último, solo atrás.
-        // Si es el del medio, ambos.
-
-        if (indiceActual == 0) // Primer aviso
-        {
-            botonAnterior.SetActive(false);
-            botonSiguiente.SetActive(true);
-        }
-        else if (indiceActual == avisos.Length - 1) // Último aviso
-        {
-            botonAnterior.SetActive(true);
-            botonSiguiente.SetActive(false);
-        }
-        else // Avisos intermedios
-        {
-            botonAnterior.SetActive(true);
-            botonSiguiente.SetActive(true);
-        }
+        if (panelBano.activeSelf) return panelBano;
+        if (panelCocina.activeSelf) return panelCocina;
+        if (panelLavanderia.activeSelf) return panelLavanderia;
+        if (panelJardin.activeSelf) return panelJardin;
+        return null;
     }
 }
