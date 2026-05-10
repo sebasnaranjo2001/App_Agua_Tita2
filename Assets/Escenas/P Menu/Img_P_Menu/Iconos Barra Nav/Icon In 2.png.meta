@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: d29a574e0cfaf774b85505c9f2affd04
+guid: b92c66b86d1e0d24b9d7c11c3146a408
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1695955219938116563
-    second: Barra de Navegacion_0
+      213: 1648682611246422943
+    second: Icon In 3_0
+  - first:
+      213: 7807313686109671627
+    second: Icon In 3_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Barra de Navegacion_0
+      name: Icon In 3_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 402
-        height: 91
+        x: 22
+        y: 26
+        width: 278
+        height: 284
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2c7e9886b1c678e0800000000000000
-      internalID: -1695955219938116563
+      spriteID: f9bd4be891c41e610800000000000000
+      internalID: 1648682611246422943
       vertices: []
       indices: 
       edges: []
@@ -138,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6c1f1c916650e0f4799bbf9a75896e32
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +151,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Barra de Navegacion_0: -1695955219938116563
+      Icon In 3_0: 1648682611246422943
+      Icon In 3_1: 7807313686109671627
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

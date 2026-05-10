@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fcff01cfec6163d4e9e04cabf586d0fd
+guid: 60a18cc191576c14b839ae9ae65d2677
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1582138459171038278
-    second: Duchometro_0
+      213: 5667031386492111935
+    second: Icon Jue 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Duchometro_0
+      name: Icon Jue 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 379
-        height: 158
+        x: 51
+        y: 47
+        width: 205
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 644af5ccb82e4f510800000000000000
-      internalID: 1582138459171038278
+      spriteID: f3c0ad2550755ae40800000000000000
+      internalID: 5667031386492111935
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Duchometro_0: 1582138459171038278
+      Icon Jue 2_0: 5667031386492111935
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
