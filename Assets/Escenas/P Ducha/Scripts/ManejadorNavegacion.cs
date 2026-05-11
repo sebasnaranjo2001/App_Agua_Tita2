@@ -1,171 +1,247 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ManejadorNavegacion : MonoBehaviour
 {
-    [Header("Paneles (RectTransform)")]
-    public RectTransform panelRegistro;
-    public RectTransform panelCronometro;
-    public RectTransform panelRanking;
+    [Header("--- PANELES PRINCIPALES ---")]
+    public GameObject panelRegistro;
+    public GameObject panelCronometro;
+    public GameObject panelRanking;
 
-    [Header("Botones de Barra Inferior")]
-    public Button btnIrRegistro;
-    public Button btnIrRanking;
-    public Button btnIrInicio;
+    [Header("--- BARRA DE SELECCIÓN (LA OSCURA) ---")]
+    public RectTransform indicadorSeleccion;
+    public float tiempoAnimacion = 0.4f;
+    public LeanTweenType tipoCurva = LeanTweenType.easeOutBack;
 
-    [Header("Scripts de Actualización")]
-    public BuscadorDeMiembros scriptBuscador;
+    [Header("Configuración Barra (Pos y Ancho)")]
+    public float posRegX; public float anchoReg;
+    public float posCronX; public float anchoCron;
+    public float posRankX; public float anchoRank;
+
+    [Header("--- ELEMENTOS PUM (REGISTRO) ---")]
+    public GameObject tablero;
+    public GameObject avisos;
+    public GameObject botonEmpezar;
+    public GameObject botonAnadir;
+    public GameObject panelDeslizable;
+    public GameObject botonAnadirBorrar;
+
+    [Header("--- CONTROL DEL SCROLL ---")]
+    public ScrollRect scrollListaMiembros;
+
+    [Header("--- SUB-PANEL REGISTRO ---")]
+    public GameObject panelTarjetaRegistro;
+
+    [Header("--- SCRIPTS EXTERNOS ---")]
     public ManejadorRanking scriptRanking;
     public Cronometro scriptCronometro;
 
-    [Header("Mensajes de Aviso")]
-    public GameObject avisoCreaMiembro;
-    public GameObject avisoSeleccionaMiembro;
-
-    [Header("Configuración de Animación")]
-    public float duracionCapa = 0.8f;
-    public LeanTweenType tipoSuavizado = LeanTweenType.easeOutCubic;
-
+    private Dictionary<GameObject, Vector3> escalasOriginales = new Dictionary<GameObject, Vector3>();
+    private Vector2 posDisenoReg, posDisenoCron, posDisenoRank;
     private float distanciaX = 1100f;
     private float distanciaY = 2000f;
-    private string panelActual = "registro";
+    private GameObject panelActualObj;
+    private string panelActualNombre = "registro";
 
     private void Start()
     {
-        // 1. Configuración inicial por defecto (como siempre)
-        panelRegistro.anchoredPosition = Vector2.zero;
-        panelRanking.anchoredPosition = new Vector2(distanciaX, 0);
-        panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
+        RegistrarEscalas();
+        GuardarPosicionesDeDiseno();
+        ConfiguracionInicial();
+    }
 
-        panelActual = "registro";
-        ActualizarEstadoBotones("registro");
-
-        // --- LÓGICA DE ENTRADA DIRECTA (SIN ANIMACIÓN) ---
-        if (NavegacionMenuPrincipal.panelAbridor == "ranking")
+    void RegistrarEscalas()
+    {
+        GameObject[] objetosPum = { tablero, avisos, botonEmpezar, botonAnadir, panelDeslizable, botonAnadirBorrar, panelTarjetaRegistro };
+        foreach (GameObject obj in objetosPum)
         {
-            NavegacionMenuPrincipal.panelAbridor = "";
-
-            // Llamamos a la lógica del ranking (datos) pero NO a la animación
-            if (scriptRanking != null) scriptRanking.GenerarRanking();
-
-            // Movemos las posiciones DE GOLPE (sin LeanTween)
-            panelRanking.anchoredPosition = Vector2.zero;
-            panelRegistro.anchoredPosition = new Vector2(-distanciaX, 0);
-            panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
-
-            // Actualizamos el estado interno para que los botones sepan dónde estamos
-            panelActual = "ranking";
-            ActualizarEstadoBotones("ranking");
+            if (obj != null && !escalasOriginales.ContainsKey(obj))
+                escalasOriginales.Add(obj, obj.transform.localScale);
         }
     }
 
-    public void IrAlMenuPrincipal() => SceneManager.LoadScene("Menu");
+    void GuardarPosicionesDeDiseno()
+    {
+        if (panelRegistro) posDisenoReg = panelRegistro.GetComponent<RectTransform>().anchoredPosition;
+        if (panelCronometro) posDisenoCron = panelCronometro.GetComponent<RectTransform>().anchoredPosition;
+        if (panelRanking) posDisenoRank = panelRanking.GetComponent<RectTransform>().anchoredPosition;
+    }
 
-    // --- LAS FUNCIONES DE ABAJO SIGUEN IGUAL CON SU ANIMACIÓN ---
+    public void ConfiguracionInicial()
+    {
+        if (panelCronometro) panelCronometro.SetActive(false);
+        if (panelRanking) panelRanking.SetActive(false);
+        if (panelTarjetaRegistro) panelTarjetaRegistro.SetActive(false);
+
+        if (panelRegistro)
+        {
+            panelRegistro.SetActive(true);
+            panelActualObj = panelRegistro;
+            panelRegistro.GetComponent<RectTransform>().anchoredPosition = posDisenoReg;
+            AnimarEntradaRegistro();
+            ResetearScrollAlInicio();
+        }
+
+        panelActualNombre = "registro";
+        ActualizarBarraInmediato(posRegX, anchoReg);
+    }
 
     public void IrARegistro()
     {
-        if (panelActual == "cronometro")
-        {
-            MoverPanel(panelCronometro, new Vector2(0, distanciaY));
-            panelRegistro.anchoredPosition = new Vector2(0, -distanciaY);
-            MoverPanel(panelRegistro, Vector2.zero);
-        }
-        else
-        {
-            panelRegistro.anchoredPosition = new Vector2(-distanciaX, 0);
-            MoverPanel(panelRegistro, Vector2.zero);
-            MoverPanel(panelRanking, new Vector2(distanciaX, 0));
-            panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
-        }
-
-        panelActual = "registro";
-        ActualizarEstadoBotones("registro");
+        if (panelActualNombre == "registro") return;
+        panelRegistro.SetActive(true);
+        if (panelTarjetaRegistro) panelTarjetaRegistro.SetActive(false);
+        RectTransform rt = panelRegistro.GetComponent<RectTransform>();
+        rt.anchoredPosition = new Vector2(posDisenoReg.x - distanciaX, posDisenoReg.y);
+        MoverYApagar(panelActualObj, ObtenerPosicionSalida(panelActualNombre, "derecha"));
+        MoverPanel(rt, posDisenoReg);
+        AnimarEntradaRegistro();
+        ResetearScrollAlInicio();
+        AnimarBarraSeleccion(posRegX, anchoReg);
+        panelActualObj = panelRegistro;
+        panelActualNombre = "registro";
     }
 
     public void IrACronometro()
     {
-        if (ManejadorRegistro.instance != null && !string.IsNullOrEmpty(ManejadorRegistro.instance.nombreSeleccionado))
-        {
-            if (scriptBuscador != null) scriptBuscador.ActualizarInterfaz();
-            if (scriptCronometro != null) scriptCronometro.ReiniciarTodo();
-
-            MoverPanel(panelRegistro, new Vector2(0, -distanciaY));
-            MoverPanel(panelRanking, new Vector2(0, -distanciaY));
-
-            panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
-            MoverPanel(panelCronometro, Vector2.zero);
-
-            panelActual = "cronometro";
-            ActualizarEstadoBotones("cronometro");
-        }
-        else
-        {
-            MostrarAvisoTemporal(avisoSeleccionaMiembro);
-        }
+        if (panelActualNombre == "cronometro") return;
+        panelCronometro.SetActive(true);
+        RectTransform rt = panelCronometro.GetComponent<RectTransform>();
+        rt.anchoredPosition = new Vector2(posDisenoCron.x, posDisenoCron.y + distanciaY);
+        MoverYApagar(panelActualObj, ObtenerPosicionSalida(panelActualNombre, "abajo"));
+        MoverPanel(rt, posDisenoCron);
+        AnimarBarraSeleccion(posCronX, anchoCron);
+        panelActualObj = panelCronometro;
+        panelActualNombre = "cronometro";
     }
 
     public void IrARanking()
     {
-        if (ManejadorRegistro.instance != null && ManejadorRegistro.instance.listaDeMiembros.Count > 0)
-        {
-            if (scriptRanking != null) scriptRanking.GenerarRanking();
-
-            if (panelActual == "cronometro")
-            {
-                MoverPanel(panelCronometro, new Vector2(0, -distanciaY));
-                panelRanking.anchoredPosition = new Vector2(0, distanciaY);
-                MoverPanel(panelRanking, Vector2.zero);
-            }
-            else
-            {
-                panelRanking.anchoredPosition = new Vector2(distanciaX, 0);
-                MoverPanel(panelRanking, Vector2.zero);
-                MoverPanel(panelRegistro, new Vector2(-distanciaX, 0));
-                panelCronometro.anchoredPosition = new Vector2(0, distanciaY);
-            }
-
-            panelActual = "ranking";
-            ActualizarEstadoBotones("ranking");
-        }
-        else
-        {
-            MostrarAvisoTemporal(avisoCreaMiembro);
-        }
+        if (panelActualNombre == "ranking") return;
+        if (scriptRanking != null) scriptRanking.GenerarRanking();
+        panelRanking.SetActive(true);
+        RectTransform rt = panelRanking.GetComponent<RectTransform>();
+        rt.anchoredPosition = new Vector2(posDisenoRank.x + distanciaX, posDisenoRank.y);
+        MoverYApagar(panelActualObj, ObtenerPosicionSalida(panelActualNombre, "izquierda"));
+        MoverPanel(rt, posDisenoRank);
+        AnimarBarraSeleccion(posRankX, anchoRank);
+        panelActualObj = panelRanking;
+        panelActualNombre = "ranking";
     }
 
-    private void MoverPanel(RectTransform panel, Vector2 destino)
+    public void AbrirTarjetaRegistro()
     {
-        if (panel == null) return;
-        LeanTween.cancel(panel.gameObject);
-        LeanTween.move(panel, destino, duracionCapa).setEase(tipoSuavizado);
+        if (panelTarjetaRegistro == null) return;
+        tablero.SetActive(false);
+        avisos.SetActive(false);
+        botonAnadir.SetActive(false);
+        panelDeslizable.SetActive(false);
+        botonAnadirBorrar.SetActive(false);
+        panelTarjetaRegistro.SetActive(true);
+        panelTarjetaRegistro.transform.localScale = Vector3.zero;
+        Pop(panelTarjetaRegistro, 0.4f, 0.1f);
     }
 
-    private void ActualizarEstadoBotones(string panelActivo)
+    public void CerrarTarjetaRegistro()
     {
-        if (btnIrRegistro) btnIrRegistro.interactable = (panelActivo != "registro");
-        if (btnIrRanking) btnIrRanking.interactable = (panelActivo != "ranking");
-        if (btnIrInicio) btnIrInicio.interactable = (panelActivo != "cronometro");
-    }
-
-    void MostrarAvisoTemporal(GameObject aviso)
-    {
-        if (aviso == null) return;
-
-        LeanTween.cancel(aviso);
-        aviso.SetActive(true);
-        aviso.transform.localScale = Vector3.zero;
-
-        LeanTween.scale(aviso, Vector3.one, 0.5f).setEaseOutBack();
-
-        LeanTween.delayedCall(aviso, 2.5f, () => {
-            if (aviso != null)
-            {
-                LeanTween.scale(aviso, Vector3.zero, 0.5f).setEaseInBack().setOnComplete(() => {
-                    if (aviso != null) aviso.SetActive(false);
-                });
-            }
+        if (panelTarjetaRegistro == null) return;
+        LeanTween.scale(panelTarjetaRegistro, Vector3.zero, 0.3f).setEase(LeanTweenType.easeInBack).setOnComplete(() => {
+            panelTarjetaRegistro.SetActive(false);
+            tablero.SetActive(true);
+            avisos.SetActive(true);
+            botonAnadir.SetActive(true);
+            panelDeslizable.SetActive(true);
+            botonAnadirBorrar.SetActive(true);
+            AnimarEntradaRegistro();
+            ResetearScrollAlInicio();
         });
+    }
+
+    public void ResetearScrollAlInicio()
+    {
+        if (gameObject.activeInHierarchy) StartCoroutine(ForzarScrollArriba());
+    }
+
+    IEnumerator ForzarScrollArriba()
+    {
+        yield return new WaitForEndOfFrame();
+        if (scrollListaMiembros != null)
+        {
+            scrollListaMiembros.verticalNormalizedPosition = 1f;
+            Canvas.ForceUpdateCanvases();
+            scrollListaMiembros.verticalNormalizedPosition = 1f;
+        }
+    }
+
+    private void AnimarEntradaRegistro()
+    {
+        SetScaleZero(tablero, avisos, botonEmpezar, botonAnadir, panelDeslizable, botonAnadirBorrar);
+        Pop(tablero, 0.5f, 0.1f);
+        Pop(avisos, 0.4f, 0.15f);
+        Pop(botonEmpezar, 0.4f, 0.2f);
+        Pop(botonAnadir, 0.4f, 0.25f);
+        Pop(panelDeslizable, 0.5f, 0.3f);
+        Pop(botonAnadirBorrar, 0.4f, 0.35f);
+    }
+
+    private void Pop(GameObject obj, float tiempo, float delay)
+    {
+        if (obj == null) return;
+        Vector3 escalaFinal = escalasOriginales.ContainsKey(obj) ? escalasOriginales[obj] : Vector3.one;
+        LeanTween.cancel(obj);
+        LeanTween.scale(obj, escalaFinal, tiempo).setEase(LeanTweenType.easeOutBack).setDelay(delay);
+    }
+
+    private void SetScaleZero(params GameObject[] objetos)
+    {
+        foreach (GameObject obj in objetos) if (obj != null) obj.transform.localScale = Vector3.zero;
+    }
+
+    private void MoverPanel(RectTransform rt, Vector2 destino)
+    {
+        if (rt == null) return;
+        LeanTween.cancel(rt.gameObject);
+        LeanTween.move(rt, destino, tiempoAnimacion).setEase(LeanTweenType.easeOutCubic);
+    }
+
+    private void MoverYApagar(GameObject objViejo, Vector2 destino)
+    {
+        if (objViejo == null) return;
+        RectTransform rtViejo = objViejo.GetComponent<RectTransform>();
+        LeanTween.cancel(objViejo);
+        LeanTween.move(rtViejo, destino, tiempoAnimacion).setEase(LeanTweenType.easeOutCubic).setOnComplete(() => {
+            objViejo.SetActive(false);
+        });
+    }
+
+    private void AnimarBarraSeleccion(float destinoX, float nuevoAncho)
+    {
+        if (indicadorSeleccion == null) return;
+        LeanTween.cancel(indicadorSeleccion.gameObject);
+        LeanTween.moveLocalX(indicadorSeleccion.gameObject, destinoX, tiempoAnimacion).setEase(tipoCurva);
+        LeanTween.size(indicadorSeleccion, new Vector2(nuevoAncho, indicadorSeleccion.sizeDelta.y), tiempoAnimacion).setEase(tipoCurva);
+    }
+
+    private void ActualizarBarraInmediato(float x, float w)
+    {
+        if (indicadorSeleccion == null) return;
+        indicadorSeleccion.anchoredPosition = new Vector2(x, indicadorSeleccion.anchoredPosition.y);
+        indicadorSeleccion.sizeDelta = new Vector2(w, indicadorSeleccion.sizeDelta.y);
+    }
+
+    private Vector2 ObtenerPosicionSalida(string nombrePanel, string direccion)
+    {
+        Vector2 basePos = Vector2.zero;
+        if (nombrePanel == "registro") basePos = posDisenoReg;
+        else if (nombrePanel == "cronometro") basePos = posDisenoCron;
+        else if (nombrePanel == "ranking") basePos = posDisenoRank;
+
+        if (direccion == "derecha") return new Vector2(basePos.x + distanciaX, basePos.y);
+        if (direccion == "izquierda") return new Vector2(basePos.x - distanciaX, basePos.y);
+        if (direccion == "abajo") return new Vector2(basePos.x, basePos.y - distanciaY);
+        return basePos;
     }
 }

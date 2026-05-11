@@ -1,55 +1,76 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class NavegacionMenuPrincipal : MonoBehaviour
 {
     public static string panelAbridor = "";
-    private static bool yaSeAnimoAlEntrar = false;
     private string seccionActual = "";
 
-    [Header("Referencias de Paneles")]
+    private Dictionary<GameObject, Vector3> escalasOriginales = new Dictionary<GameObject, Vector3>();
+
+    [Header("--- CONFIGURACIÓN DE PANELES ---")]
     public GameObject panelInicio;
     public GameObject panelJuegos;
     public GameObject panelGuia;
+    public GameObject panelDuchometro;
 
-    [Header("Referencias de Botones")]
+    [Header("--- BARRA DE NAVEGACIÓN (BOTONES) ---")]
     public Button btnInicio;
     public Button btnJuegos;
     public Button btnGuia;
+    public Button btnDuchometroMenu;
 
-    [Header("Sprites de Iconos")]
+    [Space(5)]
     public Sprite iconInicioNormal, iconInicioSelected;
     public Sprite iconJuegosNormal, iconJuegosSelected;
     public Sprite iconGuiaNormal, iconGuiaSelected;
 
-    [Header("Referencias de Textos y Fondos")]
-    public TextMeshProUGUI txtGotaAGota;
-    public TextMeshProUGUI txtGuiaFamiliar;
+    [Header("--- SISTEMA VISUAL (FONDOS) ---")]
     public Image fondoPrincipal;
-    public Sprite fondoInicio, fondoJuegos, fondoGuia;
+    public Sprite fondoInicio, fondoJuegos, fondoGuia, fondoDuchometro;
 
-    [Header("Colores de Texto")]
-    public Color colorTextoInicio = new Color(0.1f, 0.22f, 0.37f);
-    public Color colorTextoJuegos = new Color(0.18f, 0.1f, 0.28f);
-    public Color colorTextoGuia = new Color(0.29f, 0.17f, 0.04f);
-
-    [Header("Objetos PUM - Inicio")]
+    [Header("--- SECCIÓN INICIO (PUM) ---")]
+    public GameObject logoApp;
     public GameObject seccionAvisos;
-    public GameObject seccionDuchometro;
+    public GameObject seccionBotonDuchometro; // El que está en el menú
     public GameObject seccionTarjetas;
 
-    [Header("Objetos PUM - Juegos")]
-    public GameObject tituloJuegos, itemJ1, itemJ2, itemJ3;
-
-    [Header("Objetos PUM - Guía")]
-    public GameObject tituloGuia;
-    public GameObject subtituloGuia;
+    [Header("--- SECCIÓN GUÍA (PUM) ---")]
+    public GameObject logoGuia;
+    public GameObject tituloGuia, subtituloGuia;
     public GameObject zonaBano, zonaCocina, zonaLavanderia, zonaJardin;
+
+    [Header("--- SECCIÓN JUEGOS (PUM) ---")]
+    public GameObject logoJuegos;
+    public GameObject tituloJuegos, subtituloJuegos;
+    public GameObject itemJ1, itemJ2, itemJ3;
 
     void Start()
     {
+        RegistrarEscalas();
         ConfigurarPanelInicial();
+
+        if (btnDuchometroMenu != null)
+            btnDuchometroMenu.onClick.AddListener(AbrirPanelDuchometro);
+    }
+
+    void RegistrarEscalas()
+    {
+        GameObject[] todosLosObjetos = {
+            logoApp, seccionAvisos, seccionBotonDuchometro, seccionTarjetas,
+            logoGuia, tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin,
+            logoJuegos, tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3
+        };
+
+        foreach (GameObject obj in todosLosObjetos)
+        {
+            if (obj != null && !escalasOriginales.ContainsKey(obj))
+            {
+                escalasOriginales.Add(obj, obj.transform.localScale);
+            }
+        }
     }
 
     void ConfigurarPanelInicial()
@@ -57,7 +78,19 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         if (string.IsNullOrEmpty(panelAbridor)) { MostrarInicio(); return; }
         if (panelAbridor == "juegos") AbrirPanelJuegos();
         else if (panelAbridor == "guia") AbrirPanelGuia();
+        else if (panelAbridor == "duchometro") AbrirPanelDuchometro();
         else MostrarInicio();
+    }
+
+    // --- MÉTODOS DE NAVEGACIÓN (CON ANIMACIONES RESTAURADAS) ---
+
+    public void AbrirPanelDuchometro()
+    {
+        if (seccionActual == "duchometro") return;
+        seccionActual = "duchometro";
+        ActualizarEstadoBotones("duchometro");
+        EjecutarTransicionFondo(fondoDuchometro, panelDuchometro);
+        // Nota: Los elementos internos los animará tu nuevo script manejador
     }
 
     public void AbrirPanelJuegos()
@@ -65,8 +98,8 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         if (seccionActual == "juegos") return;
         seccionActual = "juegos";
         ActualizarEstadoBotones("juegos");
-        EjecutarTransicionCompleta(fondoJuegos, colorTextoJuegos, panelJuegos);
-        AnimarEntradaJuegos();
+        EjecutarTransicionFondo(fondoJuegos, panelJuegos);
+        AnimarEntradaJuegos(); // RESTAURADO
     }
 
     public void AbrirPanelGuia()
@@ -74,8 +107,8 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         if (seccionActual == "guia") return;
         seccionActual = "guia";
         ActualizarEstadoBotones("guia");
-        EjecutarTransicionCompleta(fondoGuia, colorTextoGuia, panelGuia);
-        AnimarEntradaGuia(); // <--- Nueva animación
+        EjecutarTransicionFondo(fondoGuia, panelGuia);
+        AnimarEntradaGuia(); // RESTAURADO
     }
 
     public void MostrarInicio()
@@ -83,9 +116,45 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         if (seccionActual == "inicio") return;
         seccionActual = "inicio";
         ActualizarEstadoBotones("inicio");
-        EjecutarTransicionCompleta(fondoInicio, colorTextoInicio, panelInicio);
-        AnimarEntradaInicio();
+        EjecutarTransicionFondo(fondoInicio, panelInicio);
+        AnimarEntradaInicio(); // RESTAURADO
     }
+
+    // --- BLOQUE DE ANIMACIONES PUM ---
+
+    private void AnimarEntradaInicio()
+    {
+        SetScaleZero(logoApp, seccionAvisos, seccionBotonDuchometro, seccionTarjetas);
+        Pop(logoApp, 0.5f, 0.05f);
+        Pop(seccionAvisos, 0.4f, 0.15f);
+        Pop(seccionBotonDuchometro, 0.4f, 0.22f);
+        Pop(seccionTarjetas, 0.4f, 0.30f);
+    }
+
+    private void AnimarEntradaGuia()
+    {
+        SetScaleZero(logoGuia, tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin);
+        Pop(logoGuia, 0.6f, 0.0f);
+        Pop(tituloGuia, 0.4f, 0.12f);
+        Pop(subtituloGuia, 0.4f, 0.18f);
+        Pop(zonaBano, 0.4f, 0.25f);
+        Pop(zonaCocina, 0.4f, 0.31f);
+        Pop(zonaLavanderia, 0.4f, 0.37f);
+        Pop(zonaJardin, 0.4f, 0.43f);
+    }
+
+    private void AnimarEntradaJuegos()
+    {
+        SetScaleZero(logoJuegos, tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3);
+        Pop(logoJuegos, 0.6f, 0.0f);
+        Pop(tituloJuegos, 0.4f, 0.12f);
+        Pop(subtituloJuegos, 0.4f, 0.18f);
+        Pop(itemJ1, 0.4f, 0.25f);
+        Pop(itemJ2, 0.4f, 0.31f);
+        Pop(itemJ3, 0.4f, 0.37f);
+    }
+
+    // --- MÉTODOS HERRAMIENTA ---
 
     private void ActualizarEstadoBotones(string seccionActiva)
     {
@@ -98,6 +167,28 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         GestionarEscalaBoton(btnGuia.transform, seccionActiva == "guia");
     }
 
+    private void EjecutarTransicionFondo(Sprite nuevoFondo, GameObject panelDestino)
+    {
+        if (fondoPrincipal != null && nuevoFondo != null)
+        {
+            LeanTween.cancel(fondoPrincipal.gameObject);
+            LeanTween.alpha(fondoPrincipal.rectTransform, 0.3f, 0.12f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => {
+                fondoPrincipal.sprite = nuevoFondo;
+                LeanTween.alpha(fondoPrincipal.rectTransform, 1f, 0.12f).setEase(LeanTweenType.easeInOutQuad);
+            });
+        }
+        DesactivarTodosLosPaneles();
+        if (panelDestino != null) panelDestino.SetActive(true);
+    }
+
+    private void DesactivarTodosLosPaneles()
+    {
+        if (panelInicio) panelInicio.SetActive(false);
+        if (panelJuegos) panelJuegos.SetActive(false);
+        if (panelGuia) panelGuia.SetActive(false);
+        if (panelDuchometro) panelDuchometro.SetActive(false);
+    }
+
     private void GestionarEscalaBoton(Transform t, bool estaActivo)
     {
         if (t == null) return;
@@ -106,81 +197,16 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         LeanTween.scale(t.gameObject, Vector3.one * escalaObjetivo, 0.3f).setEase(LeanTweenType.easeOutBack);
     }
 
-    // --- ANIMACIONES DE ENTRADA (PUM) ---
-
-    private void AnimarEntradaInicio()
-    {
-        SetScaleZero(seccionAvisos, seccionDuchometro, seccionTarjetas);
-        Pop(seccionAvisos, 0.4f, 0.1f);
-        Pop(seccionDuchometro, 0.4f, 0.18f);
-        Pop(seccionTarjetas, 0.4f, 0.26f);
-    }
-
-    private void AnimarEntradaJuegos()
-    {
-        SetScaleZero(tituloJuegos, itemJ1, itemJ2, itemJ3);
-        Pop(tituloJuegos, 0.4f, 0.1f);
-        Pop(itemJ1, 0.4f, 0.18f);
-        Pop(itemJ2, 0.4f, 0.26f);
-        Pop(itemJ3, 0.4f, 0.34f);
-    }
-
-    private void AnimarEntradaGuia()
-    {
-        // Ponemos a cero todos los elementos de la guía
-        SetScaleZero(tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin);
-
-        // Los hacemos aparecer en orden con un pequeño retraso (delay) entre cada uno
-        Pop(tituloGuia, 0.4f, 0.1f);
-        Pop(subtituloGuia, 0.4f, 0.15f);
-
-        // Las zonas aparecen como una ráfaga
-        Pop(zonaBano, 0.4f, 0.22f);
-        Pop(zonaCocina, 0.4f, 0.28f);
-        Pop(zonaLavanderia, 0.4f, 0.34f);
-        Pop(zonaJardin, 0.4f, 0.40f);
-    }
-
-    // --- MÉTODOS HERRAMIENTA ---
-
     private void Pop(GameObject obj, float tiempo, float delay)
     {
         if (obj == null) return;
+        Vector3 escalaFinal = escalasOriginales.ContainsKey(obj) ? escalasOriginales[obj] : Vector3.one;
         LeanTween.cancel(obj);
-        LeanTween.scale(obj, Vector3.one, tiempo).setEase(LeanTweenType.easeOutBack).setDelay(delay);
+        LeanTween.scale(obj, escalaFinal, tiempo).setEase(LeanTweenType.easeOutBack).setDelay(delay);
     }
 
     private void SetScaleZero(params GameObject[] objetos)
     {
         foreach (GameObject obj in objetos) if (obj != null) obj.transform.localScale = Vector3.zero;
-    }
-
-    private void EjecutarTransicionCompleta(Sprite nuevoFondo, Color nuevoColorTexto, GameObject panelDestino)
-    {
-        if (fondoPrincipal != null && nuevoFondo != null)
-        {
-            LeanTween.cancel(fondoPrincipal.gameObject);
-            LeanTween.alpha(fondoPrincipal.rectTransform, 0.3f, 0.2f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(() => {
-                fondoPrincipal.sprite = nuevoFondo;
-                LeanTween.alpha(fondoPrincipal.rectTransform, 1f, 0.2f).setEase(LeanTweenType.easeInOutQuad);
-            });
-        }
-        AnimarColorTexto(txtGotaAGota, nuevoColorTexto);
-        AnimarColorTexto(txtGuiaFamiliar, nuevoColorTexto);
-        DesactivarTodosLosPaneles();
-        if (panelDestino != null) panelDestino.SetActive(true);
-    }
-
-    private void AnimarColorTexto(TextMeshProUGUI texto, Color col)
-    {
-        if (texto == null) return;
-        LeanTween.value(texto.gameObject, texto.color, col, 0.4f).setOnUpdate((Color c) => { texto.color = c; });
-    }
-
-    private void DesactivarTodosLosPaneles()
-    {
-        if (panelInicio) panelInicio.SetActive(false);
-        if (panelJuegos) panelJuegos.SetActive(false);
-        if (panelGuia) panelGuia.SetActive(false);
     }
 }

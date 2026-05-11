@@ -3,46 +3,86 @@ using UnityEngine.UI;
 
 public class ControladorIndice : MonoBehaviour
 {
-    [Header("Configuración del Índice")]
+    [Header("--- CONFIGURACIÓN DEL ÍNDICE ---")]
+    public GameObject panelCabeceraLogo; // <-- NUEVO: Arrastra aquí el panel con el fondo y el logo
     public GameObject listaOpciones;
     public Image imgBotonCabecera;
     public Sprite spriteSeleccionaUno;
     public GameObject iconoFlecha;
     private bool indiceAbierto = false;
 
-    [Header("Sprites de los Temas")]
-    public Sprite[] spritesTemas; // Una lista de tus imágenes de Illustrator
+    [Header("--- ACTIVOS DE DISEÑO (ILLUSTRATOR) ---")]
+    public Sprite[] spritesTemas;
 
-    [Header("Paneles de Contenido")]
-    public GameObject[] panelesContenido; // Una lista de tus objetos de info
+    [Header("--- PANELES DE INFORMACIÓN ---")]
+    public GameObject[] panelesContenido;
 
     void Start()
     {
-        // Al empezar, que siempre pida seleccionar uno
         PrepararInicio();
+    }
+
+    // Se ejecuta cada vez que el panel de la habitación (Baño, Cocina, etc.) se activa
+    private void OnEnable()
+    {
+        float delayAnimacion = 0.15f;
+
+        // 1. SIEMPRE animamos la cabecera del logo al entrar
+        if (panelCabeceraLogo != null)
+        {
+            panelCabeceraLogo.transform.localScale = Vector3.zero;
+            LeanTween.scale(panelCabeceraLogo, Vector3.one, 0.4f)
+                .setEase(LeanTweenType.easeOutBack);
+        }
+
+        // 2. Animamos lo que esté abierto debajo (Lista o Panel de Contenido)
+        if (indiceAbierto && listaOpciones != null)
+        {
+            listaOpciones.transform.localScale = Vector3.zero;
+            LeanTween.scale(listaOpciones, Vector3.one, 0.4f)
+                .setEase(LeanTweenType.easeOutBack)
+                .setDelay(delayAnimacion);
+        }
+        else if (!indiceAbierto)
+        {
+            foreach (GameObject go in panelesContenido)
+            {
+                if (go != null && go.activeSelf)
+                {
+                    go.transform.localScale = Vector3.zero;
+                    LeanTween.scale(go, Vector3.one, 0.4f)
+                        .setEase(LeanTweenType.easeOutBack)
+                        .setDelay(delayAnimacion);
+                }
+            }
+        }
     }
 
     public void PrepararInicio()
     {
         indiceAbierto = true;
-        listaOpciones.SetActive(true);
+        if (listaOpciones) listaOpciones.SetActive(true);
         if (iconoFlecha) iconoFlecha.SetActive(false);
-        imgBotonCabecera.sprite = spriteSeleccionaUno;
+        if (imgBotonCabecera) imgBotonCabecera.sprite = spriteSeleccionaUno;
+
         CerrarTodosLosContenidos();
 
-        // Animación PUM inicial
-        listaOpciones.transform.localScale = Vector3.zero;
-        LeanTween.scale(listaOpciones, Vector3.one, 0.4f).setEase(LeanTweenType.easeOutBack);
+        // Animación inicial de la cabecera y la lista
+        if (panelCabeceraLogo) panelCabeceraLogo.transform.localScale = Vector3.zero;
+        if (listaOpciones) listaOpciones.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(panelCabeceraLogo, Vector3.one, 0.4f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.scale(listaOpciones, Vector3.one, 0.4f).setEase(LeanTweenType.easeOutBack).setDelay(0.1f);
     }
 
     public void ToggleIndice()
     {
         indiceAbierto = !indiceAbierto;
-        listaOpciones.SetActive(indiceAbierto);
+        if (listaOpciones) listaOpciones.SetActive(indiceAbierto);
 
         if (indiceAbierto)
         {
-            imgBotonCabecera.sprite = spriteSeleccionaUno;
+            if (imgBotonCabecera) imgBotonCabecera.sprite = spriteSeleccionaUno;
             if (iconoFlecha) iconoFlecha.SetActive(false);
             CerrarTodosLosContenidos();
 
@@ -55,22 +95,24 @@ public class ControladorIndice : MonoBehaviour
         }
     }
 
-    // Esta función es mágica: sirve para CUALQUIER botón
-    // Solo le pasas el número del botón (0, 1, 2, 3...)
     public void SeleccionarOpcion(int indice)
     {
-        if (imgBotonCabecera) imgBotonCabecera.sprite = spritesTemas[indice];
+        if (imgBotonCabecera && indice < spritesTemas.Length)
+            imgBotonCabecera.sprite = spritesTemas[indice];
 
         indiceAbierto = false;
-        listaOpciones.SetActive(false);
+        if (listaOpciones) listaOpciones.SetActive(false);
         if (iconoFlecha) iconoFlecha.SetActive(true);
 
         CerrarTodosLosContenidos();
-        GameObject panelAMostrar = panelesContenido[indice];
-        panelAMostrar.SetActive(true);
 
-        panelAMostrar.transform.localScale = Vector3.zero;
-        LeanTween.scale(panelAMostrar, Vector3.one, 0.3f).setEase(LeanTweenType.easeOutBack);
+        if (indice < panelesContenido.Length && panelesContenido[indice] != null)
+        {
+            GameObject panelAMostrar = panelesContenido[indice];
+            panelAMostrar.SetActive(true);
+            panelAMostrar.transform.localScale = Vector3.zero;
+            LeanTween.scale(panelAMostrar, Vector3.one, 0.35f).setEase(LeanTweenType.easeOutBack);
+        }
     }
 
     private void CerrarTodosLosContenidos()
