@@ -16,6 +16,9 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public GameObject panelGuia;
     public GameObject panelDuchometro;
 
+    [Header("--- LOGO GENERAL (ÚNICO) ---")]
+    public GameObject logoGeneral;
+
     [Header("--- BARRA DE NAVEGACIÓN (BOTONES) ---")]
     public Button btnInicio;
     public Button btnJuegos;
@@ -31,19 +34,16 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public Image fondoPrincipal;
     public Sprite fondoInicio, fondoJuegos, fondoGuia, fondoDuchometro;
 
-    [Header("--- SECCIÓN INICIO (PUM) ---")]
-    public GameObject logoApp;
+    [Header("--- ELEMENTOS INICIO (PUM) ---")]
     public GameObject seccionAvisos;
-    public GameObject seccionBotonDuchometro; // El que está en el menú
+    public GameObject seccionBotonDuchometro;
     public GameObject seccionTarjetas;
 
-    [Header("--- SECCIÓN GUÍA (PUM) ---")]
-    public GameObject logoGuia;
+    [Header("--- ELEMENTOS GUÍA (PUM) ---")]
     public GameObject tituloGuia, subtituloGuia;
     public GameObject zonaBano, zonaCocina, zonaLavanderia, zonaJardin;
 
-    [Header("--- SECCIÓN JUEGOS (PUM) ---")]
-    public GameObject logoJuegos;
+    [Header("--- ELEMENTOS JUEGOS (PUM) ---")]
     public GameObject tituloJuegos, subtituloJuegos;
     public GameObject itemJ1, itemJ2, itemJ3;
 
@@ -59,9 +59,10 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     void RegistrarEscalas()
     {
         GameObject[] todosLosObjetos = {
-            logoApp, seccionAvisos, seccionBotonDuchometro, seccionTarjetas,
-            logoGuia, tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin,
-            logoJuegos, tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3
+            logoGeneral,
+            seccionAvisos, seccionBotonDuchometro, seccionTarjetas,
+            tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin,
+            tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3
         };
 
         foreach (GameObject obj in todosLosObjetos)
@@ -82,7 +83,7 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         else MostrarInicio();
     }
 
-    // --- MÉTODOS DE NAVEGACIÓN (CON ANIMACIONES RESTAURADAS) ---
+    // --- MÉTODOS DE NAVEGACIÓN ---
 
     public void AbrirPanelDuchometro()
     {
@@ -90,7 +91,10 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         seccionActual = "duchometro";
         ActualizarEstadoBotones("duchometro");
         EjecutarTransicionFondo(fondoDuchometro, panelDuchometro);
-        // Nota: Los elementos internos los animará tu nuevo script manejador
+
+        // Solo animamos el logo. El resto lo hará el ManejadorNavegacion del Duchómetro
+        SetScaleZero(logoGeneral);
+        Pop(logoGeneral, 0.6f, 0.0f);
     }
 
     public void AbrirPanelJuegos()
@@ -99,7 +103,14 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         seccionActual = "juegos";
         ActualizarEstadoBotones("juegos");
         EjecutarTransicionFondo(fondoJuegos, panelJuegos);
-        AnimarEntradaJuegos(); // RESTAURADO
+
+        SetScaleZero(logoGeneral, tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3);
+        Pop(logoGeneral, 0.6f, 0.0f);
+        Pop(tituloJuegos, 0.4f, 0.12f);
+        Pop(subtituloJuegos, 0.4f, 0.18f);
+        Pop(itemJ1, 0.4f, 0.25f);
+        Pop(itemJ2, 0.4f, 0.31f);
+        Pop(itemJ3, 0.4f, 0.37f);
     }
 
     public void AbrirPanelGuia()
@@ -108,33 +119,9 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         seccionActual = "guia";
         ActualizarEstadoBotones("guia");
         EjecutarTransicionFondo(fondoGuia, panelGuia);
-        AnimarEntradaGuia(); // RESTAURADO
-    }
 
-    public void MostrarInicio()
-    {
-        if (seccionActual == "inicio") return;
-        seccionActual = "inicio";
-        ActualizarEstadoBotones("inicio");
-        EjecutarTransicionFondo(fondoInicio, panelInicio);
-        AnimarEntradaInicio(); // RESTAURADO
-    }
-
-    // --- BLOQUE DE ANIMACIONES PUM ---
-
-    private void AnimarEntradaInicio()
-    {
-        SetScaleZero(logoApp, seccionAvisos, seccionBotonDuchometro, seccionTarjetas);
-        Pop(logoApp, 0.5f, 0.05f);
-        Pop(seccionAvisos, 0.4f, 0.15f);
-        Pop(seccionBotonDuchometro, 0.4f, 0.22f);
-        Pop(seccionTarjetas, 0.4f, 0.30f);
-    }
-
-    private void AnimarEntradaGuia()
-    {
-        SetScaleZero(logoGuia, tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin);
-        Pop(logoGuia, 0.6f, 0.0f);
+        SetScaleZero(logoGeneral, tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin);
+        Pop(logoGeneral, 0.6f, 0.0f);
         Pop(tituloGuia, 0.4f, 0.12f);
         Pop(subtituloGuia, 0.4f, 0.18f);
         Pop(zonaBano, 0.4f, 0.25f);
@@ -143,15 +130,18 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         Pop(zonaJardin, 0.4f, 0.43f);
     }
 
-    private void AnimarEntradaJuegos()
+    public void MostrarInicio()
     {
-        SetScaleZero(logoJuegos, tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3);
-        Pop(logoJuegos, 0.6f, 0.0f);
-        Pop(tituloJuegos, 0.4f, 0.12f);
-        Pop(subtituloJuegos, 0.4f, 0.18f);
-        Pop(itemJ1, 0.4f, 0.25f);
-        Pop(itemJ2, 0.4f, 0.31f);
-        Pop(itemJ3, 0.4f, 0.37f);
+        if (seccionActual == "inicio") return;
+        seccionActual = "inicio";
+        ActualizarEstadoBotones("inicio");
+        EjecutarTransicionFondo(fondoInicio, panelInicio);
+
+        SetScaleZero(logoGeneral, seccionAvisos, seccionBotonDuchometro, seccionTarjetas);
+        Pop(logoGeneral, 0.6f, 0.0f);
+        Pop(seccionAvisos, 0.4f, 0.15f);
+        Pop(seccionBotonDuchometro, 0.4f, 0.22f);
+        Pop(seccionTarjetas, 0.4f, 0.30f);
     }
 
     // --- MÉTODOS HERRAMIENTA ---
