@@ -19,7 +19,7 @@ public class ManejadorNavegacion : MonoBehaviour
     public float posCronX; public float anchoCron;
     public float posRankX; public float anchoRank;
 
-    [Header("--- ELEMENTOS UI ---")]
+    [Header("--- ELEMENTOS UI REGISTRO ---")]
     public GameObject tablero;
     public GameObject logoApp;
     public GameObject avisos;
@@ -28,6 +28,11 @@ public class ManejadorNavegacion : MonoBehaviour
     public GameObject panelBotonesPequenos;
     public GameObject panelDeslizable;
     public GameObject panelTarjetaRegistro;
+
+    [Header("--- ELEMENTOS UI CRONOMETRO ---")]
+    public GameObject panelPrincipalCrono;
+    public GameObject panelSecundarioCrono;
+    public GameObject panelBotonesCrono;
 
     private Dictionary<GameObject, Vector3> escalasOriginales = new Dictionary<GameObject, Vector3>();
     private Vector2 posDisenoReg;
@@ -43,7 +48,9 @@ public class ManejadorNavegacion : MonoBehaviour
 
     void RegistrarEscalas()
     {
-        GameObject[] todos = { tablero, logoApp, avisos, botonEmpezar, botonAnadirGrande, panelBotonesPequenos, panelDeslizable, panelTarjetaRegistro };
+        GameObject[] todos = { tablero, logoApp, avisos, botonEmpezar, botonAnadirGrande,
+                              panelBotonesPequenos, panelDeslizable, panelTarjetaRegistro,
+                              panelPrincipalCrono, panelSecundarioCrono, panelBotonesCrono };
         foreach (GameObject obj in todos)
         {
             if (obj != null && !escalasOriginales.ContainsKey(obj))
@@ -63,7 +70,16 @@ public class ManejadorNavegacion : MonoBehaviour
     public void ConfiguracionInicial()
     {
         panelActualNombre = "";
-        IrARegistro();
+        // --- LOGICA DE PRIORIDAD ---
+        Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
+        if (crono != null && crono.estaContando)
+        {
+            IrACronometro();
+        }
+        else
+        {
+            IrARegistro();
+        }
     }
 
     public void IrARegistro()
@@ -82,6 +98,7 @@ public class ManejadorNavegacion : MonoBehaviour
         if (panelActualNombre == "cronometro") return;
         ApagarTodo();
         panelCronometro.SetActive(true);
+        AnimarPumCrono();
         ActualizarBarraVisual(posCronX, anchoCron);
         panelActualNombre = "cronometro";
     }
@@ -99,8 +116,6 @@ public class ManejadorNavegacion : MonoBehaviour
     {
         if (indicadorSeleccion == null) return;
         LeanTween.cancel(indicadorSeleccion.gameObject);
-
-        // CORRECCIÓN: Usamos move en RectTransform directamente
         LeanTween.move(indicadorSeleccion, new Vector2(x, indicadorSeleccion.anchoredPosition.y), tiempoAnimacion).setEase(tipoCurva);
         LeanTween.size(indicadorSeleccion, new Vector2(w, indicadorSeleccion.sizeDelta.y), tiempoAnimacion).setEase(tipoCurva);
     }
@@ -111,16 +126,27 @@ public class ManejadorNavegacion : MonoBehaviour
         GameObject[] posibles = { avisos, botonEmpezar, botonAnadirGrande, panelBotonesPequenos, panelDeslizable };
         foreach (GameObject obj in posibles)
         {
-            if (obj != null && obj.activeSelf)
-            {
-                aAnimar.Add(obj);
-                obj.transform.localScale = Vector3.zero;
-            }
+            if (obj != null && obj.activeSelf) { aAnimar.Add(obj); obj.transform.localScale = Vector3.zero; }
         }
         for (int i = 0; i < aAnimar.Count; i++)
         {
             Vector3 ef = escalasOriginales.ContainsKey(aAnimar[i]) ? escalasOriginales[aAnimar[i]] : Vector3.one;
             LeanTween.scale(aAnimar[i], ef, 0.45f).setEase(LeanTweenType.easeOutBack).setDelay(0.05f * i);
+        }
+    }
+
+    public void AnimarPumCrono()
+    {
+        List<GameObject> aAnimar = new List<GameObject>();
+        GameObject[] posibles = { panelPrincipalCrono, panelSecundarioCrono, panelBotonesCrono };
+        foreach (GameObject obj in posibles)
+        {
+            if (obj != null) { aAnimar.Add(obj); obj.transform.localScale = Vector3.zero; }
+        }
+        for (int i = 0; i < aAnimar.Count; i++)
+        {
+            Vector3 ef = escalasOriginales.ContainsKey(aAnimar[i]) ? escalasOriginales[aAnimar[i]] : Vector3.one;
+            LeanTween.scale(aAnimar[i], ef, 0.45f).setEase(LeanTweenType.easeOutBack).setDelay(0.08f * i);
         }
     }
 

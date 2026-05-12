@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class Avisos : MonoBehaviour
 {
@@ -21,10 +23,11 @@ public class Avisos : MonoBehaviour
     public UnityEngine.UI.Button btnCronometro;
     public UnityEngine.UI.Button btnEmpezar;
 
+    [Header("--- REFERENCIAS EXTERNAS ---")]
+    public ManejadorNavegacion navegador;
+
     [Header("--- ESTADO ---")]
     public SeleccionMiembros miembroSeleccionado;
-
-    private ManejadorNavegacion navegador;
 
     void Awake()
     {
@@ -34,15 +37,8 @@ public class Avisos : MonoBehaviour
 
     void Start()
     {
-        navegador = Object.FindFirstObjectByType<ManejadorNavegacion>();
+        if (navegador == null) navegador = Object.FindFirstObjectByType<ManejadorNavegacion>();
         ActualizarInterfazSegunContador(true);
-    }
-
-    public void ForzarOcultarAvisos()
-    {
-        StopAllCoroutines();
-        if (avisoLimiteMiembros) { LeanTween.cancel(avisoLimiteMiembros); avisoLimiteMiembros.SetActive(false); }
-        if (avisoSeleccionaAlguien) { LeanTween.cancel(avisoSeleccionaAlguien); avisoSeleccionaAlguien.SetActive(false); }
     }
 
     public void ActualizarInterfazSegunContador(bool conPum)
@@ -51,18 +47,43 @@ public class Avisos : MonoBehaviour
 
         int total = ManejadorRegistro.instance.listaDeMiembros.Count;
         bool hayGente = total > 0;
+        bool hayDatos = AlgunaPersonaTieneDatos();
         bool registroAbierto = (ventanaRegistro != null && ventanaRegistro.activeInHierarchy);
 
-        if (avisoCreaMiembro) avisoCreaMiembro.SetActive(!hayGente && !registroAbierto);
-        if (panelDeslizable) panelDeslizable.SetActive(hayGente && !registroAbierto);
+        bool cronoCorriendo = false;
+        Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
+        if (crono != null) cronoCorriendo = crono.estaContando;
 
-        SetAlpha(btnRegistro, 1f);
-        SetAlpha(btnRanking, hayGente ? 1f : 0.4f);
-        float alphaSel = (miembroSeleccionado != null) ? 1f : 0.4f;
-        SetAlpha(btnCronometro, alphaSel);
-        SetAlpha(btnEmpezar, alphaSel);
+        if (avisoCreaMiembro) avisoCreaMiembro.SetActive(!hayGente && !registroAbierto && !cronoCorriendo);
+        if (panelDeslizable) panelDeslizable.SetActive(hayGente && !registroAbierto && !cronoCorriendo);
+
+        if (cronoCorriendo)
+        {
+            SetAlpha(btnRegistro, 0.4f);
+            SetAlpha(btnRanking, 0.4f);
+            SetAlpha(btnCronometro, 1f);
+            SetAlpha(btnEmpezar, 1f);
+        }
+        else
+        {
+            SetAlpha(btnRegistro, 1f);
+            SetAlpha(btnRanking, (hayGente && hayDatos) ? 1f : 0.4f);
+            float alphaSel = (miembroSeleccionado != null) ? 1f : 0.4f;
+            SetAlpha(btnCronometro, alphaSel);
+            SetAlpha(btnEmpezar, alphaSel);
+        }
 
         if (navegador != null) navegador.ActualizarElementosRegistro(hayGente, conPum);
+    }
+
+    bool AlgunaPersonaTieneDatos()
+    {
+        if (ManejadorRegistro.instance == null) return false;
+        foreach (var m in ManejadorRegistro.instance.listaDeMiembros)
+        {
+            if (m.historialBanos != null && m.historialBanos.Count > 0) return true;
+        }
+        return false;
     }
 
     void SetAlpha(UnityEngine.UI.Button btn, float a)
@@ -72,38 +93,45 @@ public class Avisos : MonoBehaviour
         if (cg != null) cg.alpha = a;
     }
 
-    private void AnimarAtencionAviso()
+    // --- NAVEGACION ---
+    public void IntentarIrARegistro()
     {
-        if (avisoCreaMiembro != null && avisoCreaMiembro.activeSelf)
-        {
-            LeanTween.cancel(avisoCreaMiembro);
-            LeanTween.scale(avisoCreaMiembro, Vector3.one * 1.1f, 0.15f).setEaseOutQuad().setOnComplete(() => {
-                LeanTween.scale(avisoCreaMiembro, Vector3.one, 0.15f).setEaseInQuad();
-            });
-        }
+        Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
+        if (crono != null && crono.estaContando) return;
+        if (navegador != null) navegador.IrARegistro();
     }
 
     public void IntentarIrACronometro()
     {
-        if (ManejadorRegistro.instance.listaDeMiembros.Count == 0)
-        {
-            AnimarAtencionAviso();
-            return;
-        }
+        Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
+        if (crono != null && crono.estaContando) return;
+        if (ManejadorRegistro.instance.listaDeMiembros.Count == 0) { AnimarAtencionAviso(); return; }
         if (miembroSeleccionado == null) { StartCoroutine(FlashAviso(avisoSeleccionaAlguien)); return; }
         if (navegador != null) navegador.IrACronometro();
     }
 
     public void IntentarIrARanking()
     {
-        if (ManejadorRegistro.instance.listaDeMiembros.Count == 0)
-        {
-            AnimarAtencionAviso();
-            return;
-        }
+        Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
+        if (crono != null && crono.estaContando) return;
+        if (ManejadorRegistro.instance.listaDeMiembros.Count == 0) { AnimarAtencionAviso(); return; }
+        if (!AlgunaPersonaTieneDatos()) return;
         if (navegador != null) navegador.IrARanking();
     }
 
+    public void IntentarAbrirRegistro()
+    {
+        Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
+        if (crono != null && crono.estaContando) return;
+        if (ManejadorRegistro.instance.listaDeMiembros.Count < 7)
+        {
+            if (navegador != null) navegador.AbrirTarjetaRegistro();
+            ActualizarInterfazSegunContador(false);
+        }
+        else { StartCoroutine(FlashAviso(avisoLimiteMiembros)); }
+    }
+
+    // --- MIEMBROS Y LEANTWEEN ---
     public void RegistrarSeleccion(SeleccionMiembros nuevo)
     {
         if (miembroSeleccionado != null && miembroSeleccionado != nuevo) miembroSeleccionado.Deseleccionar();
@@ -113,10 +141,7 @@ public class Avisos : MonoBehaviour
             LeanTween.cancel(nuevo.gameObject);
             nuevo.transform.localScale = Vector3.one * 0.8f;
             LeanTween.scale(nuevo.gameObject, Vector3.one, 0.3f).setEaseOutBack();
-
-            // --- LÍNEA RESTAURADA: Guarda el nombre para el Cronómetro ---
-            if (ManejadorRegistro.instance != null)
-                ManejadorRegistro.instance.nombreSeleccionado = nuevo.gameObject.name;
+            if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.nombreSeleccionado = nuevo.gameObject.name;
         }
         ActualizarInterfazSegunContador(false);
     }
@@ -130,19 +155,26 @@ public class Avisos : MonoBehaviour
         Invoke("RefrescarConPum", 0.1f);
     }
 
-    void RefrescarConPum() { ActualizarInterfazSegunContador(true); }
-    public void NotificarMiembroGuardado() { ActualizarInterfazSegunContador(true); }
-
-    public void IntentarAbrirRegistro()
+    public void ForzarOcultarAvisos()
     {
-        if (ManejadorRegistro.instance.listaDeMiembros.Count < 7)
-        {
-            if (navegador != null) navegador.AbrirTarjetaRegistro();
-            ActualizarInterfazSegunContador(false);
-        }
-        else { StartCoroutine(FlashAviso(avisoLimiteMiembros)); }
+        StopAllCoroutines();
+        if (avisoLimiteMiembros) { LeanTween.cancel(avisoLimiteMiembros); avisoLimiteMiembros.SetActive(false); }
+        if (avisoSeleccionaAlguien) { LeanTween.cancel(avisoSeleccionaAlguien); avisoSeleccionaAlguien.SetActive(false); }
     }
 
+    private void AnimarAtencionAviso()
+    {
+        if (avisoCreaMiembro != null && avisoCreaMiembro.activeSelf)
+        {
+            LeanTween.cancel(avisoCreaMiembro);
+            LeanTween.scale(avisoCreaMiembro, Vector3.one * 1.1f, 0.15f).setEaseOutQuad().setOnComplete(() => {
+                LeanTween.scale(avisoCreaMiembro, Vector3.one, 0.15f).setEaseInQuad();
+            });
+        }
+    }
+
+    void RefrescarConPum() { ActualizarInterfazSegunContador(true); }
+    public void NotificarMiembroGuardado() { ActualizarInterfazSegunContador(true); }
     public void PuenteGuardar() { ManejadorRegistro.instance.GuardarDatos(); }
 
     IEnumerator FlashAviso(GameObject obj)
