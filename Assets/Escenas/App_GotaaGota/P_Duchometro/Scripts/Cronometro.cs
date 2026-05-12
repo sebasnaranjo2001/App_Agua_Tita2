@@ -18,6 +18,17 @@ public class Cronometro : MonoBehaviour
     public GameObject btnGuardado;
     public GameObject btnVolverEmpezar;
 
+    [Header("--- ANIMACIÓN BOTÓN CRONO ---")]
+    public RectTransform imagenBotonCrono;
+    [Space]
+    public Vector2 posFuera;               // Posición X e Y original
+    public Vector2 sizeFuera;              // Width y Height original
+    [Space]
+    public Vector2 posDentro;              // Posición X e Y presionado
+    public Vector2 sizeDentro;             // Width y Height presionado
+    [Space]
+    public float tiempoAnimBoton = 0.2f;
+
     [Header("--- GESTIÓN DE LOGOS ---")]
     public GameObject logoFondoGeneral;
     public GameObject logoInternoCrono;
@@ -61,9 +72,17 @@ public class Cronometro : MonoBehaviour
         if (logoFondoGeneral != null) logoFondoGeneral.SetActive(false);
         if (logoInternoCrono != null) logoInternoCrono.SetActive(true);
 
-        // --- AUTO REINICIO ---
-        if (estaContando) { RecalcularTiempo(); ConfigurarPantallaSiempreEncendida(true); }
-        else { ReiniciarTodo(); }
+        if (estaContando)
+        {
+            RecalcularTiempo();
+            ConfigurarPantallaSiempreEncendida(true);
+            AnimarBotonCrono(true);
+        }
+        else
+        {
+            ReiniciarTodo();
+            AnimarBotonCrono(false);
+        }
     }
 
     void OnDisable()
@@ -93,6 +112,23 @@ public class Cronometro : MonoBehaviour
         }
     }
 
+    // --- ANIMACIÓN DE POSICIÓN Y TAMAÑO ---
+    void AnimarBotonCrono(bool presionado)
+    {
+        if (imagenBotonCrono == null) return;
+
+        Vector2 destinoPos = presionado ? posDentro : posFuera;
+        Vector2 destinoSize = presionado ? sizeDentro : sizeFuera;
+
+        LeanTween.cancel(imagenBotonCrono.gameObject);
+
+        // Mueve la posición
+        LeanTween.move(imagenBotonCrono, destinoPos, tiempoAnimBoton).setEase(LeanTweenType.easeOutQuad);
+
+        // Cambia el Width y Height (SizeDelta)
+        LeanTween.size(imagenBotonCrono, destinoSize, tiempoAnimBoton).setEase(LeanTweenType.easeOutQuad);
+    }
+
     void RecalcularTiempo()
     {
         TimeSpan diferencia = DateTime.Now - tiempoInicioReal;
@@ -106,6 +142,9 @@ public class Cronometro : MonoBehaviour
         tiempoAcumuladoAnterior = 0;
         ConfigurarPantallaSiempreEncendida(true);
         foreach (var gota in gotas) gota.gameObject.SetActive(true);
+
+        AnimarBotonCrono(true); // Hundir y encoger
+
         SetEstadoBotones(false, true, false, false, false);
         if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
     }
@@ -114,6 +153,9 @@ public class Cronometro : MonoBehaviour
     {
         estaContando = false;
         ConfigurarPantallaSiempreEncendida(false);
+
+        AnimarBotonCrono(false); // Sacar y agrandar
+
         if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
         StartCoroutine(SecuenciaGuardadoAutomatico());
     }
@@ -126,6 +168,9 @@ public class Cronometro : MonoBehaviour
         ActualizarInterfazUI();
         if (fondoColor != null) fondoColor.color = colorVerde;
         if (aguaVisual != null) aguaVisual.anchoredPosition = new Vector2(0, posMinY);
+
+        AnimarBotonCrono(false);
+
         SetEstadoBotones(true, false, false, false, false);
         if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
     }
@@ -251,6 +296,14 @@ public class Cronometro : MonoBehaviour
             for (int i = 0; i < gotas.Length; i++) ReiniciarGota(i);
         }
         ActualizarInterfazUI();
+
+        // Estado inicial del botón
+        if (imagenBotonCrono != null)
+        {
+            imagenBotonCrono.anchoredPosition = posFuera;
+            imagenBotonCrono.sizeDelta = sizeFuera;
+        }
+
         if (fondoColor != null) fondoColor.color = colorVerde;
         SetEstadoBotones(true, false, false, false, false);
     }
