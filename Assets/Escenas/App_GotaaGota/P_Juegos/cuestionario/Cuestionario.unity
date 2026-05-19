@@ -155,7 +155,7 @@ MonoBehaviour:
     - Cepillarse rapido sin cerrar la llave
     - Usar un vaso con agua
     respuestaCorrecta: 2
-    imagen: {fileID: -6634870019379800329, guid: d64965156f00eaf439b41103df30183d, type: 3}
+    imagen: {fileID: 7083995959121472022, guid: 5ad8fbabb3b61ff48851a5146e186833, type: 3}
   - pregunta: "\xBFQu\xE9 acci\xF3n ayuda m\xE1s a reducir el consumo de agua en
       la ducha? "
     respuestas:
@@ -163,28 +163,28 @@ MonoBehaviour:
     - 'Cerrar la llave mientras me enjabono '
     - Usar agua muy caliente
     respuestaCorrecta: 1
-    imagen: {fileID: 7631065013208611830, guid: b4d21c300a7d1394c87bb5354a62eebe, type: 3}
+    imagen: {fileID: 5671885412947734317, guid: cacb29b83015c9e44866489c54285ac4, type: 3}
   - pregunta: "Cu\xE1l de estas pr\xE1cticas es m\xE1s sostenible para regar plantas?"
     respuestas:
     - "Regar al mediod\xEDa"
     - Usar manguera sin control
     - "Regar en la noche o temprano en la ma\xF1ana"
     respuestaCorrecta: 2
-    imagen: {fileID: 4083244196564083931, guid: 9c5f07065cb728442836aee7b996fdd0, type: 3}
+    imagen: {fileID: 6408750344107933782, guid: 56303decc388a944cb7dd54475d8b89b, type: 3}
   - pregunta: "\xBFQu\xE9 se debe hacer si se detecta una fuga de agua en casa? "
     respuestas:
     - Repararla lo antes posible
     - "Usar m\xE1s agua para tapar la fuga"
-    - Ingnorarla
+    - Ignorarla
     respuestaCorrecta: 0
-    imagen: {fileID: 2157100433164358582, guid: c90d8b76eaff2a3459cf82e72075e544, type: 3}
+    imagen: {fileID: 6575279016644315727, guid: b61476e1e2cf80148bb4a404597baa7f, type: 3}
   - pregunta: "\xBFCu\xE1l es la mejor manera de usar la lavadora? "
     respuestas:
     - Usar con poca ropa
     - Usarla en la noche
     - Usarla con carga llena
     respuestaCorrecta: 2
-    imagen: {fileID: 4794123611389575039, guid: fcdab764c2a9cb34fab36450ce38062b, type: 3}
+    imagen: {fileID: -3133945157015180576, guid: 3d5959215b979c1419eb5abbc917b524, type: 3}
   textoPregunta: {fileID: 2113703432}
   imagenPregunta: {fileID: 1607499537}
   botones:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1143,7 +1143,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1289,7 +1289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -443.06, y: -1281.8354}
+  m_AnchoredPosition: {x: -514, y: -1319}
   m_SizeDelta: {x: 101.4943, y: 97.7033}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1101665162
@@ -1368,7 +1368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -9069606308435642858, guid: 43fde1b1fdefd884090362c3f8dd5712, type: 3}
+  m_Sprite: {fileID: -8635762865523480729, guid: 34fe81b2b2babc74aa290f4d1da9b762, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1842,7 +1842,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5428943975886060040, guid: bcdd4a90abaf63048b3da67a0b778d3d, type: 3}
+  m_Sprite: {fileID: -4499687585336360621, guid: 078e6656534a78a40ada7beb99e718b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2705,8 +2705,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 92.33002, y: -79}
-  m_SizeDelta: {x: 54.8407, y: 48.5943}
+  m_AnchoredPosition: {x: 96.624146, y: -85.636475}
+  m_SizeDelta: {x: 63.0032, y: 61.2091}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056264991
 MonoBehaviour:
@@ -2784,7 +2784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -9069606308435642858, guid: 43fde1b1fdefd884090362c3f8dd5712, type: 3}
+  m_Sprite: {fileID: -8635762865523480729, guid: 34fe81b2b2babc74aa290f4d1da9b762, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2900,7 +2900,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

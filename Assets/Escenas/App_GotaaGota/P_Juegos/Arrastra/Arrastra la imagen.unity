@@ -150,14 +150,13 @@ RectTransform:
   m_LocalScale: {x: 1.0521582, y: 1.0521582, z: 1.0521582}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 893854177}
   - {fileID: 1037591754}
   m_Father: {fileID: 1220904600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -112.37}
-  m_SizeDelta: {x: 54.8407, y: 48.5943}
+  m_AnchoredPosition: {x: 126.3, y: -115.976685}
+  m_SizeDelta: {x: 57.307, y: 55.4502}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &68382912
 MonoBehaviour:
@@ -235,7 +234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -9069606308435642858, guid: 43fde1b1fdefd884090362c3f8dd5712, type: 3}
+  m_Sprite: {fileID: -8635762865523480729, guid: 34fe81b2b2babc74aa290f4d1da9b762, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -502,25 +501,41 @@ MonoBehaviour:
     - Usar la lavadora solo con carga completa
     - Reutilizar el agua de lavar frutas y verduras para regar plantas
     imagenes:
-    - {fileID: 1971540193066915010, guid: dece6217c092fdd4b8d7df81f7c1ce43, type: 3}
-    - {fileID: 5510808911844168611, guid: 7eb92075152baed42a6b07b55cd877a7, type: 3}
-    - {fileID: -6306788481463315149, guid: f9563b69898705c44b1613a220b324d8, type: 3}
+    - {fileID: 2015074592012204201, guid: eb395dcd4353d2b45a97f243385fd4cc, type: 3}
+    - {fileID: 1131152895372616384, guid: 9b0e5990771bef047aa3c87766297e7a, type: 3}
+    - {fileID: -4971262634826542347, guid: 3664ae74e950ea44b9fc5eebf4cb2931, type: 3}
   - textos:
     - Instalar regaderas ahorradoras
     - "Reparar fugas en grifos y tuber\xEDas  "
     - Colocar una botella llena dentro del tanque del inodoro para reducir consumo
     imagenes:
-    - {fileID: -7862552186104320438, guid: 4dd0687e0d0e9a74281d704de03513d5, type: 3}
-    - {fileID: 2052965223457372369, guid: c6fd0eb0c9607ba45913a565d4baf51a, type: 3}
-    - {fileID: -2622274588649961750, guid: 35d7b0a9b2214ce4b8eab9295ee49d55, type: 3}
+    - {fileID: 9045198276345545554, guid: efa2db9f9b84ddc46b107f63c52eb338, type: 3}
+    - {fileID: -1251872334615329163, guid: 2e532c5abc7380e40a925024ea7d5533, type: 3}
+    - {fileID: -9123593852641064984, guid: 652f42836c53f2b418a536892044e4d9, type: 3}
   - textos:
     - "Regar las plantas temprano en la ma\xF1ana o al atardecer"
     - Usar un balde en lugar de la manguera para lavar el auto
     - "Acumular agua de lluvia para uso dom\xE9stico"
     imagenes:
-    - {fileID: -3401144464124983210, guid: 0d71c2cb3d998f5459aa852443028649, type: 3}
-    - {fileID: -1513749530005827869, guid: 0c3a915610c2a1b418e9d5d6c27dcfef, type: 3}
-    - {fileID: -1976608420530717740, guid: 6020f7ca638855945a405617dc1839d5, type: 3}
+    - {fileID: -4811701356744454223, guid: 6e50d306284569e45b305a352127b46e, type: 3}
+    - {fileID: -7733289765757562054, guid: a74ae439daf708041834c53f66f6ab2b, type: 3}
+    - {fileID: -9222489317787508034, guid: 3df070eeb3a57284c96927f13fb6d38c, type: 3}
+  - textos:
+    - Descongelar los alimentos para evitar usar agua
+    - Barrer calles ayuda a evitar utilizar agua
+    - Utilizar un tazon para lavar frutas y evitar desperdicio de agua
+    imagenes:
+    - {fileID: 7491229265535823093, guid: ca9268d1a0e8b2442804e6535804763e, type: 3}
+    - {fileID: 7359426832883928058, guid: d226ccd22e701424b8a08bbe8ebee923, type: 3}
+    - {fileID: 6197233538806844347, guid: 27f9692335c5dc94d8b3990f8a7b5944, type: 3}
+  - textos:
+    - Usar una cubeta ayuda a controlar el uso del agua
+    - Un vaso es suficiente para lavarse los dientes
+    - Instalar y revisar medidores ayuda a descubrir fugas ocultas
+    imagenes:
+    - {fileID: -6123918848340017057, guid: 8038e1cb6920dea43a9fafc92f86eb63, type: 3}
+    - {fileID: 1039396272809212704, guid: a37c22c0f7cc582449cdddea0260032b, type: 3}
+    - {fileID: -1775213824019015964, guid: 5c0306a62950bd74a981538f67de33d2, type: 3}
   zonas:
   - {fileID: 1487581962}
   - {fileID: 942610947}
@@ -1943,143 +1958,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890115898}
   m_CullTransparentMesh: 1
---- !u!1 &893854176
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 893854177}
-  - component: {fileID: 893854179}
-  - component: {fileID: 893854178}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &893854177
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893854176}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 68382911}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &893854178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893854176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &893854179
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893854176}
-  m_CullTransparentMesh: 1
 --- !u!1 &942610943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,7 +2016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5428943975886060040, guid: bcdd4a90abaf63048b3da67a0b778d3d, type: 3}
+  m_Sprite: {fileID: -6711722353790918246, guid: 841e16e909163b14291d190733d4189e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2866,7 +2744,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -9069606308435642858, guid: 43fde1b1fdefd884090362c3f8dd5712, type: 3}
+  m_Sprite: {fileID: -8635762865523480729, guid: 34fe81b2b2babc74aa290f4d1da9b762, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2942,7 +2820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5428943975886060040, guid: bcdd4a90abaf63048b3da67a0b778d3d, type: 3}
+  m_Sprite: {fileID: -6711722353790918246, guid: 841e16e909163b14291d190733d4189e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3258,7 +3136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5428943975886060040, guid: bcdd4a90abaf63048b3da67a0b778d3d, type: 3}
+  m_Sprite: {fileID: -6711722353790918246, guid: 841e16e909163b14291d190733d4189e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

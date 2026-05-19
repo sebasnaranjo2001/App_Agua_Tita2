@@ -12,20 +12,61 @@ public class SpotWaterManager : MonoBehaviour
     public GameObject finalPanel;
     public Image feedbackRed;
 
+    // Errores de cada nivel
     public GameObject[] level1Errors;
     public GameObject[] level2Errors;
     public GameObject[] level3Errors;
+    public GameObject[] level4Errors;
+    public GameObject[] level5Errors;
 
     int currentLevel = 0;
     int found = 0;
     int totalErrors = 2;
+
+    // Todos los niveles
+    GameObject[][] levels;
+
+    // Orden aleatorio
+    int[] randomOrder;
 
     void Start()
     {
         if (finalPanel != null)
             finalPanel.SetActive(false);
 
+        // Inicializar niveles
+        levels = new GameObject[][]
+        {
+            level1Errors,
+            level2Errors,
+            level3Errors,
+            level4Errors,
+            level5Errors
+        };
+
+        // Crear orden aleatorio
+        randomOrder = new int[levels.Length];
+
+        for (int i = 0; i < randomOrder.Length; i++)
+        {
+            randomOrder[i] = i;
+        }
+
+        ShuffleLevels();
+
         LoadLevel(0);
+    }
+
+    void ShuffleLevels()
+    {
+        for (int i = 0; i < randomOrder.Length; i++)
+        {
+            int randomIndex = Random.Range(i, randomOrder.Length);
+
+            int temp = randomOrder[i];
+            randomOrder[i] = randomOrder[randomIndex];
+            randomOrder[randomIndex] = temp;
+        }
     }
 
     void LoadLevel(int level)
@@ -33,13 +74,10 @@ public class SpotWaterManager : MonoBehaviour
         currentLevel = level;
         found = 0;
 
-        GameObject[][] levels =
-        {
-            level1Errors,
-            level2Errors,
-            level3Errors
-        };
+        // Nivel real aleatorio
+        int realLevel = randomOrder[level];
 
+        // Desactivar todos los errores
         foreach (GameObject[] lvl in levels)
         {
             foreach (GameObject obj in lvl)
@@ -49,21 +87,27 @@ public class SpotWaterManager : MonoBehaviour
             }
         }
 
-        foreach (GameObject obj in levels[level])
+        // Activar errores del nivel actual
+        foreach (GameObject obj in levels[realLevel])
         {
             if (obj != null)
             {
                 obj.SetActive(true);
 
-                obj.GetComponent<Button>().interactable = true;
+                Button btn = obj.GetComponent<Button>();
+                Image img = obj.GetComponent<Image>();
 
-                obj.GetComponent<Image>().color =
-                    new Color(1, 1, 1, 0);
+                if (btn != null)
+                    btn.interactable = true;
+
+                if (img != null)
+                    img.color = new Color(1, 1, 1, 0);
             }
         }
 
-        if (mainImage != null)
-            mainImage.sprite = levelImages[level];
+        // Cambiar imagen principal
+        if (mainImage != null && realLevel < levelImages.Length)
+            mainImage.sprite = levelImages[realLevel];
 
         UpdateCounter();
     }
@@ -72,16 +116,19 @@ public class SpotWaterManager : MonoBehaviour
     {
         btn.interactable = false;
 
-        btn.GetComponent<Image>().color =
-            new Color(0, 1, 0, 0.5f);
+        Image img = btn.GetComponent<Image>();
+
+        if (img != null)
+            img.color = new Color(0, 1, 0, 0.5f);
 
         found++;
 
         UpdateCounter();
 
+        // Pasar al siguiente nivel
         if (found >= totalErrors)
         {
-            Invoke("NextLevel", 1f);
+            Invoke(nameof(NextLevel), 1f);
         }
     }
 
@@ -90,8 +137,8 @@ public class SpotWaterManager : MonoBehaviour
         if (feedbackRed != null)
             feedbackRed.gameObject.SetActive(true);
 
-        CancelInvoke("HideRed");
-        Invoke("HideRed", 0.5f);
+        CancelInvoke(nameof(HideRed));
+        Invoke(nameof(HideRed), 0.5f);
     }
 
     void HideRed()
@@ -102,16 +149,14 @@ public class SpotWaterManager : MonoBehaviour
 
     void NextLevel()
     {
-        if (currentLevel == 0)
+        // Si todavía hay niveles
+        if (currentLevel < levels.Length - 1)
         {
-            LoadLevel(1);
-        }
-        else if (currentLevel == 1)
-        {
-            LoadLevel(2);
+            LoadLevel(currentLevel + 1);
         }
         else
         {
+            // Juego terminado
             if (finalPanel != null)
                 finalPanel.SetActive(true);
         }
@@ -120,7 +165,7 @@ public class SpotWaterManager : MonoBehaviour
     void UpdateCounter()
     {
         if (scoreText != null)
-            scoreText.text = "Errores: " + found + "/2";
+            scoreText.text = "Errores: " + found + "/" + totalErrors;
     }
 
     public void VolverAlMenu()
