@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: feed38bdce8646c4bbbe6d48b35ed5aa
+guid: a1ff79a6c17bc2444acc3498cc16898c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1459765517974344179
-    second: Panel Avisos_0
+      213: -7980347215613235479
+    second: Boton_Video_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Panel Avisos_0
+      name: Boton_Video_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 562
-        height: 564
+        x: 2
+        y: 4
+        width: 797
+        height: 292
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 19, y: 11, z: 22, w: 15}
+      border: {x: 2, y: 2, z: 2, w: 2}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3f199322101224410800000000000000
-      internalID: 1459765517974344179
+      spriteID: 9ee68153d7c104190800000000000000
+      internalID: -7980347215613235479
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a333b87f036ff7e4c83e00f494539c75
+    spriteID: ae6041bbe879e5040b5253bce8cb50e6
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Panel Avisos_0: 1459765517974344179
+      Boton_Video_0: -7980347215613235479
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: feed38bdce8646c4bbbe6d48b35ed5aa
+guid: 3d9f61404f5319941aed3dbd8439570c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1459765517974344179
-    second: Panel Avisos_0
+      213: -2058793558109852334
+    second: Boton_Duchometro_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Panel Avisos_0
+      name: Boton_Duchometro_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 562
-        height: 564
+        x: 2
+        y: 3
+        width: 797
+        height: 257
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 19, y: 11, z: 22, w: 15}
+      border: {x: 0, y: 2, z: 2, w: 1}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3f199322101224410800000000000000
-      internalID: 1459765517974344179
+      spriteID: 25deff6ba22bd63e0800000000000000
+      internalID: -2058793558109852334
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a333b87f036ff7e4c83e00f494539c75
+    spriteID: 721ff8089743695428b5c48b161e0aa5
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Panel Avisos_0: 1459765517974344179
+      Boton_Duchometro_0: -2058793558109852334
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

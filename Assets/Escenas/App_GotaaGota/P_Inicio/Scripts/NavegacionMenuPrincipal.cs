@@ -25,10 +25,20 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public Button btnGuia;
     public Button btnDuchometroMenu;
 
+    [Header("--- BURBUJA FLUIDA ---")]
+    public RectTransform burbujaSeleccion; // Arrastra aquí la imagen de tu burbuja
+    public float tiempoMovimiento = 0.35f;
+
     [Space(5)]
-    public Sprite iconInicioNormal, iconInicioSelected;
-    public Sprite iconJuegosNormal, iconJuegosSelected;
-    public Sprite iconGuiaNormal, iconGuiaSelected;
+    public float posXInicio;   // Posición X para Inicio
+    public float posXJuegos;   // Posición X para Juegos
+    public float posXGuia;     // Posición X para Guía
+
+    [Space(5)]
+    // CORRECCIÓN: Colores asignados matemáticamente para evitar el error de compilación
+    public Color colorBurbujaInicio = new Color(78f / 255f, 168f / 255f, 222f / 255f); // #4EA8DE
+    public Color colorBurbujaJuegos = new Color(160f / 255f, 132f / 255f, 232f / 255f); // #A084E8
+    public Color colorBurbujaGuia = new Color(244f / 255f, 162f / 255f, 97f / 255f);   // #F4A261
 
     [Header("--- SISTEMA VISUAL (FONDOS) ---")]
     public Image fondoPrincipal;
@@ -92,7 +102,6 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("duchometro");
         EjecutarTransicionFondo(fondoDuchometro, panelDuchometro);
 
-        // Solo animamos el logo. El resto lo hará el ManejadorNavegacion del Duchómetro
         SetScaleZero(logoGeneral);
         Pop(logoGeneral, 0.6f, 0.0f);
     }
@@ -148,13 +157,37 @@ public class NavegacionMenuPrincipal : MonoBehaviour
 
     private void ActualizarEstadoBotones(string seccionActiva)
     {
-        if (btnInicio) btnInicio.image.sprite = (seccionActiva == "inicio") ? iconInicioSelected : iconInicioNormal;
-        if (btnJuegos) btnJuegos.image.sprite = (seccionActiva == "juegos") ? iconJuegosSelected : iconJuegosNormal;
-        if (btnGuia) btnGuia.image.sprite = (seccionActiva == "guia") ? iconGuiaSelected : iconGuiaNormal;
-
         GestionarEscalaBoton(btnInicio.transform, seccionActiva == "inicio");
         GestionarEscalaBoton(btnJuegos.transform, seccionActiva == "juegos");
         GestionarEscalaBoton(btnGuia.transform, seccionActiva == "guia");
+
+        if (burbujaSeleccion != null && seccionActiva != "duchometro")
+        {
+            float posDestinoX = burbujaSeleccion.anchoredPosition.x;
+            Color colorDestino = Color.white;
+
+            if (seccionActiva == "inicio") { posDestinoX = posXInicio; colorDestino = colorBurbujaInicio; }
+            else if (seccionActiva == "juegos") { posDestinoX = posXJuegos; colorDestino = colorBurbujaJuegos; }
+            else if (seccionActiva == "guia") { posDestinoX = posXGuia; colorDestino = colorBurbujaGuia; }
+
+            LeanTween.cancel(burbujaSeleccion.gameObject);
+            LeanTween.moveX(burbujaSeleccion, posDestinoX, tiempoMovimiento).setEase(LeanTweenType.easeOutBack);
+
+            Image imgBurbuja = burbujaSeleccion.GetComponent<Image>();
+            if (imgBurbuja != null)
+            {
+                LeanTween.color(burbujaSeleccion, colorDestino, tiempoMovimiento);
+            }
+        }
+        else if (burbujaSeleccion != null && seccionActiva == "duchometro")
+        {
+            LeanTween.scale(burbujaSeleccion.gameObject, Vector3.zero, 0.2f);
+        }
+
+        if (burbujaSeleccion != null && seccionActiva != "duchometro")
+        {
+            LeanTween.scale(burbujaSeleccion.gameObject, Vector3.one, 0.2f);
+        }
     }
 
     private void EjecutarTransicionFondo(Sprite nuevoFondo, GameObject panelDestino)

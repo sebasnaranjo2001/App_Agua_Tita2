@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 {
@@ -13,7 +12,7 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
     [Header("Indicadores de Progreso")]
     public LayoutElement[] puntos;
-    public GameObject contenedorPuntos; // Arrastra el objeto PADRE de los puntos aquí
+    public GameObject contenedorPuntos;
     public Color colorActivo = Color.white;
     public Color colorInactivo = new Color(1f, 1f, 1f, 0.3f);
 
@@ -21,45 +20,54 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
     public GameObject tarjetaRanking;
 
     [Header("Ajustes de Movimiento (Horizontal)")]
-    public float anchoTarjeta = 739f;
-    public float espacioEntreTarjetas = 50f;
-    public float sensibilidadSwipe = 20f;
+    public float anchoTarjeta = 740f;
+    public float espacioEntreTarjetas = 83.06f;
+    public float sensibilidadSwipe = 25f;
 
     [Header("Ajustes Visuales Puntos")]
     public float tamañoPuntoActivo = 60f;
     public float tamañoPuntoInactivo = 40f;
 
+    [Header("Navegación Single Scene")]
+    public GameObject panelPadreDuchometro;    // Solo necesitamos el objeto padre "Duchometro"
+
     private int indexActual = 0;
     private Vector2 posInicialContenedor;
     private int totalTarjetasActivas = 1;
 
-    void Start()
+    void Awake()
     {
-        // 1. Lógica de activación por datos
+        if (contenedor != null)
+        {
+            posInicialContenedor = contenedor.anchoredPosition;
+        }
+    }
+
+    void OnEnable()
+    {
+        RefrescarPanel();
+    }
+
+    public void RefrescarPanel()
+    {
         if (PlayerPrefs.GetInt("HayDatosDucha", 0) == 1)
         {
             if (tarjetaRanking != null) tarjetaRanking.SetActive(true);
             CargarLiderMenu();
-            totalTarjetasActivas = 2; // Ranking + Video
+            totalTarjetasActivas = 2;
         }
         else
         {
             if (tarjetaRanking != null) tarjetaRanking.SetActive(false);
-            totalTarjetasActivas = 1; // Solo Video
+            totalTarjetasActivas = 1;
             indexActual = 0;
         }
 
-        // 2. Guardamos posición inicial
         if (contenedor != null)
         {
-            posInicialContenedor = contenedor.anchoredPosition;
-            if (totalTarjetasActivas == 1)
-            {
-                contenedor.anchoredPosition = posInicialContenedor;
-            }
+            contenedor.anchoredPosition = posInicialContenedor;
         }
 
-        // 3. Ejecutamos la actualización de indicadores
         ActualizarIndicadores(true);
     }
 
@@ -67,7 +75,6 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Bloqueo de movimiento si no hay nada que navegar
         if (totalTarjetasActivas <= 1) return;
 
         float diferenciaX = eventData.pressPosition.x - eventData.position.x;
@@ -99,25 +106,20 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (contenedorPuntos == null) return;
 
-        // --- EL ARREGLO CLAVE ESTÁ AQUÍ ---
         if (totalTarjetasActivas <= 1)
         {
-            // Si solo hay una tarjeta (Video), apagamos TODO el objeto de puntos
             contenedorPuntos.SetActive(false);
-            return; // Salimos de la función para no procesar nada más
+            return;
         }
         else
         {
-            // Si hay más de una tarjeta, nos aseguramos de que esté encendido
             contenedorPuntos.SetActive(true);
         }
 
-        // Si llegamos aquí, es porque hay más de una tarjeta y debemos animar los puntos
         for (int i = 0; i < puntos.Length; i++)
         {
             if (puntos[i] == null) continue;
 
-            // Apagamos los puntos individuales que no se usan (por si el array tiene 3 pero solo hay 2 tarjetas)
             if (i >= totalTarjetasActivas)
             {
                 puntos[i].gameObject.SetActive(false);
@@ -151,11 +153,27 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    // --- LÓGICA DE RANKING (SIN CAMBIOS) ---
+    // LÓGICA CORREGIDA: Nos integramos al sistema principal
     public void IrAlDuchometroRanking()
     {
-        NavegacionMenuPrincipal.panelAbridor = "ranking";
-        SceneManager.LoadScene("Duchometro");
+        // 1. Buscamos el script principal y le decimos que abra el Duchómetro oficialmente
+        // Esto cambia los fondos, actualiza los botones de la barra inferior y cambia la 'seccionActual'
+        NavegacionMenuPrincipal navPrincipal = Object.FindFirstObjectByType<NavegacionMenuPrincipal>();
+        if (navPrincipal != null)
+        {
+            navPrincipal.AbrirPanelDuchometro();
+        }
+
+        // 2. Le decimos al ManejadorNavegacion interno del Duchómetro que vaya a la pestaña Ranking
+        if (panelPadreDuchometro != null)
+        {
+            ManejadorNavegacion manejadorDuchometro = panelPadreDuchometro.GetComponentInChildren<ManejadorNavegacion>();
+
+            if (manejadorDuchometro != null)
+            {
+                manejadorDuchometro.IrARanking();
+            }
+        }
     }
 
     void CargarLiderMenu()
