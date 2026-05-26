@@ -116,10 +116,10 @@ TextureImporter:
       name: Gota_Contorno_0
       rect:
         serializedVersion: 2
-        x: 113
-        y: 57
-        width: 271
-        height: 367
+        x: 333
+        y: 203
+        width: 810
+        height: 1095
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
