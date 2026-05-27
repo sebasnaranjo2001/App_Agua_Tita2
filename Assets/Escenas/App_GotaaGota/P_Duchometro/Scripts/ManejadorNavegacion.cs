@@ -20,7 +20,7 @@ public class ManejadorNavegacion : MonoBehaviour
     public float posRankX; public float anchoRank;
 
     [Header("--- ELEMENTOS UI REGISTRO ---")]
-    public GameObject tablero;
+    public GameObject textoNumeroMiembros; // <-- Nuevo elemento en reemplazo del tablero
     public GameObject logoApp;
     public GameObject avisos;
     public GameObject botonEmpezar;
@@ -48,7 +48,7 @@ public class ManejadorNavegacion : MonoBehaviour
 
     void RegistrarEscalas()
     {
-        GameObject[] todos = { tablero, logoApp, avisos, botonEmpezar, botonAnadirGrande,
+        GameObject[] todos = { textoNumeroMiembros, logoApp, avisos, botonEmpezar, botonAnadirGrande,
                               panelBotonesPequenos, panelDeslizable, panelTarjetaRegistro,
                               panelPrincipalCrono, panelSecundarioCrono, panelBotonesCrono };
         foreach (GameObject obj in todos)
@@ -123,7 +123,8 @@ public class ManejadorNavegacion : MonoBehaviour
     public void AnimarPum()
     {
         List<GameObject> aAnimar = new List<GameObject>();
-        GameObject[] posibles = { avisos, botonEmpezar, botonAnadirGrande, panelBotonesPequenos, panelDeslizable };
+        // textoNumeroMiembros agregado a la lista de posibles para la animación
+        GameObject[] posibles = { textoNumeroMiembros, avisos, botonEmpezar, botonAnadirGrande, panelBotonesPequenos, panelDeslizable };
         foreach (GameObject obj in posibles)
         {
             if (obj != null && obj.activeSelf) { aAnimar.Add(obj); obj.transform.localScale = Vector3.zero; }
@@ -161,7 +162,6 @@ public class ManejadorNavegacion : MonoBehaviour
     public void AbrirTarjetaRegistro()
     {
         if (panelTarjetaRegistro == null) return;
-        if (tablero) tablero.SetActive(false);
         panelTarjetaRegistro.SetActive(true);
         panelTarjetaRegistro.transform.localScale = Vector3.zero;
         LeanTween.scale(panelTarjetaRegistro, escalasOriginales[panelTarjetaRegistro], 0.4f).setEase(LeanTweenType.easeOutBack);
@@ -172,7 +172,6 @@ public class ManejadorNavegacion : MonoBehaviour
         if (panelTarjetaRegistro == null) return;
         LeanTween.scale(panelTarjetaRegistro, Vector3.zero, 0.3f).setEaseInBack().setOnComplete(() => {
             panelTarjetaRegistro.SetActive(false);
-            if (tablero) tablero.SetActive(true);
             if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
         });
     }

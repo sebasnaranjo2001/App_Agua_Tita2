@@ -16,9 +16,6 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public GameObject panelGuia;
     public GameObject panelDuchometro;
 
-    [Header("--- LOGO GENERAL (ÚNICO) ---")]
-    public GameObject logoGeneral;
-
     [Header("--- BARRA DE NAVEGACIÓN (BOTONES) ---")]
     public Button btnInicio;
     public Button btnJuegos;
@@ -57,6 +54,9 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public GameObject tituloJuegos, subtituloJuegos;
     public GameObject itemJ1, itemJ2, itemJ3;
 
+    [Header("--- ELEMENTOS DUCHOMETRO (PUM) ---")]
+    public GameObject tituloDuchometro, subtituloDuchometro, barraInternaDuchometro;
+
     void Start()
     {
         RegistrarEscalas();
@@ -69,10 +69,10 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     void RegistrarEscalas()
     {
         GameObject[] todosLosObjetos = {
-            logoGeneral,
             seccionAvisos, seccionBotonDuchometro, seccionTarjetas,
             tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin,
-            tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3
+            tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3,
+            tituloDuchometro, subtituloDuchometro, barraInternaDuchometro
         };
 
         foreach (GameObject obj in todosLosObjetos)
@@ -102,8 +102,10 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("duchometro");
         EjecutarTransicionFondo(fondoDuchometro, panelDuchometro);
 
-        SetScaleZero(logoGeneral);
-        Pop(logoGeneral, 0.6f, 0.0f);
+        SetScaleZero(tituloDuchometro, subtituloDuchometro, barraInternaDuchometro);
+        Pop(tituloDuchometro, 0.4f, 0.12f);
+        Pop(subtituloDuchometro, 0.4f, 0.18f);
+        Pop(barraInternaDuchometro, 0.4f, 0.25f);
     }
 
     public void AbrirPanelJuegos()
@@ -113,8 +115,7 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("juegos");
         EjecutarTransicionFondo(fondoJuegos, panelJuegos);
 
-        SetScaleZero(logoGeneral, tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3);
-        Pop(logoGeneral, 0.6f, 0.0f);
+        SetScaleZero(tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3);
         Pop(tituloJuegos, 0.4f, 0.12f);
         Pop(subtituloJuegos, 0.4f, 0.18f);
         Pop(itemJ1, 0.4f, 0.25f);
@@ -129,8 +130,7 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("guia");
         EjecutarTransicionFondo(fondoGuia, panelGuia);
 
-        SetScaleZero(logoGeneral, tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin);
-        Pop(logoGeneral, 0.6f, 0.0f);
+        SetScaleZero(tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin);
         Pop(tituloGuia, 0.4f, 0.12f);
         Pop(subtituloGuia, 0.4f, 0.18f);
         Pop(zonaBano, 0.4f, 0.25f);
@@ -146,8 +146,7 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("inicio");
         EjecutarTransicionFondo(fondoInicio, panelInicio);
 
-        SetScaleZero(logoGeneral, seccionAvisos, seccionBotonDuchometro, seccionTarjetas);
-        Pop(logoGeneral, 0.6f, 0.0f);
+        SetScaleZero(seccionAvisos, seccionBotonDuchometro, seccionTarjetas);
         Pop(seccionAvisos, 0.4f, 0.15f);
         Pop(seccionBotonDuchometro, 0.4f, 0.22f);
         Pop(seccionTarjetas, 0.4f, 0.30f);

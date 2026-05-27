@@ -134,13 +134,25 @@ public class Avisos : MonoBehaviour
     // --- MIEMBROS Y LEANTWEEN ---
     public void RegistrarSeleccion(SeleccionMiembros nuevo)
     {
+        if (nuevo != null && miembroSeleccionado == nuevo) return;
+
         if (miembroSeleccionado != null && miembroSeleccionado != nuevo) miembroSeleccionado.Deseleccionar();
         miembroSeleccionado = nuevo;
+
         if (nuevo != null)
         {
             LeanTween.cancel(nuevo.gameObject);
-            nuevo.transform.localScale = Vector3.one * 0.8f;
-            LeanTween.scale(nuevo.gameObject, Vector3.one, 0.3f).setEaseOutBack();
+
+            // 1. Aseguramos que inicie en su tamaño normal (100%)
+            nuevo.transform.localScale = Vector3.one;
+
+            // 2. EL VERDADERO PUM: Se encoge rápido al 90% (0.05 segundos)
+            LeanTween.scale(nuevo.gameObject, Vector3.one * 0.9f, 0.05f).setEaseOutQuad().setOnComplete(() => {
+
+                // 3. Vuelve a subir exactamente al 100% y se clava ahí sin rebotar.
+                LeanTween.scale(nuevo.gameObject, Vector3.one, 0.1f).setEaseOutQuad();
+            });
+
             if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.nombreSeleccionado = nuevo.gameObject.name;
         }
         ActualizarInterfazSegunContador(false);
