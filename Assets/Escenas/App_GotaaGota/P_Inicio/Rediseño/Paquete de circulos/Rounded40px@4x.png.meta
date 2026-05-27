@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3d9f61404f5319941aed3dbd8439570c
+guid: 558d40b9b9a0109419449eea84c72370
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2058793558109852334
-    second: Boton_Duchometro_0
+      213: -7164327313814668908
+    second: Rounded40px@4x_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boton_Duchometro_0
+      name: Rounded40px@4x_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 3
-        width: 797
-        height: 257
+        x: 0
+        y: 0
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 80, y: 77, z: 79, w: 75}
+      border: {x: 130, y: 130, z: 130, w: 130}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25deff6ba22bd63e0800000000000000
-      internalID: -2058793558109852334
+      spriteID: 499b27d2442339c90800000000000000
+      internalID: -7164327313814668908
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 721ff8089743695428b5c48b161e0aa5
+    spriteID: 2b7f784ba0eb01d46aed40e341598ab2
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boton_Duchometro_0: -2058793558109852334
+      Rounded40px@4x_0: -7164327313814668908
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

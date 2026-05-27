@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 3d9f61404f5319941aed3dbd8439570c
+guid: b6c0b2751f92c7c418a54fe669a3869b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2058793558109852334
-    second: Boton_Duchometro_0
+      213: 7548410287450865624
+    second: Icono_Foco_0
+  - first:
+      213: -3513532761876867469
+    second: Icono_Foco_1
+  - first:
+      213: 5427484859347881020
+    second: Icono_Foco_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +119,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boton_Duchometro_0
+      name: Icono_Foco_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 3
-        width: 797
-        height: 257
+        x: 165
+        y: 180
+        width: 121
+        height: 127
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 80, y: 77, z: 79, w: 75}
+      border: {x: 13, y: 5, z: 5, w: 6}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25deff6ba22bd63e0800000000000000
-      internalID: -2058793558109852334
+      spriteID: 8dfb96ac92751c860800000000000000
+      internalID: 7548410287450865624
       vertices: []
       indices: 
       edges: []
@@ -138,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 721ff8089743695428b5c48b161e0aa5
+    spriteID: 82bfc051d5d9b25438cfac64c9017739
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +154,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boton_Duchometro_0: -2058793558109852334
+      Icono_Foco_0: 7548410287450865624
+      Icono_Foco_1: -3513532761876867469
+      Icono_Foco_2: 5427484859347881020
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

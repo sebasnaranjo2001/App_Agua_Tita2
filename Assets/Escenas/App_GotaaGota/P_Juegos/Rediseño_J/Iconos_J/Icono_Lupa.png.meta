@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3d9f61404f5319941aed3dbd8439570c
+guid: 0690fdc6ce218684e9af583d9eac8912
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2058793558109852334
-    second: Boton_Duchometro_0
+      213: 6931641514539873066
+    second: Icono_Lupa_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boton_Duchometro_0
+      name: Icono_Lupa_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 3
-        width: 797
-        height: 257
+        x: 170
+        y: 201
+        width: 113
+        height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 80, y: 77, z: 79, w: 75}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25deff6ba22bd63e0800000000000000
-      internalID: -2058793558109852334
+      spriteID: a23ff786b33223060800000000000000
+      internalID: 6931641514539873066
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 721ff8089743695428b5c48b161e0aa5
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Boton_Duchometro_0: -2058793558109852334
+      Icono_Lupa_0: 6931641514539873066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
