@@ -1,39 +1,47 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SeleccionMiembros : MonoBehaviour
 {
-    [Header("Referencias")]
-    public Image circuloConfirmacion; // El objeto "Confirmacion" (el círculo)
+    [Header("Referencias de la Tarjeta")]
+    public Image imagenFondo;
+    public TMP_Text textoNombre;
+    public TMP_Text textoEdad;
+    public TMP_Text textoDuchas;
 
-    [Header("Colores")]
-    public Color colorVerde = Color.green;
-    public Color colorBlanco = Color.white;
+    private Color colorBaseDeEstaTarjeta;
+    private bool estaInicializado = false;
+
+    void Start()
+    {
+        // Guardamos el color crema/base exacto que tú le pusiste en el Inspector
+        if (imagenFondo != null)
+        {
+            colorBaseDeEstaTarjeta = imagenFondo.color;
+            estaInicializado = true;
+        }
+    }
 
     public void SeleccionarEsteMiembro()
     {
-        // 1. Le avisamos al sistema central (Avisos) que ESTE es el miembro elegido
-        // Esto es lo que hará que el botón "Empezar" y "Eliminar" funcionen
-        if (Avisos.instance != null)
-        {
-            Avisos.instance.RegistrarSeleccion(this);
-        }
+        if (Avisos.instance != null) Avisos.instance.RegistrarSeleccion(this);
 
-        // 2. Cambiamos visualmente el círculo a verde
-        if (circuloConfirmacion != null)
+        // Oscurecemos la tarjeta multiplicando su color original por 0.7f
+        if (estaInicializado && imagenFondo != null)
         {
-            circuloConfirmacion.color = colorVerde;
+            imagenFondo.color = colorBaseDeEstaTarjeta * 0.7f;
         }
 
         Debug.Log("Has seleccionado a: " + gameObject.name);
     }
 
-    // Función que llamará el script de Avisos para limpiar la selección previa
     public void Deseleccionar()
     {
-        if (circuloConfirmacion != null)
+        // Le quitamos el "filtro" oscuro y la dejamos normal
+        if (estaInicializado && imagenFondo != null)
         {
-            circuloConfirmacion.color = colorBlanco;
+            imagenFondo.color = colorBaseDeEstaTarjeta;
         }
     }
 }
