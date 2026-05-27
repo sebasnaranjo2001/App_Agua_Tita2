@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 41786f2d0598b564d9da35f2455703fd
+guid: f000762dda095684a8d80a0fb34bbd43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7322541261940773273
-    second: 102061_0
+      213: 8930860684098703807
+    second: JUEGO MENU_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 102061_0
+      name: JUEGO MENU_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 9
-        width: 512
-        height: 494
+        y: 0
+        width: 25
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76e21ecc48b116a90800000000000000
-      internalID: -7322541261940773273
+      spriteID: fb19436797ac0fb70800000000000000
+      internalID: 8930860684098703807
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      102061_0: -7322541261940773273
+      JUEGO MENU_0: 8930860684098703807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4899e316614df36468bcb445fadd1af2
+guid: a60be47a30aede94ca6b2b4c8dfd049b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7367991801482590009
-    second: Fondo_Guia_0
+      213: -5692500407189371450
+    second: GOTA MAL_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fondo_Guia_0
+      name: GOTA MAL_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1081
-        height: 1921
+        width: 71
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9373c53918d504660800000000000000
-      internalID: 7367991801482590009
+      spriteID: 6c506b13a0d2001b0800000000000000
+      internalID: -5692500407189371450
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fondo_Guia_0: 7367991801482590009
+      GOTA MAL_0: -5692500407189371450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
