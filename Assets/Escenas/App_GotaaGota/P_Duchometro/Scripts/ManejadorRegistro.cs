@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 
@@ -10,7 +11,8 @@ public class ManejadorRegistro : MonoBehaviour
     public TMP_InputField inputNombre;
     public TMP_InputField inputEdad;
     public Transform contenedorLista;
-    public TMP_Text textoContadorMiembros; // <-- AQUÍ CONECTARÁS TU NUEVO TEXTO
+    public TMP_Text textoContadorMiembros;
+    public Button botonGuardar;
 
     [Header("Configuración del Prefab")]
     public GameObject prefabMiembro;
@@ -49,6 +51,7 @@ public class ManejadorRegistro : MonoBehaviour
     {
         RefrescarListaVisual();
         ConfigurarInputs();
+        ValidarCamposLlenos();
     }
 
     void ConfigurarInputs()
@@ -57,12 +60,13 @@ public class ManejadorRegistro : MonoBehaviour
         {
             inputEdad.contentType = TMP_InputField.ContentType.IntegerNumber;
             inputEdad.characterLimit = 3;
+            inputEdad.onValueChanged.AddListener(delegate { ValidarCamposLlenos(); });
         }
 
         if (inputNombre != null)
         {
             inputNombre.characterLimit = 10;
-            inputNombre.onValueChanged.AddListener(delegate { ValidarNombre(); });
+            inputNombre.onValueChanged.AddListener(delegate { ValidarNombre(); ValidarCamposLlenos(); });
         }
     }
 
@@ -75,8 +79,20 @@ public class ManejadorRegistro : MonoBehaviour
         }
     }
 
+    public void ValidarCamposLlenos()
+    {
+        if (botonGuardar != null && inputNombre != null && inputEdad != null)
+        {
+            bool tieneNombre = !string.IsNullOrWhiteSpace(inputNombre.text);
+            bool tieneEdad = !string.IsNullOrWhiteSpace(inputEdad.text);
+
+            botonGuardar.interactable = (tieneNombre && tieneEdad);
+        }
+    }
+
     public void GuardarDatos()
     {
+        // Si está vacío, el código se detiene aquí y no hace nada más.
         if (string.IsNullOrEmpty(inputNombre.text) || string.IsNullOrEmpty(inputEdad.text)) return;
 
         DatosMiembro nuevoMiembro = new DatosMiembro
@@ -97,6 +113,14 @@ public class ManejadorRegistro : MonoBehaviour
         inputNombre.text = "";
         inputEdad.text = "";
         ActualizarTextoContador();
+
+        ValidarCamposLlenos();
+
+        // --- NUEVO: Cerramos el panel deslizable SOLO si se guardó con éxito ---
+        if (Avisos.instance != null && Avisos.instance.navegador != null)
+        {
+            Avisos.instance.navegador.CerrarTarjetaRegistro();
+        }
     }
 
     public void RefrescarListaVisual()
@@ -136,7 +160,6 @@ public class ManejadorRegistro : MonoBehaviour
         ActualizarTextoContador();
     }
 
-    // --- NUEVA LÓGICA DEL CONTADOR ---
     void ActualizarTextoContador()
     {
         if (textoContadorMiembros != null)

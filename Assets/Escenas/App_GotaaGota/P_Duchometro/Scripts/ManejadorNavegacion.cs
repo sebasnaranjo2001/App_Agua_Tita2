@@ -20,7 +20,7 @@ public class ManejadorNavegacion : MonoBehaviour
     public float posRankX; public float anchoRank;
 
     [Header("--- ELEMENTOS UI REGISTRO ---")]
-    public GameObject textoNumeroMiembros; // <-- Nuevo elemento en reemplazo del tablero
+    public GameObject textoNumeroMiembros;
     public GameObject logoApp;
     public GameObject avisos;
     public GameObject botonEmpezar;
@@ -28,6 +28,12 @@ public class ManejadorNavegacion : MonoBehaviour
     public GameObject panelBotonesPequenos;
     public GameObject panelDeslizable;
     public GameObject panelTarjetaRegistro;
+
+    [Header("--- ANIMACIÓN BOTTOM SHEET Y BLUR ---")]
+    public RectTransform rectTarjetaRegistro;
+    public GameObject fondoBlur;              // ¡CORREGIDO! Ahora puedes arrastrar tu imagen directamente
+    public float posAbiertaY = 0f;
+    public float posCerradaY = -2000f;
 
     [Header("--- ELEMENTOS UI CRONOMETRO ---")]
     public GameObject panelPrincipalCrono;
@@ -70,7 +76,6 @@ public class ManejadorNavegacion : MonoBehaviour
     public void ConfiguracionInicial()
     {
         panelActualNombre = "";
-        // --- LOGICA DE PRIORIDAD ---
         Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
         if (crono != null && crono.estaContando)
         {
@@ -123,7 +128,6 @@ public class ManejadorNavegacion : MonoBehaviour
     public void AnimarPum()
     {
         List<GameObject> aAnimar = new List<GameObject>();
-        // textoNumeroMiembros agregado a la lista de posibles para la animación
         GameObject[] posibles = { textoNumeroMiembros, avisos, botonEmpezar, botonAnadirGrande, panelBotonesPequenos, panelDeslizable };
         foreach (GameObject obj in posibles)
         {
@@ -161,18 +165,45 @@ public class ManejadorNavegacion : MonoBehaviour
 
     public void AbrirTarjetaRegistro()
     {
-        if (panelTarjetaRegistro == null) return;
+        if (panelTarjetaRegistro == null || rectTarjetaRegistro == null) return;
+
         panelTarjetaRegistro.SetActive(true);
-        panelTarjetaRegistro.transform.localScale = Vector3.zero;
-        LeanTween.scale(panelTarjetaRegistro, escalasOriginales[panelTarjetaRegistro], 0.4f).setEase(LeanTweenType.easeOutBack);
+
+        rectTarjetaRegistro.anchoredPosition = new Vector2(rectTarjetaRegistro.anchoredPosition.x, posCerradaY);
+        // Sincronizado a 0.4f
+        LeanTween.moveY(rectTarjetaRegistro, posAbiertaY, 0.4f).setEase(LeanTweenType.easeOutBack);
+
+        if (fondoBlur != null)
+        {
+            fondoBlur.SetActive(true);
+            CanvasGroup cg = fondoBlur.GetComponent<CanvasGroup>();
+            if (cg == null) cg = fondoBlur.AddComponent<CanvasGroup>(); // Seguro por si olvidas ponerlo
+
+            cg.alpha = 0f;
+            // Sincronizado a 0.4f
+            LeanTween.alphaCanvas(cg, 1f, 0.4f);
+        }
     }
 
     public void CerrarTarjetaRegistro()
     {
-        if (panelTarjetaRegistro == null) return;
-        LeanTween.scale(panelTarjetaRegistro, Vector3.zero, 0.3f).setEaseInBack().setOnComplete(() => {
+        if (panelTarjetaRegistro == null || rectTarjetaRegistro == null) return;
+
+        // Sincronizado a 0.3f
+        LeanTween.moveY(rectTarjetaRegistro, posCerradaY, 0.3f).setEase(LeanTweenType.easeInBack).setOnComplete(() => {
             panelTarjetaRegistro.SetActive(false);
             if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
         });
+
+        if (fondoBlur != null)
+        {
+            CanvasGroup cg = fondoBlur.GetComponent<CanvasGroup>();
+            if (cg != null)
+            {
+                // Sincronizado a 0.3f
+                LeanTween.alphaCanvas(cg, 0f, 0.3f).setOnComplete(() => fondoBlur.SetActive(false));
+            }
+            else fondoBlur.SetActive(false);
+        }
     }
 }
