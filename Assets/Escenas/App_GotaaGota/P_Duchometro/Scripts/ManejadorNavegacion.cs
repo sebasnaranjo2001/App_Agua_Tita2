@@ -31,7 +31,7 @@ public class ManejadorNavegacion : MonoBehaviour
 
     [Header("--- ANIMACIÓN BOTTOM SHEET Y BLUR ---")]
     public RectTransform rectTarjetaRegistro;
-    public GameObject fondoBlur;              // ¡CORREGIDO! Ahora puedes arrastrar tu imagen directamente
+    public GameObject fondoBlur;
     public float posAbiertaY = 0f;
     public float posCerradaY = -2000f;
 
@@ -76,7 +76,7 @@ public class ManejadorNavegacion : MonoBehaviour
     public void ConfiguracionInicial()
     {
         panelActualNombre = "";
-        Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
+        Cronometro crono = UnityEngine.Object.FindFirstObjectByType<Cronometro>();
         if (crono != null && crono.estaContando)
         {
             IrACronometro();
@@ -93,6 +93,10 @@ public class ManejadorNavegacion : MonoBehaviour
         ApagarTodo();
         panelRegistro.SetActive(true);
         panelRegistro.GetComponent<RectTransform>().anchoredPosition = posDisenoReg;
+
+        // --- CORRECCIÓN: Forzamos refresco de avisos al entrar a Registro ---
+        if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
+
         AnimarPum();
         ActualizarBarraVisual(posRegX, anchoReg);
         panelActualNombre = "registro";
@@ -112,6 +116,10 @@ public class ManejadorNavegacion : MonoBehaviour
     {
         if (panelActualNombre == "ranking") return;
         ApagarTodo();
+
+        // --- CORRECCIÓN: Forzamos refresco de datos en Registro para que Ranking muestre lo nuevo ---
+        if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.ActualizarRanking();
+
         panelRanking.SetActive(true);
         ActualizarBarraVisual(posRankX, anchoRank);
         panelActualNombre = "ranking";
@@ -170,17 +178,15 @@ public class ManejadorNavegacion : MonoBehaviour
         panelTarjetaRegistro.SetActive(true);
 
         rectTarjetaRegistro.anchoredPosition = new Vector2(rectTarjetaRegistro.anchoredPosition.x, posCerradaY);
-        // Sincronizado a 0.4f
         LeanTween.moveY(rectTarjetaRegistro, posAbiertaY, 0.4f).setEase(LeanTweenType.easeOutBack);
 
         if (fondoBlur != null)
         {
             fondoBlur.SetActive(true);
             CanvasGroup cg = fondoBlur.GetComponent<CanvasGroup>();
-            if (cg == null) cg = fondoBlur.AddComponent<CanvasGroup>(); // Seguro por si olvidas ponerlo
+            if (cg == null) cg = fondoBlur.AddComponent<CanvasGroup>();
 
             cg.alpha = 0f;
-            // Sincronizado a 0.4f
             LeanTween.alphaCanvas(cg, 1f, 0.4f);
         }
     }
@@ -189,7 +195,6 @@ public class ManejadorNavegacion : MonoBehaviour
     {
         if (panelTarjetaRegistro == null || rectTarjetaRegistro == null) return;
 
-        // Sincronizado a 0.3f
         LeanTween.moveY(rectTarjetaRegistro, posCerradaY, 0.3f).setEase(LeanTweenType.easeInBack).setOnComplete(() => {
             panelTarjetaRegistro.SetActive(false);
             if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
@@ -200,7 +205,6 @@ public class ManejadorNavegacion : MonoBehaviour
             CanvasGroup cg = fondoBlur.GetComponent<CanvasGroup>();
             if (cg != null)
             {
-                // Sincronizado a 0.3f
                 LeanTween.alphaCanvas(cg, 0f, 0.3f).setOnComplete(() => fondoBlur.SetActive(false));
             }
             else fondoBlur.SetActive(false);

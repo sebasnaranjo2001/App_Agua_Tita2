@@ -54,6 +54,14 @@ public class ManejadorRegistro : MonoBehaviour
         ValidarCamposLlenos();
     }
 
+    // --- CORRECCIÓN DEFINITIVA: Actualiza la visualización de la lista ---
+    public void ActualizarRanking()
+    {
+        // Forzamos la carga de los datos más recientes desde PlayerPrefs
+        CargarDatosDelTelefono();
+        RefrescarListaVisual();
+    }
+
     void ConfigurarInputs()
     {
         if (inputEdad != null)
@@ -85,15 +93,25 @@ public class ManejadorRegistro : MonoBehaviour
         {
             bool tieneNombre = !string.IsNullOrWhiteSpace(inputNombre.text);
             bool tieneEdad = !string.IsNullOrWhiteSpace(inputEdad.text);
-
             botonGuardar.interactable = (tieneNombre && tieneEdad);
         }
     }
 
     public void GuardarDatos()
     {
-        // Si está vacío, el código se detiene aquí y no hace nada más.
         if (string.IsNullOrEmpty(inputNombre.text) || string.IsNullOrEmpty(inputEdad.text)) return;
+
+        foreach (DatosMiembro m in listaDeMiembros)
+        {
+            if (m.nombre.ToLower() == inputNombre.text.ToLower() && m.edad == inputEdad.text)
+            {
+                if (Avisos.instance != null && Avisos.instance.popMiembroDuplicado != null)
+                {
+                    Avisos.instance.MostrarAvisoPopUp(Avisos.instance.popMiembroDuplicado);
+                }
+                return;
+            }
+        }
 
         DatosMiembro nuevoMiembro = new DatosMiembro
         {
@@ -104,7 +122,6 @@ public class ManejadorRegistro : MonoBehaviour
         };
 
         listaDeMiembros.Add(nuevoMiembro);
-
         CrearItemEnLista(nuevoMiembro);
         GuardarEnDisco();
 
@@ -113,10 +130,8 @@ public class ManejadorRegistro : MonoBehaviour
         inputNombre.text = "";
         inputEdad.text = "";
         ActualizarTextoContador();
-
         ValidarCamposLlenos();
 
-        // --- NUEVO: Cerramos el panel deslizable SOLO si se guardó con éxito ---
         if (Avisos.instance != null && Avisos.instance.navegador != null)
         {
             Avisos.instance.navegador.CerrarTarjetaRegistro();
@@ -144,7 +159,6 @@ public class ManejadorRegistro : MonoBehaviour
         {
             if (tarjeta.textoNombre != null) tarjeta.textoNombre.text = miembro.nombre;
             if (tarjeta.textoEdad != null) tarjeta.textoEdad.text = miembro.edad + " años";
-
             int totalBanos = (miembro.historialBanos != null) ? miembro.historialBanos.Count : 0;
             if (tarjeta.textoDuchas != null) tarjeta.textoDuchas.text = "Duchas totales:\n" + totalBanos.ToString();
         }
@@ -155,7 +169,6 @@ public class ManejadorRegistro : MonoBehaviour
         listaDeMiembros.RemoveAll(m => m.nombre == nombreBuscado);
         GuardarEnDisco();
         RefrescarListaVisual();
-
         if (Avisos.instance != null) Avisos.instance.NotificarMiembroGuardado();
         ActualizarTextoContador();
     }
@@ -165,8 +178,7 @@ public class ManejadorRegistro : MonoBehaviour
         if (textoContadorMiembros != null)
         {
             int total = listaDeMiembros.Count;
-            if (total == 1) textoContadorMiembros.text = "1 Miembro";
-            else textoContadorMiembros.text = total + " Miembros";
+            textoContadorMiembros.text = (total == 1) ? "1 Miembro" : total + " Miembros";
         }
     }
 
@@ -176,17 +188,9 @@ public class ManejadorRegistro : MonoBehaviour
         string json = JsonUtility.ToJson(wrapper);
         PlayerPrefs.SetString("ListaUsuarios", json);
 
-        bool hayAlMenosUnBano = false;
-        foreach (DatosMiembro m in listaDeMiembros)
-        {
-            if (m.historialBanos != null && m.historialBanos.Count > 0)
-            {
-                hayAlMenosUnBano = true;
-                break;
-            }
-        }
-
-        PlayerPrefs.SetInt("HayDatosDucha", hayAlMenosUnBano ? 1 : 0);
+        bool hayDatos = false;
+        foreach (DatosMiembro m in listaDeMiembros) { if (m.historialBanos != null && m.historialBanos.Count > 0) hayDatos = true; }
+        PlayerPrefs.SetInt("HayDatosDucha", hayDatos ? 1 : 0);
         PlayerPrefs.Save();
     }
 

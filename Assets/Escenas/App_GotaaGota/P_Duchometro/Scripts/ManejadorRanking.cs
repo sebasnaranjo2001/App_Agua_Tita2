@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Linq;
-using System; // Necesario para el manejo de fechas
+using System;
 
 public class ManejadorRanking : MonoBehaviour
 {
@@ -21,7 +21,9 @@ public class ManejadorRanking : MonoBehaviour
     public Sprite barraAmarilla;
     public Sprite barraRoja;
 
-    void Start()
+    // --- CORRECCIÓN: Usamos OnEnable en lugar de Start ---
+    // OnEnable se ejecuta cada vez que el objeto (el panel) se activa.
+    void OnEnable()
     {
         if (panelDetalles != null) panelDetalles.SetActive(false);
         GenerarRanking();
@@ -46,7 +48,6 @@ public class ManejadorRanking : MonoBehaviour
             if (scriptBoton != null) scriptBoton.nombreMiembro = datos.nombre;
 
             TMP_Text[] textos = nuevoItem.GetComponentsInChildren<TMP_Text>();
-            // El Ranking principal sigue usando 3 textos (Puesto, Nombre, Tiempo)
             if (textos.Length >= 3)
             {
                 textos[0].text = "#" + (i + 1);
@@ -76,19 +77,11 @@ public class ManejadorRanking : MonoBehaviour
             GameObject itemH = Instantiate(prefabItemHistorial, contenedorHistorial);
             TMP_Text[] textos = itemH.GetComponentsInChildren<TMP_Text>();
 
-            // Historial ahora usa 4 textos (Puesto, Fecha, Hora, Tiempo)
             if (textos.Length >= 4)
             {
-                // 1. PUESTO (#1)
                 textos[0].text = "#" + contadorBano;
-
-                // 2. FECHA (Formato: Mier-12-2026)
                 textos[1].text = FormatearFechaEspecial(bano.fecha);
-
-                // 3. HORA (Formato: 5:10 PM)
                 textos[2].text = bano.hora;
-
-                // 4. TIEMPO (Formato: 5:55 min)
                 textos[3].text = FormatearTiempo(bano.duracion);
             }
 
@@ -97,27 +90,16 @@ public class ManejadorRanking : MonoBehaviour
         }
     }
 
-    // Función para transformar "dd/MM/yyyy" a "Día-dd-yyyy"
     string FormatearFechaEspecial(string fechaOriginal)
     {
         try
         {
-            // Convertimos el texto guardado a una fecha real
             DateTime fecha = DateTime.ParseExact(fechaOriginal, "dd/MM/yyyy", null);
-
-            // Obtenemos el nombre del día en español (Lun, Mar, Mie...)
             string diaNombre = fecha.ToString("ddd", new System.Globalization.CultureInfo("es-ES"));
-
-            // Limpiamos el punto y ponemos la primera en mayúscula
             diaNombre = char.ToUpper(diaNombre[0]) + diaNombre.Substring(1).Replace(".", "");
-
-            // Armamos el formato: Mier-14-2026
             return diaNombre + "-" + fecha.ToString("dd-yyyy");
         }
-        catch
-        {
-            return fechaOriginal; // Si algo falla, devuelve la fecha normal
-        }
+        catch { return fechaOriginal; }
     }
 
     Sprite ObtenerSpritePorTiempo(float t)
