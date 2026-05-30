@@ -22,14 +22,28 @@ public class GameManagerDrag : MonoBehaviour
     public Image[] imagenesUI;
 
     [Header("Elementos Gameplay")]
-    // PON TODO EL GAMEPLAY MENOS:
-    // fondo y panels finales
     public GameObject[] elementosGameplay;
 
     [Header("Panels Finales")]
     public GameObject panelVictoria;
     public GameObject panelIntermedio;
     public GameObject panelDerrota;
+
+    [Header("Gotas Victoria")]
+    public GameObject gotaVictoria1;
+    public GameObject gotaVictoria2;
+    public GameObject gotaVictoria3;
+
+    [Header("Gotas Intermedio")]
+    public GameObject gotaIntermedio1;
+    public GameObject gotaIntermedio2;
+    public GameObject gotaIntermedio3;
+
+    [Header("Gotas Derrota")]
+    public GameObject gotaDerrota1;
+    public GameObject gotaDerrota2;
+    public GameObject gotaDerrota3;
+
 
     [Header("Textos de Aciertos por Panel")]
     public TMP_Text textoAciertosVictoria;
@@ -39,174 +53,160 @@ public class GameManagerDrag : MonoBehaviour
     [Header("Texto Aciertos Gameplay")]
     public TMP_Text textoAciertos;
 
+    [Header("Elementos Panel Victoria")]
+    public GameObject[] elementosVictoria;
+
+    [Header("Elementos Panel Intermedio")]
+    public GameObject[] elementosIntermedio;
+
+    [Header("Elementos Panel Derrota")]
+    public GameObject[] elementosDerrota;
+
+    [Header("Animaciones Panel")]
+    public float delayEntreElementos = 0.1f;
+
+    [Header("Animaciones UI")]
+    public TMP_Text tituloJuego;
+    public TMP_Text categoriaJuego;
+    public RectTransform fondoCategoria;
+    public Button botonComprobar;
+
+    private Vector2 posicionOriginalTitulo;
+    private Vector2 posicionOriginalCategoria;
+    private Vector2 posicionOriginalBoton;
+
     private int faseActual = 0;
     private int aciertos = 0;
 
     void Start()
     {
-        // =========================
-        // MEZCLAR FASES
-        // =========================
-
         MezclarFases();
 
-        // =========================
-        // DESACTIVAR PANELES
-        // =========================
-
-        if (panelVictoria != null)
-            panelVictoria.SetActive(false);
-
-        if (panelIntermedio != null)
-            panelIntermedio.SetActive(false);
-
-        if (panelDerrota != null)
-            panelDerrota.SetActive(false);
-
-        // =========================
-        // MOSTRAR GAMEPLAY
-        // =========================
+        if (panelVictoria != null) panelVictoria.SetActive(false);
+        if (panelIntermedio != null) panelIntermedio.SetActive(false);
+        if (panelDerrota != null) panelDerrota.SetActive(false);
 
         foreach (GameObject obj in elementosGameplay)
         {
-            if (obj != null)
-                obj.SetActive(true);
+            if (obj != null) obj.SetActive(true);
         }
 
-        // =========================
-        // ACTUALIZAR TEXTO GAMEPLAY
-        // =========================
+        // Animación título
+        posicionOriginalTitulo = tituloJuego.rectTransform.anchoredPosition;
+        tituloJuego.rectTransform.anchoredPosition = new Vector2(posicionOriginalTitulo.x, posicionOriginalTitulo.y + 250f);
+        LeanTween.move(tituloJuego.rectTransform, posicionOriginalTitulo, 0.6f).setEaseOutBack();
+
+        // Animación categoría
+        posicionOriginalCategoria = fondoCategoria.anchoredPosition;
+
+        fondoCategoria.anchoredPosition =
+            new Vector2(
+                posicionOriginalCategoria.x,
+                posicionOriginalCategoria.y + 200f
+            );
+
+        LeanTween.move(
+            fondoCategoria,
+            posicionOriginalCategoria,
+            0.7f
+        ).setDelay(0.15f).setEaseOutBack();
+
+        // Animación botón
+        RectTransform botonRect = botonComprobar.GetComponent<RectTransform>();
+        posicionOriginalBoton = botonRect.anchoredPosition;
+        botonRect.anchoredPosition = new Vector2(posicionOriginalBoton.x, posicionOriginalBoton.y - 250f);
+        LeanTween.move(botonRect, posicionOriginalBoton, 0.6f).setDelay(0.3f).setEaseOutBack();
 
         ActualizarTextoAciertos();
-
-        // =========================
-        // PRIMERA FASE
-        // =========================
-
         CargarFase(false);
     }
 
-    // =========================
-    // MEZCLAR FASES
-    // =========================
     void MezclarFases()
     {
         for (int i = 0; i < fases.Length; i++)
         {
-            int randomIndex =
-                Random.Range(i, fases.Length);
-
+            int randomIndex = Random.Range(i, fases.Length);
             Fase temp = fases[i];
             fases[i] = fases[randomIndex];
             fases[randomIndex] = temp;
         }
     }
 
-    // =========================
-    // CARGAR FASE
-    // =========================
     void CargarFase(bool resetearPosiciones = true)
     {
-        if (fases == null || fases.Length == 0)
-            return;
+        if (fases == null || fases.Length == 0) return;
 
         Fase f = fases[faseActual];
 
-        // =========================
-        // APLICAR TEXTOS
-        // =========================
-
+        // Textos
         for (int i = 0; i < textosUI.Length; i++)
         {
-            if (textosUI[i] != null &&
-                i < f.textos.Length)
-            {
+            if (textosUI[i] != null && i < f.textos.Length)
                 textosUI[i].text = f.textos[i];
-            }
         }
 
-        // =========================
-        // APLICAR IMÁGENES
-        // =========================
-
+        // Imágenes
         for (int i = 0; i < imagenesUI.Length; i++)
         {
-            if (imagenesUI[i] != null &&
-                i < f.imagenes.Length)
+            if (imagenesUI[i] != null && i < f.imagenes.Length)
             {
-                imagenesUI[i].sprite =
-                    f.imagenes[i];
+                imagenesUI[i].sprite = f.imagenes[i];
+                imagenesUI[i].transform.localScale = Vector3.zero;
+                LeanTween.scale(imagenesUI[i].gameObject, Vector3.one, 0.35f).setDelay(i * 0.1f).setEaseOutBack();
             }
         }
 
-        // =========================
-        // RESET ZONAS
-        // =========================
-
+        // Reset zonas
         foreach (DropZone zona in zonas)
         {
-            if (zona != null)
-                zona.ResetZona();
+            if (zona != null) zona.ResetZona();
         }
 
-        // =========================
-        // RESET ITEMS
-        // =========================
-
+        // Reset items
         if (resetearPosiciones)
         {
             foreach (DragItem item in items)
             {
-                if (item != null)
-                    item.ResetPosition();
+                if (item != null) item.ResetPosition();
             }
         }
 
-        // =========================
-        // MEZCLAR POSICIONES
-        // DRAG ITEMS
-        // =========================
-
+        // Mezclar posiciones
         for (int i = 0; i < items.Length; i++)
         {
-            int randomIndex =
-                Random.Range(i, items.Length);
+            int randomIndex = Random.Range(i, items.Length);
+            RectTransform rectA = items[i].GetComponent<RectTransform>();
+            RectTransform rectB = items[randomIndex].GetComponent<RectTransform>();
+            Vector2 tempPos = rectA.anchoredPosition;
+            rectA.anchoredPosition = rectB.anchoredPosition;
+            rectB.anchoredPosition = tempPos;
+        }
 
-            Vector3 tempPos =
-                items[i].transform.position;
-
-            items[i].transform.position =
-                items[randomIndex].transform.position;
-
-            items[randomIndex].transform.position =
-                tempPos;
+        // Animar items
+        for (int j = 0; j < items.Length; j++)
+        {
+            items[j].transform.localScale = Vector3.zero;
+            LeanTween.scale(items[j].gameObject, Vector3.one, 0.35f).setDelay(0.25f + j * 0.1f).setEaseOutBack();
         }
     }
 
-    // =========================
-    // COMPROBAR
-    // =========================
     public void Comprobar()
     {
         bool todoCorrecto = true;
 
         foreach (DropZone zona in zonas)
         {
-            if (zona == null)
-                continue;
+            if (zona == null) continue;
 
-            // VACÍO
             if (zona.objetoActual == null)
             {
                 zona.MarcarIncorrecto();
                 todoCorrecto = false;
             }
-            // CORRECTO
             else if (zona.EsCorrecto())
             {
                 zona.MarcarCorrecto();
             }
-            // INCORRECTO
             else
             {
                 zona.MarcarIncorrecto();
@@ -214,153 +214,217 @@ public class GameManagerDrag : MonoBehaviour
             }
         }
 
-        // =========================
-        // SUMAR ACIERTO
-        // =========================
-
-        // SOLO SI TODA LA FASE ESTÁ PERFECTA
         if (todoCorrecto)
         {
             aciertos++;
-
             ActualizarTextoAciertos();
         }
-
-        // =========================
-        // PASAR SIEMPRE
-        // =========================
 
         Invoke("SiguienteFase", 1.5f);
     }
 
-    // =========================
-    // SIGUIENTE FASE
-    // =========================
     void SiguienteFase()
     {
         faseActual++;
-
-        // FINAL DEL JUEGO
-        if (faseActual >= fases.Length)
-        {
-            MostrarResultadoFinal();
-        }
-        else
-        {
-            CargarFase(true);
-        }
+        if (faseActual >= fases.Length) MostrarResultadoFinal();
+        else CargarFase(true);
     }
 
-    // =========================
-    // ACTUALIZAR TEXTO GAMEPLAY
-    // =========================
     void ActualizarTextoAciertos()
     {
         if (textoAciertos != null)
+            textoAciertos.text = "Aciertos: " + aciertos + "/" + fases.Length;
+    }
+
+    void MostrarResultadoFinal()
+    {
+        string resultadoFinal =
+            "Aciertos: " + aciertos + "/" + fases.Length;
+
+        float porcentaje = (float)aciertos / fases.Length;
+
+        if (porcentaje >= 0.8f)
         {
-            textoAciertos.text =
-                "Aciertos: " +
-                aciertos +
-                "/" +
-                fases.Length;
+            if (textoAciertosVictoria != null)
+                textoAciertosVictoria.text = resultadoFinal;
+
+            AnimarPanelVictoria();
+        }
+        else if (porcentaje >= 0.5f)
+        {
+            if (textoAciertosIntermedio != null)
+                textoAciertosIntermedio.text = resultadoFinal;
+
+            AnimarPanelIntermedio();
+        }
+        else
+        {
+            if (textoAciertosDerrota != null)
+                textoAciertosDerrota.text = resultadoFinal;
+
+            AnimarPanelDerrota();
         }
     }
 
-    // =========================
-    // RESULTADO FINAL
-    // =========================
-    void MostrarResultadoFinal()
+    void AnimarElemento(GameObject obj, float delay)
     {
-        // =========================
-        // OCULTAR GAMEPLAY
-        // =========================
+        if (obj == null) return;
 
+        obj.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(
+            obj,
+            Vector3.one,
+            0.35f
+        )
+        .setDelay(delay)
+        .setEaseOutBack();
+    }
+
+    void AnimarElementosPanel(GameObject[] elementos)
+    {
+        if (elementos == null) return;
+
+        for (int i = 0; i < elementos.Length; i++)
+        {
+            if (elementos[i] == null)
+                continue;
+
+            elementos[i].SetActive(true);
+
+            elementos[i].transform.localScale = Vector3.zero;
+
+            LeanTween.scale(
+                elementos[i],
+                Vector3.one,
+                0.3f
+            )
+            .setDelay(i * 0.1f)
+            .setEaseOutBack();
+        }
+    }
+
+
+    void AnimarPanelVictoria()
+    {
         foreach (GameObject obj in elementosGameplay)
         {
             if (obj != null)
                 obj.SetActive(false);
         }
 
-        // =========================
-        // DESACTIVAR PANELES
-        // =========================
-
-        if (panelVictoria != null)
-            panelVictoria.SetActive(false);
-
-        if (panelIntermedio != null)
-            panelIntermedio.SetActive(false);
-
-        if (panelDerrota != null)
-            panelDerrota.SetActive(false);
-
-        // =========================
-        // TEXTO FINAL
-        // =========================
-
-        string resultadoFinal =
-            "Aciertos: " +
-            aciertos +
-            "/" +
-            fases.Length;
-
-        // =========================
-        // VICTORIA
-        // =========================
-
-        if (aciertos == fases.Length)
+        foreach (GameObject obj in elementosVictoria)
         {
-            if (panelVictoria != null)
-                panelVictoria.SetActive(true);
-
-            if (textoAciertosVictoria != null)
-                textoAciertosVictoria.text = resultadoFinal;
+            if (obj != null)
+                obj.SetActive(false);
         }
 
-        // =========================
-        // DERROTA
-        // 0 o 1
-        // =========================
+        panelVictoria.SetActive(true);
 
-        else if (aciertos <= 1)
-        {
-            if (panelDerrota != null)
-                panelDerrota.SetActive(true);
+        panelVictoria.transform.localScale = Vector3.zero;
 
-            if (textoAciertosDerrota != null)
-                textoAciertosDerrota.text = resultadoFinal;
-        }
+        LeanTween.scale(
+            panelVictoria,
+            Vector3.one,
+            0.5f
+        ).setEaseOutBack();
 
-        // =========================
-        // INTERMEDIO
-        // 2,3,4
-        // =========================
+        AnimarElemento(gotaVictoria1, 0.1f);
+        AnimarElemento(gotaVictoria2, 0.5f);
+        AnimarElemento(gotaVictoria3, 0.9f);
 
-        else
-        {
-            if (panelIntermedio != null)
-                panelIntermedio.SetActive(true);
-
-            if (textoAciertosIntermedio != null)
-                textoAciertosIntermedio.text = resultadoFinal;
-        }
+        LeanTween.delayedCall(
+            1.4f,
+            () =>
+            {
+                AnimarElementosPanel(elementosVictoria);
+            });
     }
 
-    // =========================
-    // VOLVER
-    // =========================
-    public void Volver()
+    void AnimarPanelIntermedio()
     {
-        SceneManager.LoadScene("Menu");
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        foreach (GameObject obj in elementosIntermedio)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        panelIntermedio.SetActive(true);
+
+        panelIntermedio.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(
+            panelIntermedio,
+            Vector3.one,
+            0.5f
+        ).setEaseOutBack();
+
+        if (gotaIntermedio1 != null)
+        {
+            gotaIntermedio1.SetActive(true);
+            AnimarElemento(gotaIntermedio1, 0f);
+        }
+
+        if (gotaIntermedio2 != null)
+        {
+            gotaIntermedio2.SetActive(true);
+            AnimarElemento(gotaIntermedio2, 0.4f);
+        }
+
+        if (gotaIntermedio3 != null)
+        {
+            gotaIntermedio3.SetActive(true);
+            AnimarElemento(gotaIntermedio3, 0.8f);
+        }
+
+        LeanTween.delayedCall(
+            1.3f,
+            () =>
+            {
+                AnimarElementosPanel(elementosIntermedio);
+            });
     }
 
-    // =========================
-    // REINICIAR
-    // =========================
-    public void Reiniciar()
+    void AnimarPanelDerrota()
     {
-        SceneManager.LoadScene(
-            SceneManager.GetActiveScene().buildIndex
-        );
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        foreach (GameObject obj in elementosDerrota)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        panelDerrota.SetActive(true);
+
+        panelDerrota.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(
+            panelDerrota,
+            Vector3.one,
+            0.5f
+        ).setEaseOutBack();
+
+        AnimarElemento(gotaDerrota1, 0.1f);
+
+        LeanTween.delayedCall(
+            0.6f,
+            () =>
+            {
+                AnimarElementosPanel(elementosDerrota);
+            });
     }
+
 }
+
+

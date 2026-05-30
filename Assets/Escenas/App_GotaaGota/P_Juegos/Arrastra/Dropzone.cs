@@ -51,12 +51,32 @@ public class DropZone : MonoBehaviour, IDropHandler
 
     public void MarcarCorrecto()
     {
-        if (imagen != null) imagen.color = new Color(0.6f, 1f, 0.6f); // Verde suave
+        if (imagen != null)
+        {
+            imagen.color =
+                new Color(0.6f, 1f, 0.6f);
+
+            LeanTween.scale(
+                gameObject,
+                Vector3.one * 1.1f,
+                0.15f
+            ).setLoopPingPong(1);
+        }
     }
 
     public void MarcarIncorrecto()
     {
-        if (imagen != null) imagen.color = new Color(1f, 0.6f, 0.6f); // Rojo suave
+        if (imagen != null)
+        {
+            imagen.color =
+                new Color(1f, 0.6f, 0.6f);
+
+            LeanTween.moveLocalX(
+                gameObject,
+                transform.localPosition.x + 15f,
+                0.05f
+            ).setLoopPingPong(3);
+        }
     }
 
     public void ResetZona()
