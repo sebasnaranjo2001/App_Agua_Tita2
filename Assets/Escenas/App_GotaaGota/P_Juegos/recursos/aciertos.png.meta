@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 92a06080d93442e44a0c66addae50fbf
+guid: 43b2a3a12d5bcdf4a91f8bb0fa867a76
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1949569985230998325
-    second: GOTA BIEN 1_0
+      213: 1857168259445698604
+    second: aciertos_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GOTA BIEN 1_0
+      name: aciertos_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 73
-        height: 123
+        width: 176
+        height: 176
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc4fa8d7d6cb1f4e0800000000000000
-      internalID: -1949569985230998325
+      spriteID: c20346831bcf5c910800000000000000
+      internalID: 1857168259445698604
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GOTA BIEN 1_0: -1949569985230998325
+      aciertos_0: 1857168259445698604
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

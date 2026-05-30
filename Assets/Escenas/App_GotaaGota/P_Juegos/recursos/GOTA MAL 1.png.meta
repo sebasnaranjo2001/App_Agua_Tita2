@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eccc9e836475fe4429ee654e62dbd553
+guid: 331041c6d0de69f439a78083fab7bdb5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2832123815364418997
-    second: ACIERT_0
+      213: 2996921276669861052
+    second: GOTA MAL 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ACIERT_0
+      name: GOTA MAL 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 25
-        height: 25
+        width: 311
+        height: 415
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b42a749256642b8d0800000000000000
-      internalID: -2832123815364418997
+      spriteID: cbc97b3d504379920800000000000000
+      internalID: 2996921276669861052
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ACIERT_0: -2832123815364418997
+      GOTA MAL 1_0: 2996921276669861052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

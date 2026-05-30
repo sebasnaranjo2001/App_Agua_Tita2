@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bebdaf6c643e32844ad4b407f9b9c639
+guid: 73d7f985d4e3ff641838ec72a22fef66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2469369991840235721
-    second: REC3_0
+      213: -1845479208746202743
+    second: reintentar_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: REC3_0
+      name: reintentar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 511
-        height: 114
+        width: 101
+        height: 109
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73f7a5163190bbdd0800000000000000
-      internalID: -2469369991840235721
+      spriteID: 989405aff6a8366e0800000000000000
+      internalID: -1845479208746202743
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      REC3_0: -2469369991840235721
+      reintentar_0: -1845479208746202743
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

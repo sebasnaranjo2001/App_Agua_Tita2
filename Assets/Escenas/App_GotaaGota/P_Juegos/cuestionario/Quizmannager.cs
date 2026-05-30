@@ -9,8 +9,13 @@ public class QuizManager : MonoBehaviour
     public class Pregunta
     {
         public string pregunta;
+
+        // Respuestas originales
         public string[] respuestas;
+
+        // Índice correcto ORIGINAL
         public int respuestaCorrecta;
+
         public Sprite imagen;
     }
 
@@ -24,7 +29,6 @@ public class QuizManager : MonoBehaviour
     public Button[] botones;
 
     [Header("ELEMENTOS A OCULTAR AL FINAL")]
-    // AQUÍ PON TODO MENOS EL FONDO Y LOS PANELES
     public GameObject[] elementosGameplay;
 
     [Header("Panels Finales")]
@@ -39,6 +43,9 @@ public class QuizManager : MonoBehaviour
 
     private int indicePregunta = 0;
     private int aciertos = 0;
+
+    // RESPUESTA CORRECTA ACTUAL
+    private int respuestaCorrectaActual;
 
     void Start()
     {
@@ -55,14 +62,14 @@ public class QuizManager : MonoBehaviour
         if (panelDerrota != null)
             panelDerrota.SetActive(false);
 
-        // Mostrar elementos gameplay
+        // Mostrar gameplay
         foreach (GameObject obj in elementosGameplay)
         {
             if (obj != null)
                 obj.SetActive(true);
         }
 
-        // Actualizar contador inicial
+        // Actualizar contador
         ActualizarTextoAciertos();
 
         // Mostrar primera pregunta
@@ -105,10 +112,54 @@ public class QuizManager : MonoBehaviour
             imagenPregunta.gameObject.SetActive(false);
         }
 
-        // Botones
+        // =========================
+        // MEZCLAR RESPUESTAS
+        // =========================
+
+        string[] respuestasMezcladas = (string[])p.respuestas.Clone();
+
+        // Guardar índices
+        int[] indices = new int[respuestasMezcladas.Length];
+
+        for (int i = 0; i < indices.Length; i++)
+        {
+            indices[i] = i;
+        }
+
+        // Fisher-Yates Shuffle
+        for (int i = 0; i < respuestasMezcladas.Length; i++)
+        {
+            int randomIndex = Random.Range(i, respuestasMezcladas.Length);
+
+            // Intercambiar respuestas
+            string tempRespuesta = respuestasMezcladas[i];
+            respuestasMezcladas[i] = respuestasMezcladas[randomIndex];
+            respuestasMezcladas[randomIndex] = tempRespuesta;
+
+            // Intercambiar índices
+            int tempIndex = indices[i];
+            indices[i] = indices[randomIndex];
+            indices[randomIndex] = tempIndex;
+        }
+
+        // Encontrar nueva posición correcta
+        for (int i = 0; i < indices.Length; i++)
+        {
+            if (indices[i] == p.respuestaCorrecta)
+            {
+                respuestaCorrectaActual = i;
+                break;
+            }
+        }
+
+        // =========================
+        // CONFIGURAR BOTONES
+        // =========================
+
         for (int i = 0; i < botones.Length; i++)
         {
-            botones[i].GetComponentInChildren<TMP_Text>().text = p.respuestas[i];
+            botones[i].GetComponentInChildren<TMP_Text>().text =
+                respuestasMezcladas[i];
 
             int index = i;
 
@@ -125,10 +176,8 @@ public class QuizManager : MonoBehaviour
     // =========================
     void Responder(int index)
     {
-        Pregunta p = preguntas[indicePregunta];
-
         // Correcta
-        if (index == p.respuestaCorrecta)
+        if (index == respuestaCorrectaActual)
         {
             botones[index].image.color = Color.green;
 
@@ -140,7 +189,7 @@ public class QuizManager : MonoBehaviour
         else
         {
             botones[index].image.color = Color.red;
-            botones[p.respuestaCorrecta].image.color = Color.green;
+            botones[respuestaCorrectaActual].image.color = Color.green;
         }
 
         // Desactivar botones
@@ -149,7 +198,7 @@ public class QuizManager : MonoBehaviour
             b.interactable = false;
         }
 
-        // Esperar antes de pasar
+        // Esperar
         Invoke("SiguientePregunta", 1.5f);
     }
 
@@ -177,7 +226,8 @@ public class QuizManager : MonoBehaviour
     {
         if (textoAciertos != null)
         {
-            textoAciertos.text = "Aciertos: " + aciertos;
+            textoAciertos.text =
+                "Aciertos: " + aciertos;
         }
     }
 
@@ -187,7 +237,7 @@ public class QuizManager : MonoBehaviour
     void MostrarResultado()
     {
         // =========================
-        // OCULTAR SOLO GAMEPLAY
+        // OCULTAR GAMEPLAY
         // =========================
 
         foreach (GameObject obj in elementosGameplay)
@@ -197,7 +247,7 @@ public class QuizManager : MonoBehaviour
         }
 
         // =========================
-        // DESACTIVAR TODOS LOS PANELES
+        // DESACTIVAR PANELES
         // =========================
 
         if (panelVictoria != null)
@@ -209,14 +259,15 @@ public class QuizManager : MonoBehaviour
         if (panelDerrota != null)
             panelDerrota.SetActive(false);
 
-        // Texto final
-        string resultadoFinal = "Aciertos: " + aciertos + "/" + preguntas.Length;
+        // Resultado final
+        string resultadoFinal =
+            "Aciertos: " + aciertos + "/" + preguntas.Length;
 
         // =========================
-        // VICTORIA
+        // VICTORIA → 5 ACIERTOS
         // =========================
 
-        if (aciertos == preguntas.Length)
+        if (aciertos == 5)
         {
             if (panelVictoria != null)
                 panelVictoria.SetActive(true);
@@ -226,10 +277,10 @@ public class QuizManager : MonoBehaviour
         }
 
         // =========================
-        // DERROTA
+        // DERROTA → 0 o 1 ACIERTO
         // =========================
 
-        else if (aciertos == 0)
+        else if (aciertos <= 1)
         {
             if (panelDerrota != null)
                 panelDerrota.SetActive(true);
@@ -239,7 +290,7 @@ public class QuizManager : MonoBehaviour
         }
 
         // =========================
-        // INTERMEDIO
+        // INTERMEDIO → 2,3,4
         // =========================
 
         else
@@ -258,7 +309,9 @@ public class QuizManager : MonoBehaviour
 
     public void ReiniciarQuiz()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(
+            SceneManager.GetActiveScene().buildIndex
+        );
     }
 
     public void VolverAlMenu()

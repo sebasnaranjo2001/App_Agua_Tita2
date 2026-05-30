@@ -5,36 +5,92 @@ using UnityEngine.SceneManagement;
 
 public class SpotWaterManager : MonoBehaviour
 {
+    [Header("Imagen Principal")]
     public Image mainImage;
     public Sprite[] levelImages;
 
+    [Header("Texto Gameplay")]
     public TMP_Text scoreText;
-    public GameObject finalPanel;
+
+    [Header("Panels Finales")]
+    public GameObject panelVictoria;
+    public GameObject panelIntermedio;
+    public GameObject panelDerrota;
+
+    [Header("Textos de Aciertos por Panel")]
+    public TMP_Text textoAciertosVictoria;
+    public TMP_Text textoAciertosIntermedio;
+    public TMP_Text textoAciertosDerrota;
+
+    [Header("Elementos Gameplay")]
+    // PON TODO EL GAMEPLAY MENOS:
+    // fondo y panels finales
+    public GameObject[] elementosGameplay;
+
+    [Header("Feedback")]
     public Image feedbackRed;
 
-    // Errores de cada nivel
+    // =========================
+    // ERRORES POR NIVEL
+    // =========================
+
     public GameObject[] level1Errors;
     public GameObject[] level2Errors;
     public GameObject[] level3Errors;
     public GameObject[] level4Errors;
     public GameObject[] level5Errors;
 
+    // =========================
+    // VARIABLES
+    // =========================
+
     int currentLevel = 0;
+
+    // encontrados en el nivel actual
     int found = 0;
+
+    // errores por imagen
     int totalErrors = 2;
+
+    // aciertos reales del juego
+    // SOLO suma si encontró los 2 errores
+    int aciertos = 0;
 
     // Todos los niveles
     GameObject[][] levels;
 
-    // Orden aleatorio
+    // Orden aleatorio ya implementado
     int[] randomOrder;
 
     void Start()
     {
-        if (finalPanel != null)
-            finalPanel.SetActive(false);
+        // =========================
+        // DESACTIVAR PANELES
+        // =========================
 
-        // Inicializar niveles
+        if (panelVictoria != null)
+            panelVictoria.SetActive(false);
+
+        if (panelIntermedio != null)
+            panelIntermedio.SetActive(false);
+
+        if (panelDerrota != null)
+            panelDerrota.SetActive(false);
+
+        // =========================
+        // MOSTRAR GAMEPLAY
+        // =========================
+
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+
+        // =========================
+        // INICIALIZAR NIVELES
+        // =========================
+
         levels = new GameObject[][]
         {
             level1Errors,
@@ -44,7 +100,10 @@ public class SpotWaterManager : MonoBehaviour
             level5Errors
         };
 
-        // Crear orden aleatorio
+        // =========================
+        // ORDEN ALEATORIO
+        // =========================
+
         randomOrder = new int[levels.Length];
 
         for (int i = 0; i < randomOrder.Length; i++)
@@ -57,11 +116,15 @@ public class SpotWaterManager : MonoBehaviour
         LoadLevel(0);
     }
 
+    // =========================
+    // MEZCLAR NIVELES
+    // =========================
     void ShuffleLevels()
     {
         for (int i = 0; i < randomOrder.Length; i++)
         {
-            int randomIndex = Random.Range(i, randomOrder.Length);
+            int randomIndex =
+                Random.Range(i, randomOrder.Length);
 
             int temp = randomOrder[i];
             randomOrder[i] = randomOrder[randomIndex];
@@ -69,15 +132,23 @@ public class SpotWaterManager : MonoBehaviour
         }
     }
 
+    // =========================
+    // CARGAR NIVEL
+    // =========================
     void LoadLevel(int level)
     {
         currentLevel = level;
+
+        // Reiniciar encontrados
         found = 0;
 
         // Nivel real aleatorio
         int realLevel = randomOrder[level];
 
-        // Desactivar todos los errores
+        // =========================
+        // DESACTIVAR TODOS
+        // =========================
+
         foreach (GameObject[] lvl in levels)
         {
             foreach (GameObject obj in lvl)
@@ -87,7 +158,10 @@ public class SpotWaterManager : MonoBehaviour
             }
         }
 
-        // Activar errores del nivel actual
+        // =========================
+        // ACTIVAR NIVEL ACTUAL
+        // =========================
+
         foreach (GameObject obj in levels[realLevel])
         {
             if (obj != null)
@@ -105,13 +179,23 @@ public class SpotWaterManager : MonoBehaviour
             }
         }
 
-        // Cambiar imagen principal
-        if (mainImage != null && realLevel < levelImages.Length)
-            mainImage.sprite = levelImages[realLevel];
+        // =========================
+        // CAMBIAR IMAGEN
+        // =========================
+
+        if (mainImage != null &&
+            realLevel < levelImages.Length)
+        {
+            mainImage.sprite =
+                levelImages[realLevel];
+        }
 
         UpdateCounter();
     }
 
+    // =========================
+    // CLICK CORRECTO
+    // =========================
     public void CorrectClick(Button btn)
     {
         btn.interactable = false;
@@ -125,13 +209,22 @@ public class SpotWaterManager : MonoBehaviour
 
         UpdateCounter();
 
-        // Pasar al siguiente nivel
+        // =========================
+        // SI ENCONTRÓ LOS 2
+        // =========================
+
         if (found >= totalErrors)
         {
+            // SUMAR ACIERTO
+            aciertos++;
+
             Invoke(nameof(NextLevel), 1f);
         }
     }
 
+    // =========================
+    // CLICK INCORRECTO
+    // =========================
     public void WrongClick()
     {
         if (feedbackRed != null)
@@ -141,12 +234,18 @@ public class SpotWaterManager : MonoBehaviour
         Invoke(nameof(HideRed), 0.5f);
     }
 
+    // =========================
+    // OCULTAR FEEDBACK
+    // =========================
     void HideRed()
     {
         if (feedbackRed != null)
             feedbackRed.gameObject.SetActive(false);
     }
 
+    // =========================
+    // SIGUIENTE NIVEL
+    // =========================
     void NextLevel()
     {
         // Si todavía hay niveles
@@ -156,20 +255,124 @@ public class SpotWaterManager : MonoBehaviour
         }
         else
         {
-            // Juego terminado
-            if (finalPanel != null)
-                finalPanel.SetActive(true);
+            MostrarResultadoFinal();
         }
     }
 
+    // =========================
+    // RESULTADO FINAL
+    // =========================
+    void MostrarResultadoFinal()
+    {
+        // =========================
+        // OCULTAR GAMEPLAY
+        // =========================
+
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        // =========================
+        // DESACTIVAR PANELES
+        // =========================
+
+        if (panelVictoria != null)
+            panelVictoria.SetActive(false);
+
+        if (panelIntermedio != null)
+            panelIntermedio.SetActive(false);
+
+        if (panelDerrota != null)
+            panelDerrota.SetActive(false);
+
+        // =========================
+        // TEXTO FINAL
+        // =========================
+
+        string resultadoFinal =
+            "Aciertos: " +
+            aciertos +
+            "/" +
+            levels.Length;
+
+        // =========================
+        // VICTORIA
+        // 5/5
+        // =========================
+
+        if (aciertos == levels.Length)
+        {
+            if (panelVictoria != null)
+                panelVictoria.SetActive(true);
+
+            if (textoAciertosVictoria != null)
+                textoAciertosVictoria.text =
+                    resultadoFinal;
+        }
+
+        // =========================
+        // DERROTA
+        // 0 o 1
+        // =========================
+
+        else if (aciertos <= 1)
+        {
+            if (panelDerrota != null)
+                panelDerrota.SetActive(true);
+
+            if (textoAciertosDerrota != null)
+                textoAciertosDerrota.text =
+                    resultadoFinal;
+        }
+
+        // =========================
+        // INTERMEDIO
+        // 2,3,4
+        // =========================
+
+        else
+        {
+            if (panelIntermedio != null)
+                panelIntermedio.SetActive(true);
+
+            if (textoAciertosIntermedio != null)
+                textoAciertosIntermedio.text =
+                    resultadoFinal;
+        }
+    }
+
+    // =========================
+    // CONTADOR GAMEPLAY
+    // =========================
     void UpdateCounter()
     {
         if (scoreText != null)
-            scoreText.text = "Errores: " + found + "/" + totalErrors;
+        {
+            scoreText.text =
+                "Errores de ahorro: " +
+                found +
+                "/" +
+                totalErrors;
+        }
     }
 
+    // =========================
+    // VOLVER
+    // =========================
     public void VolverAlMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    // =========================
+    // REINICIAR
+    // =========================
+    public void Reiniciar()
+    {
+        SceneManager.LoadScene(
+            SceneManager.GetActiveScene().buildIndex
+        );
     }
 }
