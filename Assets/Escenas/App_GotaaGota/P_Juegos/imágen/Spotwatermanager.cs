@@ -12,10 +12,40 @@ public class SpotWaterManager : MonoBehaviour
     [Header("Texto Gameplay")]
     public TMP_Text scoreText;
 
+    [Header("Animaciones UI")]
+    public TMP_Text tituloJuego;
+    public TMP_Text categoriaJuego;
+    public GameObject fondoCategoria;
+    public GameObject fondoContador;
+
     [Header("Panels Finales")]
     public GameObject panelVictoria;
     public GameObject panelIntermedio;
     public GameObject panelDerrota;
+
+    [Header("Gotas Victoria")]
+    public GameObject gotaVictoria1;
+    public GameObject gotaVictoria2;
+    public GameObject gotaVictoria3;
+
+    [Header("Gotas Intermedio")]
+    public GameObject gotaIntermedio1;
+    public GameObject gotaIntermedio2;
+    public GameObject gotaIntermedio3;
+
+    [Header("Gotas Derrota")]
+    public GameObject gotaDerrota1;
+    public GameObject gotaDerrota2;
+    public GameObject gotaDerrota3;
+
+    [Header("Elementos Victoria")]
+    public GameObject[] elementosVictoria;
+
+    [Header("Elementos Intermedio")]
+    public GameObject[] elementosIntermedio;
+
+    [Header("Elementos Derrota")]
+    public GameObject[] elementosDerrota;
 
     [Header("Textos de Aciertos por Panel")]
     public TMP_Text textoAciertosVictoria;
@@ -55,6 +85,10 @@ public class SpotWaterManager : MonoBehaviour
     // aciertos reales del juego
     // SOLO suma si encontró los 2 errores
     int aciertos = 0;
+    bool resultadoMostrado = false;
+
+    private Vector2 posicionOriginalTitulo;
+    
 
     // Todos los niveles
     GameObject[][] levels;
@@ -85,6 +119,52 @@ public class SpotWaterManager : MonoBehaviour
         {
             if (obj != null)
                 obj.SetActive(true);
+        }
+
+        // =========================
+        // ANIMACIONES INICIALES
+        // =========================
+
+        if (tituloJuego != null)
+        {
+            posicionOriginalTitulo =
+                tituloJuego.rectTransform.anchoredPosition;
+
+            tituloJuego.rectTransform.anchoredPosition =
+                new Vector2(
+                    posicionOriginalTitulo.x,
+                    posicionOriginalTitulo.y + 250f);
+
+            LeanTween.move(
+                tituloJuego.rectTransform,
+                posicionOriginalTitulo,
+                0.6f).setEaseOutBack();
+        }
+
+        if (fondoCategoria != null)
+        {
+            fondoCategoria.transform.localScale =
+                Vector3.zero;
+
+            LeanTween.scale(
+                fondoCategoria,
+                Vector3.one,
+                0.6f)
+                .setDelay(0.15f)
+                .setEaseOutBack();
+        }
+
+        if (fondoContador != null)
+        {
+            fondoContador.transform.localScale =
+                Vector3.zero;
+
+            LeanTween.scale(
+                fondoContador,
+                Vector3.one,
+                0.6f)
+                .setDelay(0.3f)
+                .setEaseOutBack();
         }
 
         // =========================
@@ -187,7 +267,16 @@ public class SpotWaterManager : MonoBehaviour
             realLevel < levelImages.Length)
         {
             mainImage.sprite =
-                levelImages[realLevel];
+    levelImages[realLevel];
+
+            mainImage.transform.localScale =
+                Vector3.zero;
+
+            LeanTween.scale(
+                mainImage.gameObject,
+                Vector3.one,
+                0.45f)
+                .setEaseOutBack();
         }
 
         UpdateCounter();
@@ -209,15 +298,11 @@ public class SpotWaterManager : MonoBehaviour
 
         UpdateCounter();
 
-        // =========================
-        // SI ENCONTRÓ LOS 2
-        // =========================
-
         if (found >= totalErrors)
         {
-            // SUMAR ACIERTO
             aciertos++;
 
+            CancelInvoke(nameof(NextLevel));
             Invoke(nameof(NextLevel), 1f);
         }
     }
@@ -248,7 +333,6 @@ public class SpotWaterManager : MonoBehaviour
     // =========================
     void NextLevel()
     {
-        // Si todavía hay niveles
         if (currentLevel < levels.Length - 1)
         {
             LoadLevel(currentLevel + 1);
@@ -262,21 +346,21 @@ public class SpotWaterManager : MonoBehaviour
     // =========================
     // RESULTADO FINAL
     // =========================
+
     void MostrarResultadoFinal()
     {
-        // =========================
-        // OCULTAR GAMEPLAY
-        // =========================
+        Debug.Log("MOSTRAR RESULTADO FINAL");
+
+        if (resultadoMostrado)
+            return;
+
+        resultadoMostrado = true;
 
         foreach (GameObject obj in elementosGameplay)
         {
             if (obj != null)
                 obj.SetActive(false);
         }
-
-        // =========================
-        // DESACTIVAR PANELES
-        // =========================
 
         if (panelVictoria != null)
             panelVictoria.SetActive(false);
@@ -287,62 +371,45 @@ public class SpotWaterManager : MonoBehaviour
         if (panelDerrota != null)
             panelDerrota.SetActive(false);
 
-        // =========================
-        // TEXTO FINAL
-        // =========================
-
         string resultadoFinal =
             "Aciertos: " +
             aciertos +
             "/" +
             levels.Length;
 
-        // =========================
-        // VICTORIA
-        // 5/5
-        // =========================
-
         if (aciertos == levels.Length)
         {
-            if (panelVictoria != null)
-                panelVictoria.SetActive(true);
+            AnimarPanelVictoria();
+            Debug.Log("VICTORIA");
+
+            foreach (GameObject obj in elementosVictoria)
+            {
+                if (obj != null)
+                {
+                    obj.SetActive(false);
+                }
+            }
+
+            
 
             if (textoAciertosVictoria != null)
-                textoAciertosVictoria.text =
-                    resultadoFinal;
+                textoAciertosVictoria.text = resultadoFinal;
         }
-
-        // =========================
-        // DERROTA
-        // 0 o 1
-        // =========================
-
         else if (aciertos <= 1)
         {
-            if (panelDerrota != null)
-                panelDerrota.SetActive(true);
+            AnimarPanelDerrota();
 
             if (textoAciertosDerrota != null)
-                textoAciertosDerrota.text =
-                    resultadoFinal;
+                textoAciertosDerrota.text = resultadoFinal;
         }
-
-        // =========================
-        // INTERMEDIO
-        // 2,3,4
-        // =========================
-
         else
         {
-            if (panelIntermedio != null)
-                panelIntermedio.SetActive(true);
+            AnimarPanelIntermedio();
 
             if (textoAciertosIntermedio != null)
-                textoAciertosIntermedio.text =
-                    resultadoFinal;
+                textoAciertosIntermedio.text = resultadoFinal;
         }
     }
-
     // =========================
     // CONTADOR GAMEPLAY
     // =========================
@@ -374,5 +441,146 @@ public class SpotWaterManager : MonoBehaviour
         SceneManager.LoadScene(
             SceneManager.GetActiveScene().buildIndex
         );
+    }
+
+    void AnimarElemento(GameObject obj, float delay)
+    {
+        if (obj == null) return;
+
+        obj.SetActive(true);
+
+        obj.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(
+            obj,
+            Vector3.one,
+            0.35f)
+            .setDelay(delay)
+            .setEaseOutBack();
+    }
+
+    void AnimarElementosPanel(GameObject[] elementos)
+    {
+        if (elementos == null) return;
+
+        for (int i = 0; i < elementos.Length; i++)
+        {
+            if (elementos[i] == null)
+                continue;
+
+            elementos[i].SetActive(true);
+
+            elementos[i].transform.localScale =
+                Vector3.zero;
+
+            LeanTween.scale(
+                elementos[i],
+                Vector3.one,
+                0.3f)
+                .setDelay(i * 0.1f)
+                .setEaseOutBack();
+        }
+    }
+
+    void AnimarPanelVictoria()
+    {
+        panelVictoria.SetActive(true);
+
+        foreach (GameObject obj in elementosVictoria)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        gotaVictoria1.SetActive(false);
+        gotaVictoria2.SetActive(false);
+        gotaVictoria3.SetActive(false);
+
+        panelVictoria.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(
+            panelVictoria,
+            Vector3.one,
+            0.5f)
+            .setEaseOutBack();
+
+        AnimarElemento(gotaVictoria1, 0.1f);
+        AnimarElemento(gotaVictoria2, 0.5f);
+        AnimarElemento(gotaVictoria3, 0.9f);
+
+        LeanTween.delayedCall(
+            1.4f,
+            () =>
+            {
+                AnimarElementosPanel(elementosVictoria);
+            });
+    }
+
+    void AnimarPanelIntermedio()
+    {
+        panelIntermedio.SetActive(true);
+
+        foreach (GameObject obj in elementosIntermedio)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        gotaIntermedio1.SetActive(false);
+        gotaIntermedio2.SetActive(false);
+        gotaIntermedio3.SetActive(false);
+
+        panelIntermedio.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(
+            panelIntermedio,
+            Vector3.one,
+            0.5f)
+            .setEaseOutBack();
+
+        AnimarElemento(gotaIntermedio1, 0.1f);
+        AnimarElemento(gotaIntermedio2, 0.5f);
+        AnimarElemento(gotaIntermedio3, 0.9f);
+
+        LeanTween.delayedCall(
+            1.4f,
+            () =>
+            {
+                AnimarElementosPanel(elementosIntermedio);
+            });
+    }
+
+    void AnimarPanelDerrota()
+    {
+        panelDerrota.SetActive(true);
+
+        foreach (GameObject obj in elementosDerrota)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        gotaDerrota1.SetActive(false);
+        gotaDerrota2.SetActive(false);
+        gotaDerrota3.SetActive(false);
+
+        panelDerrota.transform.localScale = Vector3.zero;
+
+        LeanTween.scale(
+            panelDerrota,
+            Vector3.one,
+            0.5f)
+            .setEaseOutBack();
+
+        AnimarElemento(gotaDerrota1, 0.1f);
+        AnimarElemento(gotaDerrota2, 0.5f);
+        AnimarElemento(gotaDerrota3, 0.9f);
+
+        LeanTween.delayedCall(
+            1.4f,
+            () =>
+            {
+                AnimarElementosPanel(elementosDerrota);
+            });
     }
 }
