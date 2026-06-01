@@ -1,9 +1,15 @@
 using UnityEngine;
+using TMPro;
 
 public class DetalleBotonRanking : MonoBehaviour
 {
-    // Este es el cuadrito que le falta a Unity encontrar:
     public string nombreMiembro;
+
+    [Header("Referencias de Textos")]
+    public TMP_Text txtPuesto;
+    public TMP_Text txtNombre;
+    public TMP_Text txtTiempo;
+    public TMP_Text txtMotivacion;
 
     public void AlHacerClic()
     {

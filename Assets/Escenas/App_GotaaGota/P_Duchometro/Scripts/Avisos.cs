@@ -57,11 +57,9 @@ public class Avisos : MonoBehaviour
         int total = ManejadorRegistro.instance.listaDeMiembros.Count;
         bool hayGente = total > 0;
 
-        // --- CORRECCIÓN: Simplificado para que el panel aparezca siempre que haya gente ---
         if (avisoCreaMiembro) avisoCreaMiembro.SetActive(!hayGente);
         if (panelDeslizable) panelDeslizable.SetActive(hayGente);
 
-        // Lógica de estado de botones (Cronómetro corriendo vs parado)
         Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
         bool cronoCorriendo = (crono != null && crono.estaContando);
 
@@ -91,7 +89,6 @@ public class Avisos : MonoBehaviour
         if (cg != null) cg.alpha = a;
     }
 
-    // --- NAVEGACION ---
     public void IntentarIrARegistro()
     {
         Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
@@ -103,17 +100,6 @@ public class Avisos : MonoBehaviour
     {
         Cronometro crono = Object.FindFirstObjectByType<Cronometro>();
         if (crono != null && crono.estaContando) return;
-
-        if (ManejadorRegistro.instance.listaDeMiembros.Count == 0)
-        {
-            MostrarAvisoPopUp(popCreaMiembro);
-            return;
-        }
-        if (miembroSeleccionado == null)
-        {
-            MostrarAvisoPopUp(popSeleccionaPrimero);
-            return;
-        }
         if (navegador != null) navegador.IrACronometro();
     }
 
@@ -138,6 +124,23 @@ public class Avisos : MonoBehaviour
         {
             MostrarAvisoPopUp(popLimiteMiembros);
         }
+    }
+
+    public bool VerificarEstadoRegistro()
+    {
+        if (ManejadorRegistro.instance.listaDeMiembros.Count == 0)
+        {
+            if (navegador != null) navegador.IrARegistro();
+            MostrarAvisoPopUp(popCreaMiembro);
+            return false;
+        }
+        if (miembroSeleccionado == null)
+        {
+            if (navegador != null) navegador.IrARegistro();
+            MostrarAvisoPopUp(popSeleccionaPrimero);
+            return false;
+        }
+        return true;
     }
 
     public void MostrarAvisoPopUp(GameObject contenidoActivar)
@@ -205,6 +208,10 @@ public class Avisos : MonoBehaviour
         ManejadorRegistro.instance.RemoverMiembroDeLaLista(miembroSeleccionado.gameObject.name);
         Destroy(miembroSeleccionado.gameObject);
         miembroSeleccionado = null;
+
+        // --- SOLUCIÓN: Limpiar el nombre en memoria global para que el cronómetro se entere ---
+        if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.nombreSeleccionado = "";
+
         Invoke("RefrescarConPum", 0.1f);
     }
 

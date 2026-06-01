@@ -1,4 +1,4 @@
- using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -91,36 +91,53 @@ public class QuizManager : MonoBehaviour
             panelDerrota.SetActive(false);
 
         // Mostrar gameplay
-        foreach (GameObject obj in elementosGameplay)
+        if (elementosGameplay != null)
         {
-            if (obj != null)
-                obj.SetActive(true);
+            foreach (GameObject obj in elementosGameplay)
+            {
+                if (obj != null)
+                    obj.SetActive(true);
+            }
         }
 
         // =====================================
         // ANIMACIÓN DEL TÍTULO (SOLO UNA VEZ)
         // =====================================
 
-        posicionOriginalTitulo =
-            tituloPregunta.rectTransform.anchoredPosition;
+        if (tituloPregunta != null)
+        {
+            posicionOriginalTitulo =
+                tituloPregunta.rectTransform.anchoredPosition;
 
-        // Lo colocamos más arriba temporalmente
-        tituloPregunta.rectTransform.anchoredPosition =
-            new Vector2(
-                posicionOriginalTitulo.x,
-                posicionOriginalTitulo.y + 300f
-            );
+            // Lo colocamos más arriba temporalmente
+            tituloPregunta.rectTransform.anchoredPosition =
+                new Vector2(
+                    posicionOriginalTitulo.x,
+                    posicionOriginalTitulo.y + 300f
+                );
 
-        // Lo animamos hacia su posición real
-        LeanTween.move(
-            tituloPregunta.rectTransform,
-            posicionOriginalTitulo,
-            0.6f
-        ).setEaseOutBack();
+            // Lo animamos hacia su posición real
+            LeanTween.move(
+                tituloPregunta.rectTransform,
+                posicionOriginalTitulo,
+                0.6f
+            ).setEaseOutBack();
+        }
+        else
+        {
+            Debug.LogWarning("Falta el Titulo Pregunta en el Inspector");
+        }
 
-        // Guardar posición original del fondo
-        posicionOriginalFondo =
-            fondoPregunta.anchoredPosition;
+        if (fondoPregunta != null)
+        {
+            // Guardar posición original del fondo
+            posicionOriginalFondo =
+                fondoPregunta.anchoredPosition;
+        }
+        else
+        {
+            Debug.LogWarning("Falta el Fondo Pregunta en el Inspector");
+        }
 
         // Actualizar contador
         ActualizarTextoAciertos();
@@ -153,20 +170,24 @@ public class QuizManager : MonoBehaviour
         Pregunta p = preguntas[indicePregunta];
 
         // Texto pregunta
-        textoPregunta.text = p.pregunta;
+        if (textoPregunta != null)
+            textoPregunta.text = p.pregunta;
 
         // Animación fondo + texto
-        fondoPregunta.anchoredPosition =
-            new Vector2(
-                posicionOriginalFondo.x - 1200f,
-                posicionOriginalFondo.y
-            );
+        if (fondoPregunta != null)
+        {
+            fondoPregunta.anchoredPosition =
+                new Vector2(
+                    posicionOriginalFondo.x - 1200f,
+                    posicionOriginalFondo.y
+                );
 
-        LeanTween.move(
-            fondoPregunta,
-            posicionOriginalFondo,
-            0.5f
-        ).setEaseOutBack();
+            LeanTween.move(
+                fondoPregunta,
+                posicionOriginalFondo,
+                0.5f
+            ).setEaseOutBack();
+        }
 
         // Imagen
         if (p.imagen != null)
@@ -184,7 +205,8 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            imagenPregunta.gameObject.SetActive(false);
+            if (imagenPregunta != null)
+                imagenPregunta.gameObject.SetActive(false);
         }
 
         // =========================
@@ -338,10 +360,13 @@ public class QuizManager : MonoBehaviour
         // OCULTAR GAMEPLAY
         // =========================
 
-        foreach (GameObject obj in elementosGameplay)
+        if (elementosGameplay != null)
         {
-            if (obj != null)
-                obj.SetActive(false);
+            foreach (GameObject obj in elementosGameplay)
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
         }
 
         // =========================
@@ -452,6 +477,8 @@ public class QuizManager : MonoBehaviour
 
     void AnimarElementosPanel(GameObject[] elementos)
     {
+        if (elementos == null) return;
+
         for (int i = 0; i < elementos.Length; i++)
         {
             if (elementos[i] == null)
@@ -473,10 +500,13 @@ public class QuizManager : MonoBehaviour
 
     void AnimarPanelDerrota()
     {
-        foreach (GameObject obj in elementosDerrota)
+        if (elementosDerrota != null)
         {
-            if (obj != null)
-                obj.SetActive(false);
+            foreach (GameObject obj in elementosDerrota)
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
         }
 
         AnimarElemento(gotaDerrota1, 0.1f);
@@ -491,10 +521,13 @@ public class QuizManager : MonoBehaviour
 
     void AnimarPanelIntermedio()
     {
-        foreach (GameObject obj in elementosIntermedio)
+        if (elementosIntermedio != null)
         {
-            if (obj != null)
-                obj.SetActive(false);
+            foreach (GameObject obj in elementosIntermedio)
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
         }
 
         // Ocultar las gotas al iniciar
@@ -534,10 +567,13 @@ public class QuizManager : MonoBehaviour
 
     void AnimarPanelVictoria()
     {
-        foreach (GameObject obj in elementosVictoria)
+        if (elementosVictoria != null)
         {
-            if (obj != null)
-                obj.SetActive(false);
+            foreach (GameObject obj in elementosVictoria)
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
         }
 
         AnimarElemento(gotaVictoria1, 0.1f);

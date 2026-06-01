@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 
 public class ManejadorRegistro : MonoBehaviour
@@ -13,6 +14,7 @@ public class ManejadorRegistro : MonoBehaviour
     public Transform contenedorLista;
     public TMP_Text textoContadorMiembros;
     public Button botonGuardar;
+    public ScrollRect scrollRectRegistro;
 
     [Header("Configuración del Prefab")]
     public GameObject prefabMiembro;
@@ -22,22 +24,9 @@ public class ManejadorRegistro : MonoBehaviour
     public List<DatosMiembro> listaDeMiembros = new List<DatosMiembro>();
 
     [System.Serializable]
-    public class RegistroBano
-    {
-        public float duracion;
-        public string fecha;
-        public string hora;
-    }
-
+    public class RegistroBano { public float duracion; public string fecha; public string hora; }
     [System.Serializable]
-    public class DatosMiembro
-    {
-        public string nombre;
-        public string edad;
-        public float mejorTiempo;
-        public List<RegistroBano> historialBanos = new List<RegistroBano>();
-    }
-
+    public class DatosMiembro { public string nombre; public string edad; public float mejorTiempo; public List<RegistroBano> historialBanos = new List<RegistroBano>(); }
     [System.Serializable]
     public class ListaWrapper { public List<DatosMiembro> miembros = new List<DatosMiembro>(); }
 
@@ -54,10 +43,23 @@ public class ManejadorRegistro : MonoBehaviour
         ValidarCamposLlenos();
     }
 
-    // --- CORRECCIÓN DEFINITIVA: Actualiza la visualización de la lista ---
+    void OnEnable()
+    {
+        // Al estar en Upper Center, el valor 1f forzará la vista al inicio (arriba).
+        StartCoroutine(ResetearScrollAlInicio());
+    }
+
+    IEnumerator ResetearScrollAlInicio()
+    {
+        yield return new WaitForEndOfFrame();
+        if (scrollRectRegistro != null)
+        {
+            scrollRectRegistro.verticalNormalizedPosition = 1f;
+        }
+    }
+
     public void ActualizarRanking()
     {
-        // Forzamos la carga de los datos más recientes desde PlayerPrefs
         CargarDatosDelTelefono();
         RefrescarListaVisual();
     }
@@ -150,7 +152,10 @@ public class ManejadorRegistro : MonoBehaviour
     {
         if (contenedorLista == null || prefabMiembro == null) return;
         GameObject nuevoItem = Instantiate(prefabMiembro, contenedorLista);
-        nuevoItem.transform.SetAsFirstSibling();
+
+        // Con Upper Center, SetAsLastSibling hace que los nuevos aparezcan debajo de los viejos.
+        nuevoItem.transform.SetAsLastSibling();
+
         nuevoItem.name = miembro.nombre;
 
         SeleccionMiembros tarjeta = nuevoItem.GetComponent<SeleccionMiembros>();

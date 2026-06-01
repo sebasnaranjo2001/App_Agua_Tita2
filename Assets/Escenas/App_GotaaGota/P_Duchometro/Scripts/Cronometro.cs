@@ -78,6 +78,11 @@ public class Cronometro : MonoBehaviour
 
     public void BtnComenzar_Click()
     {
+        if (Avisos.instance != null && !Avisos.instance.VerificarEstadoRegistro())
+        {
+            return;
+        }
+
         estaContando = true;
         estaPausado = false;
         tiempoInicioReal = DateTime.Now;
@@ -141,6 +146,15 @@ public class Cronometro : MonoBehaviour
         LeanTween.alphaCanvas(cg, 0f, 0.3f);
         LeanTween.scale(tarjetaGuardado, Vector3.zero, 0.3f).setEaseInBack().setOnComplete(() => {
             panelGuardado.SetActive(false);
+
+            // --- SOLUCIÓN: Limpiar la selección de memoria al terminar ---
+            if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.nombreSeleccionado = "";
+            if (Avisos.instance != null)
+            {
+                if (Avisos.instance.miembroSeleccionado != null) Avisos.instance.miembroSeleccionado.Deseleccionar();
+                Avisos.instance.miembroSeleccionado = null;
+            }
+
             PrepararEscenaInicial();
 
             // Refrescamos los avisos para asegurar que Registro muestre la lista
