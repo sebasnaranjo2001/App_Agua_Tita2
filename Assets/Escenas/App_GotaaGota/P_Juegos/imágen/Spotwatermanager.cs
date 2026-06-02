@@ -78,6 +78,8 @@ public class SpotWaterManager : MonoBehaviour
 
     // encontrados en el nivel actual
     int found = 0;
+    int erroresCometidos = 0;
+    int maxErrores = 2;
 
     // errores por imagen
     int totalErrors = 2;
@@ -221,6 +223,7 @@ public class SpotWaterManager : MonoBehaviour
 
         // Reiniciar encontrados
         found = 0;
+        erroresCometidos = 0;
 
         // Nivel real aleatorio
         int realLevel = randomOrder[level];
@@ -255,7 +258,7 @@ public class SpotWaterManager : MonoBehaviour
                     btn.interactable = true;
 
                 if (img != null)
-                    img.color = new Color(1, 1, 1, 0);
+                    img.color = Color.white;
             }
         }
 
@@ -287,12 +290,14 @@ public class SpotWaterManager : MonoBehaviour
     // =========================
     public void CorrectClick(Button btn)
     {
+        Debug.Log("CLICK EN: " + btn.gameObject.name);
+
         btn.interactable = false;
 
         Image img = btn.GetComponent<Image>();
 
         if (img != null)
-            img.color = new Color(0, 1, 0, 0.5f);
+            img.color = Color.green;
 
         found++;
 
@@ -312,11 +317,19 @@ public class SpotWaterManager : MonoBehaviour
     // =========================
     public void WrongClick()
     {
+        erroresCometidos++;
+
         if (feedbackRed != null)
             feedbackRed.gameObject.SetActive(true);
 
         CancelInvoke(nameof(HideRed));
         Invoke(nameof(HideRed), 0.5f);
+
+        if (erroresCometidos >= maxErrores)
+        {
+            CancelInvoke(nameof(NextLevel));
+            Invoke(nameof(NextLevel), 0.6f);
+        }
     }
 
     // =========================

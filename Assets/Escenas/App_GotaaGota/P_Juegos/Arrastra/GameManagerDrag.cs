@@ -66,12 +66,11 @@ public class GameManagerDrag : MonoBehaviour
     public float delayEntreElementos = 0.1f;
 
     [Header("Animaciones UI")]
-    public TMP_Text tituloJuego;
     public TMP_Text categoriaJuego;
     public RectTransform fondoCategoria;
     public Button botonComprobar;
 
-    private Vector2 posicionOriginalTitulo;
+    
     private Vector2 posicionOriginalCategoria;
     private Vector2 posicionOriginalBoton;
 
@@ -91,10 +90,7 @@ public class GameManagerDrag : MonoBehaviour
             if (obj != null) obj.SetActive(true);
         }
 
-        // Animación título
-        posicionOriginalTitulo = tituloJuego.rectTransform.anchoredPosition;
-        tituloJuego.rectTransform.anchoredPosition = new Vector2(posicionOriginalTitulo.x, posicionOriginalTitulo.y + 250f);
-        LeanTween.move(tituloJuego.rectTransform, posicionOriginalTitulo, 0.6f).setEaseOutBack();
+       
 
         // Animación categoría
         posicionOriginalCategoria = fondoCategoria.anchoredPosition;
