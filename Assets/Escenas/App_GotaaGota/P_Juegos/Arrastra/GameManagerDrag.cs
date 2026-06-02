@@ -69,8 +69,10 @@ public class GameManagerDrag : MonoBehaviour
     public TMP_Text categoriaJuego;
     public RectTransform fondoCategoria;
     public Button botonComprobar;
+    [Header("Barra de Progreso")]
+    public ProgressBarUI barraProgreso;
 
-    
+
     private Vector2 posicionOriginalCategoria;
     private Vector2 posicionOriginalBoton;
 
@@ -114,6 +116,15 @@ public class GameManagerDrag : MonoBehaviour
         LeanTween.move(botonRect, posicionOriginalBoton, 0.6f).setDelay(0.3f).setEaseOutBack();
 
         ActualizarTextoAciertos();
+        if (barraProgreso != null)
+        {
+            barraProgreso.Actualizar(
+                1,
+                fases.Length,
+                "Fase"
+            );
+        }
+
         CargarFase(false);
     }
 
@@ -130,6 +141,14 @@ public class GameManagerDrag : MonoBehaviour
 
     void CargarFase(bool resetearPosiciones = true)
     {
+        if (barraProgreso != null)
+        {
+            barraProgreso.Actualizar(
+                faseActual + 1,
+                fases.Length,
+                "Fase"
+            );
+        }
         if (fases == null || fases.Length == 0) return;
 
         Fase f = fases[faseActual];
@@ -222,8 +241,13 @@ public class GameManagerDrag : MonoBehaviour
     void SiguienteFase()
     {
         faseActual++;
-        if (faseActual >= fases.Length) MostrarResultadoFinal();
-        else CargarFase(true);
+
+        Debug.Log("Siguiente fase -> " + faseActual);
+
+        if (faseActual >= fases.Length)
+            MostrarResultadoFinal();
+        else
+            CargarFase(true);
     }
 
     void ActualizarTextoAciertos()

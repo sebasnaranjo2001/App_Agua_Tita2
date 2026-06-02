@@ -29,6 +29,7 @@ public class QuizManager : MonoBehaviour
     public Button[] botones;
     public TMP_Text tituloPregunta;
     public RectTransform fondoPregunta;
+    public ProgressBarUI barraProgreso;
 
     [Header("ELEMENTOS A OCULTAR AL FINAL")]
     public GameObject[] elementosGameplay;
@@ -144,6 +145,12 @@ public class QuizManager : MonoBehaviour
 
         // Mostrar primera pregunta
         MostrarPregunta();
+
+        barraProgreso.Actualizar(
+    1,
+    preguntas.Length,
+    "Pregunta"
+);
 
     }
 
@@ -332,6 +339,12 @@ public class QuizManager : MonoBehaviour
         if (indicePregunta < preguntas.Length)
         {
             MostrarPregunta();
+
+            barraProgreso.Actualizar(
+                indicePregunta + 1,
+                preguntas.Length,
+                "Pregunta"
+            );
         }
         else
         {

@@ -13,7 +13,7 @@ public class SpotWaterManager : MonoBehaviour
     public TMP_Text scoreText;
 
     [Header("Animaciones UI")]
-    public TMP_Text tituloJuego;
+    
     public TMP_Text categoriaJuego;
     public GameObject fondoCategoria;
     public GameObject fondoContador;
@@ -59,6 +59,8 @@ public class SpotWaterManager : MonoBehaviour
 
     [Header("Feedback")]
     public Image feedbackRed;
+    [Header("Barra de Progreso")]
+    public ProgressBarUI barraProgreso;
 
     // =========================
     // ERRORES POR NIVEL
@@ -89,7 +91,7 @@ public class SpotWaterManager : MonoBehaviour
     int aciertos = 0;
     bool resultadoMostrado = false;
 
-    private Vector2 posicionOriginalTitulo;
+    
     
 
     // Todos los niveles
@@ -127,22 +129,7 @@ public class SpotWaterManager : MonoBehaviour
         // ANIMACIONES INICIALES
         // =========================
 
-        if (tituloJuego != null)
-        {
-            posicionOriginalTitulo =
-                tituloJuego.rectTransform.anchoredPosition;
-
-            tituloJuego.rectTransform.anchoredPosition =
-                new Vector2(
-                    posicionOriginalTitulo.x,
-                    posicionOriginalTitulo.y + 250f);
-
-            LeanTween.move(
-                tituloJuego.rectTransform,
-                posicionOriginalTitulo,
-                0.6f).setEaseOutBack();
-        }
-
+        
         if (fondoCategoria != null)
         {
             fondoCategoria.transform.localScale =
@@ -194,6 +181,14 @@ public class SpotWaterManager : MonoBehaviour
         }
 
         ShuffleLevels();
+        if (barraProgreso != null)
+        {
+            barraProgreso.Actualizar(
+                1,
+                levels.Length,
+                "Fase"
+            );
+        }
 
         LoadLevel(0);
     }
@@ -220,6 +215,15 @@ public class SpotWaterManager : MonoBehaviour
     void LoadLevel(int level)
     {
         currentLevel = level;
+
+        if (barraProgreso != null)
+        {
+            barraProgreso.Actualizar(
+                currentLevel + 1,
+                levels.Length,
+                "Fase"
+            );
+        }
 
         // Reiniciar encontrados
         found = 0;
