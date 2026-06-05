@@ -145,13 +145,11 @@ public class QuizManager : MonoBehaviour
 
         // Mostrar primera pregunta
         MostrarPregunta();
-
         barraProgreso.Actualizar(
-    1,
-    preguntas.Length,
-    "Pregunta"
-);
-
+            0,
+            preguntas.Length,
+            "Pregunta"
+        );
     }
 
     // =========================
@@ -293,7 +291,8 @@ public class QuizManager : MonoBehaviour
         // Correcta
         if (index == respuestaCorrectaActual)
         {
-            botones[index].image.color = Color.green;
+            botones[index].image.color =
+    new Color32(200, 230, 201, 255); // #C8E6C9
             LeanTween.scale(
     botones[index].gameObject,
     Vector3.one * 1.2f,
@@ -307,7 +306,8 @@ public class QuizManager : MonoBehaviour
         // Incorrecta
         else
         {
-            botones[index].image.color = Color.red;
+            botones[index].image.color =
+    new Color32(255, 205, 210, 255); // #FFCDD2
             Vector3 posOriginal =
     botones[index].transform.localPosition;
 
@@ -316,7 +316,8 @@ public class QuizManager : MonoBehaviour
                 posOriginal.x + 20f,
                 0.05f
             ).setLoopPingPong(4);
-            botones[respuestaCorrectaActual].image.color = Color.green;
+            botones[respuestaCorrectaActual].image.color =
+    new Color32(200, 230, 201, 255); // #C8E6C9
         }
 
         // Desactivar botones

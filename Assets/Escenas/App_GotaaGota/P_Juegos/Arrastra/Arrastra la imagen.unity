@@ -738,9 +738,9 @@ MonoBehaviour:
     - "Reparar fugas en grifos y tuber\xEDas  "
     - Colocar una botella llena dentro del tanque del inodoro para reducir consumo
     imagenes:
-    - {fileID: -7580932879190438459, guid: b9cb072948d7cda4ebfc3dfb0e3cfe80, type: 3}
-    - {fileID: -3680255804181331574, guid: 54ebac39ba8bdae49bdd6a5bbf0fbd67, type: 3}
-    - {fileID: -5215909844245504582, guid: 717dd3f2d2ce41d4a92178ade3d5ad69, type: 3}
+    - {fileID: 1025304120799890579, guid: b9cb072948d7cda4ebfc3dfb0e3cfe80, type: 3}
+    - {fileID: -4666319347223378185, guid: d1e5a34f7148af24a9b4dd33b40e224e, type: 3}
+    - {fileID: 7893755656183453536, guid: 95093e964f62ebb418a61dd9130affd8, type: 3}
   - textos:
     - "Regar las plantas temprano en la ma\xF1ana o al atardecer"
     - Usar un balde en lugar de la manguera para lavar el auto
@@ -1227,8 +1227,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284827931
-  m_fontColor: {r: 0.105882354, g: 0.28627452, b: 0.39607844, a: 1}
+    rgba: 4280955904
+  m_fontColor: {r: 0, g: 0.20392157, b: 0.16470589, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1564,7 +1564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -172, y: -138}
+  m_AnchoredPosition: {x: 5.7399, y: -141}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &391779637
@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.91764706, g: 0.9372549, b: 0.95686275, a: 1}
+  m_Color: {r: 0.5137255, g: 0.77254903, b: 0.74509805, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2220,8 +2220,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4280955904
+  m_fontColor: {r: 0, g: 0.20392157, b: 0.16470589, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3735,8 +3735,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4280955904
+  m_fontColor: {r: 0, g: 0.20392157, b: 0.16470589, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4840,7 +4840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.09670699, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4916,7 +4916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.91764706, g: 0.9372549, b: 0.95686275, a: 1}
+  m_Color: {r: 0.36165005, g: 0.5943396, b: 0.5696604, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7094,7 +7094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.030521698, g: 0.31132078, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8244,7 +8244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.105882354, g: 0.28627452, b: 0.39607844, a: 1}
+  m_Color: {r: 0, g: 0.20392157, b: 0.16470589, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
