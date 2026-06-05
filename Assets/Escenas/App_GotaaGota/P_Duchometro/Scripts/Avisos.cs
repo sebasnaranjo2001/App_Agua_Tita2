@@ -143,6 +143,15 @@ public class Avisos : MonoBehaviour
         return true;
     }
 
+    // --- CORRECCIÓN: FUNCIÓN EXCLUSIVA DE CONTROL PARA EL BOTÓN EMPEZAR DE LA UI ---
+    public void PresionarBotonEmpezar()
+    {
+        if (VerificarEstadoRegistro())
+        {
+            if (navegador != null) navegador.IrACronometro();
+        }
+    }
+
     public void MostrarAvisoPopUp(GameObject contenidoActivar)
     {
         if (popCreaMiembro) popCreaMiembro.SetActive(false);
@@ -209,7 +218,6 @@ public class Avisos : MonoBehaviour
         Destroy(miembroSeleccionado.gameObject);
         miembroSeleccionado = null;
 
-        // --- SOLUCIÓN: Limpiar el nombre en memoria global para que el cronómetro se entere ---
         if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.nombreSeleccionado = "";
 
         Invoke("RefrescarConPum", 0.1f);

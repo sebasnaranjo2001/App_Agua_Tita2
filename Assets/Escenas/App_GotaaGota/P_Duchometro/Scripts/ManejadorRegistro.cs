@@ -19,14 +19,28 @@ public class ManejadorRegistro : MonoBehaviour
     [Header("Configuración del Prefab")]
     public GameObject prefabMiembro;
 
+    [Header("--- BOTONES DE COLORES (VISUAL) ---")]
+    public RectTransform[] botonesColores;
+
     [Header("Datos en Memoria")]
     public string nombreSeleccionado;
     public List<DatosMiembro> listaDeMiembros = new List<DatosMiembro>();
 
+    private int colorSeleccionadoTemporal = 0;
+
     [System.Serializable]
     public class RegistroBano { public float duracion; public string fecha; public string hora; }
+
     [System.Serializable]
-    public class DatosMiembro { public string nombre; public string edad; public float mejorTiempo; public List<RegistroBano> historialBanos = new List<RegistroBano>(); }
+    public class DatosMiembro
+    {
+        public string nombre;
+        public string edad;
+        public float mejorTiempo;
+        public int indiceTemaColor;
+        public List<RegistroBano> historialBanos = new List<RegistroBano>();
+    }
+
     [System.Serializable]
     public class ListaWrapper { public List<DatosMiembro> miembros = new List<DatosMiembro>(); }
 
@@ -41,11 +55,12 @@ public class ManejadorRegistro : MonoBehaviour
         RefrescarListaVisual();
         ConfigurarInputs();
         ValidarCamposLlenos();
+
+        SeleccionarColorParaNuevoMiembro(0);
     }
 
     void OnEnable()
     {
-        // Al estar en Upper Center, el valor 1f forzará la vista al inicio (arriba).
         StartCoroutine(ResetearScrollAlInicio());
     }
 
@@ -99,6 +114,30 @@ public class ManejadorRegistro : MonoBehaviour
         }
     }
 
+    public void SeleccionarColorParaNuevoMiembro(int indiceColor)
+    {
+        colorSeleccionadoTemporal = indiceColor;
+
+        if (botonesColores != null && botonesColores.Length > 0)
+        {
+            for (int i = 0; i < botonesColores.Length; i++)
+            {
+                if (botonesColores[i] != null)
+                {
+                    LeanTween.cancel(botonesColores[i].gameObject);
+                    if (i == indiceColor)
+                    {
+                        LeanTween.scale(botonesColores[i].gameObject, Vector3.one * 1.3f, 0.25f).setEase(LeanTweenType.easeOutBack);
+                    }
+                    else
+                    {
+                        LeanTween.scale(botonesColores[i].gameObject, Vector3.one * 1.0f, 0.2f).setEase(LeanTweenType.easeOutQuad);
+                    }
+                }
+            }
+        }
+    }
+
     public void GuardarDatos()
     {
         if (string.IsNullOrEmpty(inputNombre.text) || string.IsNullOrEmpty(inputEdad.text)) return;
@@ -120,6 +159,7 @@ public class ManejadorRegistro : MonoBehaviour
             nombre = inputNombre.text,
             edad = inputEdad.text,
             mejorTiempo = 0,
+            indiceTemaColor = colorSeleccionadoTemporal,
             historialBanos = new List<RegistroBano>()
         };
 
@@ -131,6 +171,9 @@ public class ManejadorRegistro : MonoBehaviour
 
         inputNombre.text = "";
         inputEdad.text = "";
+
+        SeleccionarColorParaNuevoMiembro(0);
+
         ActualizarTextoContador();
         ValidarCamposLlenos();
 
@@ -153,9 +196,7 @@ public class ManejadorRegistro : MonoBehaviour
         if (contenedorLista == null || prefabMiembro == null) return;
         GameObject nuevoItem = Instantiate(prefabMiembro, contenedorLista);
 
-        // Con Upper Center, SetAsLastSibling hace que los nuevos aparezcan debajo de los viejos.
         nuevoItem.transform.SetAsLastSibling();
-
         nuevoItem.name = miembro.nombre;
 
         SeleccionMiembros tarjeta = nuevoItem.GetComponent<SeleccionMiembros>();
@@ -166,6 +207,14 @@ public class ManejadorRegistro : MonoBehaviour
             if (tarjeta.textoEdad != null) tarjeta.textoEdad.text = miembro.edad + " años";
             int totalBanos = (miembro.historialBanos != null) ? miembro.historialBanos.Count : 0;
             if (tarjeta.textoDuchas != null) tarjeta.textoDuchas.text = "Duchas totales:\n" + totalBanos.ToString();
+
+            tarjeta.AplicarTema(miembro.indiceTemaColor);
+
+            // --- CORRECCIÓN: Si este miembro era el seleccionado, restauramos su estado lógico y visual ---
+            if (!string.IsNullOrEmpty(nombreSeleccionado) && miembro.nombre == nombreSeleccionado)
+            {
+                tarjeta.SeleccionarEsteMiembro();
+            }
         }
     }
 

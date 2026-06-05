@@ -27,6 +27,11 @@ public class ManejadorNavegacion : MonoBehaviour
     public Color colorTextoInactivo = new Color(26f / 255f, 58f / 255f, 95f / 255f); // #1A3A5F (Azul Corporativo)
     public Color colorTextoActivo = Color.white;
 
+    [Header("--- COLORES INDICADOR DE SELECCIÓN ---")]
+    public Color colorBarraRegistro = new Color(51f / 255f, 91f / 255f, 136f / 255f); // #335B88
+    public Color colorBarraCronometro = new Color(45f / 255f, 131f / 255f, 118f / 255f); // #2D8376
+    public Color colorBarraRanking = new Color(161f / 255f, 105f / 255f, 63f / 255f); // #A1693F
+
     [Header("--- ENCABEZADO DUCHOMETRO (APARICIÓN SUAVE) ---")]
     public RectTransform encabezadoDuchometro;
 
@@ -65,7 +70,6 @@ public class ManejadorNavegacion : MonoBehaviour
 
     void RegistrarEscalasYPosiciones()
     {
-        // Se quitó logoApp y se registraron los demás elementos para el PUM
         GameObject[] todos = { textoNumeroMiembros, avisos, botonEmpezar, botonAnadirGrande,
                               panelBotonesPequenos, panelDeslizable, panelTarjetaRegistro,
                               panelPrincipalCrono, panelSecundarioCrono, panelBotonesCrono };
@@ -75,7 +79,6 @@ public class ManejadorNavegacion : MonoBehaviour
                 escalasOriginales.Add(obj, obj.transform.localScale);
         }
 
-        // Registrar posición original del nuevo encabezado
         if (encabezadoDuchometro != null && !posicionesOriginales.ContainsKey(encabezadoDuchometro))
             posicionesOriginales.Add(encabezadoDuchometro, encabezadoDuchometro.anchoredPosition);
     }
@@ -93,7 +96,6 @@ public class ManejadorNavegacion : MonoBehaviour
     {
         panelActualNombre = "";
 
-        // Animamos el encabezado principal al abrir la sección
         AnimarEncabezadoNatural(encabezadoDuchometro, 0.6f, 0.05f);
 
         Cronometro crono = UnityEngine.Object.FindFirstObjectByType<Cronometro>();
@@ -117,7 +119,7 @@ public class ManejadorNavegacion : MonoBehaviour
         if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
 
         AnimarPum();
-        ActualizarBarraVisual(posRegX, anchoReg);
+        ActualizarBarraVisual(posRegX, anchoReg, colorBarraRegistro);
         ActualizarTextosTab("registro");
         panelActualNombre = "registro";
     }
@@ -128,7 +130,7 @@ public class ManejadorNavegacion : MonoBehaviour
         ApagarTodo();
         panelCronometro.SetActive(true);
         AnimarPumCrono();
-        ActualizarBarraVisual(posCronX, anchoCron);
+        ActualizarBarraVisual(posCronX, anchoCron, colorBarraCronometro);
         ActualizarTextosTab("cronometro");
         panelActualNombre = "cronometro";
     }
@@ -141,19 +143,26 @@ public class ManejadorNavegacion : MonoBehaviour
         if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.ActualizarRanking();
 
         panelRanking.SetActive(true);
-        ActualizarBarraVisual(posRankX, anchoRank);
+        ActualizarBarraVisual(posRankX, anchoRank, colorBarraRanking);
         ActualizarTextosTab("ranking");
         panelActualNombre = "ranking";
     }
 
     // --- MÉTODOS VISUALES Y ANIMACIONES ---
 
-    public void ActualizarBarraVisual(float x, float w)
+    public void ActualizarBarraVisual(float x, float w, Color colorDestino)
     {
         if (indicadorSeleccion == null) return;
+
         LeanTween.cancel(indicadorSeleccion.gameObject);
         LeanTween.move(indicadorSeleccion, new Vector2(x, indicadorSeleccion.anchoredPosition.y), tiempoAnimacion).setEase(tipoCurva);
         LeanTween.size(indicadorSeleccion, new Vector2(w, indicadorSeleccion.sizeDelta.y), tiempoAnimacion).setEase(tipoCurva);
+
+        Image imgBarra = indicadorSeleccion.GetComponent<Image>();
+        if (imgBarra != null)
+        {
+            LeanTween.color(indicadorSeleccion, colorDestino, tiempoAnimacion);
+        }
     }
 
     private void ActualizarTextosTab(string tabActiva)
