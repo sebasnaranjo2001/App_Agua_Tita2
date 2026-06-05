@@ -116,10 +116,10 @@ TextureImporter:
       name: Logo_N_0
       rect:
         serializedVersion: 2
-        x: 102
-        y: 44
-        width: 284
-        height: 382
+        x: 345
+        y: 170
+        width: 775
+        height: 1049
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -122,13 +122,13 @@ TextureImporter:
       name: Icono_Foco_0
       rect:
         serializedVersion: 2
-        x: 169
-        y: 180
-        width: 117
-        height: 127
+        x: 178
+        y: 183
+        width: 103
+        height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 5, z: 5, w: 6}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -144,7 +144,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 82bfc051d5d9b25438cfac64c9017739
+    spriteID: 18b0564b253d185468ca95ffc6d8588c
     internalID: 0
     vertices: []
     indices: 

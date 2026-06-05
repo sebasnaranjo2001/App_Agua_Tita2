@@ -9,6 +9,7 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     private string seccionActual = "";
 
     private Dictionary<GameObject, Vector3> escalasOriginales = new Dictionary<GameObject, Vector3>();
+    private Dictionary<RectTransform, Vector2> posicionesOriginales = new Dictionary<RectTransform, Vector2>();
 
     [Header("--- CONFIGURACIÓN DE PANELES ---")]
     public GameObject panelInicio;
@@ -23,23 +24,26 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public Button btnDuchometroMenu;
 
     [Header("--- BURBUJA FLUIDA ---")]
-    public RectTransform burbujaSeleccion; // Arrastra aquí la imagen de tu burbuja
+    public RectTransform burbujaSeleccion;
     public float tiempoMovimiento = 0.35f;
 
     [Space(5)]
-    public float posXInicio;   // Posición X para Inicio
-    public float posXJuegos;   // Posición X para Juegos
-    public float posXGuia;     // Posición X para Guía
+    public float posXInicio;
+    public float posXJuegos;
+    public float posXGuia;
 
     [Space(5)]
-    // CORRECCIÓN: Colores asignados matemáticamente para evitar el error de compilación
-    public Color colorBurbujaInicio = new Color(78f / 255f, 168f / 255f, 222f / 255f); // #4EA8DE
-    public Color colorBurbujaJuegos = new Color(160f / 255f, 132f / 255f, 232f / 255f); // #A084E8
-    public Color colorBurbujaGuia = new Color(244f / 255f, 162f / 255f, 97f / 255f);   // #F4A261
+    public Color colorBurbujaInicio = new Color(78f / 255f, 168f / 255f, 222f / 255f);
+    public Color colorBurbujaJuegos = new Color(160f / 255f, 132f / 255f, 232f / 255f);
+    public Color colorBurbujaGuia = new Color(244f / 255f, 162f / 255f, 97f / 255f);
 
     [Header("--- SISTEMA VISUAL (FONDOS) ---")]
     public Image fondoPrincipal;
     public Sprite fondoInicio, fondoJuegos, fondoGuia, fondoDuchometro;
+
+    [Header("--- ENCABEZADOS NUEVOS (APARICIÓN SUAVE) ---")]
+    public RectTransform encabezadoInicio;
+    public RectTransform encabezadoJuegos;
 
     [Header("--- ELEMENTOS INICIO (PUM) ---")]
     public GameObject seccionAvisos;
@@ -51,7 +55,6 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public GameObject zonaBano, zonaCocina, zonaLavanderia, zonaJardin;
 
     [Header("--- ELEMENTOS JUEGOS (PUM) ---")]
-    public GameObject tituloJuegos, subtituloJuegos;
     public GameObject itemJ1, itemJ2, itemJ3;
 
     [Header("--- ELEMENTOS DUCHOMETRO (PUM) ---")]
@@ -59,19 +62,20 @@ public class NavegacionMenuPrincipal : MonoBehaviour
 
     void Start()
     {
-        RegistrarEscalas();
+        RegistrarEscalasYPosiciones();
         ConfigurarPanelInicial();
 
         if (btnDuchometroMenu != null)
             btnDuchometroMenu.onClick.AddListener(AbrirPanelDuchometro);
     }
 
-    void RegistrarEscalas()
+    void RegistrarEscalasYPosiciones()
     {
+        // Registrar escalas originales (PUM)
         GameObject[] todosLosObjetos = {
             seccionAvisos, seccionBotonDuchometro, seccionTarjetas,
             tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin,
-            tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3,
+            itemJ1, itemJ2, itemJ3,
             tituloDuchometro, subtituloDuchometro, barraInternaDuchometro
         };
 
@@ -82,6 +86,13 @@ public class NavegacionMenuPrincipal : MonoBehaviour
                 escalasOriginales.Add(obj, obj.transform.localScale);
             }
         }
+
+        // Registrar posiciones originales para los encabezados que deslizan
+        if (encabezadoInicio != null && !posicionesOriginales.ContainsKey(encabezadoInicio))
+            posicionesOriginales.Add(encabezadoInicio, encabezadoInicio.anchoredPosition);
+
+        if (encabezadoJuegos != null && !posicionesOriginales.ContainsKey(encabezadoJuegos))
+            posicionesOriginales.Add(encabezadoJuegos, encabezadoJuegos.anchoredPosition);
     }
 
     void ConfigurarPanelInicial()
@@ -115,9 +126,10 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("juegos");
         EjecutarTransicionFondo(fondoJuegos, panelJuegos);
 
-        SetScaleZero(tituloJuegos, subtituloJuegos, itemJ1, itemJ2, itemJ3);
-        Pop(tituloJuegos, 0.4f, 0.12f);
-        Pop(subtituloJuegos, 0.4f, 0.18f);
+        // Nueva animación natural para el encabezado
+        AnimarEncabezadoNatural(encabezadoJuegos, 0.6f, 0.05f);
+
+        SetScaleZero(itemJ1, itemJ2, itemJ3);
         Pop(itemJ1, 0.4f, 0.25f);
         Pop(itemJ2, 0.4f, 0.31f);
         Pop(itemJ3, 0.4f, 0.37f);
@@ -145,6 +157,9 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         seccionActual = "inicio";
         ActualizarEstadoBotones("inicio");
         EjecutarTransicionFondo(fondoInicio, panelInicio);
+
+        // Nueva animación natural para el encabezado
+        AnimarEncabezadoNatural(encabezadoInicio, 0.6f, 0.05f);
 
         SetScaleZero(seccionAvisos, seccionBotonDuchometro, seccionTarjetas);
         Pop(seccionAvisos, 0.4f, 0.15f);
@@ -230,5 +245,29 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     private void SetScaleZero(params GameObject[] objetos)
     {
         foreach (GameObject obj in objetos) if (obj != null) obj.transform.localScale = Vector3.zero;
+    }
+
+    // --- NUEVO EFECTO DE APARICIÓN NATURAL (FADE & GLIDE) ---
+    private void AnimarEncabezadoNatural(RectTransform rect, float tiempo, float delay)
+    {
+        if (rect == null) return;
+
+        Vector2 posFinal = posicionesOriginales.ContainsKey(rect) ? posicionesOriginales[rect] : rect.anchoredPosition;
+
+        // Aseguramos que el encabezado tenga un CanvasGroup para hacer el efecto de transparencia
+        CanvasGroup cg = rect.GetComponent<CanvasGroup>();
+        if (cg == null) cg = rect.gameObject.AddComponent<CanvasGroup>();
+
+        LeanTween.cancel(rect.gameObject);
+
+        // Lo subimos apenas 30 píxeles y lo hacemos completamente invisible al iniciar
+        rect.anchoredPosition = new Vector2(posFinal.x, posFinal.y + 30f);
+        cg.alpha = 0f;
+
+        // Movimiento: cae súper suave sin rebotar (easeOutExpo)
+        LeanTween.moveY(rect, posFinal.y, tiempo).setEase(LeanTweenType.easeOutExpo).setDelay(delay);
+
+        // Transparencia: aparece poco a poco (Fade In)
+        LeanTween.alphaCanvas(cg, 1f, tiempo * 0.8f).setEase(LeanTweenType.easeOutQuad).setDelay(delay);
     }
 }

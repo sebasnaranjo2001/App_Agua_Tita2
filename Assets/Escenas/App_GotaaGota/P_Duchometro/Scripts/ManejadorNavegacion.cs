@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using System.Collections.Generic;
 
 public class ManejadorNavegacion : MonoBehaviour
@@ -19,9 +20,18 @@ public class ManejadorNavegacion : MonoBehaviour
     public float posCronX; public float anchoCron;
     public float posRankX; public float anchoRank;
 
+    [Header("--- TEXTOS BARRA NAVEGACIÓN ---")]
+    public TextMeshProUGUI txtRegistro;
+    public TextMeshProUGUI txtCronometro;
+    public TextMeshProUGUI txtRanking;
+    public Color colorTextoInactivo = new Color(26f / 255f, 58f / 255f, 95f / 255f); // #1A3A5F (Azul Corporativo)
+    public Color colorTextoActivo = Color.white;
+
+    [Header("--- ENCABEZADO DUCHOMETRO (APARICIÓN SUAVE) ---")]
+    public RectTransform encabezadoDuchometro;
+
     [Header("--- ELEMENTOS UI REGISTRO ---")]
     public GameObject textoNumeroMiembros;
-    public GameObject logoApp;
     public GameObject avisos;
     public GameObject botonEmpezar;
     public GameObject botonAnadirGrande;
@@ -41,20 +51,22 @@ public class ManejadorNavegacion : MonoBehaviour
     public GameObject panelBotonesCrono;
 
     private Dictionary<GameObject, Vector3> escalasOriginales = new Dictionary<GameObject, Vector3>();
+    private Dictionary<RectTransform, Vector2> posicionesOriginales = new Dictionary<RectTransform, Vector2>();
     private Vector2 posDisenoReg;
     private string panelActualNombre = "";
 
     void Awake()
     {
-        RegistrarEscalas();
+        RegistrarEscalasYPosiciones();
         if (panelRegistro) posDisenoReg = panelRegistro.GetComponent<RectTransform>().anchoredPosition;
     }
 
     void OnEnable() { ConfiguracionInicial(); }
 
-    void RegistrarEscalas()
+    void RegistrarEscalasYPosiciones()
     {
-        GameObject[] todos = { textoNumeroMiembros, logoApp, avisos, botonEmpezar, botonAnadirGrande,
+        // Se quitó logoApp y se registraron los demás elementos para el PUM
+        GameObject[] todos = { textoNumeroMiembros, avisos, botonEmpezar, botonAnadirGrande,
                               panelBotonesPequenos, panelDeslizable, panelTarjetaRegistro,
                               panelPrincipalCrono, panelSecundarioCrono, panelBotonesCrono };
         foreach (GameObject obj in todos)
@@ -62,6 +74,10 @@ public class ManejadorNavegacion : MonoBehaviour
             if (obj != null && !escalasOriginales.ContainsKey(obj))
                 escalasOriginales.Add(obj, obj.transform.localScale);
         }
+
+        // Registrar posición original del nuevo encabezado
+        if (encabezadoDuchometro != null && !posicionesOriginales.ContainsKey(encabezadoDuchometro))
+            posicionesOriginales.Add(encabezadoDuchometro, encabezadoDuchometro.anchoredPosition);
     }
 
     public void ApagarTodo()
@@ -76,6 +92,10 @@ public class ManejadorNavegacion : MonoBehaviour
     public void ConfiguracionInicial()
     {
         panelActualNombre = "";
+
+        // Animamos el encabezado principal al abrir la sección
+        AnimarEncabezadoNatural(encabezadoDuchometro, 0.6f, 0.05f);
+
         Cronometro crono = UnityEngine.Object.FindFirstObjectByType<Cronometro>();
         if (crono != null && crono.estaContando)
         {
@@ -94,11 +114,11 @@ public class ManejadorNavegacion : MonoBehaviour
         panelRegistro.SetActive(true);
         panelRegistro.GetComponent<RectTransform>().anchoredPosition = posDisenoReg;
 
-        // --- CORRECCIÓN: Forzamos refresco de avisos al entrar a Registro ---
         if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
 
         AnimarPum();
         ActualizarBarraVisual(posRegX, anchoReg);
+        ActualizarTextosTab("registro");
         panelActualNombre = "registro";
     }
 
@@ -109,6 +129,7 @@ public class ManejadorNavegacion : MonoBehaviour
         panelCronometro.SetActive(true);
         AnimarPumCrono();
         ActualizarBarraVisual(posCronX, anchoCron);
+        ActualizarTextosTab("cronometro");
         panelActualNombre = "cronometro";
     }
 
@@ -117,13 +138,15 @@ public class ManejadorNavegacion : MonoBehaviour
         if (panelActualNombre == "ranking") return;
         ApagarTodo();
 
-        // --- CORRECCIÓN: Forzamos refresco de datos en Registro para que Ranking muestre lo nuevo ---
         if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.ActualizarRanking();
 
         panelRanking.SetActive(true);
         ActualizarBarraVisual(posRankX, anchoRank);
+        ActualizarTextosTab("ranking");
         panelActualNombre = "ranking";
     }
+
+    // --- MÉTODOS VISUALES Y ANIMACIONES ---
 
     public void ActualizarBarraVisual(float x, float w)
     {
@@ -131,6 +154,39 @@ public class ManejadorNavegacion : MonoBehaviour
         LeanTween.cancel(indicadorSeleccion.gameObject);
         LeanTween.move(indicadorSeleccion, new Vector2(x, indicadorSeleccion.anchoredPosition.y), tiempoAnimacion).setEase(tipoCurva);
         LeanTween.size(indicadorSeleccion, new Vector2(w, indicadorSeleccion.sizeDelta.y), tiempoAnimacion).setEase(tipoCurva);
+    }
+
+    private void ActualizarTextosTab(string tabActiva)
+    {
+        CambiarColorTexto(txtRegistro, tabActiva == "registro" ? colorTextoActivo : colorTextoInactivo);
+        CambiarColorTexto(txtCronometro, tabActiva == "cronometro" ? colorTextoActivo : colorTextoInactivo);
+        CambiarColorTexto(txtRanking, tabActiva == "ranking" ? colorTextoActivo : colorTextoInactivo);
+    }
+
+    private void CambiarColorTexto(TextMeshProUGUI txt, Color colorDestino)
+    {
+        if (txt == null) return;
+        LeanTween.cancel(txt.gameObject);
+        LeanTween.value(txt.gameObject, txt.color, colorDestino, tiempoAnimacion)
+            .setOnUpdate((Color val) => { txt.color = val; });
+    }
+
+    private void AnimarEncabezadoNatural(RectTransform rect, float tiempo, float delay)
+    {
+        if (rect == null) return;
+
+        Vector2 posFinal = posicionesOriginales.ContainsKey(rect) ? posicionesOriginales[rect] : rect.anchoredPosition;
+
+        CanvasGroup cg = rect.GetComponent<CanvasGroup>();
+        if (cg == null) cg = rect.gameObject.AddComponent<CanvasGroup>();
+
+        LeanTween.cancel(rect.gameObject);
+
+        rect.anchoredPosition = new Vector2(posFinal.x, posFinal.y + 30f);
+        cg.alpha = 0f;
+
+        LeanTween.moveY(rect, posFinal.y, tiempo).setEase(LeanTweenType.easeOutExpo).setDelay(delay);
+        LeanTween.alphaCanvas(cg, 1f, tiempo * 0.8f).setEase(LeanTweenType.easeOutQuad).setDelay(delay);
     }
 
     public void AnimarPum()
