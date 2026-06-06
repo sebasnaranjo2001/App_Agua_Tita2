@@ -28,9 +28,9 @@ public class ManejadorNavegacion : MonoBehaviour
     public Color colorTextoActivo = Color.white;
 
     [Header("--- COLORES INDICADOR DE SELECCIÓN ---")]
-    public Color colorBarraRegistro = new Color(51f / 255f, 91f / 255f, 136f / 255f); // #335B88
-    public Color colorBarraCronometro = new Color(45f / 255f, 131f / 255f, 118f / 255f); // #2D8376
-    public Color colorBarraRanking = new Color(161f / 255f, 105f / 255f, 63f / 255f); // #A1693F
+    public Color colorBarraRegistro = new Color(34f / 255f, 72f / 255f, 112f / 255f); // #224870 (Actualizado a oscuro)
+    public Color colorBarraCronometro = new Color(24f / 255f, 90f / 255f, 78f / 255f); // #185A4E (Actualizado a oscuro)
+    public Color colorBarraRanking = new Color(117f / 255f, 71f / 255f, 34f / 255f); // #754722 (Actualizado a oscuro)
 
     [Header("--- ENCABEZADO DUCHOMETRO (APARICIÓN SUAVE) ---")]
     public RectTransform encabezadoDuchometro;
@@ -112,6 +112,11 @@ public class ManejadorNavegacion : MonoBehaviour
     public void IrARegistro()
     {
         if (panelActualNombre == "registro") return;
+
+        // --- NUEVA VALIDACIÓN: Bloquear si el cronómetro está en marcha ---
+        Cronometro crono = UnityEngine.Object.FindFirstObjectByType<Cronometro>();
+        if (crono != null && crono.estaContando) return;
+
         ApagarTodo();
         panelRegistro.SetActive(true);
         panelRegistro.GetComponent<RectTransform>().anchoredPosition = posDisenoReg;
@@ -138,6 +143,11 @@ public class ManejadorNavegacion : MonoBehaviour
     public void IrARanking()
     {
         if (panelActualNombre == "ranking") return;
+
+        // --- NUEVA VALIDACIÓN: Bloquear si el cronómetro está en marcha ---
+        Cronometro crono = UnityEngine.Object.FindFirstObjectByType<Cronometro>();
+        if (crono != null && crono.estaContando) return;
+
         ApagarTodo();
 
         if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.ActualizarRanking();
