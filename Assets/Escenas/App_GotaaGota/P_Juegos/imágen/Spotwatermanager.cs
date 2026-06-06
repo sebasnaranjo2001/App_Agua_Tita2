@@ -183,11 +183,10 @@ public class SpotWaterManager : MonoBehaviour
         ShuffleLevels();
         if (barraProgreso != null)
         {
-            barraProgreso.Actualizar(
-                1,
-                levels.Length,
-                "Fase"
-            );
+            barraProgreso.ReiniciarBarra();
+
+            barraProgreso.textoEstado.text =
+                "Fase 1 de " + levels.Length;
         }
 
         LoadLevel(0);
@@ -216,14 +215,7 @@ public class SpotWaterManager : MonoBehaviour
     {
         currentLevel = level;
 
-        if (barraProgreso != null)
-        {
-            barraProgreso.Actualizar(
-                currentLevel + 1,
-                levels.Length,
-                "Fase"
-            );
-        }
+        
 
         // Reiniciar encontrados
         found = 0;
@@ -348,17 +340,47 @@ public class SpotWaterManager : MonoBehaviour
     // =========================
     // SIGUIENTE NIVEL
     // =========================
+
     void NextLevel()
     {
-        if (currentLevel < levels.Length - 1)
+        currentLevel++;
+
+        if (currentLevel >= levels.Length)
         {
-            LoadLevel(currentLevel + 1);
+            if (barraProgreso != null)
+            {
+                barraProgreso.Actualizar(
+                    levels.Length,
+                    levels.Length,
+                    "Fase"
+                );
+
+                barraProgreso.textoEstado.text =
+                    "Fase " + levels.Length +
+                    " de " + levels.Length;
+            }
+
+            MostrarResultadoFinal();
         }
         else
         {
-            MostrarResultadoFinal();
+            if (barraProgreso != null)
+            {
+                barraProgreso.Actualizar(
+                    currentLevel,
+                    levels.Length,
+                    "Fase"
+                );
+
+                barraProgreso.textoEstado.text =
+                    "Fase " + (currentLevel + 1) +
+                    " de " + levels.Length;
+            }
+
+            LoadLevel(currentLevel);
         }
     }
+
 
     // =========================
     // RESULTADO FINAL

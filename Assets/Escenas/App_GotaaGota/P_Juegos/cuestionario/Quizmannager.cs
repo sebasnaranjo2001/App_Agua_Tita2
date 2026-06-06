@@ -344,13 +344,17 @@ public class QuizManager : MonoBehaviour
 
         if (indicePregunta < preguntas.Length)
         {
-            MostrarPregunta();
-
             barraProgreso.Actualizar(
-                indicePregunta + 1,
+                indicePregunta,
                 preguntas.Length,
                 "Pregunta"
             );
+
+            barraProgreso.textoEstado.text =
+                "Pregunta " + (indicePregunta + 1) +
+                " de " + preguntas.Length;
+
+            MostrarPregunta();
         }
         else
         {

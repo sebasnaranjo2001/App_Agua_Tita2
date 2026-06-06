@@ -117,15 +117,7 @@ public class GameManagerDrag : MonoBehaviour
 
         if (barraProgreso != null)
         {
-            barraProgreso.Actualizar(
-                faseActual,
-                fases.Length,
-                "Fase"
-            );
-
-            barraProgreso.textoEstado.text =
-                "Fase " + (faseActual + 1) +
-                " de " + fases.Length;
+            barraProgreso.ReiniciarBarra();
         }
 
         CargarFase(false);
@@ -147,10 +139,14 @@ public class GameManagerDrag : MonoBehaviour
         if (barraProgreso != null)
         {
             barraProgreso.Actualizar(
-                faseActual + 1,
+                faseActual,
                 fases.Length,
                 "Fase"
             );
+
+            barraProgreso.textoEstado.text =
+                "Fase " + (faseActual + 1) +
+                " de " + fases.Length;
         }
         if (fases == null || fases.Length == 0) return;
 
