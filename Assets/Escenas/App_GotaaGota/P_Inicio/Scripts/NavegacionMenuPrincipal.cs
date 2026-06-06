@@ -44,21 +44,26 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     [Header("--- ENCABEZADOS NUEVOS (APARICIÓN SUAVE) ---")]
     public RectTransform encabezadoInicio;
     public RectTransform encabezadoJuegos;
+    public RectTransform encabezadoGuia;
+    public RectTransform encabezadoDuchometro; // <-- NUEVO: Encabezado del Duchometro
 
     [Header("--- ELEMENTOS INICIO (PUM) ---")]
     public GameObject seccionAvisos;
     public GameObject seccionBotonDuchometro;
     public GameObject seccionTarjetas;
 
-    [Header("--- ELEMENTOS GUÍA (PUM) ---")]
-    public GameObject tituloGuia, subtituloGuia;
-    public GameObject zonaBano, zonaCocina, zonaLavanderia, zonaJardin;
+    [Header("--- ELEMENTOS GUÍA NUEVOS (PUM) ---")]
+    public GameObject descripcionGeneralGuia;
+    public GameObject btnBano;
+    public GameObject btnCocina;
+    public GameObject btnLavanderia;
+    public GameObject btnJardin;
 
     [Header("--- ELEMENTOS JUEGOS (PUM) ---")]
     public GameObject itemJ1, itemJ2, itemJ3;
 
     [Header("--- ELEMENTOS DUCHOMETRO (PUM) ---")]
-    public GameObject tituloDuchometro, subtituloDuchometro, barraInternaDuchometro;
+    public GameObject barraInternaDuchometro; // Se mantiene solo la barra interna
 
     void Start()
     {
@@ -71,12 +76,12 @@ public class NavegacionMenuPrincipal : MonoBehaviour
 
     void RegistrarEscalasYPosiciones()
     {
-        // Registrar escalas originales (PUM)
+        // Registrar escalas originales (PUM) - Limpiado de titulos viejos del duchometro
         GameObject[] todosLosObjetos = {
             seccionAvisos, seccionBotonDuchometro, seccionTarjetas,
-            tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin,
+            descripcionGeneralGuia, btnBano, btnCocina, btnLavanderia, btnJardin,
             itemJ1, itemJ2, itemJ3,
-            tituloDuchometro, subtituloDuchometro, barraInternaDuchometro
+            barraInternaDuchometro
         };
 
         foreach (GameObject obj in todosLosObjetos)
@@ -87,12 +92,18 @@ public class NavegacionMenuPrincipal : MonoBehaviour
             }
         }
 
-        // Registrar posiciones originales para los encabezados que deslizan
+        // Registrar posiciones originales para los encabezados que deslizan suavemente
         if (encabezadoInicio != null && !posicionesOriginales.ContainsKey(encabezadoInicio))
             posicionesOriginales.Add(encabezadoInicio, encabezadoInicio.anchoredPosition);
 
         if (encabezadoJuegos != null && !posicionesOriginales.ContainsKey(encabezadoJuegos))
             posicionesOriginales.Add(encabezadoJuegos, encabezadoJuegos.anchoredPosition);
+
+        if (encabezadoGuia != null && !posicionesOriginales.ContainsKey(encabezadoGuia))
+            posicionesOriginales.Add(encabezadoGuia, encabezadoGuia.anchoredPosition);
+
+        if (encabezadoDuchometro != null && !posicionesOriginales.ContainsKey(encabezadoDuchometro))
+            posicionesOriginales.Add(encabezadoDuchometro, encabezadoDuchometro.anchoredPosition);
     }
 
     void ConfigurarPanelInicial()
@@ -113,10 +124,14 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("duchometro");
         EjecutarTransicionFondo(fondoDuchometro, panelDuchometro);
 
-        SetScaleZero(tituloDuchometro, subtituloDuchometro, barraInternaDuchometro);
-        Pop(tituloDuchometro, 0.4f, 0.12f);
-        Pop(subtituloDuchometro, 0.4f, 0.18f);
-        Pop(barraInternaDuchometro, 0.4f, 0.25f);
+        // CORRECCIÓN: Animacion natural automatica para el encabezado del duchometro
+        AnimarEncabezadoNatural(encabezadoDuchometro, 0.6f, 0.05f);
+
+        // Reseteamos escala a 0 solo para la barra
+        SetScaleZero(barraInternaDuchometro);
+
+        // La barra brota despues de que el encabezado comience a deslizar
+        Pop(barraInternaDuchometro, 0.4f, 0.22f);
     }
 
     public void AbrirPanelJuegos()
@@ -126,7 +141,6 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("juegos");
         EjecutarTransicionFondo(fondoJuegos, panelJuegos);
 
-        // Nueva animación natural para el encabezado
         AnimarEncabezadoNatural(encabezadoJuegos, 0.6f, 0.05f);
 
         SetScaleZero(itemJ1, itemJ2, itemJ3);
@@ -142,13 +156,15 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("guia");
         EjecutarTransicionFondo(fondoGuia, panelGuia);
 
-        SetScaleZero(tituloGuia, subtituloGuia, zonaBano, zonaCocina, zonaLavanderia, zonaJardin);
-        Pop(tituloGuia, 0.4f, 0.12f);
-        Pop(subtituloGuia, 0.4f, 0.18f);
-        Pop(zonaBano, 0.4f, 0.25f);
-        Pop(zonaCocina, 0.4f, 0.31f);
-        Pop(zonaLavanderia, 0.4f, 0.37f);
-        Pop(zonaJardin, 0.4f, 0.43f);
+        AnimarEncabezadoNatural(encabezadoGuia, 0.6f, 0.05f);
+
+        SetScaleZero(descripcionGeneralGuia, btnBano, btnCocina, btnLavanderia, btnJardin);
+
+        Pop(descripcionGeneralGuia, 0.4f, 0.18f);
+        Pop(btnBano, 0.4f, 0.25f);
+        Pop(btnCocina, 0.4f, 0.31f);
+        Pop(btnLavanderia, 0.4f, 0.37f);
+        Pop(btnJardin, 0.4f, 0.43f);
     }
 
     public void MostrarInicio()
@@ -158,7 +174,6 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("inicio");
         EjecutarTransicionFondo(fondoInicio, panelInicio);
 
-        // Nueva animación natural para el encabezado
         AnimarEncabezadoNatural(encabezadoInicio, 0.6f, 0.05f);
 
         SetScaleZero(seccionAvisos, seccionBotonDuchometro, seccionTarjetas);
@@ -247,27 +262,21 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         foreach (GameObject obj in objetos) if (obj != null) obj.transform.localScale = Vector3.zero;
     }
 
-    // --- NUEVO EFECTO DE APARICIÓN NATURAL (FADE & GLIDE) ---
     private void AnimarEncabezadoNatural(RectTransform rect, float tiempo, float delay)
     {
         if (rect == null) return;
 
         Vector2 posFinal = posicionesOriginales.ContainsKey(rect) ? posicionesOriginales[rect] : rect.anchoredPosition;
 
-        // Aseguramos que el encabezado tenga un CanvasGroup para hacer el efecto de transparencia
         CanvasGroup cg = rect.GetComponent<CanvasGroup>();
         if (cg == null) cg = rect.gameObject.AddComponent<CanvasGroup>();
 
         LeanTween.cancel(rect.gameObject);
 
-        // Lo subimos apenas 30 píxeles y lo hacemos completamente invisible al iniciar
         rect.anchoredPosition = new Vector2(posFinal.x, posFinal.y + 30f);
         cg.alpha = 0f;
 
-        // Movimiento: cae súper suave sin rebotar (easeOutExpo)
         LeanTween.moveY(rect, posFinal.y, tiempo).setEase(LeanTweenType.easeOutExpo).setDelay(delay);
-
-        // Transparencia: aparece poco a poco (Fade In)
         LeanTween.alphaCanvas(cg, 1f, tiempo * 0.8f).setEase(LeanTweenType.easeOutQuad).setDelay(delay);
     }
 }
