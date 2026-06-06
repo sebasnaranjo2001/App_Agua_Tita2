@@ -115,14 +115,17 @@ public class GameManagerDrag : MonoBehaviour
         botonRect.anchoredPosition = new Vector2(posicionOriginalBoton.x, posicionOriginalBoton.y - 250f);
         LeanTween.move(botonRect, posicionOriginalBoton, 0.6f).setDelay(0.3f).setEaseOutBack();
 
-        ActualizarTextoAciertos();
         if (barraProgreso != null)
         {
             barraProgreso.Actualizar(
-                1,
+                faseActual,
                 fases.Length,
                 "Fase"
             );
+
+            barraProgreso.textoEstado.text =
+                "Fase " + (faseActual + 1) +
+                " de " + fases.Length;
         }
 
         CargarFase(false);
@@ -244,10 +247,36 @@ public class GameManagerDrag : MonoBehaviour
 
         Debug.Log("Siguiente fase -> " + faseActual);
 
+        if (barraProgreso != null)
+        {
+            barraProgreso.Actualizar(
+                faseActual,
+                fases.Length,
+                "Fase"
+            );
+
+            barraProgreso.textoEstado.text =
+                "Fase " + (faseActual + 1) +
+                " de " + fases.Length;
+        }
+
         if (faseActual >= fases.Length)
+        {
+            if (barraProgreso != null)
+            {
+                barraProgreso.Actualizar(
+                    fases.Length,
+                    fases.Length,
+                    "Fase"
+                );
+            }
+
             MostrarResultadoFinal();
+        }
         else
+        {
             CargarFase(true);
+        }
     }
 
     void ActualizarTextoAciertos()

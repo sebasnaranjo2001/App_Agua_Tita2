@@ -30,7 +30,7 @@ public class ProgressBarUI : MonoBehaviour
             return;
 
         float progreso =
-            (float)actual / total;
+    (float)actual / total;
 
         // Evitar valores fuera de rango
         progreso = Mathf.Clamp01(progreso);

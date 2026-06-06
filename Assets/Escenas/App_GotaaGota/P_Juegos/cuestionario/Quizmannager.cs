@@ -78,7 +78,9 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
-        // Mezclar preguntas aleatoriamente
+        
+
+       // Mezclar preguntas aleatoriamente
         MezclarPreguntas();
 
         // Desactivar panels finales
@@ -145,11 +147,14 @@ public class QuizManager : MonoBehaviour
 
         // Mostrar primera pregunta
         MostrarPregunta();
-        barraProgreso.Actualizar(
-            0,
-            preguntas.Length,
-            "Pregunta"
-        );
+
+        barraProgreso.ReiniciarBarra();
+
+        if (barraProgreso.textoEstado != null)
+        {
+            barraProgreso.textoEstado.text =
+                "Pregunta 1 de " + preguntas.Length;
+        }
     }
 
     // =========================
