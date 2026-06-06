@@ -31,10 +31,13 @@ public class ManejadorRanking : MonoBehaviour
     public Color colorFondoAmarillo = new Color32(221, 103, 37, 255);  // #DD6725
     public Color colorFondoRojo = new Color32(122, 34, 40, 255);       // #7A2228
 
-    [Header("--- COLORES DE TEXTO ---")]
+    [Header("--- COLORES DE TEXTO RANKING ---")]
     public Color colorTextoVerde = new Color32(6, 26, 17, 255);        // #061A11
     public Color colorTextoAmarillo = new Color32(58, 26, 5, 255);     // #3A1A05
     public Color colorTextoRojo = new Color32(46, 10, 13, 255);        // #2E0A0D
+
+    [Header("--- COLOR FIJO HISTORIAL ---")]
+    public Color colorAzulCorporativo = new Color32(26, 58, 95, 255);  // #1A3A5F
 
     [Header("Configuración Historial")]
     public GameObject panelDetalles;
@@ -75,6 +78,7 @@ public class ManejadorRanking : MonoBehaviour
             GameObject nuevoItem = Instantiate(itemPrefab, contenedor);
             var datos = lista[i];
 
+            // Identificamos los colores correspondientes al tiempo usando las nuevas variables
             Color fondoActual = ObtenerColorFondoPorTiempo(datos.mejorTiempo);
             Color textoActual = ObtenerColorTextoPorTiempo(datos.mejorTiempo);
 
@@ -83,6 +87,7 @@ public class ManejadorRanking : MonoBehaviour
             {
                 refs.nombreMiembro = datos.nombre;
 
+                // Asignamos textos y pintamos con el color correspondiente
                 if (refs.txtPuesto) { refs.txtPuesto.text = (i + 1).ToString(); refs.txtPuesto.color = textoActual; }
                 if (refs.txtNombre) { refs.txtNombre.text = datos.nombre; refs.txtNombre.color = textoActual; }
                 if (refs.txtTiempo) { refs.txtTiempo.text = FormatearTiempoSimple(datos.mejorTiempo); refs.txtTiempo.color = textoActual; }
@@ -101,32 +106,54 @@ public class ManejadorRanking : MonoBehaviour
         var miembro = ManejadorRegistro.instance.listaDeMiembros.Find(m => m.nombre == nombre);
         if (miembro == null) return;
 
+        // --- ANIMACIÓN PUM: Abrir panel con escalado suave ---
         panelDetalles.SetActive(true);
+        panelDetalles.transform.localScale = Vector3.zero;
+        LeanTween.cancel(panelDetalles);
+        LeanTween.scale(panelDetalles, Vector3.one, 0.4f).setEase(LeanTweenType.easeOutBack);
+
         txtNombreTitulo.text = "Historial de " + nombre;
+        txtNombreTitulo.color = colorAzulCorporativo; // Aseguramos color corporativo en el título principal
 
         foreach (Transform hijo in contenedorHistorial) { Destroy(hijo.gameObject); }
 
-        int contadorBano = 1;
         foreach (var bano in miembro.historialBanos)
         {
             GameObject itemH = Instantiate(prefabItemHistorial, contenedorHistorial);
 
+            // Identificamos el color de fondo dinámico para la barrita/backplate trasera
             Color fondoActual = ObtenerColorFondoPorTiempo(bano.duracion);
-            Color textoActual = ObtenerColorTextoPorTiempo(bano.duracion);
 
             TMP_Text[] textos = itemH.GetComponentsInChildren<TMP_Text>();
-            if (textos.Length >= 4)
+            if (textos.Length >= 3)
             {
-                textos[0].text = "#" + contadorBano;
-                textos[1].text = FormatearFechaEspecial(bano.fecha);
-                textos[2].text = bano.hora;
-                textos[3].text = FormatearTiempoSimple(bano.duracion);
-
-                foreach (var txt in textos) { txt.color = textoActual; }
+                // textos[0] = Fecha, textos[1] = Nombre, textos[2] = Tiempo
+                textos[0].text = FormatearFechaHistorial(bano.fecha);
+                textos[1].text = nombre;
+                textos[2].text = FormatearTiempoSimple(bano.duracion);
             }
-            itemH.GetComponent<Image>().color = fondoActual;
-            contadorBano++;
+
+            // CORRECCIÓN: Forzamos a que ABSOLUTAMENTE TODOS los textos de esta tarjeta sean Azul Corporativo
+            foreach (var txt in textos)
+            {
+                if (txt != null) txt.color = colorAzulCorporativo;
+            }
+
+            // Pintamos el componente Image principal del prefab (la barrita de color de atrás)
+            Image barritaColor = itemH.GetComponent<Image>();
+            if (barritaColor != null) barritaColor.color = fondoActual;
         }
+    }
+
+    // --- NUEVA FUNCIÓN: Cerrar el historial de forma segura con animación ---
+    public void CerrarHistorial()
+    {
+        if (panelDetalles == null) return;
+
+        LeanTween.cancel(panelDetalles);
+        LeanTween.scale(panelDetalles, Vector3.zero, 0.3f).setEase(LeanTweenType.easeInBack).setOnComplete(() => {
+            panelDetalles.SetActive(false);
+        });
     }
 
     string FormatearTiempoSimple(float t) => string.Format("{0}:{1:00}", Mathf.FloorToInt(t / 60), Mathf.FloorToInt(t % 60));
@@ -141,5 +168,26 @@ public class ManejadorRanking : MonoBehaviour
     Color ObtenerColorFondoPorTiempo(float t) => (t <= limiteTiempoVerde) ? colorFondoVerde : (t < limiteTiempoAmarillo) ? colorFondoAmarillo : colorFondoRojo;
     Color ObtenerColorTextoPorTiempo(float t) => (t <= limiteTiempoVerde) ? colorTextoVerde : (t < limiteTiempoAmarillo) ? colorTextoAmarillo : colorTextoRojo;
 
-    string FormatearFechaEspecial(string f) { try { DateTime fecha = DateTime.ParseExact(f, "dd/MM/yyyy", null); string dia = fecha.ToString("ddd", new System.Globalization.CultureInfo("es-ES")); return char.ToUpper(dia[0]) + dia.Substring(1).Replace(".", "") + "-" + fecha.ToString("dd-yyyy"); } catch { return f; } }
+    // --- NUEVA FUNCIÓN: Formatear fecha específica para el Historial (Mayúsculas y control HOY) ---
+    string FormatearFechaHistorial(string f)
+    {
+        try
+        {
+            DateTime fecha = DateTime.ParseExact(f, "dd/MM/yyyy", null);
+            string fechaHoySistema = DateTime.Now.ToString("dd/MM/yyyy");
+
+            if (f == fechaHoySistema)
+            {
+                return "HOY, " + fecha.ToString("d 'DE' MMMM 'DEL' yyyy", new System.Globalization.CultureInfo("es-ES")).ToUpper();
+            }
+            else
+            {
+                return fecha.ToString("d 'DE' MMMM, yyyy", new System.Globalization.CultureInfo("es-ES")).ToUpper();
+            }
+        }
+        catch
+        {
+            return f.ToUpper();
+        }
+    }
 }
