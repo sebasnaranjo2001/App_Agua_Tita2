@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Android;
 using ZXing;
 using ZXing.QrCode;
 
@@ -20,22 +22,22 @@ public class ControladorSincronizacionQR : MonoBehaviour
     [Header("--- VISUALES DE QR Y CÁMARA ---")]
     public RawImage imagenMiQR;
     public RawImage visorCamara;
+    public GameObject botonEscanearUI;
 
     [Header("--- TARJETA 1: SELECCIÓN ---")]
-    public TMP_Text textoNumeroContador; // Solo el número dinámico
-    public Transform contenedorLista; // El contenedor que dejamos limpio
-    public GameObject prefabMiembro; // El molde original de tus Assets
+    public TMP_Text textoNumeroContador;
+    public TMP_Text textoNumeroSeleccionados;
+    public Transform contenedorLista;
+    public GameObject prefabMiembro;
 
     [Header("--- TARJETA 2: SIMILITUD ---")]
     public SeleccionMiembros miembroLocalReferencia;
     public SeleccionMiembros miembroQRNuevo;
 
-    // Variables internas para el control de la cámara y datos
     private WebCamTexture texturaCamara;
     private bool esEscanerActivo = false;
     private string datosDecodificadosRaw;
 
-    // Listas para manejar la lógica de "iluminación" que diseñaste
     private List<ManejadorRegistro.DatosMiembro> listaRecibidaQR = new List<ManejadorRegistro.DatosMiembro>();
     private Dictionary<GameObject, bool> itemSeleccionadoMap = new Dictionary<GameObject, bool>();
     private Dictionary<GameObject, ManejadorRegistro.DatosMiembro> itemDatosMap = new Dictionary<GameObject, ManejadorRegistro.DatosMiembro>();
@@ -43,34 +45,50 @@ public class ControladorSincronizacionQR : MonoBehaviour
     private int indiceConflictoActual = 0;
     private List<Tuple<ManejadorRegistro.DatosMiembro, ManejadorRegistro.DatosMiembro>> conflictosDetectados = new List<Tuple<ManejadorRegistro.DatosMiembro, ManejadorRegistro.DatosMiembro>>();
 
-    void Start()
-    {
-        ConfigurarEstadoInicial();
-    }
+    private bool huboFusionesSilenciosas = false; // Para saber si debemos guardar al final sin preguntar
+
+    void Start() { ConfigurarEstadoInicial(); }
 
     void Update()
     {
-        // Si el visor de la cámara está activo, buscamos códigos QR activamente en cada frame
         if (esEscanerActivo && texturaCamara != null && texturaCamara.isPlaying)
         {
+            AjustarRotacionCamaraMovil();
             AnalizarFrameCamara();
         }
     }
 
     public void ConfigurarEstadoInicial()
     {
-        panel1SelectorAccion.SetActive(true);
-        tarjeta1Informativa.SetActive(true);
-        tarjeta2Opciones.SetActive(false);
         panel2ResolucionConflicto.SetActive(false);
+        huboFusionesSilenciosas = false;
 
         if (texturaCamara != null && texturaCamara.isPlaying) texturaCamara.Stop();
         esEscanerActivo = false;
+        if (botonEscanearUI != null) botonEscanearUI.SetActive(true);
+
+        if (PlayerPrefs.GetInt("YaVioInfoQR", 0) == 0)
+        {
+            panel1SelectorAccion.SetActive(true);
+            tarjeta1Informativa.SetActive(true);
+            tarjeta2Opciones.SetActive(false);
+        }
+        else
+        {
+            panel1SelectorAccion.SetActive(true);
+            tarjeta1Informativa.SetActive(false);
+            tarjeta2Opciones.SetActive(true);
+            visorCamara.gameObject.SetActive(false);
+            imagenMiQR.gameObject.SetActive(true);
+            GenerarMiCodigoQR();
+        }
     }
 
-    // --- ENTRAR A LA TARJETA 2 Y GENERAR MI QR ---
     public void PresionarAceptarInformativo()
     {
+        PlayerPrefs.SetInt("YaVioInfoQR", 1);
+        PlayerPrefs.Save();
+
         tarjeta1Informativa.SetActive(false);
         tarjeta2Opciones.SetActive(true);
         visorCamara.gameObject.SetActive(false);
@@ -82,53 +100,66 @@ public class ControladorSincronizacionQR : MonoBehaviour
     private void GenerarMiCodigoQR()
     {
         if (ManejadorRegistro.instance == null) return;
-
-        // Convertimos la lista de miembros actual del teléfono a texto JSON
         ManejadorRegistro.ListaWrapper wrapper = new ManejadorRegistro.ListaWrapper { miembros = ManejadorRegistro.instance.listaDeMiembros };
         string jsonDatos = JsonUtility.ToJson(wrapper);
 
-        // Crear la textura del código QR usando el motor ZXing
-        BarcodeWriter writer = new BarcodeWriter
-        {
-            Format = BarcodeFormat.QR_CODE,
-            Options = new QrCodeEncodingOptions { Width = 512, Height = 512, Margin = 1 }
-        };
-
+        BarcodeWriter writer = new BarcodeWriter { Format = BarcodeFormat.QR_CODE, Options = new QrCodeEncodingOptions { Width = 512, Height = 512, Margin = 1 } };
         Color32[] pixeles = writer.Write(jsonDatos);
         Texture2D texturaQR = new Texture2D(512, 512);
         texturaQR.SetPixels32(pixeles);
         texturaQR.Apply();
-
         imagenMiQR.texture = texturaQR;
     }
 
-    // --- CONTROL DE LA CÁMARA (ESTADO B) ---
     public void PresionarEscanearCodigo()
     {
         imagenMiQR.gameObject.SetActive(false);
         visorCamara.gameObject.SetActive(true);
+        if (botonEscanearUI != null) botonEscanearUI.SetActive(false);
+        StartCoroutine(IniciarCamaraSeguraAndroid());
+    }
 
-        // Inicializamos la cámara física del celular
-        if (texturaCamara == null)
+    private IEnumerator IniciarCamaraSeguraAndroid()
+    {
+#if UNITY_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.Camera))
         {
-            texturaCamara = new WebCamTexture(Screen.width, Screen.height);
+            Permission.RequestUserPermission(Permission.Camera);
+            yield return new WaitUntil(() => Permission.HasUserAuthorizedPermission(Permission.Camera));
         }
+#endif
 
-        if (!texturaCamara.isPlaying)
+        yield return null;
+
+        string nombreCamaraTrasera = "";
+        if (WebCamTexture.devices.Length == 0) yield break;
+
+        foreach (var dispositivo in WebCamTexture.devices)
         {
-            texturaCamara.Play();
+            if (!dispositivo.isFrontFacing) { nombreCamaraTrasera = dispositivo.name; break; }
         }
+        if (nombreCamaraTrasera == "") nombreCamaraTrasera = WebCamTexture.devices[0].name;
 
+        if (texturaCamara != null && texturaCamara.isPlaying) texturaCamara.Stop();
+
+        texturaCamara = new WebCamTexture(nombreCamaraTrasera, Screen.width, Screen.height);
         visorCamara.texture = texturaCamara;
+        texturaCamara.Play();
         esEscanerActivo = true;
+    }
+
+    private void AjustarRotacionCamaraMovil()
+    {
+        int rotacion = texturaCamara.videoRotationAngle;
+        visorCamara.rectTransform.localEulerAngles = new Vector3(0, 0, -rotacion);
     }
 
     private void AnalizarFrameCamara()
     {
         try
         {
+            if (texturaCamara.width < 100) return;
             IBarcodeReader reader = new BarcodeReader();
-            // Le pasamos los píxeles de la cámara al lector ZXing
             var resultado = reader.Decode(texturaCamara.GetPixels32(), texturaCamara.width, texturaCamara.height);
 
             if (resultado != null)
@@ -136,18 +167,12 @@ public class ControladorSincronizacionQR : MonoBehaviour
                 datosDecodificadosRaw = resultado.Text;
                 texturaCamara.Stop();
                 esEscanerActivo = false;
-
-                // Efecto de sonido o respuesta háptica aquí si lo deseas
                 ProcesarDatosEscaneados(datosDecodificadosRaw);
             }
         }
-        catch (Exception)
-        {
-            // Buscando código... (Silenciamos errores menores de la cámara)
-        }
+        catch (Exception) { }
     }
 
-    // --- PROCESAMIENTO DE DATOS ENTRANTES ---
     private void ProcesarDatosEscaneados(string json)
     {
         try
@@ -161,11 +186,7 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
             CalcularConflictosYSimilitudes();
         }
-        catch (Exception e)
-        {
-            Debug.LogError("El código QR escaneado no pertenece al formato del juego: " + e.Message);
-            ConfigurarEstadoInicial();
-        }
+        catch (Exception) { ConfigurarEstadoInicial(); }
     }
 
     private void CalcularConflictosYSimilitudes()
@@ -175,26 +196,46 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
         foreach (var entrante in listaRecibidaQR)
         {
-            bool coincidenciaEncontrada = false;
+            bool esFusionSilenciosa = false;
+            bool coincidenciaDeNombre = false;
+            ManejadorRegistro.DatosMiembro localMatch = null;
 
             foreach (var local in ManejadorRegistro.instance.listaDeMiembros)
             {
-                // Si tienen el mismo nombre (Ignorando mayúsculas/minúsculas) o son altamente similares
+                // 1. LÓGICA DE UUID: ¿Tienen el mismo ID exacto o un ID que ya vinculamos antes?
+                if (entrante.idUnico == local.idUnico || (local.idsAsociados != null && local.idsAsociados.Contains(entrante.idUnico)))
+                {
+                    esFusionSilenciosa = true;
+                    localMatch = local;
+                    break;
+                }
+
+                // 2. Tienen el mismo nombre, pero no el mismo ID (Solo se activa si lo borraste y lo creaste de nuevo)
                 if (entrante.nombre.ToLower().Trim() == local.nombre.ToLower().Trim())
                 {
-                    conflictosDetectados.Add(new Tuple<ManejadorRegistro.DatosMiembro, ManejadorRegistro.DatosMiembro>(local, entrante));
-                    coincidenciaEncontrada = true;
-                    break;
+                    coincidenciaDeNombre = true;
+                    localMatch = local;
                 }
             }
 
-            if (!coincidenciaEncontrada)
+            if (esFusionSilenciosa)
             {
+                // ¡Magia! Se fusionan los datos en segundo plano sin interrumpir a Ana.
+                FusionarHistoriales(localMatch, entrante);
+                huboFusionesSilenciosas = true;
+            }
+            else if (coincidenciaDeNombre)
+            {
+                // Nombres iguales pero IDs diferentes -> ¡Alerta de Similitud!
+                conflictosDetectados.Add(new Tuple<ManejadorRegistro.DatosMiembro, ManejadorRegistro.DatosMiembro>(localMatch, entrante));
+            }
+            else
+            {
+                // Es alguien completamente nuevo
                 limpiosDeSimilitud.Add(entrante);
             }
         }
 
-        // Si hay conflictos de nombres, resolvemos la Tarjeta 2 primero
         if (conflictosDetectados.Count > 0)
         {
             indiceConflictoActual = 0;
@@ -202,12 +243,27 @@ public class ControladorSincronizacionQR : MonoBehaviour
         }
         else
         {
-            // Si no hay nombres idénticos/similares, vamos directo a la lista de selección de miembros
             ActivarTarjetaSeleccionMiembros(limpiosDeSimilitud);
         }
     }
 
-    // --- LOGICA TARJETA 2: RESOLUCIÓN INDIVIDUAL ---
+    private void FusionarHistoriales(ManejadorRegistro.DatosMiembro local, ManejadorRegistro.DatosMiembro entrante)
+    {
+        if (entrante.historialBanos != null)
+        {
+            if (local.historialBanos == null) local.historialBanos = new List<ManejadorRegistro.RegistroBano>();
+
+            foreach (var banoQR in entrante.historialBanos)
+            {
+                bool yaExiste = local.historialBanos.Exists(b => b.fecha == banoQR.fecha && b.hora == banoQR.hora);
+                if (!yaExiste) local.historialBanos.Add(banoQR);
+            }
+            float mejor = 0;
+            foreach (var b in local.historialBanos) { if (mejor == 0 || b.duracion < mejor) mejor = b.duracion; }
+            local.mejorTiempo = mejor;
+        }
+    }
+
     private void ActivarTarjetaSimilitud()
     {
         tarjeta1Miembros.SetActive(false);
@@ -215,55 +271,50 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
         var parActual = conflictosDetectados[indiceConflictoActual];
 
-        // Llenamos visualmente las dos tarjetas de comparación fijas que creaste
         miembroLocalReferencia.textoNombre.text = parActual.Item1.nombre;
         miembroLocalReferencia.textoEdad.text = parActual.Item1.edad + " años";
-        miembroLocalReferencia.textoDuchas.text = "Duchas totales:\n" + (parActual.Item1.historialBanos?.Count ?? 0);
+        miembroLocalReferencia.textoDuchas.text = "Duchas:\n" + (parActual.Item1.historialBanos?.Count ?? 0);
         miembroLocalReferencia.AplicarTema(parActual.Item1.indiceTemaColor);
 
         miembroQRNuevo.textoNombre.text = parActual.Item2.nombre;
         miembroQRNuevo.textoEdad.text = parActual.Item2.edad + " años";
-        miembroQRNuevo.textoDuchas.text = "Duchas totales:\n" + (parActual.Item2.historialBanos?.Count ?? 0);
+        miembroQRNuevo.textoDuchas.text = "Duchas:\n" + (parActual.Item2.historialBanos?.Count ?? 0);
         miembroQRNuevo.AplicarTema(parActual.Item2.indiceTemaColor);
     }
 
-    // Respuesta Botón: SI, FUSIONAR DATOS
     public void Action_UnificarPerfiles()
     {
         var par = conflictosDetectados[indiceConflictoActual];
 
-        // Fusionamos historiales sin duplicar registros exactos
-        if (par.Item2.historialBanos != null)
-        {
-            if (par.Item1.historialBanos == null) par.Item1.historialBanos = new List<ManejadorRegistro.RegistroBano>();
+        FusionarHistoriales(par.Item1, par.Item2);
+        huboFusionesSilenciosas = true;
 
-            foreach (var banoQR in par.Item2.historialBanos)
-            {
-                // Un filtro simple para evitar meter la misma ducha a la misma hora
-                bool yaExiste = par.Item1.historialBanos.Exists(b => b.fecha == banoQR.fecha && b.hora == banoQR.hora);
-                if (!yaExiste)
-                {
-                    par.Item1.historialBanos.Add(banoQR);
-                }
-            }
-            // Recalculamos el mejor tiempo histórico tras la fusión
-            float mejor = 0;
-            foreach (var b in par.Item1.historialBanos) { if (mejor == 0 || b.duracion < mejor) mejor = b.duracion; }
-            par.Item1.mejorTiempo = mejor;
+        // APRENDIZAJE DEL SISTEMA: Vinculamos los IDs para que NO vuelva a preguntar en el futuro
+        if (par.Item1.idsAsociados == null) par.Item1.idsAsociados = new List<string>();
+        if (!par.Item1.idsAsociados.Contains(par.Item2.idUnico))
+        {
+            par.Item1.idsAsociados.Add(par.Item2.idUnico);
         }
 
         AvanzarEnConflictos();
     }
 
-    // Respuesta Botón: NO, CREAR COMO NUEVO SEPARADO
     public void Action_CrearComoNuevoSeparado()
     {
         var par = conflictosDetectados[indiceConflictoActual];
-        // Le agregamos un distintivo al nombre para que no colisionen en la base de datos
-        par.Item2.nombre = par.Item2.nombre + " (QR)";
+        string nombreBase = par.Item2.nombre;
+        string nuevoNombre = nombreBase + " 2";
+        int contador = 2;
 
-        // Lo añadimos temporalmente a la lista de "por procesar" en la siguiente tarjeta
-        listaRecibidaQR.Add(par.Item2);
+        while (ManejadorRegistro.instance.listaDeMiembros.Exists(m => m.nombre.ToLower() == nuevoNombre.ToLower()) ||
+               listaRecibidaQR.Exists(m => m != par.Item2 && m.nombre.ToLower() == nuevoNombre.ToLower()))
+        {
+            contador++;
+            nuevoNombre = nombreBase + " " + contador;
+        }
+
+        par.Item2.nombre = nuevoNombre;
+        listaRecibidaQR.Add(par.Item2); // Lo reintroducimos con nombre nuevo para que aparezca en la lista de selección
 
         AvanzarEnConflictos();
     }
@@ -277,35 +328,34 @@ public class ControladorSincronizacionQR : MonoBehaviour
         }
         else
         {
-            // Ya terminamos los conflictos, ahora filtramos los que sobrevivieron para mostrarlos en la lista
             List<ManejadorRegistro.DatosMiembro> listosParaMostrar = new List<ManejadorRegistro.DatosMiembro>();
             foreach (var m in listaRecibidaQR)
             {
-                // Evitamos volver a listar los que ya se fusionaron directamente en la base local
-                bool esLocal = ManejadorRegistro.instance.listaDeMiembros.Exists(l => l.nombre.ToLower() == m.nombre.ToLower());
-                if (!esLocal) listosParaMostrar.Add(m);
+                // Ocultamos los que ya se fusionaron (tienen el mismo ID)
+                bool yaFusionado = ManejadorRegistro.instance.listaDeMiembros.Exists(l => l.idUnico == m.idUnico || (l.idsAsociados != null && l.idsAsociados.Contains(m.idUnico)));
+                if (!yaFusionado) listosParaMostrar.Add(m);
             }
             ActivarTarjetaSeleccionMiembros(listosParaMostrar);
         }
     }
 
-    // --- LOGICA TARJETA 1: LISTA SELECCIÓN POR ILUMINACIÓN ---
     private void ActivarTarjetaSeleccionMiembros(List<ManejadorRegistro.DatosMiembro> miembrosAEnlistar)
     {
         tarjeta2Similitud.SetActive(false);
         tarjeta1Miembros.SetActive(true);
 
-        // Limpieza absoluta del contenedor deslizable
         foreach (Transform hijo in contenedorLista) { Destroy(hijo.gameObject); }
         itemSeleccionadoMap.Clear();
         itemDatosMap.Clear();
 
         textoNumeroContador.text = miembrosAEnlistar.Count.ToString();
+        ActualizarTextoSeleccionados();
 
-        // Si no hay miembros para enlistar, cerramos automáticamente
         if (miembrosAEnlistar.Count == 0)
         {
-            FinalizarSincronizacionYRefrescar();
+            // Si la lista está vacía, pero se hicieron fusiones silenciosas, guardamos y salimos.
+            if (huboFusionesSilenciosas) FinalizarSincronizacionYRefrescar();
+            else Action_CancelarYSalir();
             return;
         }
 
@@ -319,60 +369,64 @@ public class ControladorSincronizacionQR : MonoBehaviour
             {
                 uiTarjeta.textoNombre.text = miembro.nombre;
                 uiTarjeta.textoEdad.text = miembro.edad + " años";
-                uiTarjeta.textoDuchas.text = "Duchas totales:\n" + (miembro.historialBanos?.Count ?? 0);
-                uiTarjeta.AplicarTema(miembro.indiceTemaColor);
+                uiTarjeta.textoDuchas.text = "Duchas:\n" + (miembro.historialBanos?.Count ?? 0);
 
-                // LOGICA DE TU NUEVA UX: Inician deseleccionados por defecto (opacos)
-                uiTarjeta.imagenFondo.color = uiTarjeta.imagenFondo.color * 0.4f; // Súper oscurecido
-                itemSeleccionadoMap.Add(nuevoItem, false); // false = no incluido
+                uiTarjeta.AplicarTema(miembro.indiceTemaColor);
+                Color col = uiTarjeta.imagenFondo.color;
+                uiTarjeta.imagenFondo.color = new Color(col.r * 0.4f, col.g * 0.4f, col.b * 0.4f, col.a);
+
+                itemSeleccionadoMap.Add(nuevoItem, false);
                 itemDatosMap.Add(nuevoItem, miembro);
 
-                // Reemplazamos el botón nativo para que responda a nuestra lógica de iluminación
-                Button btn = nuevoItem.GetComponent<Button>();
-                if (btn != null)
-                {
-                    btn.onClick.RemoveAllListeners();
-                    btn.onClick.AddListener(() => AlHacerClicEnMiembroDeLista(nuevoItem, uiTarjeta));
-                }
+                Button btnViejo = nuevoItem.GetComponent<Button>();
+                if (btnViejo != null) Destroy(btnViejo);
+
+                Button btnLimpio = nuevoItem.AddComponent<Button>();
+                btnLimpio.onClick.AddListener(() => AlHacerClicEnMiembroDeLista(nuevoItem, uiTarjeta, miembro));
             }
         }
     }
 
-    private void AlHacerClicEnMiembroDeLista(GameObject goItem, SeleccionMiembros uiRef)
+    private void AlHacerClicEnMiembroDeLista(GameObject goItem, SeleccionMiembros uiRef, ManejadorRegistro.DatosMiembro datos)
     {
-        // Alternamos el estado
         bool estaIncluido = !itemSeleccionadoMap[goItem];
         itemSeleccionadoMap[goItem] = estaIncluido;
 
         if (estaIncluido)
         {
-            //UX Iluminado: Color Brillante Normal de fábrica
-            uiRef.imagenFondo.color = uiRef.imagenFondo.color * (1f / 0.4f);
-            // Efecto de escala sutil con LeanTween para feedback táctil
+            uiRef.AplicarTema(datos.indiceTemaColor);
             LeanTween.scale(goItem, Vector3.one * 1.03f, 0.1f).setLoopPingPong(1);
         }
         else
         {
-            //UX Apagado: Se vuelve opaco/oscuro de nuevo
-            uiRef.imagenFondo.color = uiRef.imagenFondo.color * 0.4f;
+            uiRef.AplicarTema(datos.indiceTemaColor);
+            Color col = uiRef.imagenFondo.color;
+            uiRef.imagenFondo.color = new Color(col.r * 0.4f, col.g * 0.4f, col.b * 0.4f, col.a);
         }
+
+        ActualizarTextoSeleccionados();
     }
 
-    // --- ACCIONES FINALES DE BOTONES DE CONTROL ---
+    private void ActualizarTextoSeleccionados()
+    {
+        if (textoNumeroSeleccionados == null) return;
+        int contador = 0;
+        foreach (var estado in itemSeleccionadoMap.Values) { if (estado) contador++; }
+        textoNumeroSeleccionados.text = contador.ToString();
+    }
+
     public void Action_GuardarMiembrosSeleccionados()
     {
         if (ManejadorRegistro.instance == null) return;
 
         foreach (var item in itemSeleccionadoMap)
         {
-            // Si el objeto se quedó iluminado (true), lo guardamos oficialmente en el disco
             if (item.Value == true)
             {
                 ManejadorRegistro.DatosMiembro datosAGuardar = itemDatosMap[item.Key];
                 ManejadorRegistro.instance.listaDeMiembros.Add(datosAGuardar);
             }
         }
-
         FinalizarSincronizacionYRefrescar();
     }
 
@@ -384,14 +438,13 @@ public class ControladorSincronizacionQR : MonoBehaviour
             ManejadorRegistro.instance.RefrescarListaVisual();
         }
 
-        // Buscamos el ranking en la escena para que se actualice de inmediato con los datos nuevos
         ManejadorRanking ranking = UnityEngine.Object.FindFirstObjectByType<ManejadorRanking>();
         if (ranking != null) ranking.GenerarRanking();
 
         if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(true);
 
         ConfigurarEstadoInicial();
-        this.gameObject.transform.parent.gameObject.SetActive(false); // Cierra el Panel_QR_Principal por completo
+        this.gameObject.transform.parent.gameObject.SetActive(false);
     }
 
     public void Action_CancelarYSalir()

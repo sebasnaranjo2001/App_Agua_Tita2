@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -34,6 +35,8 @@ public class ManejadorRegistro : MonoBehaviour
     [System.Serializable]
     public class DatosMiembro
     {
+        public string idUnico; // ADN del perfil
+        public List<string> idsAsociados = new List<string>(); // Mochila de IDs vinculados
         public string nombre;
         public string edad;
         public float mejorTiempo;
@@ -55,7 +58,6 @@ public class ManejadorRegistro : MonoBehaviour
         RefrescarListaVisual();
         ConfigurarInputs();
         ValidarCamposLlenos();
-
         SeleccionarColorParaNuevoMiembro(0);
     }
 
@@ -67,10 +69,7 @@ public class ManejadorRegistro : MonoBehaviour
     IEnumerator ResetearScrollAlInicio()
     {
         yield return new WaitForEndOfFrame();
-        if (scrollRectRegistro != null)
-        {
-            scrollRectRegistro.verticalNormalizedPosition = 1f;
-        }
+        if (scrollRectRegistro != null) scrollRectRegistro.verticalNormalizedPosition = 1f;
     }
 
     public void ActualizarRanking()
@@ -117,7 +116,6 @@ public class ManejadorRegistro : MonoBehaviour
     public void SeleccionarColorParaNuevoMiembro(int indiceColor)
     {
         colorSeleccionadoTemporal = indiceColor;
-
         if (botonesColores != null && botonesColores.Length > 0)
         {
             for (int i = 0; i < botonesColores.Length; i++)
@@ -125,14 +123,8 @@ public class ManejadorRegistro : MonoBehaviour
                 if (botonesColores[i] != null)
                 {
                     LeanTween.cancel(botonesColores[i].gameObject);
-                    if (i == indiceColor)
-                    {
-                        LeanTween.scale(botonesColores[i].gameObject, Vector3.one * 1.3f, 0.25f).setEase(LeanTweenType.easeOutBack);
-                    }
-                    else
-                    {
-                        LeanTween.scale(botonesColores[i].gameObject, Vector3.one * 1.0f, 0.2f).setEase(LeanTweenType.easeOutQuad);
-                    }
+                    if (i == indiceColor) LeanTween.scale(botonesColores[i].gameObject, Vector3.one * 1.3f, 0.25f).setEase(LeanTweenType.easeOutBack);
+                    else LeanTween.scale(botonesColores[i].gameObject, Vector3.one * 1.0f, 0.2f).setEase(LeanTweenType.easeOutQuad);
                 }
             }
         }
@@ -147,15 +139,15 @@ public class ManejadorRegistro : MonoBehaviour
             if (m.nombre.ToLower() == inputNombre.text.ToLower() && m.edad == inputEdad.text)
             {
                 if (Avisos.instance != null && Avisos.instance.popMiembroDuplicado != null)
-                {
                     Avisos.instance.MostrarAvisoPopUp(Avisos.instance.popMiembroDuplicado);
-                }
                 return;
             }
         }
 
         DatosMiembro nuevoMiembro = new DatosMiembro
         {
+            idUnico = System.Guid.NewGuid().ToString(), // ADN único
+            idsAsociados = new List<string>(),          // Mochila vacía
             nombre = inputNombre.text,
             edad = inputEdad.text,
             mejorTiempo = 0,
@@ -168,19 +160,14 @@ public class ManejadorRegistro : MonoBehaviour
         GuardarEnDisco();
 
         if (Avisos.instance != null) Avisos.instance.NotificarMiembroGuardado();
-
         inputNombre.text = "";
         inputEdad.text = "";
-
         SeleccionarColorParaNuevoMiembro(0);
-
         ActualizarTextoContador();
         ValidarCamposLlenos();
 
         if (Avisos.instance != null && Avisos.instance.navegador != null)
-        {
             Avisos.instance.navegador.CerrarTarjetaRegistro();
-        }
     }
 
     public void RefrescarListaVisual()
@@ -195,26 +182,19 @@ public class ManejadorRegistro : MonoBehaviour
     {
         if (contenedorLista == null || prefabMiembro == null) return;
         GameObject nuevoItem = Instantiate(prefabMiembro, contenedorLista);
-
         nuevoItem.transform.SetAsLastSibling();
         nuevoItem.name = miembro.nombre;
 
         SeleccionMiembros tarjeta = nuevoItem.GetComponent<SeleccionMiembros>();
-
         if (tarjeta != null)
         {
             if (tarjeta.textoNombre != null) tarjeta.textoNombre.text = miembro.nombre;
             if (tarjeta.textoEdad != null) tarjeta.textoEdad.text = miembro.edad + " años";
             int totalBanos = (miembro.historialBanos != null) ? miembro.historialBanos.Count : 0;
             if (tarjeta.textoDuchas != null) tarjeta.textoDuchas.text = "Duchas totales:\n" + totalBanos.ToString();
-
             tarjeta.AplicarTema(miembro.indiceTemaColor);
-
-            // --- CORRECCIÓN: Si este miembro era el seleccionado, restauramos su estado lógico y visual ---
             if (!string.IsNullOrEmpty(nombreSeleccionado) && miembro.nombre == nombreSeleccionado)
-            {
                 tarjeta.SeleccionarEsteMiembro();
-            }
         }
     }
 
@@ -241,10 +221,6 @@ public class ManejadorRegistro : MonoBehaviour
         ListaWrapper wrapper = new ListaWrapper { miembros = listaDeMiembros };
         string json = JsonUtility.ToJson(wrapper);
         PlayerPrefs.SetString("ListaUsuarios", json);
-
-        bool hayDatos = false;
-        foreach (DatosMiembro m in listaDeMiembros) { if (m.historialBanos != null && m.historialBanos.Count > 0) hayDatos = true; }
-        PlayerPrefs.SetInt("HayDatosDucha", hayDatos ? 1 : 0);
         PlayerPrefs.Save();
     }
 
@@ -254,7 +230,15 @@ public class ManejadorRegistro : MonoBehaviour
         {
             string json = PlayerPrefs.GetString("ListaUsuarios");
             ListaWrapper wrapper = JsonUtility.FromJson<ListaWrapper>(json);
-            if (wrapper != null && wrapper.miembros != null) listaDeMiembros = wrapper.miembros;
+            if (wrapper != null && wrapper.miembros != null)
+            {
+                listaDeMiembros = wrapper.miembros;
+                foreach (var m in listaDeMiembros)
+                {
+                    if (string.IsNullOrEmpty(m.idUnico)) m.idUnico = System.Guid.NewGuid().ToString();
+                    if (m.idsAsociados == null) m.idsAsociados = new List<string>();
+                }
+            }
         }
     }
 }
