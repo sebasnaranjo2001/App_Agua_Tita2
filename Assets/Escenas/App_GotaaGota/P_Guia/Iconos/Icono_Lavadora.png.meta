@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 03265067ec3044a4796ba890d7520bef
+guid: cc5df64b944890a459ca92bd4cb7ec39
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4093987921198194536
-    second: 33_0
+      213: -3101514728076549323
+    second: Icono_Lavadora_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 33_0
+      name: Icono_Lavadora_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 225
-        height: 225
+        x: 118
+        y: 75
+        width: 229
+        height: 282
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 890ed323dab3f27c0800000000000000
-      internalID: -4093987921198194536
+      spriteID: 533ea5f89c435f4d0800000000000000
+      internalID: -3101514728076549323
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      33_0: -4093987921198194536
+      Icono_Lavadora_0: -3101514728076549323
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: 1e70a66e59a92ef4ca834a0db5575259
+guid: 1f92fcd527e6a494f86fcffc1ae86384
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -855298285791758126
-    second: 1_0
+      213: 6789613465729831106
+    second: Icono_Ducha_0
+  - first:
+      213: -3936361527010338500
+    second: Icono_Ducha_1
+  - first:
+      213: -2006846296080112221
+    second: Icono_Ducha_2
+  - first:
+      213: 9076757862817758227
+    second: Icono_Ducha_3
+  - first:
+      213: -2762837251646935799
+    second: Icono_Ducha_4
+  - first:
+      213: 5449290172954831771
+    second: Icono_Ducha_5
+  - first:
+      213: -8184386739918106041
+    second: Icono_Ducha_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +131,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_0
+      name: Icono_Ducha_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 225
-        height: 225
+        x: 148
+        y: 127
+        width: 167
+        height: 218
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d8b16a9dbe5124f0800000000000000
-      internalID: -855298285791758126
+      spriteID: 2c01903697d893e50800000000000000
+      internalID: 6789613465729831106
       vertices: []
       indices: 
       edges: []
@@ -138,7 +156,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5cdb03c3177443448b92089c322b3068
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +166,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      1_0: -855298285791758126
+      Icono_Ducha_0: 6789613465729831106
+      Icono_Ducha_1: -3936361527010338500
+      Icono_Ducha_2: -2006846296080112221
+      Icono_Ducha_3: 9076757862817758227
+      Icono_Ducha_4: -2762837251646935799
+      Icono_Ducha_5: 5449290172954831771
+      Icono_Ducha_6: -8184386739918106041
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

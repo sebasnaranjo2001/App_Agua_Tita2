@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c6d29f6d68a1ed8448c32c5a0ff7c9e2
+guid: 08da484bd6901c747a3a8bbd6a2cfa60
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6937817954938267909
-    second: 2_0
+      213: 3897378316897191453
+    second: Icono_Jardin_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2_0
+      name: Icono_Jardin_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 162
-        height: 148
+        x: 140
+        y: 91
+        width: 182
+        height: 273
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5092c600ca4184060800000000000000
-      internalID: 6937817954938267909
+      spriteID: d1687f51ee4461630800000000000000
+      internalID: 3897378316897191453
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      2_0: 6937817954938267909
+      Icono_Jardin_0: 3897378316897191453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 0aa29529f7006824f8650378a84aebc4
+guid: b8f295c0561fc8c4da87792fe8e7ed54
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8137979254470556379
-    second: BotonJardin_0
+      213: -8955561275421577427
+    second: Icono QR_0
+  - first:
+      213: 1276117816851063637
+    second: Icono QR_1
+  - first:
+      213: 8001894545744084962
+    second: Icono QR_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BotonJardin_0
+      name: Icono QR_0
       rect:
         serializedVersion: 2
-        x: 207
-        y: 222
-        width: 307
-        height: 284
+        x: 66
+        y: 65
+        width: 380
+        height: 379
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bda373cd309efe070800000000000000
-      internalID: 8137979254470556379
+      spriteID: d2fa046f77477b380800000000000000
+      internalID: -8955561275421577427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icono QR_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 65
+        width: 29
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55364fca46ea5b110800000000000000
+      internalID: 1276117816851063637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icono QR_2
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 65
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef363981b07c0f60800000000000000
+      internalID: 8001894545744084962
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BotonJardin_0: 8137979254470556379
+      Icono QR_0: -8955561275421577427
+      Icono QR_1: 1276117816851063637
+      Icono QR_2: 8001894545744084962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
