@@ -116,10 +116,10 @@ TextureImporter:
       name: Blur_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1684
-        height: 1690
+        x: 142
+        y: 223
+        width: 1389
+        height: 1297
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 264, y: 297, z: 231, w: 245}
