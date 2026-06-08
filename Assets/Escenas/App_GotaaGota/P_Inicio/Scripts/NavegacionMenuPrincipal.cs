@@ -45,7 +45,7 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public RectTransform encabezadoInicio;
     public RectTransform encabezadoJuegos;
     public RectTransform encabezadoGuia;
-    public RectTransform encabezadoDuchometro; // <-- NUEVO: Encabezado del Duchometro
+    public RectTransform encabezadoDuchometro;
 
     [Header("--- ELEMENTOS INICIO (PUM) ---")]
     public GameObject seccionAvisos;
@@ -63,7 +63,16 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     public GameObject itemJ1, itemJ2, itemJ3;
 
     [Header("--- ELEMENTOS DUCHOMETRO (PUM) ---")]
-    public GameObject barraInternaDuchometro; // Se mantiene solo la barra interna
+    public GameObject barraInternaDuchometro;
+
+    [Header("--- CONEXIÓN CON VIDEO 1 ---")]
+    public GameObject panelVideoGota;
+    public ControladorVideoGota scriptVideoGota;
+
+    // 👇 AQUÍ ESTÁ LO NUEVO QUE SE AGREGÓ 👇
+    [Header("--- CONEXIÓN CON VIDEO 2 ---")]
+    public GameObject panelVideo2; // Arrastra tu SEGUNDO Panel de Video aquí
+    public ControladorVideoGota scriptVideo2; // Arrastra el script del segundo panel aquí
 
     void Start()
     {
@@ -76,7 +85,6 @@ public class NavegacionMenuPrincipal : MonoBehaviour
 
     void RegistrarEscalasYPosiciones()
     {
-        // Registrar escalas originales (PUM) - Limpiado de titulos viejos del duchometro
         GameObject[] todosLosObjetos = {
             seccionAvisos, seccionBotonDuchometro, seccionTarjetas,
             descripcionGeneralGuia, btnBano, btnCocina, btnLavanderia, btnJardin,
@@ -92,7 +100,6 @@ public class NavegacionMenuPrincipal : MonoBehaviour
             }
         }
 
-        // Registrar posiciones originales para los encabezados que deslizan suavemente
         if (encabezadoInicio != null && !posicionesOriginales.ContainsKey(encabezadoInicio))
             posicionesOriginales.Add(encabezadoInicio, encabezadoInicio.anchoredPosition);
 
@@ -115,8 +122,35 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         else MostrarInicio();
     }
 
-    // --- MÉTODOS DE NAVEGACIÓN ---
+    // --- FUNCIÓN PARA ABRIR EL VIDEO 1 DESDE EL MENÚ ---
+    public void BotonAbrirElVideoDesdeMenu()
+    {
+        if (panelVideoGota != null)
+        {
+            panelVideoGota.SetActive(true);
+        }
 
+        if (scriptVideoGota != null)
+        {
+            scriptVideoGota.AbrirVideo();
+        }
+    }
+
+    // 👇 NUEVA FUNCIÓN PARA ABRIR EL VIDEO 2 DESDE EL MENÚ 👇
+    public void BotonAbrirVideo2DesdeMenu()
+    {
+        if (panelVideo2 != null)
+        {
+            panelVideo2.SetActive(true); // Despierta el segundo panel
+        }
+
+        if (scriptVideo2 != null)
+        {
+            scriptVideo2.AbrirVideo(); // Ejecuta la animación y el play del segundo video
+        }
+    }
+
+    // --- MÉTODOS DE NAVEGACIÓN ---
     public void AbrirPanelDuchometro()
     {
         if (seccionActual == "duchometro") return;
@@ -124,13 +158,9 @@ public class NavegacionMenuPrincipal : MonoBehaviour
         ActualizarEstadoBotones("duchometro");
         EjecutarTransicionFondo(fondoDuchometro, panelDuchometro);
 
-        // CORRECCIÓN: Animacion natural automatica para el encabezado del duchometro
         AnimarEncabezadoNatural(encabezadoDuchometro, 0.6f, 0.05f);
 
-        // Reseteamos escala a 0 solo para la barra
         SetScaleZero(barraInternaDuchometro);
-
-        // La barra brota despues de que el encabezado comience a deslizar
         Pop(barraInternaDuchometro, 0.4f, 0.22f);
     }
 
@@ -183,7 +213,6 @@ public class NavegacionMenuPrincipal : MonoBehaviour
     }
 
     // --- MÉTODOS HERRAMIENTA ---
-
     private void ActualizarEstadoBotones(string seccionActiva)
     {
         GestionarEscalaBoton(btnInicio.transform, seccionActiva == "inicio");

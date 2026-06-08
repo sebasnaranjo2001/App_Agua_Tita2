@@ -29,7 +29,7 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
     public float tamañoPuntoInactivo = 40f;
 
     [Header("Navegación Single Scene")]
-    public GameObject panelPadreDuchometro;    // Solo necesitamos el objeto padre "Duchometro"
+    public GameObject panelPadreDuchometro;
 
     private int indexActual = 0;
     private Vector2 posInicialContenedor;
@@ -50,17 +50,19 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void RefrescarPanel()
     {
-        if (PlayerPrefs.GetInt("HayDatosDucha", 0) == 1)
+        // En lugar de confiar en una variable externa, revisamos la fuente real de datos
+        bool tenemosUnLiderValido = CargarLiderMenu();
+
+        if (tenemosUnLiderValido)
         {
             if (tarjetaRanking != null) tarjetaRanking.SetActive(true);
-            CargarLiderMenu();
             totalTarjetasActivas = 2;
         }
         else
         {
             if (tarjetaRanking != null) tarjetaRanking.SetActive(false);
             totalTarjetasActivas = 1;
-            indexActual = 0;
+            indexActual = 0; // Forzamos el regreso a la tarjeta principal
         }
 
         if (contenedor != null)
@@ -153,18 +155,14 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    // LÓGICA CORREGIDA: Nos integramos al sistema principal
     public void IrAlDuchometroRanking()
     {
-        // 1. Buscamos el script principal y le decimos que abra el Duchómetro oficialmente
-        // Esto cambia los fondos, actualiza los botones de la barra inferior y cambia la 'seccionActual'
         NavegacionMenuPrincipal navPrincipal = Object.FindFirstObjectByType<NavegacionMenuPrincipal>();
         if (navPrincipal != null)
         {
             navPrincipal.AbrirPanelDuchometro();
         }
 
-        // 2. Le decimos al ManejadorNavegacion interno del Duchómetro que vaya a la pestaña Ranking
         if (panelPadreDuchometro != null)
         {
             ManejadorNavegacion manejadorDuchometro = panelPadreDuchometro.GetComponentInChildren<ManejadorNavegacion>();
@@ -176,27 +174,43 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    void CargarLiderMenu()
+    // Transformamos esta función en un booleano para que actúe como un escáner de la verdad
+    bool CargarLiderMenu()
     {
         string json = PlayerPrefs.GetString("ListaUsuarios", "");
-        if (string.IsNullOrEmpty(json)) return;
+
+        // Si el JSON está vacío, definitivamente no hay datos
+        if (string.IsNullOrEmpty(json)) return false;
 
         ManejadorRegistro.ListaWrapper wrapper = JsonUtility.FromJson<ManejadorRegistro.ListaWrapper>(json);
-        if (wrapper != null && wrapper.miembros.Count > 0)
+
+        // Si la lista existe pero está vacía (0 miembros), tampoco hay datos
+        if (wrapper == null || wrapper.miembros.Count == 0) return false;
+
+        ManejadorRegistro.DatosMiembro mejor = null;
+        float record = float.MaxValue;
+
+        foreach (var m in wrapper.miembros)
         {
-            ManejadorRegistro.DatosMiembro mejor = null;
-            float record = float.MaxValue;
-            foreach (var m in wrapper.miembros)
+            if (m.mejorTiempo > 0 && m.mejorTiempo < record)
             {
-                if (m.mejorTiempo > 0 && m.mejorTiempo < record) { record = m.mejorTiempo; mejor = m; }
-            }
-            if (mejor != null)
-            {
-                txtNombreLider.text = mejor.nombre;
-                int min = Mathf.FloorToInt(mejor.mejorTiempo / 60);
-                int seg = Mathf.FloorToInt(mejor.mejorTiempo % 60);
-                txtTiempoLider.text = string.Format("{0}:{1:00} min", min, seg);
+                record = m.mejorTiempo;
+                mejor = m;
             }
         }
+
+        // Si encontramos a alguien con un tiempo válido, actualizamos la UI y devolvemos true
+        if (mejor != null)
+        {
+            if (txtNombreLider != null) txtNombreLider.text = mejor.nombre;
+            int min = Mathf.FloorToInt(mejor.mejorTiempo / 60);
+            int seg = Mathf.FloorToInt(mejor.mejorTiempo % 60);
+            if (txtTiempoLider != null) txtTiempoLider.text = string.Format("{0}:{1:00} min", min, seg);
+
+            return true;
+        }
+
+        // Si hay miembros creados pero NADIE tiene un tiempo guardado todavía, ocultamos la tarjeta
+        return false;
     }
 }

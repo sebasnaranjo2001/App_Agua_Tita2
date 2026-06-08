@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ControladorVideoGota : MonoBehaviour
 {
@@ -23,48 +24,43 @@ public class ControladorVideoGota : MonoBehaviour
 
     void Start()
     {
-        panelVideo.SetActive(false);
         rectTransformPanel.localScale = Vector3.zero;
         grupoControles.alpha = 0;
 
-        // Suscribirse a eventos
-        videoPlayer.loopPointReached += AlTerminarVideo;
+        // --- NUEVO: Empezamos con los controles desactivados físicamente ---
+        grupoControles.interactable = false;
+        grupoControles.blocksRaycasts = false;
 
-        // IMPORTANTE: Empezar a preparar el video apenas abra la escena
-        videoPlayer.Prepare();
+        videoPlayer.loopPointReached += AlTerminarVideo;
     }
 
-    void AlTerminarVideo(VideoPlayer vp) { CerrarVideo(); }
+    void Update()
+    {
+        // Hace que la barra se mueva sola
+        if (videoPlayer.isPlaying && !arrastrandoSlider && videoPlayer.frameCount > 0)
+        {
+            sliderProgreso.value = (float)videoPlayer.frame / (float)videoPlayer.frameCount;
+        }
+    }
+
+    void AlTerminarVideo(VideoPlayer vp)
+    {
+        CerrarVideo();
+    }
 
     public void AbrirVideo()
     {
         panelVideo.SetActive(true);
-        panelVideo.transform.SetAsLastSibling();
-
-        Screen.orientation = ScreenOrientation.AutoRotation;
         LeanTween.scale(rectTransformPanel.gameObject, Vector3.one, 0.5f).setEaseOutBack();
 
-        // Lógica inteligente: Si ya está preparado, Play. Si no, esperamos a que termine de preparar.
-        if (videoPlayer.isPrepared)
-        {
-            EjecutarPlayYControles();
-        }
-        else
-        {
-            videoPlayer.prepareCompleted += AlEstarListoParaSonar;
-            videoPlayer.Prepare();
-        }
+        StartCoroutine(RutinaPlaySeguro());
     }
 
-    // Esta función se activa sola cuando el video por fin se carga
-    void AlEstarListoParaSonar(VideoPlayer vp)
+    IEnumerator RutinaPlaySeguro()
     {
-        videoPlayer.prepareCompleted -= AlEstarListoParaSonar; // Limpiamos el evento
-        EjecutarPlayYControles();
-    }
+        // Espera una fracción de segundo para que el reproductor no tire error
+        yield return new WaitForSeconds(0.1f);
 
-    void EjecutarPlayYControles()
-    {
         videoPlayer.Play();
         btnPlay.SetActive(false);
         btnPause.SetActive(true);
@@ -74,7 +70,6 @@ public class ControladorVideoGota : MonoBehaviour
     public void CerrarVideo()
     {
         videoPlayer.Stop();
-        Screen.orientation = ScreenOrientation.Portrait;
         LeanTween.scale(rectTransformPanel.gameObject, Vector3.zero, 0.4f).setEaseInBack().setOnComplete(() => {
             panelVideo.SetActive(false);
         });
@@ -82,7 +77,7 @@ public class ControladorVideoGota : MonoBehaviour
 
     public void ClickPlay()
     {
-        if (videoPlayer.isPrepared) videoPlayer.Play();
+        videoPlayer.Play();
         btnPlay.SetActive(false);
         btnPause.SetActive(true);
         MostrarControles();
@@ -105,6 +100,11 @@ public class ControladorVideoGota : MonoBehaviour
     public void MostrarControles()
     {
         controlesVisibles = true;
+
+        // --- NUEVO: Activamos la interacción en cuanto aparecen ---
+        grupoControles.interactable = true;
+        grupoControles.blocksRaycasts = true;
+
         LeanTween.cancel(grupoControles.gameObject);
         LeanTween.alphaCanvas(grupoControles, 1f, 0.3f);
         CancelInvoke("OcultarControles");
@@ -114,10 +114,16 @@ public class ControladorVideoGota : MonoBehaviour
     void OcultarControles()
     {
         controlesVisibles = false;
+
+        // --- NUEVO: Desactivamos la interacción para que los clics pasen de largo ---
+        grupoControles.interactable = false;
+        grupoControles.blocksRaycasts = false;
+
         LeanTween.alphaCanvas(grupoControles, 0f, 0.5f);
     }
 
     public void OnSliderDown() { arrastrandoSlider = true; }
+
     public void OnSliderUp()
     {
         float frame = (float)sliderProgreso.value * videoPlayer.frameCount;
