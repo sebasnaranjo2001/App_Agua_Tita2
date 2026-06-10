@@ -59,6 +59,26 @@ public class SpotWaterManager : MonoBehaviour
 
     [Header("Feedback")]
     public Image feedbackRed;
+
+    [Header("Cronometro")]
+    public float tiempoMaximo = 60f;
+    private float tiempoActual;
+    private bool tiempoActivo = true;
+
+    public Image fillReloj;
+    public TMP_Text textoTiempo;
+
+    [Header("Tiempo en Paneles")]
+    public TMP_Text textoTiempoVictoria;
+    public TMP_Text textoTiempoIntermedio;
+    public TMP_Text textoTiempoDerrota;
+
+    [Header("Animacion Reloj")]
+    public RectTransform relojTransform;
+
+    private Vector3 posicionOriginalReloj;
+    private int ultimoSegundoMostrado;
+
     [Header("Barra de Progreso")]
     public ProgressBarUI barraProgreso;
 
@@ -102,6 +122,7 @@ public class SpotWaterManager : MonoBehaviour
 
     void Start()
     {
+        
         // =========================
         // DESACTIVAR PANELES
         // =========================
@@ -189,7 +210,42 @@ public class SpotWaterManager : MonoBehaviour
                 "Fase 1 de " + levels.Length;
         }
 
+        tiempoActual = tiempoMaximo;
+        ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
+
+        if (fillReloj != null)
+        {
+            fillReloj.fillAmount = 0f;
+        }
+
+        if (textoTiempo != null)
+        {
+            int minutos = Mathf.FloorToInt(tiempoActual / 60);
+            int segundos = Mathf.FloorToInt(tiempoActual % 60);
+
+            textoTiempo.text =
+                string.Format("{0:00}:{1:00}", minutos, segundos);
+        }
+
+        if (relojTransform != null)
+        {
+            posicionOriginalReloj = relojTransform.localPosition;
+
+            relojTransform.localScale = Vector3.zero;
+
+            LeanTween.scale(
+                relojTransform.gameObject,
+                Vector3.one,
+                0.4f
+            ).setEaseOutBack();
+        }
+
         LoadLevel(0);
+    }
+
+    void Update()
+    {
+        ActualizarCronometro();
     }
 
     // =========================
@@ -343,6 +399,9 @@ public class SpotWaterManager : MonoBehaviour
 
     void NextLevel()
     {
+        if (resultadoMostrado)
+            return;
+
         currentLevel++;
 
         if (currentLevel >= levels.Length)
@@ -388,6 +447,9 @@ public class SpotWaterManager : MonoBehaviour
 
     void MostrarResultadoFinal()
     {
+        tiempoActivo = false;
+        MostrarTiempoEnPaneles();
+
         Debug.Log("MOSTRAR RESULTADO FINAL");
 
         if (resultadoMostrado)
@@ -462,6 +524,121 @@ public class SpotWaterManager : MonoBehaviour
                 "/" +
                 totalErrors;
         }
+    }
+
+    void ActualizarCronometro()
+    {
+        if (!tiempoActivo)
+            return;
+
+        tiempoActual -= Time.deltaTime;
+
+        if (tiempoActual < 0)
+            tiempoActual = 0;
+
+        int minutos = Mathf.FloorToInt(tiempoActual / 60);
+        int segundos = Mathf.FloorToInt(tiempoActual % 60);
+
+        if (textoTiempo != null)
+        {
+            textoTiempo.text =
+                string.Format("{0:00}:{1:00}", minutos, segundos);
+        }
+
+        if (fillReloj != null)
+        {
+            fillReloj.fillAmount =
+                1f - (tiempoActual / tiempoMaximo);
+        }
+
+        int segundoActual = Mathf.CeilToInt(tiempoActual);
+
+        if (segundoActual != ultimoSegundoMostrado)
+        {
+            ultimoSegundoMostrado = segundoActual;
+
+            if (relojTransform != null)
+            {
+                LeanTween.scale(
+                    relojTransform.gameObject,
+                    Vector3.one * 1.12f,
+                    0.1f
+                ).setOnComplete(() =>
+                {
+                    LeanTween.scale(
+                        relojTransform.gameObject,
+                        Vector3.one,
+                        0.1f
+                    );
+                });
+            }
+        }
+
+        if (tiempoActual <= 5f && relojTransform != null)
+        {
+            float shake =
+                Mathf.Sin(Time.time * 40f) * 3f;
+
+            relojTransform.localPosition =
+                posicionOriginalReloj +
+                new Vector3(shake, 0, 0);
+        }
+        else if (relojTransform != null)
+        {
+            relojTransform.localPosition =
+                posicionOriginalReloj;
+        }
+
+        if (tiempoActual <= 0)
+        {
+            tiempoActivo = false;
+
+            MostrarTiempoEnPaneles();
+
+            foreach (GameObject obj in elementosGameplay)
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
+
+            if (panelVictoria != null)
+                panelVictoria.SetActive(false);
+
+            if (panelIntermedio != null)
+                panelIntermedio.SetActive(false);
+
+            if (panelDerrota != null)
+                panelDerrota.SetActive(true);
+
+            AnimarPanelDerrota();
+
+            if (textoAciertosDerrota != null)
+            {
+                textoAciertosDerrota.text =
+                    "Aciertos: " +
+                    aciertos +
+                    "/" +
+                    levels.Length;
+            }
+        }
+    }
+
+    void MostrarTiempoEnPaneles()
+    {
+        int tiempoUsado =
+            Mathf.RoundToInt(tiempoMaximo - tiempoActual);
+
+        string textoFinal =
+            tiempoUsado + " segundos";
+
+        if (textoTiempoVictoria != null)
+            textoTiempoVictoria.text = textoFinal;
+
+        if (textoTiempoIntermedio != null)
+            textoTiempoIntermedio.text = textoFinal;
+
+        if (textoTiempoDerrota != null)
+            textoTiempoDerrota.text = textoFinal;
     }
 
     // =========================

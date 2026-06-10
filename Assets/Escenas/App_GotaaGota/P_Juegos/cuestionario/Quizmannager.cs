@@ -67,6 +67,26 @@ public class QuizManager : MonoBehaviour
     [Header("Elementos Panel Derrota")]
     public GameObject[] elementosDerrota;
 
+    [Header("Cronometro")]
+    public float tiempoMaximo = 60f;
+    private float tiempoActual;
+    private bool tiempoActivo = true;
+
+    public Image fillReloj;
+    public TMP_Text textoTiempo;
+
+    [Header("Tiempo en Paneles")]
+    public TMP_Text textoTiempoVictoria;
+    public TMP_Text textoTiempoIntermedio;
+    public TMP_Text textoTiempoDerrota;
+
+    [Header("Animacion Reloj")]
+    public RectTransform relojTransform;
+
+    private Vector3 posicionOriginalReloj;
+    private int ultimoSegundoMostrado;
+
+
     private int indicePregunta = 0;
     private int aciertos = 0;
 
@@ -145,6 +165,36 @@ public class QuizManager : MonoBehaviour
         // Actualizar contador
         ActualizarTextoAciertos();
 
+        tiempoActual = tiempoMaximo;
+        ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
+
+        if (fillReloj != null)
+        {
+            fillReloj.fillAmount = 0f;
+        }
+
+        if (textoTiempo != null)
+        {
+            int minutos = Mathf.FloorToInt(tiempoActual / 60);
+            int segundos = Mathf.FloorToInt(tiempoActual % 60);
+
+            textoTiempo.text =
+                string.Format("{0:00}:{1:00}", minutos, segundos);
+        }
+
+        if (relojTransform != null)
+        {
+            posicionOriginalReloj = relojTransform.localPosition;
+
+            relojTransform.localScale = Vector3.zero;
+
+            LeanTween.scale(
+                relojTransform.gameObject,
+                Vector3.one,
+                0.4f
+            ).setEaseOutBack();
+        }
+
         // Mostrar primera pregunta
         MostrarPregunta();
 
@@ -154,6 +204,110 @@ public class QuizManager : MonoBehaviour
         {
             barraProgreso.textoEstado.text =
                 "Pregunta 1 de " + preguntas.Length;
+        }
+    }
+
+    void Update()
+    {
+        ActualizarCronometro();
+    }
+
+    void ActualizarCronometro()
+    {
+        if (!tiempoActivo)
+            return;
+
+        tiempoActual -= Time.deltaTime;
+
+        if (tiempoActual < 0)
+            tiempoActual = 0;
+
+        int minutos = Mathf.FloorToInt(tiempoActual / 60);
+        int segundos = Mathf.FloorToInt(tiempoActual % 60);
+
+        if (textoTiempo != null)
+        {
+            textoTiempo.text =
+                string.Format("{0:00}:{1:00}", minutos, segundos);
+        }
+
+        if (fillReloj != null)
+        {
+            fillReloj.fillAmount =
+                1f - (tiempoActual / tiempoMaximo);
+        }
+
+        int segundoActual = Mathf.CeilToInt(tiempoActual);
+
+        if (segundoActual != ultimoSegundoMostrado)
+        {
+            ultimoSegundoMostrado = segundoActual;
+
+            if (relojTransform != null)
+            {
+                LeanTween.scale(
+                    relojTransform.gameObject,
+                    Vector3.one * 1.12f,
+                    0.1f
+                ).setOnComplete(() =>
+                {
+                    LeanTween.scale(
+                        relojTransform.gameObject,
+                        Vector3.one,
+                        0.1f
+                    );
+                });
+            }
+        }
+
+        if (tiempoActual <= 5f && relojTransform != null)
+        {
+            float shake =
+                Mathf.Sin(Time.time * 40f) * 3f;
+
+            relojTransform.localPosition =
+                posicionOriginalReloj +
+                new Vector3(shake, 0, 0);
+        }
+        else if (relojTransform != null)
+        {
+            relojTransform.localPosition =
+                posicionOriginalReloj;
+        }
+
+        if (tiempoActual <= 0)
+        {
+            tiempoActivo = false;
+
+            MostrarTiempoEnPaneles();
+
+            foreach (GameObject obj in elementosGameplay)
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
+
+            if (panelDerrota != null)
+            {
+                panelDerrota.SetActive(true);
+
+                panelDerrota.transform.localScale =
+                    Vector3.zero;
+
+                LeanTween.scale(
+                    panelDerrota,
+                    Vector3.one,
+                    0.5f
+                ).setEaseOutBack();
+            }
+
+            if (textoAciertosDerrota != null)
+            {
+                textoAciertosDerrota.text =
+                    "Aciertos: " + aciertos + "/" + preguntas.Length;
+            }
+
+            AnimarPanelDerrota();
         }
     }
 
@@ -362,6 +516,24 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    void MostrarTiempoEnPaneles()
+    {
+        int tiempoUsado =
+            Mathf.RoundToInt(tiempoMaximo - tiempoActual);
+
+        string textoFinal =
+            tiempoUsado + " segundos";
+
+        if (textoTiempoVictoria != null)
+            textoTiempoVictoria.text = textoFinal;
+
+        if (textoTiempoIntermedio != null)
+            textoTiempoIntermedio.text = textoFinal;
+
+        if (textoTiempoDerrota != null)
+            textoTiempoDerrota.text = textoFinal;
+    }
+
     // =========================
     // ACTUALIZAR TEXTO ACIERTOS
     // =========================
@@ -379,6 +551,9 @@ public class QuizManager : MonoBehaviour
     // =========================
     void MostrarResultado()
     {
+        tiempoActivo = false;
+
+        MostrarTiempoEnPaneles();
         // =========================
         // OCULTAR GAMEPLAY
         // =========================
