@@ -45,7 +45,7 @@ public class ControladorSincronizacionQR : MonoBehaviour
     private int indiceConflictoActual = 0;
     private List<Tuple<ManejadorRegistro.DatosMiembro, ManejadorRegistro.DatosMiembro>> conflictosDetectados = new List<Tuple<ManejadorRegistro.DatosMiembro, ManejadorRegistro.DatosMiembro>>();
 
-    private bool huboFusionesSilenciosas = false; // Para saber si debemos guardar al final sin preguntar
+    private bool huboFusionesSilenciosas = false;
 
     void Start() { ConfigurarEstadoInicial(); }
 
@@ -60,7 +60,7 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
     public void ConfigurarEstadoInicial()
     {
-        panel2ResolucionConflicto.SetActive(false);
+        if (panel2ResolucionConflicto != null) panel2ResolucionConflicto.SetActive(false);
         huboFusionesSilenciosas = false;
 
         if (texturaCamara != null && texturaCamara.isPlaying) texturaCamara.Stop();
@@ -69,17 +69,17 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
         if (PlayerPrefs.GetInt("YaVioInfoQR", 0) == 0)
         {
-            panel1SelectorAccion.SetActive(true);
-            tarjeta1Informativa.SetActive(true);
-            tarjeta2Opciones.SetActive(false);
+            if (panel1SelectorAccion != null) panel1SelectorAccion.SetActive(true);
+            if (tarjeta1Informativa != null) tarjeta1Informativa.SetActive(true);
+            if (tarjeta2Opciones != null) tarjeta2Opciones.SetActive(false);
         }
         else
         {
-            panel1SelectorAccion.SetActive(true);
-            tarjeta1Informativa.SetActive(false);
-            tarjeta2Opciones.SetActive(true);
-            visorCamara.gameObject.SetActive(false);
-            imagenMiQR.gameObject.SetActive(true);
+            if (panel1SelectorAccion != null) panel1SelectorAccion.SetActive(true);
+            if (tarjeta1Informativa != null) tarjeta1Informativa.SetActive(false);
+            if (tarjeta2Opciones != null) tarjeta2Opciones.SetActive(true);
+            if (visorCamara != null) visorCamara.gameObject.SetActive(false);
+            if (imagenMiQR != null) imagenMiQR.gameObject.SetActive(true);
             GenerarMiCodigoQR();
         }
     }
@@ -108,7 +108,7 @@ public class ControladorSincronizacionQR : MonoBehaviour
         Texture2D texturaQR = new Texture2D(512, 512);
         texturaQR.SetPixels32(pixeles);
         texturaQR.Apply();
-        imagenMiQR.texture = texturaQR;
+        if (imagenMiQR != null) imagenMiQR.texture = texturaQR;
     }
 
     public void PresionarEscanearCodigo()
@@ -178,15 +178,24 @@ public class ControladorSincronizacionQR : MonoBehaviour
         try
         {
             ManejadorRegistro.ListaWrapper datosAmigo = JsonUtility.FromJson<ManejadorRegistro.ListaWrapper>(json);
-            if (datosAmigo == null || datosAmigo.miembros == null) return;
+
+            if (datosAmigo == null || datosAmigo.miembros == null)
+            {
+                Debug.LogWarning("Formato QR inválido.");
+                return;
+            }
 
             listaRecibidaQR = datosAmigo.miembros;
-            panel1SelectorAccion.SetActive(false);
-            panel2ResolucionConflicto.SetActive(true);
+
+            if (panel1SelectorAccion != null) panel1SelectorAccion.SetActive(false);
+            if (panel2ResolucionConflicto != null) panel2ResolucionConflicto.SetActive(true);
 
             CalcularConflictosYSimilitudes();
         }
-        catch (Exception) { ConfigurarEstadoInicial(); }
+        catch (Exception ex)
+        {
+            Debug.LogError("Error: " + ex.Message);
+        }
     }
 
     private void CalcularConflictosYSimilitudes()
@@ -202,7 +211,6 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
             foreach (var local in ManejadorRegistro.instance.listaDeMiembros)
             {
-                // 1. LÓGICA DE UUID: ¿Tienen el mismo ID exacto o un ID que ya vinculamos antes?
                 if (entrante.idUnico == local.idUnico || (local.idsAsociados != null && local.idsAsociados.Contains(entrante.idUnico)))
                 {
                     esFusionSilenciosa = true;
@@ -210,7 +218,6 @@ public class ControladorSincronizacionQR : MonoBehaviour
                     break;
                 }
 
-                // 2. Tienen el mismo nombre, pero no el mismo ID (Solo se activa si lo borraste y lo creaste de nuevo)
                 if (entrante.nombre.ToLower().Trim() == local.nombre.ToLower().Trim())
                 {
                     coincidenciaDeNombre = true;
@@ -220,18 +227,15 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
             if (esFusionSilenciosa)
             {
-                // ¡Magia! Se fusionan los datos en segundo plano sin interrumpir a Ana.
                 FusionarHistoriales(localMatch, entrante);
                 huboFusionesSilenciosas = true;
             }
             else if (coincidenciaDeNombre)
             {
-                // Nombres iguales pero IDs diferentes -> ¡Alerta de Similitud!
                 conflictosDetectados.Add(new Tuple<ManejadorRegistro.DatosMiembro, ManejadorRegistro.DatosMiembro>(localMatch, entrante));
             }
             else
             {
-                // Es alguien completamente nuevo
                 limpiosDeSimilitud.Add(entrante);
             }
         }
@@ -266,20 +270,23 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
     private void ActivarTarjetaSimilitud()
     {
-        tarjeta1Miembros.SetActive(false);
-        tarjeta2Similitud.SetActive(true);
+        if (tarjeta1Miembros != null) tarjeta1Miembros.SetActive(false);
+        if (tarjeta2Similitud != null) tarjeta2Similitud.SetActive(true);
 
         var parActual = conflictosDetectados[indiceConflictoActual];
 
-        miembroLocalReferencia.textoNombre.text = parActual.Item1.nombre;
-        miembroLocalReferencia.textoEdad.text = parActual.Item1.edad + " años";
-        miembroLocalReferencia.textoDuchas.text = "Duchas:\n" + (parActual.Item1.historialBanos?.Count ?? 0);
-        miembroLocalReferencia.AplicarTema(parActual.Item1.indiceTemaColor);
+        if (miembroLocalReferencia != null && miembroQRNuevo != null)
+        {
+            miembroLocalReferencia.textoNombre.text = parActual.Item1.nombre;
+            miembroLocalReferencia.textoEdad.text = parActual.Item1.edad + " años";
+            miembroLocalReferencia.textoDuchas.text = "Duchas:\n" + (parActual.Item1.historialBanos?.Count ?? 0);
+            miembroLocalReferencia.AplicarTema(parActual.Item1.indiceTemaColor);
 
-        miembroQRNuevo.textoNombre.text = parActual.Item2.nombre;
-        miembroQRNuevo.textoEdad.text = parActual.Item2.edad + " años";
-        miembroQRNuevo.textoDuchas.text = "Duchas:\n" + (parActual.Item2.historialBanos?.Count ?? 0);
-        miembroQRNuevo.AplicarTema(parActual.Item2.indiceTemaColor);
+            miembroQRNuevo.textoNombre.text = parActual.Item2.nombre;
+            miembroQRNuevo.textoEdad.text = parActual.Item2.edad + " años";
+            miembroQRNuevo.textoDuchas.text = "Duchas:\n" + (parActual.Item2.historialBanos?.Count ?? 0);
+            miembroQRNuevo.AplicarTema(parActual.Item2.indiceTemaColor);
+        }
     }
 
     public void Action_UnificarPerfiles()
@@ -289,7 +296,6 @@ public class ControladorSincronizacionQR : MonoBehaviour
         FusionarHistoriales(par.Item1, par.Item2);
         huboFusionesSilenciosas = true;
 
-        // APRENDIZAJE DEL SISTEMA: Vinculamos los IDs para que NO vuelva a preguntar en el futuro
         if (par.Item1.idsAsociados == null) par.Item1.idsAsociados = new List<string>();
         if (!par.Item1.idsAsociados.Contains(par.Item2.idUnico))
         {
@@ -314,7 +320,7 @@ public class ControladorSincronizacionQR : MonoBehaviour
         }
 
         par.Item2.nombre = nuevoNombre;
-        listaRecibidaQR.Add(par.Item2); // Lo reintroducimos con nombre nuevo para que aparezca en la lista de selección
+        listaRecibidaQR.Add(par.Item2);
 
         AvanzarEnConflictos();
     }
@@ -331,7 +337,6 @@ public class ControladorSincronizacionQR : MonoBehaviour
             List<ManejadorRegistro.DatosMiembro> listosParaMostrar = new List<ManejadorRegistro.DatosMiembro>();
             foreach (var m in listaRecibidaQR)
             {
-                // Ocultamos los que ya se fusionaron (tienen el mismo ID)
                 bool yaFusionado = ManejadorRegistro.instance.listaDeMiembros.Exists(l => l.idUnico == m.idUnico || (l.idsAsociados != null && l.idsAsociados.Contains(m.idUnico)));
                 if (!yaFusionado) listosParaMostrar.Add(m);
             }
@@ -341,19 +346,18 @@ public class ControladorSincronizacionQR : MonoBehaviour
 
     private void ActivarTarjetaSeleccionMiembros(List<ManejadorRegistro.DatosMiembro> miembrosAEnlistar)
     {
-        tarjeta2Similitud.SetActive(false);
-        tarjeta1Miembros.SetActive(true);
+        if (tarjeta2Similitud != null) tarjeta2Similitud.SetActive(false);
+        if (tarjeta1Miembros != null) tarjeta1Miembros.SetActive(true);
 
         foreach (Transform hijo in contenedorLista) { Destroy(hijo.gameObject); }
         itemSeleccionadoMap.Clear();
         itemDatosMap.Clear();
 
-        textoNumeroContador.text = miembrosAEnlistar.Count.ToString();
+        if (textoNumeroContador != null) textoNumeroContador.text = miembrosAEnlistar.Count.ToString();
         ActualizarTextoSeleccionados();
 
         if (miembrosAEnlistar.Count == 0)
         {
-            // Si la lista está vacía, pero se hicieron fusiones silenciosas, guardamos y salimos.
             if (huboFusionesSilenciosas) FinalizarSincronizacionYRefrescar();
             else Action_CancelarYSalir();
             return;
@@ -378,11 +382,18 @@ public class ControladorSincronizacionQR : MonoBehaviour
                 itemSeleccionadoMap.Add(nuevoItem, false);
                 itemDatosMap.Add(nuevoItem, miembro);
 
-                Button btnViejo = nuevoItem.GetComponent<Button>();
-                if (btnViejo != null) Destroy(btnViejo);
+                // --- SOLUCIÓN APLICADA AQUÍ ---
+                Button btn = nuevoItem.GetComponent<Button>();
+                if (btn == null) btn = nuevoItem.AddComponent<Button>();
 
-                Button btnLimpio = nuevoItem.AddComponent<Button>();
-                btnLimpio.onClick.AddListener(() => AlHacerClicEnMiembroDeLista(nuevoItem, uiTarjeta, miembro));
+                btn.onClick.RemoveAllListeners(); // Limpiamos cualquier función vieja
+
+                // Congelamos las variables para evitar bugs en el foreach
+                GameObject itemGuardado = nuevoItem;
+                SeleccionMiembros uiGuardada = uiTarjeta;
+                ManejadorRegistro.DatosMiembro miembroGuardado = miembro;
+
+                btn.onClick.AddListener(() => AlHacerClicEnMiembroDeLista(itemGuardado, uiGuardada, miembroGuardado));
             }
         }
     }
