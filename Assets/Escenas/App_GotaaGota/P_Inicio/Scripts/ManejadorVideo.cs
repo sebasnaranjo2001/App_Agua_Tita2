@@ -50,6 +50,9 @@ public class ControladorVideoGota : MonoBehaviour
 
     public void AbrirVideo()
     {
+        // --- NUEVO: Evita que la pantalla se apague mientras ve el video ---
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         panelVideo.SetActive(true);
         LeanTween.scale(rectTransformPanel.gameObject, Vector3.one, 0.5f).setEaseOutBack();
 
@@ -69,6 +72,9 @@ public class ControladorVideoGota : MonoBehaviour
 
     public void CerrarVideo()
     {
+        // --- NUEVO: Devuelve el control de la pantalla a la configuración normal del celular ---
+        Screen.sleepTimeout = SleepTimeout.SystemSetting;
+
         videoPlayer.Stop();
         LeanTween.scale(rectTransformPanel.gameObject, Vector3.zero, 0.4f).setEaseInBack().setOnComplete(() => {
             panelVideo.SetActive(false);
