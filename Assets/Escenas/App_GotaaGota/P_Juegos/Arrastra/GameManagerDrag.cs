@@ -210,7 +210,10 @@ public class GameManagerDrag : MonoBehaviour
         for (int i = 0; i < textosUI.Length; i++)
         {
             if (textosUI[i] != null && i < f.textos.Length)
+            {
                 textosUI[i].text = f.textos[i];
+                
+            }
         }
 
         // Imágenes
@@ -219,6 +222,7 @@ public class GameManagerDrag : MonoBehaviour
             if (imagenesUI[i] != null && i < f.imagenes.Length)
             {
                 imagenesUI[i].sprite = f.imagenes[i];
+                
                 imagenesUI[i].transform.localScale = Vector3.zero;
                 LeanTween.scale(imagenesUI[i].gameObject, Vector3.one, 0.35f).setDelay(i * 0.1f).setEaseOutBack();
             }
@@ -344,38 +348,49 @@ public class GameManagerDrag : MonoBehaviour
         }
     }
 
-    public void Comprobar()
+   public void Comprobar()
+{
+    bool todoCorrecto = true;
+
+    foreach (DropZone zona in zonas)
     {
-        bool todoCorrecto = true;
+        if (zona == null) continue;
 
-        foreach (DropZone zona in zonas)
+        if (zona.objetoActual == null)
         {
-            if (zona == null) continue;
+            zona.MarcarIncorrecto();
 
-            if (zona.objetoActual == null)
-            {
-                zona.MarcarIncorrecto();
-                todoCorrecto = false;
-            }
-            else if (zona.EsCorrecto())
-            {
-                zona.MarcarCorrecto();
-            }
-            else
-            {
-                zona.MarcarIncorrecto();
-                todoCorrecto = false;
-            }
+            if (zona.objetoActual != null)
+                zona.objetoActual.MarcarIncorrecto();
+
+            todoCorrecto = false;
         }
-
-        if (todoCorrecto)
+        else if (zona.EsCorrecto())
         {
-            aciertos++;
-            ActualizarTextoAciertos();
-        }
+            zona.MarcarCorrecto();
 
-        Invoke("SiguienteFase", 1.5f);
+            if (zona.objetoActual != null)
+                zona.objetoActual.MarcarCorrecto();
+        }
+        else
+        {
+            zona.MarcarIncorrecto();
+
+            if (zona.objetoActual != null)
+                zona.objetoActual.MarcarIncorrecto();
+
+            todoCorrecto = false;
+        }
     }
+
+    if (todoCorrecto)
+    {
+        aciertos++;
+        ActualizarTextoAciertos();
+    }
+
+    Invoke("SiguienteFase", 1.5f);
+}
 
     void SiguienteFase()
     {

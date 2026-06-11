@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 // Asegura que el objeto tenga una imagen para poder cambiarle el color
 [RequireComponent(typeof(Image))]
@@ -31,13 +32,20 @@ public class DropZone : MonoBehaviour, IDropHandler
                 objetoActual.ResetPosition();
             }
 
-            // 3. Emparentamos el objeto a la zona
-            item.transform.SetParent(transform);
+            
 
             // 4. RESET DE TRANSFORM (Aquí es donde solía fallar)
             // Esto asegura que se centre perfecto y no herede escalas raras
-            item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-            item.transform.localScale = Vector3.one;
+            item.transform.SetParent(transform, false);
+
+            RectTransform rect = item.GetComponent<RectTransform>();
+
+            rect.anchorMin = new Vector2(0.5f, 0.5f);
+            rect.anchorMax = new Vector2(0.5f, 0.5f);
+            rect.pivot = new Vector2(0.5f, 0.5f);
+
+            rect.anchoredPosition = Vector2.zero;
+            rect.localScale = Vector3.one;
 
             objetoActual = item;
             Debug.Log($"<color=green>OBJETO SOLTADO:</color> {item.name} entró en {gameObject.name}");
@@ -53,8 +61,7 @@ public class DropZone : MonoBehaviour, IDropHandler
     {
         if (imagen != null)
         {
-            imagen.color =
-                new Color(0.6f, 1f, 0.6f);
+            imagen.color = new Color32(76, 175, 80, 255);
 
             LeanTween.scale(
                 gameObject,
@@ -64,12 +71,12 @@ public class DropZone : MonoBehaviour, IDropHandler
         }
     }
 
+
     public void MarcarIncorrecto()
     {
         if (imagen != null)
         {
-            imagen.color =
-                new Color(1f, 0.6f, 0.6f);
+            imagen.color = new Color32(244, 67, 54, 255);
 
             LeanTween.moveLocalX(
                 gameObject,
@@ -81,7 +88,13 @@ public class DropZone : MonoBehaviour, IDropHandler
 
     public void ResetZona()
     {
+       
+
         objetoActual = null;
-        if (imagen != null) imagen.color = Color.white;
+
+        if (imagen != null)
+        {
+            imagen.color = Color.white;
+        }
     }
 }

@@ -340,6 +340,8 @@ public class QuizManager : MonoBehaviour
         // Animación fondo + texto
         if (fondoPregunta != null)
         {
+            LeanTween.cancel(fondoPregunta.gameObject);
+
             fondoPregunta.anchoredPosition =
                 new Vector2(
                     posicionOriginalFondo.x - 1200f,
@@ -350,7 +352,7 @@ public class QuizManager : MonoBehaviour
                 fondoPregunta,
                 posicionOriginalFondo,
                 0.5f
-            ).setEaseOutBack();
+            ).setEaseOutCubic();
         }
 
         // Imagen
@@ -451,7 +453,7 @@ public class QuizManager : MonoBehaviour
         if (index == respuestaCorrectaActual)
         {
             botones[index].image.color =
-    new Color32(200, 230, 201, 255); // #C8E6C9
+    new Color32(76, 175, 80, 255); 
             LeanTween.scale(
     botones[index].gameObject,
     Vector3.one * 1.2f,
@@ -466,7 +468,7 @@ public class QuizManager : MonoBehaviour
         else
         {
             botones[index].image.color =
-    new Color32(255, 205, 210, 255); // #FFCDD2
+    new Color32(244, 67, 54, 255); // #FFCDD2
             Vector3 posOriginal =
     botones[index].transform.localPosition;
 
@@ -476,7 +478,7 @@ public class QuizManager : MonoBehaviour
                 0.05f
             ).setLoopPingPong(4);
             botones[respuestaCorrectaActual].image.color =
-    new Color32(200, 230, 201, 255); // #C8E6C9
+     new Color32(76, 175, 80, 255); // #C8E6C9
         }
 
         // Desactivar botones

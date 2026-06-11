@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
+using UnityEngine.UI;
 
 // Obligamos a que tenga CanvasGroup para que el mouse pueda "atravesar" el objeto al soltarlo
 [RequireComponent(typeof(CanvasGroup))]
@@ -11,6 +13,8 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private Vector2 posicionInicial;
     private Transform padreInicial;
+    private Color colorOriginalTexto;
+    private Color colorOriginalImagen;
 
     void Awake()
     {
@@ -29,6 +33,14 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     void Start()
     {
+        TMP_Text texto = GetComponentInChildren<TMP_Text>();
+        Image fondo = GetComponent<Image>();
+
+        if (texto != null)
+            colorOriginalTexto = texto.color;
+
+        if (fondo != null)
+            colorOriginalImagen = fondo.color;
         // --- ESCUDO ANTI-FUGA ---
         // Si el objeto aparece fuera del Canvas al iniciar, lo metemos a la fuerza
         if (transform.parent == null || transform.parent.GetComponentInParent<Canvas>() == null)
@@ -81,8 +93,39 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void ResetPosition()
     {
-        // Regresa a su panel y posición original
+        TMP_Text texto = GetComponentInChildren<TMP_Text>();
+        Image fondo = GetComponent<Image>();
+
+        if (texto != null)
+            texto.color = colorOriginalTexto;
+
+        if (fondo != null)
+            fondo.color = colorOriginalImagen;
+
         transform.SetParent(padreInicial);
         rectTransform.anchoredPosition = posicionInicial;
+    }
+    public void MarcarCorrecto()
+    {
+        TMP_Text texto = GetComponentInChildren<TMP_Text>();
+        Image fondo = GetComponent<Image>();
+
+        if (texto != null)
+            texto.color = Color.green;
+
+        if (fondo != null)
+            fondo.color = Color.green;
+    }
+
+    public void MarcarIncorrecto()
+    {
+        TMP_Text texto = GetComponentInChildren<TMP_Text>();
+        Image fondo = GetComponent<Image>(); 
+
+        if (texto != null)
+            texto.color = Color.red;
+
+        if (fondo != null)
+            fondo.color = Color.red;
     }
 }
