@@ -514,7 +514,23 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            MostrarResultado();
+            barraProgreso.Actualizar(
+                preguntas.Length,
+                preguntas.Length,
+                "Pregunta"
+            );
+
+            if (barraProgreso.textoEstado != null)
+            {
+                barraProgreso.textoEstado.text =
+                    "Pregunta " + preguntas.Length +
+                    " de " + preguntas.Length;
+            }
+
+            LeanTween.delayedCall(0.5f, () =>
+            {
+                MostrarResultado();
+            });
         }
     }
 

@@ -405,22 +405,25 @@ public class SpotWaterManager : MonoBehaviour
         currentLevel++;
 
         if (currentLevel >= levels.Length)
-        {
-            if (barraProgreso != null)
-            {
-                barraProgreso.Actualizar(
-                    levels.Length,
-                    levels.Length,
-                    "Fase"
-                );
+{
+    if (barraProgreso != null)
+    {
+        barraProgreso.Actualizar(
+            levels.Length,
+            levels.Length,
+            "Fase"
+        );
 
-                barraProgreso.textoEstado.text =
-                    "Fase " + levels.Length +
-                    " de " + levels.Length;
-            }
+        barraProgreso.textoEstado.text =
+            "Fase " + levels.Length +
+            " de " + levels.Length;
+    }
 
-            MostrarResultadoFinal();
-        }
+    LeanTween.delayedCall(1f, () =>
+    {
+        MostrarResultadoFinal();
+    });
+}
         else
         {
             if (barraProgreso != null)

@@ -107,11 +107,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     }
     public void MarcarCorrecto()
     {
-        TMP_Text texto = GetComponentInChildren<TMP_Text>();
         Image fondo = GetComponent<Image>();
-
-        if (texto != null)
-            texto.color = Color.green;
 
         if (fondo != null)
             fondo.color = Color.green;
@@ -119,11 +115,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void MarcarIncorrecto()
     {
-        TMP_Text texto = GetComponentInChildren<TMP_Text>();
-        Image fondo = GetComponent<Image>(); 
-
-        if (texto != null)
-            texto.color = Color.red;
+        Image fondo = GetComponent<Image>();
 
         if (fondo != null)
             fondo.color = Color.red;

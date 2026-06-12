@@ -398,19 +398,6 @@ public class GameManagerDrag : MonoBehaviour
 
         Debug.Log("Siguiente fase -> " + faseActual);
 
-        if (barraProgreso != null)
-        {
-            barraProgreso.Actualizar(
-                faseActual,
-                fases.Length,
-                "Fase"
-            );
-
-            barraProgreso.textoEstado.text =
-                "Fase " + (faseActual + 1) +
-                " de " + fases.Length;
-        }
-
         if (faseActual >= fases.Length)
         {
             if (barraProgreso != null)
@@ -420,12 +407,32 @@ public class GameManagerDrag : MonoBehaviour
                     fases.Length,
                     "Fase"
                 );
+
+                barraProgreso.textoEstado.text =
+                    "Fase " + fases.Length +
+                    " de " + fases.Length;
             }
 
-            MostrarResultadoFinal();
+            LeanTween.delayedCall(1f, () =>
+            {
+                MostrarResultadoFinal();
+            });
         }
         else
         {
+            if (barraProgreso != null)
+            {
+                barraProgreso.Actualizar(
+                    faseActual,
+                    fases.Length,
+                    "Fase"
+                );
+
+                barraProgreso.textoEstado.text =
+                    "Fase " + (faseActual + 1) +
+                    " de " + fases.Length;
+            }
+
             CargarFase(true);
         }
     }
