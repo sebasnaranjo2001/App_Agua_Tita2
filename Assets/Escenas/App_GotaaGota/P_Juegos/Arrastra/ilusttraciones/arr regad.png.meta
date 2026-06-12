@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 1dec9bf58ab02cf42ad571959f7097b7
+guid: caaa5cc95030ed64a828fdc7270789c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7619027174368921728
-    second: arr9_Mesa de trabajo 1_0
+      213: 1696206104462879110
+    second: arr regad_0
   - first:
-      213: -1311804934770517584
-    second: arr9_Mesa de trabajo 1_1
+      213: -8338036474775730406
+    second: arr regad_1
   - first:
-      213: -5485578460680745135
-    second: arr9_Mesa de trabajo 1_2
+      213: -96252761980508078
+    second: arr regad_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr9_Mesa de trabajo 1_0
+      name: arr regad_0
       rect:
         serializedVersion: 2
-        x: 160
-        y: 429
-        width: 879
-        height: 967
+        x: 0
+        y: 30
+        width: 2424
+        height: 2670
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 088ce4609d83cb960800000000000000
-      internalID: 7619027174368921728
+      spriteID: 689eb5217722a8710800000000000000
+      internalID: 1696206104462879110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr9_Mesa de trabajo 1_1
+      name: arr regad_1
       rect:
         serializedVersion: 2
-        x: 1029
-        y: 417
-        width: 422
-        height: 1087
+        x: 2411
+        y: 0
+        width: 1156
+        height: 3000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b91660bc588bcde0800000000000000
-      internalID: -1311804934770517584
+      spriteID: a170eb4c008594c80800000000000000
+      internalID: -8338036474775730406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr9_Mesa de trabajo 1_2
+      name: arr regad_2
       rect:
         serializedVersion: 2
-        x: 1253
-        y: 418
-        width: 978
-        height: 1039
+        x: 3031
+        y: 0
+        width: 2696
+        height: 2870
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15f079f247f4fd3b0800000000000000
-      internalID: -5485578460680745135
+      spriteID: 25860897f9a0aaef0800000000000000
+      internalID: -96252761980508078
       vertices: []
       indices: 
       edges: []
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr9_Mesa de trabajo 1_0: 7619027174368921728
-      arr9_Mesa de trabajo 1_1: -1311804934770517584
-      arr9_Mesa de trabajo 1_2: -5485578460680745135
+      arr regad_0: 1696206104462879110
+      arr regad_1: -8338036474775730406
+      arr regad_2: -96252761980508078
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

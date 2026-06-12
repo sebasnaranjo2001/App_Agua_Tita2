@@ -1,256 +1,256 @@
 fileFormatVersion: 2
-guid: 4d0079a2960503446b265a17eba569df
+guid: b319432f01d993045bad7125a26665ee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5541784065875805971
-    second: arr 6_Mesa de trabajo 1_0
+      213: -1710155671837382089
+    second: cubeta lluvia_0
   - first:
-      213: -1477763051733252606
-    second: arr 6_Mesa de trabajo 1_1
+      213: -6975524138260321965
+    second: cubeta lluvia_1
   - first:
-      213: -6681347438387704692
-    second: arr 6_Mesa de trabajo 1_2
+      213: 489913418606411577
+    second: cubeta lluvia_2
   - first:
-      213: 8253055557498654632
-    second: arr 6_Mesa de trabajo 1_3
+      213: -7588940120021234883
+    second: cubeta lluvia_3
   - first:
-      213: -293165909538516809
-    second: arr 6_Mesa de trabajo 1_4
+      213: -2030163351557968473
+    second: cubeta lluvia_4
   - first:
-      213: 863938232751189872
-    second: arr 6_Mesa de trabajo 1_5
+      213: -8528684590429376474
+    second: cubeta lluvia_5
   - first:
-      213: 566067827140022450
-    second: arr 6_Mesa de trabajo 1_6
+      213: 7985345866937550911
+    second: cubeta lluvia_6
   - first:
-      213: -7726028616526074230
-    second: arr 6_Mesa de trabajo 1_7
+      213: 1456958139085745464
+    second: cubeta lluvia_7
   - first:
-      213: -2226417007658167403
-    second: arr 6_Mesa de trabajo 1_8
+      213: -609413688800240959
+    second: cubeta lluvia_8
   - first:
-      213: 7172545868610077122
-    second: arr 6_Mesa de trabajo 1_9
+      213: -2619680324683288218
+    second: cubeta lluvia_9
   - first:
-      213: -5260427889542950225
-    second: arr 6_Mesa de trabajo 1_10
+      213: -8236288051282819076
+    second: cubeta lluvia_10
   - first:
-      213: -3976436958915248744
-    second: arr 6_Mesa de trabajo 1_11
+      213: -4054323421101980394
+    second: cubeta lluvia_11
   - first:
-      213: -8985435636714459675
-    second: arr 6_Mesa de trabajo 1_12
+      213: 2559681896504325586
+    second: cubeta lluvia_12
   - first:
-      213: -2676016343031093963
-    second: arr 6_Mesa de trabajo 1_13
+      213: -6171682052912285097
+    second: cubeta lluvia_13
   - first:
-      213: -8877376272096350921
-    second: arr 6_Mesa de trabajo 1_14
+      213: 9095351054007456820
+    second: cubeta lluvia_14
   - first:
-      213: -3544820709115186737
-    second: arr 6_Mesa de trabajo 1_15
+      213: -4598155475683780034
+    second: cubeta lluvia_15
   - first:
-      213: -8956864675352873330
-    second: arr 6_Mesa de trabajo 1_16
+      213: 9142024268957380334
+    second: cubeta lluvia_16
   - first:
-      213: 6969119275361151248
-    second: arr 6_Mesa de trabajo 1_17
+      213: -6342212679558832478
+    second: cubeta lluvia_17
   - first:
-      213: -1654416976515321435
-    second: arr 6_Mesa de trabajo 1_18
+      213: -908346548346398604
+    second: cubeta lluvia_18
   - first:
-      213: -8408061016141236469
-    second: arr 6_Mesa de trabajo 1_19
+      213: 6399636552925434169
+    second: cubeta lluvia_19
   - first:
-      213: -3298260251538380387
-    second: arr 6_Mesa de trabajo 1_20
+      213: 2777910234850419920
+    second: cubeta lluvia_20
   - first:
-      213: -2402560770006438359
-    second: arr 6_Mesa de trabajo 1_21
+      213: -401508813101557399
+    second: cubeta lluvia_21
   - first:
-      213: 5167125393984012053
-    second: arr 6_Mesa de trabajo 1_22
+      213: 108306202052101981
+    second: cubeta lluvia_22
   - first:
-      213: 8070574622594789009
-    second: arr 6_Mesa de trabajo 1_23
+      213: -1109156428215359427
+    second: cubeta lluvia_23
   - first:
-      213: -1709185300701899448
-    second: arr 6_Mesa de trabajo 1_24
+      213: 1497268048593555313
+    second: cubeta lluvia_24
   - first:
-      213: 4336348150356002235
-    second: arr 6_Mesa de trabajo 1_25
+      213: 1615253833005474746
+    second: cubeta lluvia_25
   - first:
-      213: -3459641160034389222
-    second: arr 6_Mesa de trabajo 1_26
+      213: 4633885422410917761
+    second: cubeta lluvia_26
   - first:
-      213: -1295952281275163242
-    second: arr 6_Mesa de trabajo 1_27
+      213: 410119051386231112
+    second: cubeta lluvia_27
   - first:
-      213: 8481196994267301910
-    second: arr 6_Mesa de trabajo 1_28
+      213: 8545404947281836693
+    second: cubeta lluvia_28
   - first:
-      213: -8275304013793402948
-    second: arr 6_Mesa de trabajo 1_29
+      213: -2156426356496006242
+    second: cubeta lluvia_29
   - first:
-      213: -4597423337107708384
-    second: arr 6_Mesa de trabajo 1_30
+      213: -3128486132384286305
+    second: cubeta lluvia_30
   - first:
-      213: -7330937437753391697
-    second: arr 6_Mesa de trabajo 1_31
+      213: 4127917702700707271
+    second: cubeta lluvia_31
   - first:
-      213: -6725685804833353408
-    second: arr 6_Mesa de trabajo 1_32
+      213: 3028377181368539444
+    second: cubeta lluvia_32
   - first:
-      213: -2606210724682261668
-    second: arr 6_Mesa de trabajo 1_33
+      213: 5197440335790573546
+    second: cubeta lluvia_33
   - first:
-      213: 8283749800180730353
-    second: arr 6_Mesa de trabajo 1_34
+      213: -3288526297027541182
+    second: cubeta lluvia_34
   - first:
-      213: -1854145825738759346
-    second: arr 6_Mesa de trabajo 1_35
+      213: 2698006335638330349
+    second: cubeta lluvia_35
   - first:
-      213: -5277696033303997673
-    second: arr 6_Mesa de trabajo 1_36
+      213: -236746713133796703
+    second: cubeta lluvia_36
   - first:
-      213: 8549816451251587292
-    second: arr 6_Mesa de trabajo 1_37
+      213: 5284916340346004823
+    second: cubeta lluvia_37
   - first:
-      213: 8506634716585738452
-    second: arr 6_Mesa de trabajo 1_38
+      213: -937920007704390177
+    second: cubeta lluvia_38
   - first:
-      213: 4618000312795089348
-    second: arr 6_Mesa de trabajo 1_39
+      213: -6618419481652318161
+    second: cubeta lluvia_39
   - first:
-      213: -3874661099216827004
-    second: arr 6_Mesa de trabajo 1_40
+      213: 8674042617968042472
+    second: cubeta lluvia_40
   - first:
-      213: -99715810425506439
-    second: arr 6_Mesa de trabajo 1_41
+      213: 6072312777534767950
+    second: cubeta lluvia_41
   - first:
-      213: 2142790573908666664
-    second: arr 6_Mesa de trabajo 1_42
+      213: 4053773905328162706
+    second: cubeta lluvia_42
   - first:
-      213: 699393348727954436
-    second: arr 6_Mesa de trabajo 1_43
+      213: -8564862870245606000
+    second: cubeta lluvia_43
   - first:
-      213: 6085449289132891561
-    second: arr 6_Mesa de trabajo 1_44
+      213: -2048528299802200903
+    second: cubeta lluvia_44
   - first:
-      213: 5098032590584649898
-    second: arr 6_Mesa de trabajo 1_45
+      213: -1089925685833007012
+    second: cubeta lluvia_45
   - first:
-      213: -564545297504259309
-    second: arr 6_Mesa de trabajo 1_46
+      213: 4817308146728947481
+    second: cubeta lluvia_46
   - first:
-      213: 6889775844765138001
-    second: arr 6_Mesa de trabajo 1_47
+      213: 7748353659759084845
+    second: cubeta lluvia_47
   - first:
-      213: -4893244589582891178
-    second: arr 6_Mesa de trabajo 1_48
+      213: 567355776698655293
+    second: cubeta lluvia_48
   - first:
-      213: 6715157606047707133
-    second: arr 6_Mesa de trabajo 1_49
+      213: -530056684527266456
+    second: cubeta lluvia_49
   - first:
-      213: -693232309388007114
-    second: arr 6_Mesa de trabajo 1_50
+      213: 3335502157798896229
+    second: cubeta lluvia_50
   - first:
-      213: 8227060802328692261
-    second: arr 6_Mesa de trabajo 1_51
+      213: -6209679458990430686
+    second: cubeta lluvia_51
   - first:
-      213: -5194946284805942542
-    second: arr 6_Mesa de trabajo 1_52
+      213: -4114155619699717122
+    second: cubeta lluvia_52
   - first:
-      213: 5719004459648871839
-    second: arr 6_Mesa de trabajo 1_53
+      213: -3932707645342404370
+    second: cubeta lluvia_53
   - first:
-      213: -744979619360624290
-    second: arr 6_Mesa de trabajo 1_54
+      213: -486840016589015990
+    second: cubeta lluvia_54
   - first:
-      213: 8071779015937830837
-    second: arr 6_Mesa de trabajo 1_55
+      213: 1807538661944113267
+    second: cubeta lluvia_55
   - first:
-      213: 1036090036850237412
-    second: arr 6_Mesa de trabajo 1_56
+      213: -2544659551660477040
+    second: cubeta lluvia_56
   - first:
-      213: 7558124261338791422
-    second: arr 6_Mesa de trabajo 1_57
+      213: 2173586247710580747
+    second: cubeta lluvia_57
   - first:
-      213: 3564442133001216108
-    second: arr 6_Mesa de trabajo 1_58
+      213: -5958460955815510730
+    second: cubeta lluvia_58
   - first:
-      213: -6452697095533461453
-    second: arr 6_Mesa de trabajo 1_59
+      213: -5639841631403491011
+    second: cubeta lluvia_59
   - first:
-      213: -6201634790157521776
-    second: arr 6_Mesa de trabajo 1_60
+      213: 7415404346402320573
+    second: cubeta lluvia_60
   - first:
-      213: 2109515304372496343
-    second: arr 6_Mesa de trabajo 1_61
+      213: -901816876697129613
+    second: cubeta lluvia_61
   - first:
-      213: -8257130438191921978
-    second: arr 6_Mesa de trabajo 1_62
+      213: 381320671682769961
+    second: cubeta lluvia_62
   - first:
-      213: 29091139099156213
-    second: arr 6_Mesa de trabajo 1_63
+      213: -8930456111329392422
+    second: cubeta lluvia_63
   - first:
-      213: -5699999679930473230
-    second: arr 6_Mesa de trabajo 1_64
+      213: 7431007185437619035
+    second: cubeta lluvia_64
   - first:
-      213: -1263075756927674193
-    second: arr 6_Mesa de trabajo 1_65
+      213: -3459927383981145037
+    second: cubeta lluvia_65
   - first:
-      213: -7918031709198384198
-    second: arr 6_Mesa de trabajo 1_66
+      213: -4824369350900851990
+    second: cubeta lluvia_66
   - first:
-      213: 92609216872421311
-    second: arr 6_Mesa de trabajo 1_67
+      213: -8102571010259130049
+    second: cubeta lluvia_67
   - first:
-      213: 7163625474165548932
-    second: arr 6_Mesa de trabajo 1_68
+      213: -3959777137773773209
+    second: cubeta lluvia_68
   - first:
-      213: 3147453281583914682
-    second: arr 6_Mesa de trabajo 1_69
+      213: -7488336496171024760
+    second: cubeta lluvia_69
   - first:
-      213: 6306924903744318602
-    second: arr 6_Mesa de trabajo 1_70
+      213: 2435276424204705760
+    second: cubeta lluvia_70
   - first:
-      213: -1390147808566684708
-    second: arr 6_Mesa de trabajo 1_71
+      213: 3977662668263865766
+    second: cubeta lluvia_71
   - first:
-      213: -6903862324482228308
-    second: arr 6_Mesa de trabajo 1_72
+      213: -1169677493258185589
+    second: cubeta lluvia_72
   - first:
-      213: 5420928199084815247
-    second: arr 6_Mesa de trabajo 1_73
+      213: 6620177350711260718
+    second: cubeta lluvia_73
   - first:
-      213: -7652785969078143618
-    second: arr 6_Mesa de trabajo 1_74
+      213: 2002570911126191855
+    second: cubeta lluvia_74
   - first:
-      213: 211649905956901211
-    second: arr 6_Mesa de trabajo 1_75
+      213: 8556628343858273607
+    second: cubeta lluvia_75
   - first:
-      213: -8510897674826380146
-    second: arr 6_Mesa de trabajo 1_76
+      213: 4725442558069720357
+    second: cubeta lluvia_76
   - first:
-      213: -7896247334184357473
-    second: arr 6_Mesa de trabajo 1_77
+      213: -4893727487866184732
+    second: cubeta lluvia_77
   - first:
-      213: 7801978478729137612
-    second: arr 6_Mesa de trabajo 1_78
+      213: 9057428172253873254
+    second: cubeta lluvia_78
   - first:
-      213: -1670032191074196635
-    second: arr 6_Mesa de trabajo 1_79
+      213: -2181056459699489810
+    second: cubeta lluvia_79
   - first:
-      213: 4173807869105248033
-    second: arr 6_Mesa de trabajo 1_80
+      213: 4458638027529404086
+    second: cubeta lluvia_80
   - first:
-      213: -5110520373396048792
-    second: arr 6_Mesa de trabajo 1_81
+      213: 4999212548627808966
+    second: cubeta lluvia_81
   - first:
-      213: -5249968651390266820
-    second: arr 6_Mesa de trabajo 1_82
+      213: -5401600554049237868
+    second: cubeta lluvia_82
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -359,13 +359,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_0
+      name: cubeta lluvia_0
       rect:
         serializedVersion: 2
-        x: 419
-        y: 1669
-        width: 1372
-        height: 208
+        x: 0
+        y: 3529
+        width: 3129
+        height: 469
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,20 +374,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de87d83f0c0a713b0800000000000000
-      internalID: -5541784065875805971
+      spriteID: 73a638d2a7e4448e0800000000000000
+      internalID: -1710155671837382089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_1
+      name: cubeta lluvia_1
       rect:
         serializedVersion: 2
-        x: 593
-        y: 1474
-        width: 33
-        height: 73
+        x: 397
+        y: 3084
+        width: 72
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -396,20 +396,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2060e3f755eed7be0800000000000000
-      internalID: -1477763051733252606
+      spriteID: 359a4d011c5f13f90800000000000000
+      internalID: -6975524138260321965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_2
+      name: cubeta lluvia_2
       rect:
         serializedVersion: 2
-        x: 659
-        y: 1475
-        width: 33
-        height: 73
+        x: 547
+        y: 3086
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,20 +418,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8c4fe177e51743a0800000000000000
-      internalID: -6681347438387704692
+      spriteID: 93f7bb698a58cc600800000000000000
+      internalID: 489913418606411577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_3
+      name: cubeta lluvia_3
       rect:
         serializedVersion: 2
-        x: 720
-        y: 1476
-        width: 33
-        height: 73
+        x: 687
+        y: 3088
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -440,20 +440,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8af45409d4eb88270800000000000000
-      internalID: 8253055557498654632
+      spriteID: d3b8c643b2baea690800000000000000
+      internalID: -7588940120021234883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_4
+      name: cubeta lluvia_4
       rect:
         serializedVersion: 2
-        x: 779
-        y: 1477
-        width: 34
-        height: 73
+        x: 823
+        y: 3091
+        width: 73
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,526 +462,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b0d3b598277eebf0800000000000000
-      internalID: -293165909538516809
+      spriteID: 7adee52203963d3e0800000000000000
+      internalID: -2030163351557968473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_5
-      rect:
-        serializedVersion: 2
-        x: 830
-        y: 1478
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07f630fce335dfb00800000000000000
-      internalID: 863938232751189872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_6
-      rect:
-        serializedVersion: 2
-        x: 895
-        y: 1479
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2b0557b80b31bd700800000000000000
-      internalID: 566067827140022450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_7
-      rect:
-        serializedVersion: 2
-        x: 961
-        y: 1480
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8ee57358e1a7c490800000000000000
-      internalID: -7726028616526074230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_8
-      rect:
-        serializedVersion: 2
-        x: 1022
-        y: 1481
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 59395a0178d2a11e0800000000000000
-      internalID: -2226417007658167403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_9
-      rect:
-        serializedVersion: 2
-        x: 1082
-        y: 1482
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c103b937700a8360800000000000000
-      internalID: 7172545868610077122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_10
-      rect:
-        serializedVersion: 2
-        x: 1132
-        y: 1483
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa21c3594b43ff6b0800000000000000
-      internalID: -5260427889542950225
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_11
-      rect:
-        serializedVersion: 2
-        x: 1187
-        y: 1484
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 89d3f1867abd0d8c0800000000000000
-      internalID: -3976436958915248744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_12
-      rect:
-        serializedVersion: 2
-        x: 1253
-        y: 1485
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5edaf7135e15d4380800000000000000
-      internalID: -8985435636714459675
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_13
-      rect:
-        serializedVersion: 2
-        x: 1315
-        y: 1486
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 535ed7c6051ecdad0800000000000000
-      internalID: -2676016343031093963
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_14
-      rect:
-        serializedVersion: 2
-        x: 1374
-        y: 1487
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 73d273c90593dc480800000000000000
-      internalID: -8877376272096350921
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_15
-      rect:
-        serializedVersion: 2
-        x: 1425
-        y: 1488
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc1bdb8a8544ecec0800000000000000
-      internalID: -3544820709115186737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_16
-      rect:
-        serializedVersion: 2
-        x: 1499
-        y: 1489
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e86f8548803d2b380800000000000000
-      internalID: -8956864675352873330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_17
-      rect:
-        serializedVersion: 2
-        x: 1565
-        y: 1490
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 019aa359e0947b060800000000000000
-      internalID: 6969119275361151248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_18
-      rect:
-        serializedVersion: 2
-        x: 1626
-        y: 1491
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a1bd6c76845a09e0800000000000000
-      internalID: -1654416976515321435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_19
-      rect:
-        serializedVersion: 2
-        x: 1686
-        y: 1492
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b07771bbd01905b80800000000000000
-      internalID: -8408061016141236469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_20
-      rect:
-        serializedVersion: 2
-        x: 1736
-        y: 1493
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d99a342b6c93a32d0800000000000000
-      internalID: -3298260251538380387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_21
-      rect:
-        serializedVersion: 2
-        x: 510
-        y: 1294
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 92e2a7085b368aed0800000000000000
-      internalID: -2402560770006438359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_22
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 1295
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 51f31525b2155b740800000000000000
-      internalID: 5167125393984012053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_23
-      rect:
-        serializedVersion: 2
-        x: 637
-        y: 1296
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 19e6b090cd0700070800000000000000
-      internalID: 8070574622594789009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_24
-      rect:
-        serializedVersion: 2
-        x: 697
-        y: 1297
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84518505601c748e0800000000000000
-      internalID: -1709185300701899448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_25
-      rect:
-        serializedVersion: 2
-        x: 747
-        y: 1298
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bb54464faadcd2c30800000000000000
-      internalID: 4336348150356002235
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_26
-      rect:
-        serializedVersion: 2
-        x: 812
-        y: 1299
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1374d5e1b2ecffc0800000000000000
-      internalID: -3459641160034389222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_27
-      rect:
-        serializedVersion: 2
-        x: 878
-        y: 1300
-        width: 34
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 69d9cb4344ad30ee0800000000000000
-      internalID: -1295952281275163242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_28
+      name: cubeta lluvia_5
       rect:
         serializedVersion: 2
         x: 939
-        y: 1301
-        width: 34
-        height: 73
+        y: 3093
+        width: 72
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -990,20 +484,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 618c9612bb343b570800000000000000
-      internalID: 8481196994267301910
+      spriteID: 620fb1a4d8604a980800000000000000
+      internalID: -8528684590429376474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_29
+      name: cubeta lluvia_6
       rect:
         serializedVersion: 2
-        x: 999
-        y: 1302
-        width: 33
-        height: 73
+        x: 1087
+        y: 3095
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1012,20 +506,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cbfda7908d6382d80800000000000000
-      internalID: -8275304013793402948
+      spriteID: f38427ff1c5a1de60800000000000000
+      internalID: 7985345866937550911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_30
+      name: cubeta lluvia_7
       rect:
         serializedVersion: 2
-        x: 1049
-        y: 1302
-        width: 34
-        height: 73
+        x: 1238
+        y: 3097
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1034,20 +528,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 026aa9545dba230c0800000000000000
-      internalID: -4597423337107708384
+      spriteID: 83de1dc45b7283410800000000000000
+      internalID: 1456958139085745464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_31
+      name: cubeta lluvia_8
       rect:
         serializedVersion: 2
-        x: 1105
-        y: 1303
-        width: 33
-        height: 73
+        x: 1378
+        y: 3100
+        width: 72
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1056,20 +550,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa5c818cd37434a90800000000000000
-      internalID: -7330937437753391697
+      spriteID: 1ca1dc59a7dea87f0800000000000000
+      internalID: -609413688800240959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_32
+      name: cubeta lluvia_9
       rect:
         serializedVersion: 2
-        x: 1171
-        y: 1304
-        width: 33
-        height: 73
+        x: 1513
+        y: 3102
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1078,20 +572,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 041550c056099a2a0800000000000000
-      internalID: -6725685804833353408
+      spriteID: 6613c26df9605abd0800000000000000
+      internalID: -2619680324683288218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_33
+      name: cubeta lluvia_10
       rect:
         serializedVersion: 2
-        x: 1232
-        y: 1305
-        width: 33
-        height: 73
+        x: 1629
+        y: 3104
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1100,20 +594,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5b10897721e4dbd0800000000000000
-      internalID: -2606210724682261668
+      spriteID: cf74e73b7a3d2bd80800000000000000
+      internalID: -8236288051282819076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_34
+      name: cubeta lluvia_11
       rect:
         serializedVersion: 2
-        x: 1291
-        y: 1306
-        width: 34
-        height: 73
+        x: 1755
+        y: 3106
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1122,20 +616,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f94cf7dd8ac5f270800000000000000
-      internalID: 8283749800180730353
+      spriteID: 6158ba844562cb7c0800000000000000
+      internalID: -4054323421101980394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_35
+      name: cubeta lluvia_12
       rect:
         serializedVersion: 2
-        x: 1342
-        y: 1307
-        width: 33
-        height: 73
+        x: 1906
+        y: 3108
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1144,20 +638,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e436117f130c446e0800000000000000
-      internalID: -1854145825738759346
+      spriteID: 2d573238f11d58320800000000000000
+      internalID: 2559681896504325586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_36
+      name: cubeta lluvia_13
       rect:
         serializedVersion: 2
-        x: 1416
-        y: 1308
-        width: 33
-        height: 73
+        x: 2046
+        y: 3111
+        width: 72
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1166,20 +660,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7135d6e8b6bd1c6b0800000000000000
-      internalID: -5277696033303997673
+      spriteID: 75a72813fd7c95aa0800000000000000
+      internalID: -6171682052912285097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_37
+      name: cubeta lluvia_14
       rect:
         serializedVersion: 2
-        x: 1482
-        y: 1310
-        width: 34
-        height: 73
+        x: 2181
+        y: 3113
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1188,20 +682,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd844a773cc07a670800000000000000
-      internalID: 8549816451251587292
+      spriteID: 434d699289d293e70800000000000000
+      internalID: 9095351054007456820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_38
+      name: cubeta lluvia_15
       rect:
         serializedVersion: 2
-        x: 1543
-        y: 1311
-        width: 34
-        height: 73
+        x: 2297
+        y: 3115
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1210,20 +704,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d049146433ad0670800000000000000
-      internalID: 8506634716585738452
+      spriteID: e3ad9d9f4f11030c0800000000000000
+      internalID: -4598155475683780034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_39
+      name: cubeta lluvia_16
       rect:
         serializedVersion: 2
-        x: 1603
-        y: 1312
-        width: 33
-        height: 72
+        x: 2466
+        y: 3117
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1232,20 +726,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c94bc831de661040800000000000000
-      internalID: 4618000312795089348
+      spriteID: eee6437d2aefede70800000000000000
+      internalID: 9142024268957380334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_40
+      name: cubeta lluvia_17
       rect:
         serializedVersion: 2
-        x: 1653
-        y: 1312
-        width: 34
-        height: 73
+        x: 2617
+        y: 3120
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1254,20 +748,218 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48d082452407a3ac0800000000000000
-      internalID: -3874661099216827004
+      spriteID: 2aedae0ab2febf7a0800000000000000
+      internalID: -6342212679558832478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_41
+      name: cubeta lluvia_18
+      rect:
+        serializedVersion: 2
+        x: 2757
+        y: 3122
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4785cdc70a7e463f0800000000000000
+      internalID: -908346548346398604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_19
+      rect:
+        serializedVersion: 2
+        x: 2893
+        y: 3124
+        width: 72
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931d9b4c98310d850800000000000000
+      internalID: 6399636552925434169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_20
+      rect:
+        serializedVersion: 2
+        x: 3008
+        y: 3126
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d46e2ef3ae1d8620800000000000000
+      internalID: 2777910234850419920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_21
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 2672
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96994ec9cdd8d6af0800000000000000
+      internalID: -401508813101557399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_22
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2674
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57894cbae7c08100800000000000000
+      internalID: 108306202052101981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_23
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 2677
+        width: 73
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d38e1e7ea1c7b90f0800000000000000
+      internalID: -1109156428215359427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_24
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 2679
+        width: 72
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17f06f97b5d57c410800000000000000
+      internalID: 1497268048593555313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_25
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2681
+        width: 72
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3216a9dc88a6610800000000000000
+      internalID: 1615253833005474746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_26
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 2683
+        width: 72
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 187e9a48d3ede4040800000000000000
+      internalID: 4633885422410917761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_27
       rect:
         serializedVersion: 2
         x: 1048
-        y: 1286
-        width: 12
-        height: 18
+        y: 2686
+        width: 73
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1276,20 +968,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 975f81daffcbd9ef0800000000000000
-      internalID: -99715810425506439
+      spriteID: 8491f75ba1901b500800000000000000
+      internalID: 410119051386231112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_42
+      name: cubeta lluvia_28
       rect:
         serializedVersion: 2
-        x: 427
-        y: 1089
-        width: 34
-        height: 73
+        x: 1188
+        y: 2688
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1298,20 +990,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 829a1e98ca8bcbd10800000000000000
-      internalID: 2142790573908666664
+      spriteID: 59a79982680679670800000000000000
+      internalID: 8545404947281836693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_43
+      name: cubeta lluvia_29
       rect:
         serializedVersion: 2
-        x: 493
-        y: 1090
-        width: 34
-        height: 73
+        x: 1324
+        y: 2690
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1320,20 +1012,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40c533d8b8eb4b900800000000000000
-      internalID: 699393348727954436
+      spriteID: e9304cc67a5d212e0800000000000000
+      internalID: -2156426356496006242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_44
+      name: cubeta lluvia_30
       rect:
         serializedVersion: 2
-        x: 555
-        y: 1091
-        width: 33
-        height: 73
+        x: 1440
+        y: 2692
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1342,20 +1034,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ad5b69e2ebd37450800000000000000
-      internalID: 6085449289132891561
+      spriteID: f99bf7220726594d0800000000000000
+      internalID: -3128486132384286305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_45
+      name: cubeta lluvia_31
       rect:
         serializedVersion: 2
-        x: 614
-        y: 1092
-        width: 33
-        height: 73
+        x: 1566
+        y: 2694
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1364,20 +1056,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa8992f61a9dfb640800000000000000
-      internalID: 5098032590584649898
+      spriteID: 7cda58ba74f494930800000000000000
+      internalID: 4127917702700707271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_46
+      name: cubeta lluvia_32
       rect:
         serializedVersion: 2
-        x: 665
-        y: 1093
-        width: 33
-        height: 73
+        x: 1716
+        y: 2696
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1386,20 +1078,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 31334a20b055a28f0800000000000000
-      internalID: -564545297504259309
+      spriteID: 439de5d5005f60a20800000000000000
+      internalID: 3028377181368539444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_47
+      name: cubeta lluvia_33
       rect:
         serializedVersion: 2
-        x: 730
-        y: 1094
-        width: 33
-        height: 73
+        x: 1856
+        y: 2699
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1408,20 +1100,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15cfa4190a66d9f50800000000000000
-      internalID: 6889775844765138001
+      spriteID: ae7851cb274012840800000000000000
+      internalID: 5197440335790573546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_48
+      name: cubeta lluvia_34
       rect:
         serializedVersion: 2
-        x: 796
-        y: 1095
-        width: 33
-        height: 73
+        x: 1992
+        y: 2701
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1430,20 +1122,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6574fc6a8f3b71cb0800000000000000
-      internalID: -4893244589582891178
+      spriteID: 247842791cecc52d0800000000000000
+      internalID: -3288526297027541182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_49
+      name: cubeta lluvia_35
       rect:
         serializedVersion: 2
-        x: 857
-        y: 1096
-        width: 33
-        height: 73
+        x: 2108
+        y: 2703
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1452,20 +1144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dff6c37a348013d50800000000000000
-      internalID: 6715157606047707133
+      spriteID: debd975b77e317520800000000000000
+      internalID: 2698006335638330349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_50
+      name: cubeta lluvia_36
       rect:
         serializedVersion: 2
-        x: 916
-        y: 1097
-        width: 34
-        height: 73
+        x: 2277
+        y: 2706
+        width: 73
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1474,20 +1166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 639aa1433e42166f0800000000000000
-      internalID: -693232309388007114
+      spriteID: 1a23be56e18e6bcf0800000000000000
+      internalID: -236746713133796703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_51
+      name: cubeta lluvia_37
       rect:
         serializedVersion: 2
-        x: 967
-        y: 1098
-        width: 33
-        height: 73
+        x: 2428
+        y: 2708
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1496,20 +1188,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 526875cf5346c2270800000000000000
-      internalID: 8227060802328692261
+      spriteID: 7552bfd296bc75940800000000000000
+      internalID: 5284916340346004823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_52
+      name: cubeta lluvia_38
       rect:
         serializedVersion: 2
-        x: 1022
-        y: 1099
-        width: 33
-        height: 73
+        x: 2568
+        y: 2710
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1518,20 +1210,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f218e2c0e7d7e7b0800000000000000
-      internalID: -5194946284805942542
+      spriteID: fd55c09e8b6dbf2f0800000000000000
+      internalID: -937920007704390177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_53
+      name: cubeta lluvia_39
       rect:
         serializedVersion: 2
-        x: 1088
-        y: 1100
-        width: 33
-        height: 73
+        x: 2703
+        y: 2713
+        width: 73
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1540,20 +1232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9dee36614cfd5f40800000000000000
-      internalID: 5719004459648871839
+      spriteID: f20b69d1c86a624a0800000000000000
+      internalID: -6618419481652318161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_54
+      name: cubeta lluvia_40
       rect:
         serializedVersion: 2
-        x: 1149
-        y: 1101
-        width: 34
-        height: 73
+        x: 2819
+        y: 2714
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1562,20 +1254,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e51ba17bbfc49a5f0800000000000000
-      internalID: -744979619360624290
+      spriteID: 8e1a592ddc3606870800000000000000
+      internalID: 8674042617968042472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_55
+      name: cubeta lluvia_41
       rect:
         serializedVersion: 2
-        x: 1209
-        y: 1102
-        width: 33
-        height: 73
+        x: 1440
+        y: 2655
+        width: 18
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1584,20 +1276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5bf2d66bf38b40070800000000000000
-      internalID: 8071779015937830837
+      spriteID: e4386067c40354450800000000000000
+      internalID: 6072312777534767950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_56
+      name: cubeta lluvia_42
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 1102
-        width: 34
-        height: 73
+        x: 19
+        y: 2204
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1606,20 +1298,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ef97c9266ee06e00800000000000000
-      internalID: 1036090036850237412
+      spriteID: 29745da93e5e14830800000000000000
+      internalID: 4053773905328162706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_57
+      name: cubeta lluvia_43
       rect:
         serializedVersion: 2
-        x: 1334
-        y: 1104
-        width: 33
-        height: 73
+        x: 170
+        y: 2207
+        width: 72
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1628,20 +1320,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efd3c5598f9d3e860800000000000000
-      internalID: 7558124261338791422
+      spriteID: 09df31d199e732980800000000000000
+      internalID: -8564862870245606000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_58
+      name: cubeta lluvia_44
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 1105
-        width: 33
-        height: 73
+        x: 310
+        y: 2209
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1650,20 +1342,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6029f71c31777130800000000000000
-      internalID: 3564442133001216108
+      spriteID: 9b474f96d5a2293e0800000000000000
+      internalID: -2048528299802200903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_59
+      name: cubeta lluvia_45
       rect:
         serializedVersion: 2
-        x: 1461
-        y: 1106
-        width: 33
-        height: 73
+        x: 445
+        y: 2211
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1672,20 +1364,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3308881fd2a6376a0800000000000000
-      internalID: -6452697095533461453
+      spriteID: c5089580d5ecfd0f0800000000000000
+      internalID: -1089925685833007012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_60
+      name: cubeta lluvia_46
       rect:
         serializedVersion: 2
-        x: 1520
-        y: 1107
-        width: 34
-        height: 73
+        x: 561
+        y: 2213
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1694,20 +1386,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09ce4f9140e5fe9a0800000000000000
-      internalID: -6201634790157521776
+      spriteID: 91fcf5b7c348ad240800000000000000
+      internalID: 4817308146728947481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_61
+      name: cubeta lluvia_47
       rect:
         serializedVersion: 2
-        x: 1571
-        y: 1108
-        width: 33
-        height: 73
+        x: 709
+        y: 2215
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1716,20 +1408,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d76f5d1ef0864d10800000000000000
-      internalID: 2109515304372496343
+      spriteID: d25c90cd99ea78b60800000000000000
+      internalID: 7748353659759084845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_62
+      name: cubeta lluvia_48
       rect:
         serializedVersion: 2
-        x: 429
-        y: 917
-        width: 34
-        height: 73
+        x: 860
+        y: 2218
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1738,20 +1430,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c441875d97c86d80800000000000000
-      internalID: -8257130438191921978
+      spriteID: d32a36ba217afd700800000000000000
+      internalID: 567355776698655293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_63
+      name: cubeta lluvia_49
       rect:
         serializedVersion: 2
-        x: 495
-        y: 918
-        width: 34
-        height: 73
+        x: 1000
+        y: 2220
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1760,20 +1452,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fedd14ac3a576000800000000000000
-      internalID: 29091139099156213
+      spriteID: 8655ee7f04cd4a8f0800000000000000
+      internalID: -530056684527266456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_64
+      name: cubeta lluvia_50
       rect:
         serializedVersion: 2
-        x: 557
-        y: 919
-        width: 33
-        height: 73
+        x: 1136
+        y: 2222
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1782,20 +1474,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f467e1bd7885e0b0800000000000000
-      internalID: -5699999679930473230
+      spriteID: 562f62f4a851a4e20800000000000000
+      internalID: 3335502157798896229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_65
+      name: cubeta lluvia_51
       rect:
         serializedVersion: 2
-        x: 616
-        y: 920
-        width: 34
-        height: 73
+        x: 1251
+        y: 2224
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1804,20 +1496,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa81be78a47a87ee0800000000000000
-      internalID: -1263075756927674193
+      spriteID: 226e5ddae69c2d9a0800000000000000
+      internalID: -6209679458990430686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_66
+      name: cubeta lluvia_52
       rect:
         serializedVersion: 2
-        x: 667
-        y: 921
-        width: 33
-        height: 73
+        x: 1377
+        y: 2226
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1826,20 +1518,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ab383fcac108d1290800000000000000
-      internalID: -7918031709198384198
+      spriteID: efb0f19f24597e6c0800000000000000
+      internalID: -4114155619699717122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_67
+      name: cubeta lluvia_53
       rect:
         serializedVersion: 2
-        x: 732
-        y: 922
-        width: 33
-        height: 73
+        x: 1528
+        y: 2229
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1848,20 +1540,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb79b929793094100800000000000000
-      internalID: 92609216872421311
+      spriteID: ee037e1ab373c69c0800000000000000
+      internalID: -3932707645342404370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_68
+      name: cubeta lluvia_54
       rect:
         serializedVersion: 2
-        x: 798
-        y: 923
-        width: 33
-        height: 73
+        x: 1668
+        y: 2231
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1870,20 +1562,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 487a39b0a6f4a6360800000000000000
-      internalID: 7163625474165548932
+      spriteID: a4434c495956e39f0800000000000000
+      internalID: -486840016589015990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_69
+      name: cubeta lluvia_55
       rect:
         serializedVersion: 2
-        x: 859
-        y: 924
-        width: 33
-        height: 73
+        x: 1803
+        y: 2233
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1892,20 +1584,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: abe52fb65100eab20800000000000000
-      internalID: 3147453281583914682
+      spriteID: 378b6f616daa51910800000000000000
+      internalID: 1807538661944113267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_70
+      name: cubeta lluvia_56
       rect:
         serializedVersion: 2
-        x: 918
-        y: 925
-        width: 34
-        height: 73
+        x: 1919
+        y: 2235
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1914,20 +1606,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a8caeb0d8c2b68750800000000000000
-      internalID: 6306924903744318602
+      spriteID: 095f8f4be9d8facd0800000000000000
+      internalID: -2544659551660477040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_71
+      name: cubeta lluvia_57
       rect:
         serializedVersion: 2
-        x: 969
-        y: 926
-        width: 33
-        height: 73
+        x: 2089
+        y: 2238
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1936,20 +1628,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd35815fee335bce0800000000000000
-      internalID: -1390147808566684708
+      spriteID: b00a6771d212a2e10800000000000000
+      internalID: 2173586247710580747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_72
+      name: cubeta lluvia_58
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 927
-        width: 34
-        height: 73
+        x: 2239
+        y: 2240
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1958,20 +1650,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cafb80b4bcd8030a0800000000000000
-      internalID: -6903862324482228308
+      spriteID: 63df498745b4f4da0800000000000000
+      internalID: -5958460955815510730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_73
+      name: cubeta lluvia_59
       rect:
         serializedVersion: 2
-        x: 1090
-        y: 928
-        width: 34
-        height: 73
+        x: 2379
+        y: 2243
+        width: 73
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1980,20 +1672,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f83395bc9710b3b40800000000000000
-      internalID: 5420928199084815247
+      spriteID: d314cbadae14bb1b0800000000000000
+      internalID: -5639841631403491011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_74
+      name: cubeta lluvia_60
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 929
-        width: 34
-        height: 73
+        x: 2515
+        y: 2245
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2002,20 +1694,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e75f00315b7dbc590800000000000000
-      internalID: -7652785969078143618
+      spriteID: db0b23de6fec8e660800000000000000
+      internalID: 7415404346402320573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_75
+      name: cubeta lluvia_61
       rect:
         serializedVersion: 2
-        x: 1211
-        y: 930
-        width: 33
-        height: 73
+        x: 2631
+        y: 2247
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2024,20 +1716,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b515e45d77eefe200800000000000000
-      internalID: 211649905956901211
+      spriteID: 37de304245a1c73f0800000000000000
+      internalID: -901816876697129613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_76
+      name: cubeta lluvia_62
       rect:
         serializedVersion: 2
-        x: 1261
-        y: 931
-        width: 34
-        height: 73
+        x: 24
+        y: 1812
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2046,20 +1738,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8c864c48a733e980800000000000000
-      internalID: -8510897674826380146
+      spriteID: 9243a2d6129ba4500800000000000000
+      internalID: 381320671682769961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_77
+      name: cubeta lluvia_63
       rect:
         serializedVersion: 2
-        x: 1336
-        y: 932
-        width: 33
-        height: 73
+        x: 174
+        y: 1815
+        width: 73
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2068,20 +1760,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f91f05bb2e4ea6290800000000000000
-      internalID: -7896247334184357473
+      spriteID: ad8cef97b75a01480800000000000000
+      internalID: -8930456111329392422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_78
+      name: cubeta lluvia_64
       rect:
         serializedVersion: 2
-        x: 1402
-        y: 933
-        width: 33
-        height: 73
+        x: 314
+        y: 1817
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2090,20 +1782,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ccd84e9f612364c60800000000000000
-      internalID: 7801978478729137612
+      spriteID: b53726bf9ad302760800000000000000
+      internalID: 7431007185437619035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_79
+      name: cubeta lluvia_65
       rect:
         serializedVersion: 2
-        x: 1463
-        y: 934
-        width: 33
-        height: 73
+        x: 450
+        y: 1819
+        width: 73
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2112,20 +1804,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5632e87029ad2d8e0800000000000000
-      internalID: -1670032191074196635
+      spriteID: 3344821306edbffc0800000000000000
+      internalID: -3459927383981145037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_80
+      name: cubeta lluvia_66
       rect:
         serializedVersion: 2
-        x: 1522
-        y: 935
-        width: 34
-        height: 73
+        x: 566
+        y: 1821
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2134,20 +1826,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1279fb6a4285ce930800000000000000
-      internalID: 4173807869105248033
+      spriteID: aead54ec2a56c0db0800000000000000
+      internalID: -4824369350900851990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_81
+      name: cubeta lluvia_67
       rect:
         serializedVersion: 2
-        x: 1573
-        y: 936
-        width: 33
-        height: 73
+        x: 714
+        y: 1823
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2156,20 +1848,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 864f45e0cc8c319b0800000000000000
-      internalID: -5110520373396048792
+      spriteID: f39602e6892ed8f80800000000000000
+      internalID: -8102571010259130049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr 6_Mesa de trabajo 1_82
+      name: cubeta lluvia_68
       rect:
         serializedVersion: 2
-        x: 672
-        y: 124
-        width: 743
-        height: 690
+        x: 865
+        y: 1826
+        width: 72
+        height: 163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2178,8 +1870,316 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3252fbb35d5427b0800000000000000
-      internalID: -5249968651390266820
+      spriteID: 76ef7494cab0c09c0800000000000000
+      internalID: -3959777137773773209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_69
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1828
+        width: 72
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88ef123b1a5141890800000000000000
+      internalID: -7488336496171024760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_70
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1830
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0efda925107dbc120800000000000000
+      internalID: 2435276424204705760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_71
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 1832
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad333a4f1f733730800000000000000
+      internalID: 3977662668263865766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_72
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 1834
+        width: 72
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b849390648874cfe0800000000000000
+      internalID: -1169677493258185589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_73
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 1837
+        width: 72
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e263b3ba9389fdb50800000000000000
+      internalID: 6620177350711260718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_74
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 1839
+        width: 72
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feef43332af8acb10800000000000000
+      internalID: 2002570911126191855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_75
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 1841
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d16bec4204fb670800000000000000
+      internalID: 8556628343858273607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_76
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 1843
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 525424858f4249140800000000000000
+      internalID: 4725442558069720357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_77
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 1846
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ebdb2227ccf51cb0800000000000000
+      internalID: -4893727487866184732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_78
+      rect:
+        serializedVersion: 2
+        x: 2244
+        y: 1849
+        width: 73
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664cec13fe272bd70800000000000000
+      internalID: 9057428172253873254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_79
+      rect:
+        serializedVersion: 2
+        x: 2384
+        y: 1851
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee37a84a4b45bb1e0800000000000000
+      internalID: -2181056459699489810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_80
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 1853
+        width: 72
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be30f4c9a340ed30800000000000000
+      internalID: 4458638027529404086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_81
+      rect:
+        serializedVersion: 2
+        x: 2635
+        y: 1855
+        width: 73
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2c2a57355c06540800000000000000
+      internalID: 4999212548627808966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cubeta lluvia_82
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 0
+        width: 1684
+        height: 1572
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c875d3ae8a905b0800000000000000
+      internalID: -5401600554049237868
       vertices: []
       indices: 
       edges: []
@@ -2198,89 +2198,89 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr 6_Mesa de trabajo 1_0: -5541784065875805971
-      arr 6_Mesa de trabajo 1_1: -1477763051733252606
-      arr 6_Mesa de trabajo 1_10: -5260427889542950225
-      arr 6_Mesa de trabajo 1_11: -3976436958915248744
-      arr 6_Mesa de trabajo 1_12: -8985435636714459675
-      arr 6_Mesa de trabajo 1_13: -2676016343031093963
-      arr 6_Mesa de trabajo 1_14: -8877376272096350921
-      arr 6_Mesa de trabajo 1_15: -3544820709115186737
-      arr 6_Mesa de trabajo 1_16: -8956864675352873330
-      arr 6_Mesa de trabajo 1_17: 6969119275361151248
-      arr 6_Mesa de trabajo 1_18: -1654416976515321435
-      arr 6_Mesa de trabajo 1_19: -8408061016141236469
-      arr 6_Mesa de trabajo 1_2: -6681347438387704692
-      arr 6_Mesa de trabajo 1_20: -3298260251538380387
-      arr 6_Mesa de trabajo 1_21: -2402560770006438359
-      arr 6_Mesa de trabajo 1_22: 5167125393984012053
-      arr 6_Mesa de trabajo 1_23: 8070574622594789009
-      arr 6_Mesa de trabajo 1_24: -1709185300701899448
-      arr 6_Mesa de trabajo 1_25: 4336348150356002235
-      arr 6_Mesa de trabajo 1_26: -3459641160034389222
-      arr 6_Mesa de trabajo 1_27: -1295952281275163242
-      arr 6_Mesa de trabajo 1_28: 8481196994267301910
-      arr 6_Mesa de trabajo 1_29: -8275304013793402948
-      arr 6_Mesa de trabajo 1_3: 8253055557498654632
-      arr 6_Mesa de trabajo 1_30: -4597423337107708384
-      arr 6_Mesa de trabajo 1_31: -7330937437753391697
-      arr 6_Mesa de trabajo 1_32: -6725685804833353408
-      arr 6_Mesa de trabajo 1_33: -2606210724682261668
-      arr 6_Mesa de trabajo 1_34: 8283749800180730353
-      arr 6_Mesa de trabajo 1_35: -1854145825738759346
-      arr 6_Mesa de trabajo 1_36: -5277696033303997673
-      arr 6_Mesa de trabajo 1_37: 8549816451251587292
-      arr 6_Mesa de trabajo 1_38: 8506634716585738452
-      arr 6_Mesa de trabajo 1_39: 4618000312795089348
-      arr 6_Mesa de trabajo 1_4: -293165909538516809
-      arr 6_Mesa de trabajo 1_40: -3874661099216827004
-      arr 6_Mesa de trabajo 1_41: -99715810425506439
-      arr 6_Mesa de trabajo 1_42: 2142790573908666664
-      arr 6_Mesa de trabajo 1_43: 699393348727954436
-      arr 6_Mesa de trabajo 1_44: 6085449289132891561
-      arr 6_Mesa de trabajo 1_45: 5098032590584649898
-      arr 6_Mesa de trabajo 1_46: -564545297504259309
-      arr 6_Mesa de trabajo 1_47: 6889775844765138001
-      arr 6_Mesa de trabajo 1_48: -4893244589582891178
-      arr 6_Mesa de trabajo 1_49: 6715157606047707133
-      arr 6_Mesa de trabajo 1_5: 863938232751189872
-      arr 6_Mesa de trabajo 1_50: -693232309388007114
-      arr 6_Mesa de trabajo 1_51: 8227060802328692261
-      arr 6_Mesa de trabajo 1_52: -5194946284805942542
-      arr 6_Mesa de trabajo 1_53: 5719004459648871839
-      arr 6_Mesa de trabajo 1_54: -744979619360624290
-      arr 6_Mesa de trabajo 1_55: 8071779015937830837
-      arr 6_Mesa de trabajo 1_56: 1036090036850237412
-      arr 6_Mesa de trabajo 1_57: 7558124261338791422
-      arr 6_Mesa de trabajo 1_58: 3564442133001216108
-      arr 6_Mesa de trabajo 1_59: -6452697095533461453
-      arr 6_Mesa de trabajo 1_6: 566067827140022450
-      arr 6_Mesa de trabajo 1_60: -6201634790157521776
-      arr 6_Mesa de trabajo 1_61: 2109515304372496343
-      arr 6_Mesa de trabajo 1_62: -8257130438191921978
-      arr 6_Mesa de trabajo 1_63: 29091139099156213
-      arr 6_Mesa de trabajo 1_64: -5699999679930473230
-      arr 6_Mesa de trabajo 1_65: -1263075756927674193
-      arr 6_Mesa de trabajo 1_66: -7918031709198384198
-      arr 6_Mesa de trabajo 1_67: 92609216872421311
-      arr 6_Mesa de trabajo 1_68: 7163625474165548932
-      arr 6_Mesa de trabajo 1_69: 3147453281583914682
-      arr 6_Mesa de trabajo 1_7: -7726028616526074230
-      arr 6_Mesa de trabajo 1_70: 6306924903744318602
-      arr 6_Mesa de trabajo 1_71: -1390147808566684708
-      arr 6_Mesa de trabajo 1_72: -6903862324482228308
-      arr 6_Mesa de trabajo 1_73: 5420928199084815247
-      arr 6_Mesa de trabajo 1_74: -7652785969078143618
-      arr 6_Mesa de trabajo 1_75: 211649905956901211
-      arr 6_Mesa de trabajo 1_76: -8510897674826380146
-      arr 6_Mesa de trabajo 1_77: -7896247334184357473
-      arr 6_Mesa de trabajo 1_78: 7801978478729137612
-      arr 6_Mesa de trabajo 1_79: -1670032191074196635
-      arr 6_Mesa de trabajo 1_8: -2226417007658167403
-      arr 6_Mesa de trabajo 1_80: 4173807869105248033
-      arr 6_Mesa de trabajo 1_81: -5110520373396048792
-      arr 6_Mesa de trabajo 1_82: -5249968651390266820
-      arr 6_Mesa de trabajo 1_9: 7172545868610077122
+      cubeta lluvia_0: -1710155671837382089
+      cubeta lluvia_1: -6975524138260321965
+      cubeta lluvia_10: -8236288051282819076
+      cubeta lluvia_11: -4054323421101980394
+      cubeta lluvia_12: 2559681896504325586
+      cubeta lluvia_13: -6171682052912285097
+      cubeta lluvia_14: 9095351054007456820
+      cubeta lluvia_15: -4598155475683780034
+      cubeta lluvia_16: 9142024268957380334
+      cubeta lluvia_17: -6342212679558832478
+      cubeta lluvia_18: -908346548346398604
+      cubeta lluvia_19: 6399636552925434169
+      cubeta lluvia_2: 489913418606411577
+      cubeta lluvia_20: 2777910234850419920
+      cubeta lluvia_21: -401508813101557399
+      cubeta lluvia_22: 108306202052101981
+      cubeta lluvia_23: -1109156428215359427
+      cubeta lluvia_24: 1497268048593555313
+      cubeta lluvia_25: 1615253833005474746
+      cubeta lluvia_26: 4633885422410917761
+      cubeta lluvia_27: 410119051386231112
+      cubeta lluvia_28: 8545404947281836693
+      cubeta lluvia_29: -2156426356496006242
+      cubeta lluvia_3: -7588940120021234883
+      cubeta lluvia_30: -3128486132384286305
+      cubeta lluvia_31: 4127917702700707271
+      cubeta lluvia_32: 3028377181368539444
+      cubeta lluvia_33: 5197440335790573546
+      cubeta lluvia_34: -3288526297027541182
+      cubeta lluvia_35: 2698006335638330349
+      cubeta lluvia_36: -236746713133796703
+      cubeta lluvia_37: 5284916340346004823
+      cubeta lluvia_38: -937920007704390177
+      cubeta lluvia_39: -6618419481652318161
+      cubeta lluvia_4: -2030163351557968473
+      cubeta lluvia_40: 8674042617968042472
+      cubeta lluvia_41: 6072312777534767950
+      cubeta lluvia_42: 4053773905328162706
+      cubeta lluvia_43: -8564862870245606000
+      cubeta lluvia_44: -2048528299802200903
+      cubeta lluvia_45: -1089925685833007012
+      cubeta lluvia_46: 4817308146728947481
+      cubeta lluvia_47: 7748353659759084845
+      cubeta lluvia_48: 567355776698655293
+      cubeta lluvia_49: -530056684527266456
+      cubeta lluvia_5: -8528684590429376474
+      cubeta lluvia_50: 3335502157798896229
+      cubeta lluvia_51: -6209679458990430686
+      cubeta lluvia_52: -4114155619699717122
+      cubeta lluvia_53: -3932707645342404370
+      cubeta lluvia_54: -486840016589015990
+      cubeta lluvia_55: 1807538661944113267
+      cubeta lluvia_56: -2544659551660477040
+      cubeta lluvia_57: 2173586247710580747
+      cubeta lluvia_58: -5958460955815510730
+      cubeta lluvia_59: -5639841631403491011
+      cubeta lluvia_6: 7985345866937550911
+      cubeta lluvia_60: 7415404346402320573
+      cubeta lluvia_61: -901816876697129613
+      cubeta lluvia_62: 381320671682769961
+      cubeta lluvia_63: -8930456111329392422
+      cubeta lluvia_64: 7431007185437619035
+      cubeta lluvia_65: -3459927383981145037
+      cubeta lluvia_66: -4824369350900851990
+      cubeta lluvia_67: -8102571010259130049
+      cubeta lluvia_68: -3959777137773773209
+      cubeta lluvia_69: -7488336496171024760
+      cubeta lluvia_7: 1456958139085745464
+      cubeta lluvia_70: 2435276424204705760
+      cubeta lluvia_71: 3977662668263865766
+      cubeta lluvia_72: -1169677493258185589
+      cubeta lluvia_73: 6620177350711260718
+      cubeta lluvia_74: 2002570911126191855
+      cubeta lluvia_75: 8556628343858273607
+      cubeta lluvia_76: 4725442558069720357
+      cubeta lluvia_77: -4893727487866184732
+      cubeta lluvia_78: 9057428172253873254
+      cubeta lluvia_79: -2181056459699489810
+      cubeta lluvia_8: -609413688800240959
+      cubeta lluvia_80: 4458638027529404086
+      cubeta lluvia_81: 4999212548627808966
+      cubeta lluvia_82: -5401600554049237868
+      cubeta lluvia_9: -2619680324683288218
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

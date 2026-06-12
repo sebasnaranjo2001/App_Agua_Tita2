@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: b0e8d3dffbdd2a648b60a54e78542ade
+guid: 4cb899e618be843418abb910c81c830d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8131575769466984261
-    second: "arr botellaba\xF1o_Mesa de trabajo 1_0"
-  - first:
-      213: 4384427709277933365
-    second: "arr botellaba\xF1o_Mesa de trabajo 1_1"
+      213: -2129374663082138233
+    second: arr tuberia_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "arr botellaba\xF1o_Mesa de trabajo 1_0"
+      name: arr tuberia_0
       rect:
         serializedVersion: 2
-        x: 2495
-        y: 1020
-        width: 3497
-        height: 2427
+        x: 0
+        y: 0
+        width: 6764
+        height: 4106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb82fbcabe6d62f80800000000000000
-      internalID: -8131575769466984261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "arr botellaba\xF1o_Mesa de trabajo 1_1"
-      rect:
-        serializedVersion: 2
-        x: 2873
-        y: 661
-        width: 2786
-        height: 176
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 53f04ea95cd98dc30800000000000000
-      internalID: 4384427709277933365
+      spriteID: 785a54d9601f272e0800000000000000
+      internalID: -2129374663082138233
       vertices: []
       indices: 
       edges: []
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "arr botellaba\xF1o_Mesa de trabajo 1_0": -8131575769466984261
-      "arr botellaba\xF1o_Mesa de trabajo 1_1": 4384427709277933365
+      arr tuberia_0: -2129374663082138233
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c15b5cb36d7ee714daf99518030254ad
+guid: 9957ca75f288f7b48aa7e009cc69d1a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3740667209219501956
-    second: arr tuberia_Mesa de trabajo 1_0
+      213: 4259314548535319307
+    second: "arr ba\xF1obot_Mesa de trabajo 1_0"
+  - first:
+      213: -205562479765135891
+    second: "arr ba\xF1obot_Mesa de trabajo 1_1"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +49,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr tuberia_Mesa de trabajo 1_0
+      name: "arr ba\xF1obot_Mesa de trabajo 1_0"
       rect:
         serializedVersion: 2
-        x: 2698
-        y: 620
-        width: 4084
-        height: 2479
+        x: 2321
+        y: 1078
+        width: 3696
+        height: 2565
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c70158bfdfa761cc0800000000000000
-      internalID: -3740667209219501956
+      spriteID: b0bd91cd3002c1b30800000000000000
+      internalID: 4259314548535319307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "arr ba\xF1obot_Mesa de trabajo 1_1"
+      rect:
+        serializedVersion: 2
+        x: 2721
+        y: 699
+        width: 2945
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ded53768302b52df0800000000000000
+      internalID: -205562479765135891
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr tuberia_Mesa de trabajo 1_0: -3740667209219501956
+      "arr ba\xF1obot_Mesa de trabajo 1_0": 4259314548535319307
+      "arr ba\xF1obot_Mesa de trabajo 1_1": -205562479765135891
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

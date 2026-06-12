@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 780bbc845848bba45811a80de1ff110a
+guid: e5a4917fb7f7b4c479d21bb2b9ca1373
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4398110633819805978
-    second: arr15_Mesa de trabajo 1_0
+      213: 6836405278003556598
+    second: arr medidor_0
   - first:
-      213: -4142688707563944947
-    second: arr15_Mesa de trabajo 1_1
+      213: -4375112234994285596
+    second: arr medidor_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr15_Mesa de trabajo 1_0
+      name: arr medidor_0
       rect:
         serializedVersion: 2
-        x: 122
-        y: 180
-        width: 337
-        height: 289
+        x: 0
+        y: 400
+        width: 4691
+        height: 3995
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1992bbb15a390d30800000000000000
-      internalID: 4398110633819805978
+      spriteID: 6f0f108216acfde50800000000000000
+      internalID: 6836405278003556598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr15_Mesa de trabajo 1_1
+      name: arr medidor_1
       rect:
         serializedVersion: 2
-        x: 175
-        y: 154
-        width: 262
-        height: 18
+        x: 721
+        y: 0
+        width: 3685
+        height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0401a2c1963286c0800000000000000
-      internalID: -4142688707563944947
+      spriteID: 4e343b44a9a7843c0800000000000000
+      internalID: -4375112234994285596
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr15_Mesa de trabajo 1_0: 4398110633819805978
-      arr15_Mesa de trabajo 1_1: -4142688707563944947
+      arr medidor_0: 6836405278003556598
+      arr medidor_1: -4375112234994285596
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
