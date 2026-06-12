@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d1e5a34f7148af24a9b4dd33b40e224e
+guid: c15b5cb36d7ee714daf99518030254ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4666319347223378185
-    second: arr5_Mesa de trabajo 1_Mesa de trabajo 1_0
+      213: -3740667209219501956
+    second: arr tuberia_Mesa de trabajo 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr5_Mesa de trabajo 1_Mesa de trabajo 1_0
+      name: arr tuberia_Mesa de trabajo 1_0
       rect:
         serializedVersion: 2
-        x: 569
-        y: 306
-        width: 266
-        height: 162
+        x: 2698
+        y: 620
+        width: 4084
+        height: 2479
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f6c734e647ed3fb0800000000000000
-      internalID: -4666319347223378185
+      spriteID: c70158bfdfa761cc0800000000000000
+      internalID: -3740667209219501956
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr5_Mesa de trabajo 1_Mesa de trabajo 1_0: -4666319347223378185
+      arr tuberia_Mesa de trabajo 1_0: -3740667209219501956
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

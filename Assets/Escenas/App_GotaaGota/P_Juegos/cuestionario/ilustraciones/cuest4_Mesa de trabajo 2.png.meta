@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: b9cb072948d7cda4ebfc3dfb0e3cfe80
+guid: 0dfa914f510b4e4468c956f691d129ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8599486996131721500
-    second: arr4_Mesa de trabajo 1_0
+      213: -8739889890707162479
+    second: cuest4_Mesa de trabajo 2_0
   - first:
-      213: -7580932879190438459
-    second: arr4_Mesa de trabajo 1_1
+      213: -1743912360600863404
+    second: cuest4_Mesa de trabajo 2_1
   - first:
-      213: 1025304120799890579
-    second: arr4_Mesa de trabajo 1_2
+      213: -5697829587008126623
+    second: cuest4_Mesa de trabajo 2_2
   - first:
-      213: -5508246913949095450
-    second: arr4_Mesa de trabajo 1_3
+      213: 7263211253645634533
+    second: cuest4_Mesa de trabajo 2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,9 +55,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -122,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr4_Mesa de trabajo 1_0
+      name: cuest4_Mesa de trabajo 2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 43
-        width: 80
-        height: 65
+        x: 259
+        y: 1474
+        width: 2620
+        height: 1009
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4ee4af8932c78a880800000000000000
-      internalID: -8599486996131721500
+      spriteID: 19a3f58437ca5b680800000000000000
+      internalID: -8739889890707162479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr4_Mesa de trabajo 1_1
+      name: cuest4_Mesa de trabajo 2_1
       rect:
         serializedVersion: 2
-        x: 116
-        y: 30
-        width: 37
-        height: 90
+        x: 1604
+        y: 1395
+        width: 105
+        height: 173
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cd46cd36bd1bc690800000000000000
-      internalID: -7580932879190438459
+      spriteID: 45df8fa92f06cc7e0800000000000000
+      internalID: -1743912360600863404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr4_Mesa de trabajo 1_2
+      name: cuest4_Mesa de trabajo 2_2
       rect:
         serializedVersion: 2
-        x: 185
-        y: 30
-        width: 71
-        height: 90
+        x: 1637
+        y: 1062
+        width: 104
+        height: 173
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39c85036aac9a3e00800000000000000
-      internalID: 1025304120799890579
+      spriteID: 1618ba3dd2e3de0b0800000000000000
+      internalID: -5697829587008126623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr4_Mesa de trabajo 1_3
+      name: cuest4_Mesa de trabajo 2_3
       rect:
         serializedVersion: 2
-        x: 19
-        y: 0
-        width: 228
-        height: 16
+        x: 556
+        y: 119
+        width: 2215
+        height: 660
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e92cee9d96ce83b0800000000000000
-      internalID: -5508246913949095450
+      spriteID: 5ebea2e272c1cc460800000000000000
+      internalID: 7263211253645634533
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr4_Mesa de trabajo 1_0: -8599486996131721500
-      arr4_Mesa de trabajo 1_1: -7580932879190438459
-      arr4_Mesa de trabajo 1_2: 1025304120799890579
-      arr4_Mesa de trabajo 1_3: -5508246913949095450
+      cuest4_Mesa de trabajo 2_0: -8739889890707162479
+      cuest4_Mesa de trabajo 2_1: -1743912360600863404
+      cuest4_Mesa de trabajo 2_2: -5697829587008126623
+      cuest4_Mesa de trabajo 2_3: 7263211253645634533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

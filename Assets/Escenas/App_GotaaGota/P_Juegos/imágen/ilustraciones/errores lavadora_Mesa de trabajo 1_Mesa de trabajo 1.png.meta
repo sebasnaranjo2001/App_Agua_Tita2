@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 95093e964f62ebb418a61dd9130affd8
+guid: 20e397b41e88f6f4484625b361095e14
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7893755656183453536
-    second: arr6_Mesa de trabajo 1_Mesa de trabajo 1_0
-  - first:
-      213: -1002680055822205882
-    second: arr6_Mesa de trabajo 1_Mesa de trabajo 1_1
+      213: 2929504776695966963
+    second: errores lavadora_Mesa de trabajo 1_Mesa de trabajo 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr6_Mesa de trabajo 1_Mesa de trabajo 1_0
+      name: errores lavadora_Mesa de trabajo 1_Mesa de trabajo 1_0
       rect:
         serializedVersion: 2
-        x: 539
-        y: 298
-        width: 288
-        height: 200
+        x: 243
+        y: 184
+        width: 2537
+        height: 2231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0679b8642f04c8d60800000000000000
-      internalID: 7893755656183453536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr6_Mesa de trabajo 1_Mesa de trabajo 1_1
-      rect:
-        serializedVersion: 2
-        x: 571
-        y: 269
-        width: 228
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 64c39593dc3c512f0800000000000000
-      internalID: -1002680055822205882
+      spriteID: 3fce5ceb211b7a820800000000000000
+      internalID: 2929504776695966963
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr6_Mesa de trabajo 1_Mesa de trabajo 1_0: 7893755656183453536
-      arr6_Mesa de trabajo 1_Mesa de trabajo 1_1: -1002680055822205882
+      errores lavadora_Mesa de trabajo 1_Mesa de trabajo 1_0: 2929504776695966963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

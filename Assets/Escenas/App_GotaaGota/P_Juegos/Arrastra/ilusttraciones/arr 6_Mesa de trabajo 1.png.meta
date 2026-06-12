@@ -1,0 +1,2288 @@
+fileFormatVersion: 2
+guid: 4d0079a2960503446b265a17eba569df
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5541784065875805971
+    second: arr 6_Mesa de trabajo 1_0
+  - first:
+      213: -1477763051733252606
+    second: arr 6_Mesa de trabajo 1_1
+  - first:
+      213: -6681347438387704692
+    second: arr 6_Mesa de trabajo 1_2
+  - first:
+      213: 8253055557498654632
+    second: arr 6_Mesa de trabajo 1_3
+  - first:
+      213: -293165909538516809
+    second: arr 6_Mesa de trabajo 1_4
+  - first:
+      213: 863938232751189872
+    second: arr 6_Mesa de trabajo 1_5
+  - first:
+      213: 566067827140022450
+    second: arr 6_Mesa de trabajo 1_6
+  - first:
+      213: -7726028616526074230
+    second: arr 6_Mesa de trabajo 1_7
+  - first:
+      213: -2226417007658167403
+    second: arr 6_Mesa de trabajo 1_8
+  - first:
+      213: 7172545868610077122
+    second: arr 6_Mesa de trabajo 1_9
+  - first:
+      213: -5260427889542950225
+    second: arr 6_Mesa de trabajo 1_10
+  - first:
+      213: -3976436958915248744
+    second: arr 6_Mesa de trabajo 1_11
+  - first:
+      213: -8985435636714459675
+    second: arr 6_Mesa de trabajo 1_12
+  - first:
+      213: -2676016343031093963
+    second: arr 6_Mesa de trabajo 1_13
+  - first:
+      213: -8877376272096350921
+    second: arr 6_Mesa de trabajo 1_14
+  - first:
+      213: -3544820709115186737
+    second: arr 6_Mesa de trabajo 1_15
+  - first:
+      213: -8956864675352873330
+    second: arr 6_Mesa de trabajo 1_16
+  - first:
+      213: 6969119275361151248
+    second: arr 6_Mesa de trabajo 1_17
+  - first:
+      213: -1654416976515321435
+    second: arr 6_Mesa de trabajo 1_18
+  - first:
+      213: -8408061016141236469
+    second: arr 6_Mesa de trabajo 1_19
+  - first:
+      213: -3298260251538380387
+    second: arr 6_Mesa de trabajo 1_20
+  - first:
+      213: -2402560770006438359
+    second: arr 6_Mesa de trabajo 1_21
+  - first:
+      213: 5167125393984012053
+    second: arr 6_Mesa de trabajo 1_22
+  - first:
+      213: 8070574622594789009
+    second: arr 6_Mesa de trabajo 1_23
+  - first:
+      213: -1709185300701899448
+    second: arr 6_Mesa de trabajo 1_24
+  - first:
+      213: 4336348150356002235
+    second: arr 6_Mesa de trabajo 1_25
+  - first:
+      213: -3459641160034389222
+    second: arr 6_Mesa de trabajo 1_26
+  - first:
+      213: -1295952281275163242
+    second: arr 6_Mesa de trabajo 1_27
+  - first:
+      213: 8481196994267301910
+    second: arr 6_Mesa de trabajo 1_28
+  - first:
+      213: -8275304013793402948
+    second: arr 6_Mesa de trabajo 1_29
+  - first:
+      213: -4597423337107708384
+    second: arr 6_Mesa de trabajo 1_30
+  - first:
+      213: -7330937437753391697
+    second: arr 6_Mesa de trabajo 1_31
+  - first:
+      213: -6725685804833353408
+    second: arr 6_Mesa de trabajo 1_32
+  - first:
+      213: -2606210724682261668
+    second: arr 6_Mesa de trabajo 1_33
+  - first:
+      213: 8283749800180730353
+    second: arr 6_Mesa de trabajo 1_34
+  - first:
+      213: -1854145825738759346
+    second: arr 6_Mesa de trabajo 1_35
+  - first:
+      213: -5277696033303997673
+    second: arr 6_Mesa de trabajo 1_36
+  - first:
+      213: 8549816451251587292
+    second: arr 6_Mesa de trabajo 1_37
+  - first:
+      213: 8506634716585738452
+    second: arr 6_Mesa de trabajo 1_38
+  - first:
+      213: 4618000312795089348
+    second: arr 6_Mesa de trabajo 1_39
+  - first:
+      213: -3874661099216827004
+    second: arr 6_Mesa de trabajo 1_40
+  - first:
+      213: -99715810425506439
+    second: arr 6_Mesa de trabajo 1_41
+  - first:
+      213: 2142790573908666664
+    second: arr 6_Mesa de trabajo 1_42
+  - first:
+      213: 699393348727954436
+    second: arr 6_Mesa de trabajo 1_43
+  - first:
+      213: 6085449289132891561
+    second: arr 6_Mesa de trabajo 1_44
+  - first:
+      213: 5098032590584649898
+    second: arr 6_Mesa de trabajo 1_45
+  - first:
+      213: -564545297504259309
+    second: arr 6_Mesa de trabajo 1_46
+  - first:
+      213: 6889775844765138001
+    second: arr 6_Mesa de trabajo 1_47
+  - first:
+      213: -4893244589582891178
+    second: arr 6_Mesa de trabajo 1_48
+  - first:
+      213: 6715157606047707133
+    second: arr 6_Mesa de trabajo 1_49
+  - first:
+      213: -693232309388007114
+    second: arr 6_Mesa de trabajo 1_50
+  - first:
+      213: 8227060802328692261
+    second: arr 6_Mesa de trabajo 1_51
+  - first:
+      213: -5194946284805942542
+    second: arr 6_Mesa de trabajo 1_52
+  - first:
+      213: 5719004459648871839
+    second: arr 6_Mesa de trabajo 1_53
+  - first:
+      213: -744979619360624290
+    second: arr 6_Mesa de trabajo 1_54
+  - first:
+      213: 8071779015937830837
+    second: arr 6_Mesa de trabajo 1_55
+  - first:
+      213: 1036090036850237412
+    second: arr 6_Mesa de trabajo 1_56
+  - first:
+      213: 7558124261338791422
+    second: arr 6_Mesa de trabajo 1_57
+  - first:
+      213: 3564442133001216108
+    second: arr 6_Mesa de trabajo 1_58
+  - first:
+      213: -6452697095533461453
+    second: arr 6_Mesa de trabajo 1_59
+  - first:
+      213: -6201634790157521776
+    second: arr 6_Mesa de trabajo 1_60
+  - first:
+      213: 2109515304372496343
+    second: arr 6_Mesa de trabajo 1_61
+  - first:
+      213: -8257130438191921978
+    second: arr 6_Mesa de trabajo 1_62
+  - first:
+      213: 29091139099156213
+    second: arr 6_Mesa de trabajo 1_63
+  - first:
+      213: -5699999679930473230
+    second: arr 6_Mesa de trabajo 1_64
+  - first:
+      213: -1263075756927674193
+    second: arr 6_Mesa de trabajo 1_65
+  - first:
+      213: -7918031709198384198
+    second: arr 6_Mesa de trabajo 1_66
+  - first:
+      213: 92609216872421311
+    second: arr 6_Mesa de trabajo 1_67
+  - first:
+      213: 7163625474165548932
+    second: arr 6_Mesa de trabajo 1_68
+  - first:
+      213: 3147453281583914682
+    second: arr 6_Mesa de trabajo 1_69
+  - first:
+      213: 6306924903744318602
+    second: arr 6_Mesa de trabajo 1_70
+  - first:
+      213: -1390147808566684708
+    second: arr 6_Mesa de trabajo 1_71
+  - first:
+      213: -6903862324482228308
+    second: arr 6_Mesa de trabajo 1_72
+  - first:
+      213: 5420928199084815247
+    second: arr 6_Mesa de trabajo 1_73
+  - first:
+      213: -7652785969078143618
+    second: arr 6_Mesa de trabajo 1_74
+  - first:
+      213: 211649905956901211
+    second: arr 6_Mesa de trabajo 1_75
+  - first:
+      213: -8510897674826380146
+    second: arr 6_Mesa de trabajo 1_76
+  - first:
+      213: -7896247334184357473
+    second: arr 6_Mesa de trabajo 1_77
+  - first:
+      213: 7801978478729137612
+    second: arr 6_Mesa de trabajo 1_78
+  - first:
+      213: -1670032191074196635
+    second: arr 6_Mesa de trabajo 1_79
+  - first:
+      213: 4173807869105248033
+    second: arr 6_Mesa de trabajo 1_80
+  - first:
+      213: -5110520373396048792
+    second: arr 6_Mesa de trabajo 1_81
+  - first:
+      213: -5249968651390266820
+    second: arr 6_Mesa de trabajo 1_82
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_0
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1669
+        width: 1372
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de87d83f0c0a713b0800000000000000
+      internalID: -5541784065875805971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_1
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 1474
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2060e3f755eed7be0800000000000000
+      internalID: -1477763051733252606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_2
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 1475
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c4fe177e51743a0800000000000000
+      internalID: -6681347438387704692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_3
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1476
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8af45409d4eb88270800000000000000
+      internalID: 8253055557498654632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_4
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 1477
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0d3b598277eebf0800000000000000
+      internalID: -293165909538516809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_5
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1478
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f630fce335dfb00800000000000000
+      internalID: 863938232751189872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_6
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1479
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0557b80b31bd700800000000000000
+      internalID: 566067827140022450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_7
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 1480
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8ee57358e1a7c490800000000000000
+      internalID: -7726028616526074230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_8
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1481
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59395a0178d2a11e0800000000000000
+      internalID: -2226417007658167403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_9
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 1482
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c103b937700a8360800000000000000
+      internalID: 7172545868610077122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_10
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 1483
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa21c3594b43ff6b0800000000000000
+      internalID: -5260427889542950225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_11
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 1484
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89d3f1867abd0d8c0800000000000000
+      internalID: -3976436958915248744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_12
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1485
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edaf7135e15d4380800000000000000
+      internalID: -8985435636714459675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_13
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 1486
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 535ed7c6051ecdad0800000000000000
+      internalID: -2676016343031093963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_14
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 1487
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d273c90593dc480800000000000000
+      internalID: -8877376272096350921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_15
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 1488
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1bdb8a8544ecec0800000000000000
+      internalID: -3544820709115186737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_16
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 1489
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e86f8548803d2b380800000000000000
+      internalID: -8956864675352873330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_17
+      rect:
+        serializedVersion: 2
+        x: 1565
+        y: 1490
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 019aa359e0947b060800000000000000
+      internalID: 6969119275361151248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_18
+      rect:
+        serializedVersion: 2
+        x: 1626
+        y: 1491
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1bd6c76845a09e0800000000000000
+      internalID: -1654416976515321435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_19
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 1492
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b07771bbd01905b80800000000000000
+      internalID: -8408061016141236469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_20
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 1493
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d99a342b6c93a32d0800000000000000
+      internalID: -3298260251538380387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_21
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1294
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e2a7085b368aed0800000000000000
+      internalID: -2402560770006438359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_22
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1295
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f31525b2155b740800000000000000
+      internalID: 5167125393984012053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_23
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 1296
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e6b090cd0700070800000000000000
+      internalID: 8070574622594789009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_24
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 1297
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84518505601c748e0800000000000000
+      internalID: -1709185300701899448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_25
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1298
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb54464faadcd2c30800000000000000
+      internalID: 4336348150356002235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_26
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 1299
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1374d5e1b2ecffc0800000000000000
+      internalID: -3459641160034389222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_27
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 1300
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d9cb4344ad30ee0800000000000000
+      internalID: -1295952281275163242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_28
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 1301
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618c9612bb343b570800000000000000
+      internalID: 8481196994267301910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_29
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1302
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbfda7908d6382d80800000000000000
+      internalID: -8275304013793402948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_30
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 1302
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026aa9545dba230c0800000000000000
+      internalID: -4597423337107708384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_31
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 1303
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa5c818cd37434a90800000000000000
+      internalID: -7330937437753391697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_32
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 1304
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041550c056099a2a0800000000000000
+      internalID: -6725685804833353408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_33
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 1305
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5b10897721e4dbd0800000000000000
+      internalID: -2606210724682261668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_34
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 1306
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f94cf7dd8ac5f270800000000000000
+      internalID: 8283749800180730353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_35
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 1307
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e436117f130c446e0800000000000000
+      internalID: -1854145825738759346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_36
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1308
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7135d6e8b6bd1c6b0800000000000000
+      internalID: -5277696033303997673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_37
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 1310
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd844a773cc07a670800000000000000
+      internalID: 8549816451251587292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_38
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 1311
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d049146433ad0670800000000000000
+      internalID: 8506634716585738452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_39
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 1312
+        width: 33
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c94bc831de661040800000000000000
+      internalID: 4618000312795089348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_40
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 1312
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48d082452407a3ac0800000000000000
+      internalID: -3874661099216827004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_41
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 1286
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 975f81daffcbd9ef0800000000000000
+      internalID: -99715810425506439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_42
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1089
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829a1e98ca8bcbd10800000000000000
+      internalID: 2142790573908666664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_43
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1090
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c533d8b8eb4b900800000000000000
+      internalID: 699393348727954436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_44
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1091
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad5b69e2ebd37450800000000000000
+      internalID: 6085449289132891561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_45
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1092
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa8992f61a9dfb640800000000000000
+      internalID: 5098032590584649898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_46
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1093
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31334a20b055a28f0800000000000000
+      internalID: -564545297504259309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_47
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1094
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15cfa4190a66d9f50800000000000000
+      internalID: 6889775844765138001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_48
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1095
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6574fc6a8f3b71cb0800000000000000
+      internalID: -4893244589582891178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_49
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 1096
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff6c37a348013d50800000000000000
+      internalID: 6715157606047707133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_50
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1097
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639aa1433e42166f0800000000000000
+      internalID: -693232309388007114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_51
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 1098
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 526875cf5346c2270800000000000000
+      internalID: 8227060802328692261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_52
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 1099
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f218e2c0e7d7e7b0800000000000000
+      internalID: -5194946284805942542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_53
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 1100
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9dee36614cfd5f40800000000000000
+      internalID: 5719004459648871839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_54
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 1101
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51ba17bbfc49a5f0800000000000000
+      internalID: -744979619360624290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_55
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 1102
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bf2d66bf38b40070800000000000000
+      internalID: 8071779015937830837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_56
+      rect:
+        serializedVersion: 2
+        x: 1259
+        y: 1102
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ef97c9266ee06e00800000000000000
+      internalID: 1036090036850237412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_57
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 1104
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd3c5598f9d3e860800000000000000
+      internalID: 7558124261338791422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_58
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 1105
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6029f71c31777130800000000000000
+      internalID: 3564442133001216108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_59
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 1106
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3308881fd2a6376a0800000000000000
+      internalID: -6452697095533461453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_60
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1107
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ce4f9140e5fe9a0800000000000000
+      internalID: -6201634790157521776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_61
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 1108
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d76f5d1ef0864d10800000000000000
+      internalID: 2109515304372496343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_62
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 917
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c441875d97c86d80800000000000000
+      internalID: -8257130438191921978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_63
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 918
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fedd14ac3a576000800000000000000
+      internalID: 29091139099156213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_64
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 919
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f467e1bd7885e0b0800000000000000
+      internalID: -5699999679930473230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_65
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 920
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa81be78a47a87ee0800000000000000
+      internalID: -1263075756927674193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_66
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 921
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab383fcac108d1290800000000000000
+      internalID: -7918031709198384198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_67
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 922
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb79b929793094100800000000000000
+      internalID: 92609216872421311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_68
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 923
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 487a39b0a6f4a6360800000000000000
+      internalID: 7163625474165548932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_69
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 924
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe52fb65100eab20800000000000000
+      internalID: 3147453281583914682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_70
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 925
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8caeb0d8c2b68750800000000000000
+      internalID: 6306924903744318602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_71
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 926
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd35815fee335bce0800000000000000
+      internalID: -1390147808566684708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_72
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 927
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cafb80b4bcd8030a0800000000000000
+      internalID: -6903862324482228308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_73
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 928
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f83395bc9710b3b40800000000000000
+      internalID: 5420928199084815247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_74
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 929
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75f00315b7dbc590800000000000000
+      internalID: -7652785969078143618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_75
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 930
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b515e45d77eefe200800000000000000
+      internalID: 211649905956901211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_76
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 931
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c864c48a733e980800000000000000
+      internalID: -8510897674826380146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_77
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 932
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91f05bb2e4ea6290800000000000000
+      internalID: -7896247334184357473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_78
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 933
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd84e9f612364c60800000000000000
+      internalID: 7801978478729137612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_79
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 934
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5632e87029ad2d8e0800000000000000
+      internalID: -1670032191074196635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_80
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 935
+        width: 34
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1279fb6a4285ce930800000000000000
+      internalID: 4173807869105248033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_81
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 936
+        width: 33
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864f45e0cc8c319b0800000000000000
+      internalID: -5110520373396048792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arr 6_Mesa de trabajo 1_82
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 124
+        width: 743
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3252fbb35d5427b0800000000000000
+      internalID: -5249968651390266820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      arr 6_Mesa de trabajo 1_0: -5541784065875805971
+      arr 6_Mesa de trabajo 1_1: -1477763051733252606
+      arr 6_Mesa de trabajo 1_10: -5260427889542950225
+      arr 6_Mesa de trabajo 1_11: -3976436958915248744
+      arr 6_Mesa de trabajo 1_12: -8985435636714459675
+      arr 6_Mesa de trabajo 1_13: -2676016343031093963
+      arr 6_Mesa de trabajo 1_14: -8877376272096350921
+      arr 6_Mesa de trabajo 1_15: -3544820709115186737
+      arr 6_Mesa de trabajo 1_16: -8956864675352873330
+      arr 6_Mesa de trabajo 1_17: 6969119275361151248
+      arr 6_Mesa de trabajo 1_18: -1654416976515321435
+      arr 6_Mesa de trabajo 1_19: -8408061016141236469
+      arr 6_Mesa de trabajo 1_2: -6681347438387704692
+      arr 6_Mesa de trabajo 1_20: -3298260251538380387
+      arr 6_Mesa de trabajo 1_21: -2402560770006438359
+      arr 6_Mesa de trabajo 1_22: 5167125393984012053
+      arr 6_Mesa de trabajo 1_23: 8070574622594789009
+      arr 6_Mesa de trabajo 1_24: -1709185300701899448
+      arr 6_Mesa de trabajo 1_25: 4336348150356002235
+      arr 6_Mesa de trabajo 1_26: -3459641160034389222
+      arr 6_Mesa de trabajo 1_27: -1295952281275163242
+      arr 6_Mesa de trabajo 1_28: 8481196994267301910
+      arr 6_Mesa de trabajo 1_29: -8275304013793402948
+      arr 6_Mesa de trabajo 1_3: 8253055557498654632
+      arr 6_Mesa de trabajo 1_30: -4597423337107708384
+      arr 6_Mesa de trabajo 1_31: -7330937437753391697
+      arr 6_Mesa de trabajo 1_32: -6725685804833353408
+      arr 6_Mesa de trabajo 1_33: -2606210724682261668
+      arr 6_Mesa de trabajo 1_34: 8283749800180730353
+      arr 6_Mesa de trabajo 1_35: -1854145825738759346
+      arr 6_Mesa de trabajo 1_36: -5277696033303997673
+      arr 6_Mesa de trabajo 1_37: 8549816451251587292
+      arr 6_Mesa de trabajo 1_38: 8506634716585738452
+      arr 6_Mesa de trabajo 1_39: 4618000312795089348
+      arr 6_Mesa de trabajo 1_4: -293165909538516809
+      arr 6_Mesa de trabajo 1_40: -3874661099216827004
+      arr 6_Mesa de trabajo 1_41: -99715810425506439
+      arr 6_Mesa de trabajo 1_42: 2142790573908666664
+      arr 6_Mesa de trabajo 1_43: 699393348727954436
+      arr 6_Mesa de trabajo 1_44: 6085449289132891561
+      arr 6_Mesa de trabajo 1_45: 5098032590584649898
+      arr 6_Mesa de trabajo 1_46: -564545297504259309
+      arr 6_Mesa de trabajo 1_47: 6889775844765138001
+      arr 6_Mesa de trabajo 1_48: -4893244589582891178
+      arr 6_Mesa de trabajo 1_49: 6715157606047707133
+      arr 6_Mesa de trabajo 1_5: 863938232751189872
+      arr 6_Mesa de trabajo 1_50: -693232309388007114
+      arr 6_Mesa de trabajo 1_51: 8227060802328692261
+      arr 6_Mesa de trabajo 1_52: -5194946284805942542
+      arr 6_Mesa de trabajo 1_53: 5719004459648871839
+      arr 6_Mesa de trabajo 1_54: -744979619360624290
+      arr 6_Mesa de trabajo 1_55: 8071779015937830837
+      arr 6_Mesa de trabajo 1_56: 1036090036850237412
+      arr 6_Mesa de trabajo 1_57: 7558124261338791422
+      arr 6_Mesa de trabajo 1_58: 3564442133001216108
+      arr 6_Mesa de trabajo 1_59: -6452697095533461453
+      arr 6_Mesa de trabajo 1_6: 566067827140022450
+      arr 6_Mesa de trabajo 1_60: -6201634790157521776
+      arr 6_Mesa de trabajo 1_61: 2109515304372496343
+      arr 6_Mesa de trabajo 1_62: -8257130438191921978
+      arr 6_Mesa de trabajo 1_63: 29091139099156213
+      arr 6_Mesa de trabajo 1_64: -5699999679930473230
+      arr 6_Mesa de trabajo 1_65: -1263075756927674193
+      arr 6_Mesa de trabajo 1_66: -7918031709198384198
+      arr 6_Mesa de trabajo 1_67: 92609216872421311
+      arr 6_Mesa de trabajo 1_68: 7163625474165548932
+      arr 6_Mesa de trabajo 1_69: 3147453281583914682
+      arr 6_Mesa de trabajo 1_7: -7726028616526074230
+      arr 6_Mesa de trabajo 1_70: 6306924903744318602
+      arr 6_Mesa de trabajo 1_71: -1390147808566684708
+      arr 6_Mesa de trabajo 1_72: -6903862324482228308
+      arr 6_Mesa de trabajo 1_73: 5420928199084815247
+      arr 6_Mesa de trabajo 1_74: -7652785969078143618
+      arr 6_Mesa de trabajo 1_75: 211649905956901211
+      arr 6_Mesa de trabajo 1_76: -8510897674826380146
+      arr 6_Mesa de trabajo 1_77: -7896247334184357473
+      arr 6_Mesa de trabajo 1_78: 7801978478729137612
+      arr 6_Mesa de trabajo 1_79: -1670032191074196635
+      arr 6_Mesa de trabajo 1_8: -2226417007658167403
+      arr 6_Mesa de trabajo 1_80: 4173807869105248033
+      arr 6_Mesa de trabajo 1_81: -5110520373396048792
+      arr 6_Mesa de trabajo 1_82: -5249968651390266820
+      arr 6_Mesa de trabajo 1_9: 7172545868610077122
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

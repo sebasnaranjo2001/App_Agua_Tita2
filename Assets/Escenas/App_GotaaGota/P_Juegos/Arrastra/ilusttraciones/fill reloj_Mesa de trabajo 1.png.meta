@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 780bbc845848bba45811a80de1ff110a
+guid: 6f320a9a0ce53a34fa7c26ab37eae3f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4398110633819805978
-    second: arr15_Mesa de trabajo 1_0
-  - first:
-      213: -4142688707563944947
-    second: arr15_Mesa de trabajo 1_1
+      213: 7391514940623304115
+    second: fill reloj_Mesa de trabajo 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr15_Mesa de trabajo 1_0
+      name: fill reloj_Mesa de trabajo 1_0
       rect:
         serializedVersion: 2
-        x: 122
-        y: 180
-        width: 337
-        height: 289
+        x: 2384
+        y: 126
+        width: 4115
+        height: 4115
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1992bbb15a390d30800000000000000
-      internalID: 4398110633819805978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: arr15_Mesa de trabajo 1_1
-      rect:
-        serializedVersion: 2
-        x: 175
-        y: 154
-        width: 262
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0401a2c1963286c0800000000000000
-      internalID: -4142688707563944947
+      spriteID: 3b538d33dafe39660800000000000000
+      internalID: 7391514940623304115
       vertices: []
       indices: 
       edges: []
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr15_Mesa de trabajo 1_0: 4398110633819805978
-      arr15_Mesa de trabajo 1_1: -4142688707563944947
+      fill reloj_Mesa de trabajo 1_0: 7391514940623304115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 780bbc845848bba45811a80de1ff110a
+guid: b0e8d3dffbdd2a648b60a54e78542ade
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4398110633819805978
-    second: arr15_Mesa de trabajo 1_0
+      213: -8131575769466984261
+    second: "arr botellaba\xF1o_Mesa de trabajo 1_0"
   - first:
-      213: -4142688707563944947
-    second: arr15_Mesa de trabajo 1_1
+      213: 4384427709277933365
+    second: "arr botellaba\xF1o_Mesa de trabajo 1_1"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr15_Mesa de trabajo 1_0
+      name: "arr botellaba\xF1o_Mesa de trabajo 1_0"
       rect:
         serializedVersion: 2
-        x: 122
-        y: 180
-        width: 337
-        height: 289
+        x: 2495
+        y: 1020
+        width: 3497
+        height: 2427
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1992bbb15a390d30800000000000000
-      internalID: 4398110633819805978
+      spriteID: bb82fbcabe6d62f80800000000000000
+      internalID: -8131575769466984261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: arr15_Mesa de trabajo 1_1
+      name: "arr botellaba\xF1o_Mesa de trabajo 1_1"
       rect:
         serializedVersion: 2
-        x: 175
-        y: 154
-        width: 262
-        height: 18
+        x: 2873
+        y: 661
+        width: 2786
+        height: 176
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0401a2c1963286c0800000000000000
-      internalID: -4142688707563944947
+      spriteID: 53f04ea95cd98dc30800000000000000
+      internalID: 4384427709277933365
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr15_Mesa de trabajo 1_0: 4398110633819805978
-      arr15_Mesa de trabajo 1_1: -4142688707563944947
+      "arr botellaba\xF1o_Mesa de trabajo 1_0": -8131575769466984261
+      "arr botellaba\xF1o_Mesa de trabajo 1_1": 4384427709277933365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
