@@ -44,6 +44,7 @@ public class ManejadorRetos : MonoBehaviour
     private bool estaAnimando = false;
 
     private int edadDelPeor = 0;
+    private string nombreDelPeor = ""; // --- NUEVO: Para recordar a quién le asignamos el reto
 
     void Start()
     {
@@ -106,6 +107,7 @@ public class ManejadorRetos : MonoBehaviour
         }
 
         edadDelPeor = peorEdad;
+        nombreDelPeor = peorNombre; // --- NUEVO: Guardamos el nombre del peor para usarlo luego
 
         if (peorTiempo > 0)
         {
@@ -171,14 +173,13 @@ public class ManejadorRetos : MonoBehaviour
     {
         string[] listaSeleccionada;
 
-        // --- LÓGICA SIMPLIFICADA A DOS GRUPOS ---
         if (edadDelPeor <= 18)
         {
             listaSeleccionada = retosNinos;
         }
         else
         {
-            listaSeleccionada = retosJovenesAdultos; // 19 en adelante
+            listaSeleccionada = retosJovenesAdultos;
         }
 
         if (listaSeleccionada == null || listaSeleccionada.Length == 0) return;
@@ -192,6 +193,26 @@ public class ManejadorRetos : MonoBehaviour
 
         ultimoIndice = nuevoIndice;
         textoDelReto.text = listaSeleccionada[nuevoIndice];
+    }
+
+    // --- NUEVA FUNCIÓN: Conecta esta al botón "Aceptar" del panel de retos ---
+    public void AceptarRetoYGuardar()
+    {
+        if (string.IsNullOrEmpty(nombreDelPeor) || ManejadorRegistro.instance == null) return;
+
+        // Buscamos a la persona con el peor tiempo
+        var miembro = ManejadorRegistro.instance.listaDeMiembros.Find(m => m.nombre == nombreDelPeor);
+        if (miembro != null)
+        {
+            // Le guardamos el reto que está en pantalla ahora mismo
+            miembro.ultimoRetoAceptado = textoDelReto.text;
+
+            // Guardamos en el disco para que no se borre si cierran la app
+            ManejadorRegistro.instance.GuardarEnDisco();
+        }
+
+        // Cerramos el panel
+        CerrarRetos();
     }
 
     public void CerrarRetos()

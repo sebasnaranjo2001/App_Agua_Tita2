@@ -266,6 +266,12 @@ public class ControladorSincronizacionQR : MonoBehaviour
             foreach (var b in local.historialBanos) { if (mejor == 0 || b.duracion < mejor) mejor = b.duracion; }
             local.mejorTiempo = mejor;
         }
+
+        // --- NUEVO: Sincroniza el último reto aceptado sin afectar nada más ---
+        if (!string.IsNullOrEmpty(entrante.ultimoRetoAceptado))
+        {
+            local.ultimoRetoAceptado = entrante.ultimoRetoAceptado;
+        }
     }
 
     private void ActivarTarjetaSimilitud()

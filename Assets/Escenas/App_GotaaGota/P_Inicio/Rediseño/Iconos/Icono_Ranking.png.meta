@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: 2150249610869244834
     second: Icono_Ranking_0
+  - first:
+      213: 3650112747868156838
+    second: Icono_Ranking_1
+  - first:
+      213: -7041503285638606475
+    second: Icono_Ranking_2
+  - first:
+      213: 434611508284554030
+    second: Icono_Ranking_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,12 +125,12 @@ TextureImporter:
       name: Icono_Ranking_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 16
-        width: 423
-        height: 423
+        x: 118
+        y: 151
+        width: 215
+        height: 195
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +147,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 57b0f82e7ad156146a8169bf8de81ece
     internalID: 0
     vertices: []
     indices: 
@@ -149,6 +158,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Icono_Ranking_0: 2150249610869244834
+      Icono_Ranking_1: 3650112747868156838
+      Icono_Ranking_2: -7041503285638606475
+      Icono_Ranking_3: 434611508284554030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

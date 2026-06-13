@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Collections; // <-- IMPORTANTE PARA QUE FUNCIONE LA CORRUTINA
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -16,9 +16,7 @@ public class ManejadorRanking : MonoBehaviour
     public GameObject panelConDatos;
 
     [Header("--- LÍMITES DE TIEMPO (SEGUNDOS) ---")]
-    [Tooltip("Tiempo máximo para estar en VERDE. (Ej: 300 = 5 minutos)")]
     public float limiteTiempoVerde = 300f;
-    [Tooltip("Tiempo máximo para estar en AMARILLO. (Ej: 480 = 8 minutos)")]
     public float limiteTiempoAmarillo = 480f;
 
     [Header("Frases Motivacionales")]
@@ -27,17 +25,17 @@ public class ManejadorRanking : MonoBehaviour
     public string[] frasesRojas = { "¡Ahorra más!", "Inténtalo de nuevo", "Menos tiempo, más agua" };
 
     [Header("--- COLORES DE FONDO ---")]
-    public Color colorFondoVerde = new Color32(84, 179, 138, 255);     // #54B38A
-    public Color colorFondoAmarillo = new Color32(221, 103, 37, 255);  // #DD6725
-    public Color colorFondoRojo = new Color32(122, 34, 40, 255);       // #7A2228
+    public Color colorFondoVerde = new Color32(84, 179, 138, 255);
+    public Color colorFondoAmarillo = new Color32(221, 103, 37, 255);
+    public Color colorFondoRojo = new Color32(122, 34, 40, 255);
 
     [Header("--- COLORES DE TEXTO RANKING ---")]
-    public Color colorTextoVerde = new Color32(6, 26, 17, 255);        // #061A11
-    public Color colorTextoAmarillo = new Color32(58, 26, 5, 255);     // #3A1A05
-    public Color colorTextoRojo = new Color32(46, 10, 13, 255);        // #2E0A0D
+    public Color colorTextoVerde = new Color32(6, 26, 17, 255);
+    public Color colorTextoAmarillo = new Color32(58, 26, 5, 255);
+    public Color colorTextoRojo = new Color32(46, 10, 13, 255);
 
     [Header("--- COLOR FIJO HISTORIAL ---")]
-    public Color colorAzulCorporativo = new Color32(26, 58, 95, 255);  // #1A3A5F
+    public Color colorAzulCorporativo = new Color32(26, 58, 95, 255);
 
     [Header("Configuración Historial")]
     public GameObject panelDetalles;
@@ -45,20 +43,19 @@ public class ManejadorRanking : MonoBehaviour
     public Transform contenedorHistorial;
     public GameObject prefabItemHistorial;
 
+    [Header("--- NUEVO: TEXTOS DEL RETO ---")]
+    public TMP_Text txtRetoFijoHistorial; // Arrastra aquí el texto del panel chiquito
+    public string textoSinRetoDefault = "Aún no tienes un reto tomado registrado."; // Puedes cambiar esto desde el Inspector
+
     void OnEnable()
     {
         GenerarRanking();
-
-        // --- CORRECCIÓN: Usamos una corrutina para no bloquear el Scroll ---
         StartCoroutine(ResetearScrollAlInicio());
     }
 
     IEnumerator ResetearScrollAlInicio()
     {
-        // Esperamos a que Unity termine de dibujar las tarjetas nuevas
         yield return new WaitForEndOfFrame();
-
-        // Ahora sí, lo mandamos al tope de forma segura
         if (scrollRect != null) scrollRect.verticalNormalizedPosition = 1f;
     }
 
@@ -78,7 +75,6 @@ public class ManejadorRanking : MonoBehaviour
             GameObject nuevoItem = Instantiate(itemPrefab, contenedor);
             var datos = lista[i];
 
-            // Identificamos los colores correspondientes al tiempo usando las nuevas variables
             Color fondoActual = ObtenerColorFondoPorTiempo(datos.mejorTiempo);
             Color textoActual = ObtenerColorTextoPorTiempo(datos.mejorTiempo);
 
@@ -86,8 +82,6 @@ public class ManejadorRanking : MonoBehaviour
             if (refs != null)
             {
                 refs.nombreMiembro = datos.nombre;
-
-                // Asignamos textos y pintamos con el color correspondiente
                 if (refs.txtPuesto) { refs.txtPuesto.text = (i + 1).ToString(); refs.txtPuesto.color = textoActual; }
                 if (refs.txtNombre) { refs.txtNombre.text = datos.nombre; refs.txtNombre.color = textoActual; }
                 if (refs.txtTiempo) { refs.txtTiempo.text = FormatearTiempoSimple(datos.mejorTiempo); refs.txtTiempo.color = textoActual; }
@@ -106,46 +100,52 @@ public class ManejadorRanking : MonoBehaviour
         var miembro = ManejadorRegistro.instance.listaDeMiembros.Find(m => m.nombre == nombre);
         if (miembro == null) return;
 
-        // --- ANIMACIÓN PUM: Abrir panel con escalado suave ---
         panelDetalles.SetActive(true);
         panelDetalles.transform.localScale = Vector3.zero;
         LeanTween.cancel(panelDetalles);
         LeanTween.scale(panelDetalles, Vector3.one, 0.4f).setEase(LeanTweenType.easeOutBack);
 
         txtNombreTitulo.text = "Historial de " + nombre;
-        txtNombreTitulo.color = colorAzulCorporativo; // Aseguramos color corporativo en el título principal
+        txtNombreTitulo.color = colorAzulCorporativo;
+
+        // --- NUEVO: Mostrar el reto guardado o el texto por defecto ---
+        if (txtRetoFijoHistorial != null)
+        {
+            if (string.IsNullOrEmpty(miembro.ultimoRetoAceptado))
+            {
+                txtRetoFijoHistorial.text = textoSinRetoDefault;
+            }
+            else
+            {
+                txtRetoFijoHistorial.text = miembro.ultimoRetoAceptado;
+            }
+        }
 
         foreach (Transform hijo in contenedorHistorial) { Destroy(hijo.gameObject); }
 
         foreach (var bano in miembro.historialBanos)
         {
             GameObject itemH = Instantiate(prefabItemHistorial, contenedorHistorial);
-
-            // Identificamos el color de fondo dinámico para la barrita/backplate trasera
             Color fondoActual = ObtenerColorFondoPorTiempo(bano.duracion);
 
             TMP_Text[] textos = itemH.GetComponentsInChildren<TMP_Text>();
             if (textos.Length >= 3)
             {
-                // textos[0] = Fecha, textos[1] = Nombre, textos[2] = Tiempo
                 textos[0].text = FormatearFechaHistorial(bano.fecha);
                 textos[1].text = nombre;
                 textos[2].text = FormatearTiempoSimple(bano.duracion);
             }
 
-            // CORRECCIÓN: Forzamos a que ABSOLUTAMENTE TODOS los textos de esta tarjeta sean Azul Corporativo
             foreach (var txt in textos)
             {
                 if (txt != null) txt.color = colorAzulCorporativo;
             }
 
-            // Pintamos el componente Image principal del prefab (la barrita de color de atrás)
             Image barritaColor = itemH.GetComponent<Image>();
             if (barritaColor != null) barritaColor.color = fondoActual;
         }
     }
 
-    // --- NUEVA FUNCIÓN: Cerrar el historial de forma segura con animación ---
     public void CerrarHistorial()
     {
         if (panelDetalles == null) return;
@@ -168,7 +168,6 @@ public class ManejadorRanking : MonoBehaviour
     Color ObtenerColorFondoPorTiempo(float t) => (t <= limiteTiempoVerde) ? colorFondoVerde : (t < limiteTiempoAmarillo) ? colorFondoAmarillo : colorFondoRojo;
     Color ObtenerColorTextoPorTiempo(float t) => (t <= limiteTiempoVerde) ? colorTextoVerde : (t < limiteTiempoAmarillo) ? colorTextoAmarillo : colorTextoRojo;
 
-    // --- NUEVA FUNCIÓN: Formatear fecha específica para el Historial (Mayúsculas y control HOY) ---
     string FormatearFechaHistorial(string f)
     {
         try

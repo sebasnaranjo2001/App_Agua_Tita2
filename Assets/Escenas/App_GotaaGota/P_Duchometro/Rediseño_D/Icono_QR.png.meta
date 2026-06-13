@@ -11,6 +11,42 @@ TextureImporter:
   - first:
       213: 8001894545744084962
     second: Icono QR_2
+  - first:
+      213: -1050441027069345567
+    second: Icono QR_3
+  - first:
+      213: 300145238003980645
+    second: Icono QR_4
+  - first:
+      213: 96313199004802177
+    second: Icono QR_5
+  - first:
+      213: 7041005685720104778
+    second: Icono QR_6
+  - first:
+      213: 1002770626338017662
+    second: Icono QR_7
+  - first:
+      213: 3990371300771818981
+    second: Icono QR_8
+  - first:
+      213: 2081181607084096945
+    second: Icono QR_9
+  - first:
+      213: -4690044421949457577
+    second: Icono QR_10
+  - first:
+      213: -3468516274021903460
+    second: Icono QR_11
+  - first:
+      213: -1128172127608603686
+    second: Icono QR_12
+  - first:
+      213: 5644777028915274132
+    second: Icono QR_13
+  - first:
+      213: 7469155213449051852
+    second: Icono QR_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -123,11 +159,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 65
-        width: 380
-        height: 379
+        y: 69
+        width: 313
+        height: 319
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,55 +176,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Icono QR_1
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 65
-        width: 29
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 55364fca46ea5b110800000000000000
-      internalID: 1276117816851063637
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Icono QR_2
-      rect:
-        serializedVersion: 2
-        x: 196
-        y: 65
-        width: 42
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2ef363981b07c0f60800000000000000
-      internalID: 8001894545744084962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4df47b09d6d624c4e836cb9140b398d8
     internalID: 0
     vertices: []
     indices: 
@@ -200,7 +192,19 @@ TextureImporter:
     nameFileIdTable:
       Icono QR_0: -8955561275421577427
       Icono QR_1: 1276117816851063637
+      Icono QR_10: -4690044421949457577
+      Icono QR_11: -3468516274021903460
+      Icono QR_12: -1128172127608603686
+      Icono QR_13: 5644777028915274132
+      Icono QR_14: 7469155213449051852
       Icono QR_2: 8001894545744084962
+      Icono QR_3: -1050441027069345567
+      Icono QR_4: 300145238003980645
+      Icono QR_5: 96313199004802177
+      Icono QR_6: 7041005685720104778
+      Icono QR_7: 1002770626338017662
+      Icono QR_8: 3990371300771818981
+      Icono QR_9: 2081181607084096945
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

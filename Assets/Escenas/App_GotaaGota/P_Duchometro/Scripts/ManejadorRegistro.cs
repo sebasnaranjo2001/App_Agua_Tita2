@@ -42,6 +42,9 @@ public class ManejadorRegistro : MonoBehaviour
         public float mejorTiempo;
         public int indiceTemaColor;
         public List<RegistroBano> historialBanos = new List<RegistroBano>();
+
+        // --- NUEVO: Variable para guardar el último reto aceptado ---
+        public string ultimoRetoAceptado = "";
     }
 
     [System.Serializable]
@@ -152,7 +155,8 @@ public class ManejadorRegistro : MonoBehaviour
             edad = inputEdad.text,
             mejorTiempo = 0,
             indiceTemaColor = colorSeleccionadoTemporal,
-            historialBanos = new List<RegistroBano>()
+            historialBanos = new List<RegistroBano>(),
+            ultimoRetoAceptado = "" // Inicializamos la variable vacía para un nuevo miembro
         };
 
         listaDeMiembros.Add(nuevoMiembro);

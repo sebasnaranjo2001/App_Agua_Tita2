@@ -116,10 +116,10 @@ TextureImporter:
       name: Icono_Video_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 24
-        width: 423
-        height: 423
+        x: 119
+        y: 136
+        width: 205
+        height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
