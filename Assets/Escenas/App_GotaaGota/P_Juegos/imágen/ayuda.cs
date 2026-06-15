@@ -5,13 +5,11 @@ public class HelpPanel : MonoBehaviour
     public GameObject panelAyuda;
     private RectTransform panelRect;
 
-    private void Start()
+    private void Awake()
     {
         panelRect = panelAyuda.GetComponent<RectTransform>();
-
-        panelAyuda.SetActive(false);
+        panelRect.localScale = Vector3.zero;
     }
-
     public void AbrirAyuda()
     {
         panelAyuda.SetActive(true);
