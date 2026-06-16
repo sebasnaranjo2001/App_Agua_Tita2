@@ -55,9 +55,15 @@ public class ManejadorRetos : MonoBehaviour
     {
         if (panelRetos == null) return;
 
+        // 1. ACTIVAR EL PANEL PRIMERO: Evita que Unity se trabe al calcular el Layout
+        LeanTween.cancel(panelRetos);
+        panelRetos.transform.localScale = Vector3.zero;
+        panelRetos.SetActive(true);
+
         contadorRefrescos = 0;
         if (btnOtroReto != null) btnOtroReto.interactable = true;
 
+        // 2. AHORA SÍ CONFIGURAR LOS DATOS (el panel ya está encendido en escala cero)
         ConfigurarPeorDato();
 
         if (textoDelReto != null)
@@ -68,9 +74,7 @@ public class ManejadorRetos : MonoBehaviour
 
         MostrarNuevoReto();
 
-        LeanTween.cancel(panelRetos);
-        panelRetos.transform.localScale = Vector3.zero;
-        panelRetos.SetActive(true);
+        // 3. ANIMAR HACIA ARRIBA
         LeanTween.scale(panelRetos, Vector3.one, 0.4f).setEaseOutBack();
     }
 

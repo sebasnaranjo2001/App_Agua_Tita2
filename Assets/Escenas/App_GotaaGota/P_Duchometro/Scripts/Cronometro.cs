@@ -38,12 +38,23 @@ public class Cronometro : MonoBehaviour
 
     [Header("--- AJUSTES DE TIEMPO Y COLOR ---")]
     public float litrosPorMinuto = 9.5f;
-    public float minutosParaAmarillo = 6f;
+    public float minutosAlertaVerde = 5f;
+    public float minutosParaAmarillo = 7f;
     public float minutosParaRojo = 10f;
 
     public Color32 colorVerde = new Color32(199, 233, 176, 255);
     public Color32 colorAmarillo = new Color32(243, 229, 171, 255);
     public Color32 colorRojo = new Color32(255, 183, 178, 255);
+
+    [Header("--- ALERTAS DE AUDIO Y VOZ ---")]
+    public AudioSource altavozCronometro;
+    public AudioClip audioVerde;
+    public AudioClip audioAmarillo;
+    public AudioClip audioRojo;
+
+    private bool yaSonoVerde = false;
+    private bool yaSonoAmarillo = false;
+    private bool yaSonoRojo = false;
 
     public bool estaContando = false;
     private bool estaPausado = false;
@@ -62,6 +73,7 @@ public class Cronometro : MonoBehaviour
             RecalcularTiempo();
             ActualizarInterfazUI();
             ManejarTransicionDeColor();
+            VerificarAlertasDeAudio();
         }
     }
 
@@ -74,14 +86,19 @@ public class Cronometro : MonoBehaviour
         ActualizarInterfazUI();
         if (fondoColor != null) fondoColor.color = colorVerde;
         ConfigurarElementosUI(true, false, false, false, false, false);
+
+        yaSonoVerde = false;
+        yaSonoAmarillo = false;
+        yaSonoRojo = false;
+        if (altavozCronometro != null) altavozCronometro.Stop();
+
+        // Si se cierra el panel, le avisamos al manejador que reanude la música
+        if (ManejadorMusica.instance != null) ManejadorMusica.instance.ReanudarMusica();
     }
 
     public void BtnComenzar_Click()
     {
-        if (Avisos.instance != null && !Avisos.instance.VerificarEstadoRegistro())
-        {
-            return;
-        }
+        if (Avisos.instance != null && !Avisos.instance.VerificarEstadoRegistro()) return;
 
         estaContando = true;
         estaPausado = false;
@@ -90,6 +107,9 @@ public class Cronometro : MonoBehaviour
         ConfigurarPantalla(true);
         ConfigurarElementosUI(false, true, false, true, true, false);
         if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
+
+        // --- LE AVISAMOS AL MANEJADOR QUE PAUSE LA MÚSICA ---
+        if (ManejadorMusica.instance != null) ManejadorMusica.instance.PausarMusica();
     }
 
     public void BtnPausa_Click()
@@ -98,6 +118,9 @@ public class Cronometro : MonoBehaviour
         tiempoAcumuladoAnterior = tiempoTranscurrido;
         ConfigurarPantalla(false);
         ConfigurarElementosUI(false, false, true, true, false, true);
+
+        // --- REANUDAMOS LA MÚSICA EN LA PAUSA ---
+        if (ManejadorMusica.instance != null) ManejadorMusica.instance.ReanudarMusica();
     }
 
     public void BtnPlay_Click()
@@ -106,10 +129,18 @@ public class Cronometro : MonoBehaviour
         tiempoInicioReal = DateTime.Now;
         ConfigurarPantalla(true);
         ConfigurarElementosUI(false, true, false, true, true, false);
+
+        // --- VOLVEMOS A PAUSAR LA MÚSICA AL SEGUIR LA DUCHA ---
+        if (ManejadorMusica.instance != null) ManejadorMusica.instance.PausarMusica();
     }
 
     public void BtnFinalizar_Click()
     {
+        if (altavozCronometro != null) altavozCronometro.Stop();
+
+        // --- REANUDAMOS LA MÚSICA DE FONDO AL TERMINAR ---
+        if (ManejadorMusica.instance != null) ManejadorMusica.instance.ReanudarMusica();
+
         estaContando = false;
         estaPausado = false;
         ConfigurarPantalla(false);
@@ -147,7 +178,6 @@ public class Cronometro : MonoBehaviour
         LeanTween.scale(tarjetaGuardado, Vector3.zero, 0.3f).setEaseInBack().setOnComplete(() => {
             panelGuardado.SetActive(false);
 
-            // --- SOLUCIÓN: Limpiar la selección de memoria al terminar ---
             if (ManejadorRegistro.instance != null) ManejadorRegistro.instance.nombreSeleccionado = "";
             if (Avisos.instance != null)
             {
@@ -157,7 +187,6 @@ public class Cronometro : MonoBehaviour
 
             PrepararEscenaInicial();
 
-            // Refrescamos los avisos para asegurar que Registro muestre la lista
             if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
 
             ManejadorNavegacion nav = UnityEngine.Object.FindFirstObjectByType<ManejadorNavegacion>();
@@ -214,6 +243,39 @@ public class Cronometro : MonoBehaviour
         float minAct = tiempoTranscurrido / 60f;
         Color col = (minAct < minutosParaAmarillo) ? Color.Lerp(colorVerde, colorAmarillo, minAct / minutosParaAmarillo) : (minAct < minutosParaRojo) ? Color.Lerp(colorAmarillo, colorRojo, (minAct - minutosParaAmarillo) / (minutosParaRojo - minutosParaAmarillo)) : colorRojo;
         if (fondoColor != null) fondoColor.color = col;
+    }
+
+    void VerificarAlertasDeAudio()
+    {
+        float minutosActuales = tiempoTranscurrido / 60f;
+
+        if (minutosActuales >= minutosAlertaVerde && !yaSonoVerde)
+        {
+            yaSonoVerde = true;
+            ReproducirAlerta(audioVerde);
+        }
+
+        if (minutosActuales >= minutosParaAmarillo && !yaSonoAmarillo)
+        {
+            yaSonoAmarillo = true;
+            ReproducirAlerta(audioAmarillo);
+        }
+
+        if (minutosActuales >= minutosParaRojo && !yaSonoRojo)
+        {
+            yaSonoRojo = true;
+            ReproducirAlerta(audioRojo);
+        }
+    }
+
+    void ReproducirAlerta(AudioClip clip)
+    {
+        if (altavozCronometro != null && clip != null)
+        {
+            altavozCronometro.Stop();
+            altavozCronometro.clip = clip;
+            altavozCronometro.Play();
+        }
     }
 
     void IniciarEfectoAguaFondo()

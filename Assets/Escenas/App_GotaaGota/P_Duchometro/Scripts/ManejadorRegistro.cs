@@ -35,15 +35,13 @@ public class ManejadorRegistro : MonoBehaviour
     [System.Serializable]
     public class DatosMiembro
     {
-        public string idUnico; // ADN del perfil
-        public List<string> idsAsociados = new List<string>(); // Mochila de IDs vinculados
+        public string idUnico;
+        public List<string> idsAsociados = new List<string>();
         public string nombre;
         public string edad;
         public float mejorTiempo;
         public int indiceTemaColor;
         public List<RegistroBano> historialBanos = new List<RegistroBano>();
-
-        // --- NUEVO: Variable para guardar el último reto aceptado ---
         public string ultimoRetoAceptado = "";
     }
 
@@ -149,14 +147,14 @@ public class ManejadorRegistro : MonoBehaviour
 
         DatosMiembro nuevoMiembro = new DatosMiembro
         {
-            idUnico = System.Guid.NewGuid().ToString(), // ADN único
-            idsAsociados = new List<string>(),          // Mochila vacía
+            idUnico = System.Guid.NewGuid().ToString(),
+            idsAsociados = new List<string>(),
             nombre = inputNombre.text,
             edad = inputEdad.text,
             mejorTiempo = 0,
             indiceTemaColor = colorSeleccionadoTemporal,
             historialBanos = new List<RegistroBano>(),
-            ultimoRetoAceptado = "" // Inicializamos la variable vacía para un nuevo miembro
+            ultimoRetoAceptado = ""
         };
 
         listaDeMiembros.Add(nuevoMiembro);
@@ -205,10 +203,21 @@ public class ManejadorRegistro : MonoBehaviour
     public void RemoverMiembroDeLaLista(string nombreBuscado)
     {
         listaDeMiembros.RemoveAll(m => m.nombre == nombreBuscado);
+
+        // --- NUEVA SEGURIDAD: Deseleccionarlo de la memoria si estaba seleccionado ---
+        if (nombreSeleccionado == nombreBuscado) nombreSeleccionado = "";
+
         GuardarEnDisco();
         RefrescarListaVisual();
         if (Avisos.instance != null) Avisos.instance.NotificarMiembroGuardado();
         ActualizarTextoContador();
+
+        // --- SOLUCIÓN: Obligamos al panel de Ranking a actualizarse instantáneamente ---
+        ManejadorRanking ranking = UnityEngine.Object.FindFirstObjectByType<ManejadorRanking>();
+        if (ranking != null)
+        {
+            ranking.GenerarRanking();
+        }
     }
 
     void ActualizarTextoContador()

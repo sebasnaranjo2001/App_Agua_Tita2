@@ -15,9 +15,9 @@ public class ManejadorRanking : MonoBehaviour
     public GameObject panelSinDatos;
     public GameObject panelConDatos;
 
-    [Header("--- LÍMITES DE TIEMPO (SEGUNDOS) ---")]
-    public float limiteTiempoVerde = 300f;
-    public float limiteTiempoAmarillo = 480f;
+    [Header("--- LÍMITES DE TIEMPO (MINUTOS) ---")]
+    public float limiteMinutosVerde = 5f;
+    public float limiteMinutosAmarillo = 7f;
 
     [Header("Frases Motivacionales")]
     public string[] frasesVerdes = { "Eficiencia Total", "¡Eres un pro!", "Velocidad increíble" };
@@ -158,15 +158,26 @@ public class ManejadorRanking : MonoBehaviour
 
     string FormatearTiempoSimple(float t) => string.Format("{0}:{1:00}", Mathf.FloorToInt(t / 60), Mathf.FloorToInt(t % 60));
 
+    // --- CONVERSIÓN AUTOMÁTICA A MINUTOS PARA EVALUAR ---
     string ObtenerFrase(float t)
     {
-        if (t <= limiteTiempoVerde) return frasesVerdes[UnityEngine.Random.Range(0, frasesVerdes.Length)];
-        if (t < limiteTiempoAmarillo) return frasesAmarillas[UnityEngine.Random.Range(0, frasesAmarillas.Length)];
+        float minutos = t / 60f;
+        if (minutos <= limiteMinutosVerde) return frasesVerdes[UnityEngine.Random.Range(0, frasesVerdes.Length)];
+        if (minutos < limiteMinutosAmarillo) return frasesAmarillas[UnityEngine.Random.Range(0, frasesAmarillas.Length)];
         return frasesRojas[UnityEngine.Random.Range(0, frasesRojas.Length)];
     }
 
-    Color ObtenerColorFondoPorTiempo(float t) => (t <= limiteTiempoVerde) ? colorFondoVerde : (t < limiteTiempoAmarillo) ? colorFondoAmarillo : colorFondoRojo;
-    Color ObtenerColorTextoPorTiempo(float t) => (t <= limiteTiempoVerde) ? colorTextoVerde : (t < limiteTiempoAmarillo) ? colorTextoAmarillo : colorTextoRojo;
+    Color ObtenerColorFondoPorTiempo(float t)
+    {
+        float minutos = t / 60f;
+        return (minutos <= limiteMinutosVerde) ? colorFondoVerde : (minutos < limiteMinutosAmarillo) ? colorFondoAmarillo : colorFondoRojo;
+    }
+
+    Color ObtenerColorTextoPorTiempo(float t)
+    {
+        float minutos = t / 60f;
+        return (minutos <= limiteMinutosVerde) ? colorTextoVerde : (minutos < limiteMinutosAmarillo) ? colorTextoAmarillo : colorTextoRojo;
+    }
 
     string FormatearFechaHistorial(string f)
     {
