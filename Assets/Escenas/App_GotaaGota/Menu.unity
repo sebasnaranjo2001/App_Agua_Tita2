@@ -157,7 +157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: Sigue estos pasos para mantener tu sonrisa limpia sin desperdiciar agua.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -313,10 +313,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enjuague final
+  m_text: Menos riego
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -427,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -111.9}
-  m_SizeDelta: {x: 479.1971, y: 432.05}
+  m_AnchoredPosition: {x: 14.5996, y: -83.648636}
+  m_SizeDelta: {x: 479.1971, y: 336.4299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8204179
 MonoBehaviour:
@@ -450,8 +450,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pon un poco de colorante en el tanque. Si el agua de la taza cambia de
-    color sin haber descargado, tienes una fuga.
+  m_text: "Dise\xF1a sistemas de goteo con botellas recicladas para un riego constante
+    m\xEDnimo."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -588,7 +588,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre de nuevo para quitar el jab\xF3n de forma eficiente y sin distracciones."
+  m_text: "El agua nocturna penetra mejor en la tierra alimentando las ra\xEDces
+    profundamente."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -702,8 +703,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -111.9}
-  m_SizeDelta: {x: 479.1971, y: 432.05}
+  m_AnchoredPosition: {x: 14.5996, y: -74.80702}
+  m_SizeDelta: {x: 479.1971, y: 312.9028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9298512
 MonoBehaviour:
@@ -725,8 +726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Llena un vaso con agua para enjuagarte. Es la forma mas efectiva de evitar
-    que el grifo corra mientras cepillas.
+  m_text: "Si tienes apuro, sumerge el empaque sellado en un taz\xF3n con agua tibia."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: Sigue estos pasos para dar una segunda vida al agua de lavadora.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -940,7 +940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -255.5}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &14977948
@@ -2093,10 +2093,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre y m\xF3jate"
+  m_text: Retira residuos
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2755,8 +2755,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -111.9}
-  m_SizeDelta: {x: 479.1971, y: 432.05}
+  m_AnchoredPosition: {x: 14.5996, y: -54.370964}
+  m_SizeDelta: {x: 479.1971, y: 312.9919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &44942485
 MonoBehaviour:
@@ -2778,7 +2778,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aseg\xFArate de limpiar entre los dedos y debajo de las u\xF1as con cuidado."
+  m_text: Salta la etapa de remojo largo a menos que sea sumamente necesario.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -2893,7 +2893,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 259.4923, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &48538279
 MonoBehaviour:
@@ -2915,7 +2915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRUCO 4
+  m_text: CONSEJO 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -3116,7 +3116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 2
+  m_text: TRUCO 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -3621,7 +3621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 627.07, y: 316}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &64219494
@@ -3930,10 +3930,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Control de fugas
+  m_text: "Jab\xF3n l\xEDquido"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4122,8 +4122,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -76.89928}
+  m_SizeDelta: {x: 479.1971, y: 470.9688}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &74961351
 MonoBehaviour:
@@ -4145,8 +4145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usa solo la cantidad necesaria de pasta dental. No exageres, con el tamano
-    de un guisante es suficiente.
+  m_text: "Coloca la manguera de desag\xFCe dentro de baldes grandes durante el ciclo."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -5015,10 +5014,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Humedece cepillo
+  m_text: Captura enjuague
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5289,10 +5288,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Humedece cepillo
+  m_text: Usa suculentas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6099,7 +6098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 4
+  m_text: TRUCO 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -7404,10 +7403,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Meta: 5 Minutos'
+  m_text: Uso de tina
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8302,10 +8301,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Botella lastre
+  m_text: "Arreglo r\xE1pido"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8417,7 +8416,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 260.4346, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &164993703
 MonoBehaviour:
@@ -8439,7 +8438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRUCO 1
+  m_text: CONSEJO 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -9205,10 +9204,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Humedece cepillo
+  m_text: Cero chorro
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9617,10 +9616,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 148020442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 399.43, y: -35.7268}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &199351576
 MonoBehaviour:
@@ -9737,7 +9736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 1
+  m_text: TRUCO 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -9852,7 +9851,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 264.5199, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &209959870
 MonoBehaviour:
@@ -9874,7 +9873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRUCO 2
+  m_text: CONSEJO 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -10377,9 +10376,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 892819249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 231.2295, y: -73.52742}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 363.6653, y: 59.4264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219983854
@@ -10653,8 +10652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -59.90456}
+  m_SizeDelta: {x: 479.1971, y: 324.0591}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &231500488
 MonoBehaviour:
@@ -10676,7 +10675,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Humedece tus manos con agua limpia antes de aplicar el jab\xF3n."
+  m_text: "Llena un taz\xF3n con agua limpia en lugar de lavarlas directo bajo el
+    chorro."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -11219,8 +11219,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -111.9}
-  m_SizeDelta: {x: 479.1971, y: 432.05}
+  m_AnchoredPosition: {x: -0.000013351, y: -82}
+  m_SizeDelta: {x: 479.1971, y: 297.0657}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &247823395
 MonoBehaviour:
@@ -11242,7 +11242,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre de nuevo para quitar el jab\xF3n de forma eficiente y sin distracciones."
+  m_text: "Abre el grifo a la mitad y enjuaga todo r\xE1pido evitando dejar correr
+    agua."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -12297,10 +12298,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moja tus manos
+  m_text: Consigue mantillo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12410,10 +12411,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 148020442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 487.88998, y: -35.7268}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &267281954
 MonoBehaviour:
@@ -12845,8 +12846,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -111.9}
-  m_SizeDelta: {x: 479.1971, y: 432.05}
+  m_AnchoredPosition: {x: 14.5996, y: -64.69068}
+  m_SizeDelta: {x: 479.1971, y: 274.6857}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &273037312
 MonoBehaviour:
@@ -12868,8 +12869,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pon un poco de colorante en el tanque. Si el agua de la taza cambia de
-    color sin haber descargado, tienes una fuga.
+  m_text: "Aseg\xFArate de ajustar bien las llaves despu\xE9s de usarlas para evitar
+    hilos de agua."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -12896,8 +12897,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.4
-  m_fontSizeBase: 43.4
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13639,10 +13640,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usa un vaso
+  m_text: Limpieza casa
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13933,7 +13934,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 4
+  m_text: TRUCO 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -14145,8 +14146,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Si tu inodoro tiene dos botones, usa siempre el de descarga pequena. \xA1Es
-    mas que suficiente!"
+  m_text: "Usa la medida exacta recomendada por el fabricante seg\xFAn tu cantidad
+    de ropa."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -16105,10 +16106,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enjuague veloz
+  m_text: "Absorci\xF3n profunda"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16659,7 +16660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: Sigue estos trucos para descongelar tus comidas sin gastar una gota.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -17568,7 +17569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 3
+  m_text: TRUCO 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -17682,8 +17683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -111.9}
-  m_SizeDelta: {x: 479.1971, y: 432.05}
+  m_AnchoredPosition: {x: 14.5996, y: -80.52823}
+  m_SizeDelta: {x: 479.1971, y: 365.3065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &403279015
 MonoBehaviour:
@@ -17705,8 +17706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Llena un vaso con agua para enjuagarte. Es la forma mas efectiva de evitar
-    que el grifo corra mientras cepillas.
+  m_text: Usa esa agua recolectada para lavar pisos, patios o las veredas externas.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -17820,10 +17820,10 @@ RectTransform:
   - {fileID: 278821949}
   m_Father: {fileID: 262763954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.5, y: -310.675}
-  m_SizeDelta: {x: 723, y: 622}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411018202
 MonoBehaviour:
@@ -19485,10 +19485,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 101692600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.47003, y: -42.20745}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450737314
 MonoBehaviour:
@@ -21006,7 +21006,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 247.0759, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &481873582
 MonoBehaviour:
@@ -21028,7 +21028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 1
+  m_text: CONSEJO 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -21353,10 +21353,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 101692600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 248.77002, y: -42.20745}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487366524
 MonoBehaviour:
@@ -21826,10 +21826,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Frotado intenso
+  m_text: Limpieza total
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -22077,8 +22077,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -103.53896}
-  m_SizeDelta: {x: 479.1971, y: 448.7664}
+  m_AnchoredPosition: {x: 14.5996, y: -55.258675}
+  m_SizeDelta: {x: 479.1971, y: 314.7675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &504667981
 MonoBehaviour:
@@ -22100,8 +22100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moja el cepillo un poco antes de aplicar la pasta; no necesitas dejar el
-    grifo abierto.
+  m_text: Nunca dejes correr agua del grifo sobre el alimento congelado, es un desperdicio.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -23241,7 +23240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &522665182
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23383,10 +23382,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: "Sigue estos consejos para aprovechar la capacidad m\xE1xima de tu lavadora."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23479,7 +23478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -213.6}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &528525929
@@ -23972,8 +23971,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -55.569927}
+  m_SizeDelta: {x: 479.1971, y: 315.3898}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &533356875
 MonoBehaviour:
@@ -23995,7 +23994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre la llave solo lo necesario para mojar todo tu cuerpo r\xE1pidamente."
+  m_text: Acumula la ropa sucia de la semana para hacer un solo ciclo completo.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -24109,7 +24108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -270.4}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &539439723
@@ -24132,10 +24131,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: "Sigue estos m\xE9todos para poner el agua directo donde la planta necesita."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -24696,10 +24695,10 @@ RectTransform:
   - {fileID: 845350156}
   m_Father: {fileID: 963993063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1185.19, y: -164.235}
-  m_SizeDelta: {x: 723, y: 328.47}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550586787
 MonoBehaviour:
@@ -25515,8 +25514,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -111.9}
-  m_SizeDelta: {x: 479.1971, y: 432.05}
+  m_AnchoredPosition: {x: 14.5996, y: -82.63151}
+  m_SizeDelta: {x: 479.1971, y: 311.0736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566182377
 MonoBehaviour:
@@ -25538,7 +25537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aseg\xFArate de limpiar entre los dedos y debajo de las u\xF1as con cuidado."
+  m_text: "Agrega unas gotas de cloro o vinagre en el taz\xF3n para eliminar bacterias."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -25797,7 +25796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -248.9}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &567440158
@@ -25820,10 +25819,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: "Sigue estos consejos para usar el jab\xF3n sin generar espuma excesiva."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25957,8 +25956,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nunca uses el inodoro como papelera. Cada descarga extra son litros que
-    se van a la basura literalmente.
+  m_text: "Poner m\xE1s jab\xF3n no limpia mejor, solo obliga a realizar m\xE1s enjuagues."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -26072,8 +26070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -112.9}
-  m_SizeDelta: {x: 479.1971, y: 430.05}
+  m_AnchoredPosition: {x: 14.5996, y: -58.627617}
+  m_SizeDelta: {x: 479.1971, y: 321.5052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573003785
 MonoBehaviour:
@@ -26095,7 +26093,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retira toda la espuma con agua corriente y seca tus manos completamente.
+  m_text: "Ajusta manualmente el nivel de agua seg\xFAn el tama\xF1o real de la carga."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -27234,10 +27232,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Meta: 5 Minutos'
+  m_text: Separa texturas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -27349,9 +27347,9 @@ RectTransform:
   - {fileID: 604674439}
   m_Father: {fileID: 838206109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 443.7149, y: -823.3249}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 723, y: 245.126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617997429
@@ -27786,10 +27784,10 @@ RectTransform:
   - {fileID: 1794592681}
   m_Father: {fileID: 963993063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.5, y: -164.235}
-  m_SizeDelta: {x: 723, y: 328.47}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &626862530
 MonoBehaviour:
@@ -28775,9 +28773,9 @@ RectTransform:
   - {fileID: 1091170567}
   m_Father: {fileID: 127013744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 34.942947, y: -19.491554}
   m_SizeDelta: {x: 82.186, y: 38.983}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635716962
@@ -28993,9 +28991,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 892819249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 231.2295, y: -258.6724}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 222.5943, y: 51.9667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &640518429
@@ -29245,10 +29243,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Carga doble
+  m_text: Revisa empaques
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -29519,10 +29517,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cero basura
+  m_text: "Ra\xEDz directa"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -29809,10 +29807,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cierra la llave
+  m_text: "C\xE9sped justo"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30384,7 +30382,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 277.9266, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &666527148
 MonoBehaviour:
@@ -30406,7 +30404,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRUCO 1
+  m_text: CONSEJO 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -31144,7 +31142,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 256.936, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &680484859
 MonoBehaviour:
@@ -31166,7 +31164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 1
+  m_text: CONSEJO 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -31594,7 +31592,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 261.1136, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &695437201
 MonoBehaviour:
@@ -31616,7 +31614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRUCO 2
+  m_text: CONSEJO 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -32104,10 +32102,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moja tus manos
+  m_text: Ciclo eco
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32997,10 +32995,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Carga doble
+  m_text: Usa regadera
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -34497,7 +34495,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 257.0394, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &747194085
 MonoBehaviour:
@@ -34519,7 +34517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRUCO 4
+  m_text: CONSEJO 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -36054,7 +36052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &790081288
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36271,7 +36269,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Frota bien el jab\xF3n para crear espuma durante al menos 20 segundos."
+  m_text: "Coloca una cobertura de tres cent\xEDmetros alrededor de la base de tus
+    plantas."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -37241,9 +37240,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 892819249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 231.2295, y: -138.97226}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 223.3559, y: 59.4264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &813479592
@@ -37381,7 +37380,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 261.4381, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &813775457
 MonoBehaviour:
@@ -37403,7 +37402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 4
+  m_text: CONSEJO 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -37673,7 +37672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.3786621, y: 158.53}
+  m_AnchoredPosition: {x: -0.3786621, y: 158.52979}
   m_SizeDelta: {x: 0.757, y: -317.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818210736
@@ -37792,10 +37791,10 @@ RectTransform:
   - {fileID: 1093183887}
   m_Father: {fileID: 2008559226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 55.758995, y: -24.487396}
+  m_SizeDelta: {x: 111.51799, y: 48.974792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &821601269
 MonoBehaviour:
@@ -37938,7 +37937,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 270.215, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &821919186
 MonoBehaviour:
@@ -37960,7 +37959,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 2
+  m_text: CONSEJO 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -38234,10 +38233,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Control de fugas
+  m_text: Cierre total
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -38447,7 +38446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: Sigue estos pasos para higienizar tus manos ahorrando en cada lavada.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -38627,7 +38626,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 275.9147, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &840291696
 MonoBehaviour:
@@ -38649,7 +38648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 4
+  m_text: CONSEJO 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -38923,10 +38922,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aplica \nespuma"
+  m_text: Aplica capa
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -39389,10 +39388,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usa un vaso
+  m_text: "Ba\xF1o mar\xEDa"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -39642,10 +39641,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enjuague final
+  m_text: Control de agua
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -41123,8 +41122,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -112.9}
-  m_SizeDelta: {x: 479.1971, y: 430.05}
+  m_AnchoredPosition: {x: 14.5996, y: -118.520096}
+  m_SizeDelta: {x: 479.1971, y: 396.329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897688142
 MonoBehaviour:
@@ -41146,8 +41145,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hazlo un habito: llave cerrada durante todo el cepillado. Ahorras litros
-    en cada sesion.'
+  m_text: "Aprovecha la funci\xF3n de descongelar de tu electrodom\xE9stico para
+    ahorrar tiempo y agua."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -41261,7 +41260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.482666, y: -17.098022}
+  m_AnchoredPosition: {x: -5.482666, y: -17.098145}
   m_SizeDelta: {x: -876.7072, y: -896}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898071362
@@ -41776,10 +41775,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moja tus manos
+  m_text: Recipiente listo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -42064,9 +42063,9 @@ RectTransform:
   - {fileID: 2103071939}
   m_Father: {fileID: 1178692412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 443.7149, y: -65.046844}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 66.0914, y: 86.0704}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &920745752
@@ -42239,9 +42238,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1825487796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225.65685, y: -154.67969}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 425.0162, y: 35.6853}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930191085
@@ -42876,10 +42875,10 @@ RectTransform:
   - {fileID: 877299524}
   m_Father: {fileID: 262763954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2007.5, y: -310.675}
-  m_SizeDelta: {x: 723, y: 622}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &948600323
 MonoBehaviour:
@@ -44100,10 +44099,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Frotado intenso
+  m_text: Bloquea calor
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -46186,10 +46185,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dosis justa
+  m_text: "Desv\xEDa el tubo"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -46616,7 +46615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 2
+  m_text: TRUCO 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -46733,10 +46732,10 @@ RectTransform:
   - {fileID: 1794799501}
   m_Father: {fileID: 262763954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1184.5, y: -310.675}
-  m_SizeDelta: {x: 723, y: 622}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044323808
 MonoBehaviour:
@@ -47328,7 +47327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 4
+  m_text: TRUCO 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -48486,8 +48485,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -61.81994}
+  m_SizeDelta: {x: 479.1971, y: 327.8902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1093412872
 MonoBehaviour:
@@ -48509,7 +48508,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Humedece tus manos con agua limpia antes de aplicar el jab\xF3n."
+  m_text: "Configura tu m\xE1quina siempre en modo \"Eco\" o r\xE1pido para reducir
+    el agua."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -49005,8 +49005,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Llena un vaso con agua para enjuagarte. Es la forma mas efectiva de evitar
-    que el grifo corra mientras cepillas.
+  m_text: "Junta las plantas seg\xFAn su necesidad de agua para no regar de m\xE1s."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -49143,10 +49142,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enjuague veloz
+  m_text: Enjuague grupal
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -49970,8 +49969,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -112.9}
-  m_SizeDelta: {x: 479.1971, y: 430.05}
+  m_AnchoredPosition: {x: 14.5996, y: -53.32632}
+  m_SizeDelta: {x: 479.1971, y: 310.9026}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138686899
 MonoBehaviour:
@@ -49993,8 +49992,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coloca una botella de plastico llena de arena o agua dentro del tanque.
-    Esto reduce el volumen de cada descarga automaticamente.
+  m_text: "Repara cualquier da\xF1o de inmediato; una gota por segundo son treinta
+    litros diarios."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -52279,10 +52278,10 @@ RectTransform:
   - {fileID: 1465841304}
   m_Father: {fileID: 2008559226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 177.75699, y: -24.487396}
+  m_SizeDelta: {x: 111.51799, y: 48.974792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198450509
 MonoBehaviour:
@@ -52845,10 +52844,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre y m\xF3jate"
+  m_text: Junta ropa
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -53926,8 +53925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -112.9}
-  m_SizeDelta: {x: 479.1971, y: 430.05}
+  m_AnchoredPosition: {x: 14.599, y: -100}
+  m_SizeDelta: {x: 479.1971, y: 301.1325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238400909
 MonoBehaviour:
@@ -53949,8 +53948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Trata de completar todo el proceso en menos de 5 minutos para un ahorro
-    \xF3ptimo."
+  m_text: Si puedes, usa un recipiente con agua para enjuagar en masa de forma eficiente.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -54360,7 +54358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -247.2}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1254676708
@@ -54383,10 +54381,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: "Sigue estos pasos para mantener la humedad del suelo por m\xE1s tiempo."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -54900,10 +54898,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre y m\xF3jate"
+  m_text: Horario ideal
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -56629,7 +56627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aseg\xFArate de limpiar entre los dedos y debajo de las u\xF1as con cuidado."
+  m_text: Esta capa protege el suelo del sol directo reteniendo la frescura interna.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -57402,10 +57400,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usa un vaso
+  m_text: Agrupa especies
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -57726,7 +57724,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 261.1136, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1331814939
 MonoBehaviour:
@@ -57748,7 +57746,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRUCO 3
+  m_text: CONSEJO 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -57976,8 +57974,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -111.9}
-  m_SizeDelta: {x: 479.1971, y: 432.05}
+  m_AnchoredPosition: {x: 14.5996, y: -90.6537}
+  m_SizeDelta: {x: 479.1971, y: 317.6465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1337209923
 MonoBehaviour:
@@ -57999,7 +57997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre de nuevo para quitar el jab\xF3n de forma eficiente y sin distracciones."
+  m_text: Lavar pocas prendas gasta la misma cantidad de agua y luz innecesariamente.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -58113,8 +58111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -23.7995}
+  m_SizeDelta: {x: 479.1971, y: 251.8489}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1338500079
 MonoBehaviour:
@@ -58136,8 +58134,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nunca uses el inodoro como papelera. Cada descarga extra son litros que
-    se van a la basura literalmente.
+  m_text: Dirige el agua directo a la tierra, mojar las hojas no sirve.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -58876,8 +58873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moja el cepillo un poco antes de aplicar la pasta; no necesitas dejar el
-    grifo abierto.
+  m_text: "Incluye cactus y suculentas en tu jard\xEDn, requieren agua muy rara vez."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -59129,8 +59125,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -63.493126}
+  m_SizeDelta: {x: 479.1971, y: 331.2364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368394496
 MonoBehaviour:
@@ -59152,8 +59148,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usa solo la cantidad necesaria de pasta dental. No exageres, con el tamano
-    de un guisante es suficiente.
+  m_text: Baja la carne del congelador al refrigerador la noche anterior de forma
+    segura.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -59502,7 +59498,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Humedece tus manos con agua limpia antes de aplicar el jab\xF3n."
+  m_text: "Re\xFAne hojas secas, corteza de \xE1rbol o restos de c\xE9sped cortado
+    seco."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -59617,7 +59614,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 293.243, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1376856934
 MonoBehaviour:
@@ -59639,7 +59636,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 3
+  m_text: CONSEJO 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -60198,10 +60195,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enjuague final
+  m_text: Reutiliza el agua
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -60335,7 +60332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 1
+  m_text: TRUCO 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -60825,17 +60822,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cero basura
+  m_text: Cero exceso
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284430874
-  m_fontColor: {r: 0.101960786, g: 0.22745098, b: 0.37254903, a: 1}
+    rgba: 4283702061
+  m_fontColor: {r: 0.1764706, g: 0.105882354, b: 0.32941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -61094,8 +61091,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pon un poco de colorante en el tanque. Si el agua de la taza cambia de
-    color sin haber descargado, tienes una fuga.
+  m_text: "Prefiere detergentes l\xEDquidos ya que se disuelven r\xE1pido y dejan
+    menos residuos."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -61288,10 +61285,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: Sigue estos pasos para dejar tu vajilla impecable cuidando el agua.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -61384,7 +61381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -250.9}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1404100763
@@ -61556,9 +61553,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 970217970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 219.11896, y: -126.9925}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 327.62, y: 50.8102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1404516378
@@ -62229,8 +62226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hazlo un habito: llave cerrada durante todo el cepillado. Ahorras litros
-    en cada sesion.'
+  m_text: "Reduce las zonas de c\xE9sped, es la planta que m\xE1s agua desperdicia."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -62257,8 +62253,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.8
-  m_fontSizeBase: 51.8
+  m_fontSize: 51
+  m_fontSizeBase: 51
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -62342,9 +62338,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 892819249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 231.2295, y: -200.68726}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 366.4676, y: 51.9667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412215163
@@ -62901,7 +62897,7 @@ GameObject:
   - component: {fileID: 1428338015}
   - component: {fileID: 1428338014}
   m_Layer: 5
-  m_Name: Titulo Manos
+  m_Name: Titulo Frutas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62946,10 +62942,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: Sigue estos pasos para desinfectar tus alimentos de manera responsable.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -63159,8 +63155,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coloca una botella de plastico llena de arena o agua dentro del tanque.
-    Esto reduce el volumen de cada descarga automaticamente.
+  m_text: "Mant\xE9n los filtros limpios para que el agua fluya sin obstrucciones
+    qu\xEDmicas."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -63529,10 +63525,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: "Sigue estos consejos para elegir vegetaci\xF3n que consuma muy poca agua."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -63625,7 +63621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -251.3}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1434059380
@@ -64098,10 +64094,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Frotado intenso
+  m_text: Omite remojo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -64734,7 +64730,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 285.4678, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1445531977
 MonoBehaviour:
@@ -64756,7 +64752,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRUCO 3
+  m_text: CONSEJO 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -65588,10 +65584,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cierra la \nllave"
+  m_text: Enjabonado previo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65877,10 +65873,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dosis justa
+  m_text: Elige local
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -65989,9 +65985,9 @@ RectTransform:
   - {fileID: 148020442}
   m_Father: {fileID: 838206109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 443.7149, y: -1175.654}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 723, y: 391.6603}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1492033808
@@ -66051,10 +66047,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enjuague veloz
+  m_text: Evita cargas bajas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66266,10 +66262,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aplica \nespuma"
+  m_text: Remojo corto
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66384,10 +66380,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: "Sigue estos trucos para regar tus plantas evitando la evaporaci\xF3n."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -66480,7 +66476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -246.9}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1507075390
@@ -67036,8 +67032,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -85.73523}
+  m_SizeDelta: {x: 479.1971, y: 375.7205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1525592760
 MonoBehaviour:
@@ -67059,8 +67055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Si tu inodoro tiene dos botones, usa siempre el de descarga pequena. \xA1Es
-    mas que suficiente!"
+  m_text: Prefiere regadera manual en vez de manguera para controlar el gasto exacto.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -67705,7 +67700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -217.8}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1535852320
@@ -67728,7 +67723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: Aplica estos consejos para detectar y frenar goteras ocultas en la cocina.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -68445,8 +68440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -77.5697}
+  m_SizeDelta: {x: 479.1971, y: 359.3894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547110746
 MonoBehaviour:
@@ -68468,7 +68463,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Frota bien el jab\xF3n para crear espuma durante al menos 20 segundos."
+  m_text: Sumerge las frutas y verduras frotando su superficie suavemente para quitar
+    la suciedad.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -68944,8 +68940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -91.508156}
+  m_SizeDelta: {x: 479.1971, y: 387.2664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1563352181
 MonoBehaviour:
@@ -68967,8 +68963,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mientras te enjabonas y aplicas shampoo, mant\xE9n la llave completamente
-    cerrada."
+  m_text: "Llena el tambor respetando el l\xEDmite indicado para que lave de forma
+    \xF3ptima."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -69374,7 +69370,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 272.6141, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1570093403
 MonoBehaviour:
@@ -69396,7 +69392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 2
+  m_text: CONSEJO 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -70461,8 +70457,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -64.43606}
+  m_SizeDelta: {x: 479.1971, y: 248.2126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590835791
 MonoBehaviour:
@@ -70484,8 +70480,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nunca uses el inodoro como papelera. Cada descarga extra son litros que
-    se van a la basura literalmente.
+  m_text: "Inspecciona las tuber\xEDas bajo el lavaplatos buscando manchas de humedad
+    o goteos."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -71677,10 +71673,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cierra la llave
+  m_text: Usa microondas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -72156,7 +72152,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 75, y: -62}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 261.4381, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1627667346
 MonoBehaviour:
@@ -72178,7 +72174,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 3
+  m_text: CONSEJO 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -72967,7 +72963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -225.62}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1668084787
@@ -72990,7 +72986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: Aplica estos trucos clave para reducir el gasto de tu inodoro hoy.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -73778,8 +73774,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -112.9}
-  m_SizeDelta: {x: 479.1971, y: 430.05}
+  m_AnchoredPosition: {x: 14.5996, y: -55.698174}
+  m_SizeDelta: {x: 479.1971, y: 256.8104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1688433289
 MonoBehaviour:
@@ -73801,8 +73797,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Trata de completar todo el proceso en menos de 5 minutos para un ahorro
-    \xF3ptimo."
+  m_text: Clasifica la ropa por tipo de tela para mejorar la eficiencia del lavado.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -74129,9 +74124,9 @@ RectTransform:
   - {fileID: 790736566}
   m_Father: {fileID: 127013744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 121.74934, y: -19.491554}
   m_SizeDelta: {x: 87.127, y: 38.0097}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698080252
@@ -74418,9 +74413,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2031340870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 443.71494, y: -68.48205}
   m_SizeDelta: {x: 809.6984, y: 79.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1702090024
@@ -76104,9 +76099,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 970217970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 219.11896, y: -201.47751}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 327.62, y: 50.8102}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748618528
@@ -76241,9 +76236,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1178692412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 624.10187, y: -68.48205}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 245.0825, y: 79.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1749067158
@@ -76992,8 +76987,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -68.932106}
+  m_SizeDelta: {x: 479.1971, y: 293.1738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1765988756
 MonoBehaviour:
@@ -77015,8 +77010,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Si tu inodoro tiene dos botones, usa siempre el de descarga pequena. \xA1Es
-    mas que suficiente!"
+  m_text: "Examina el grifo de la cocina peri\xF3dicamente para cambiar cauchos viejos
+    que gotean."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -77411,8 +77406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Moja el cepillo un poco antes de aplicar la pasta; no necesitas dejar el
-    grifo abierto.
+  m_text: "Guarda especialmente el agua del segundo enjuague por ser la m\xE1s limpia."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -77657,9 +77651,9 @@ RectTransform:
   - {fileID: 101692600}
   m_Father: {fileID: 838206109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 443.7149, y: -333.41296}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 723, y: 666.8259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1790302335
@@ -78863,10 +78857,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cierra la llave
+  m_text: Uso inodoro
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -79402,9 +79396,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1825487796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225.65685, y: -99.466675}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 395.8932, y: 53.726}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1824201509
@@ -80032,10 +80026,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Botella lastre
+  m_text: Monitorea suelo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -80205,7 +80199,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retira toda la espuma con agua corriente y seca tus manos completamente.
+  m_text: "Al mantener la humedad estable, reducir\xE1s la frecuencia de riego a
+    la mitad."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -80638,10 +80633,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aplica \nespuma"
+  m_text: Poca suciedad
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -80988,10 +80983,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cierra la \nllave"
+  m_text: Evita sol
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -81125,10 +81120,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dosis justa
+  m_text: Planifica antes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -81384,8 +81379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -112.9}
-  m_SizeDelta: {x: 479.1971, y: 430.05}
+  m_AnchoredPosition: {x: 14.5996, y: -50.96423}
+  m_SizeDelta: {x: 479.1971, y: 306.1785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887416570
 MonoBehaviour:
@@ -81407,8 +81402,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coloca una botella de plastico llena de arena o agua dentro del tanque.
-    Esto reduce el volumen de cada descarga automaticamente.
+  m_text: "Toca la tierra con tus dedos; si est\xE1 h\xFAmeda, no necesita m\xE1s
+    agua."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -81761,10 +81756,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cierra la \nllave"
+  m_text: Mide volumen
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -82007,7 +82002,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 1.2979, y: 0}
-  m_SizeDelta: {x: 246.16, y: 0}
+  m_SizeDelta: {x: 246.16, y: 71.6733}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1898423853
 MonoBehaviour:
@@ -82161,9 +82156,9 @@ RectTransform:
   - {fileID: 943950618}
   m_Father: {fileID: 127013744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200.70975, y: -19.491554}
   m_SizeDelta: {x: 66.494, y: 39.4339}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906484596
@@ -82663,7 +82658,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre la llave solo lo necesario para mojar todo tu cuerpo r\xE1pidamente."
+  m_text: Riega tus plantas al anochecer o muy temprano antes de salir el sol.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -83685,8 +83680,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -126.3773}
+  m_SizeDelta: {x: 479.1971, y: 403.0899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930787605
 MonoBehaviour:
@@ -83708,8 +83703,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mientras te enjabonas y aplicas shampoo, mant\xE9n la llave completamente
-    cerrada."
+  m_text: Enjabona todos los platos juntos manteniendo la llave del grifo completamente
+    cerrada.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -84484,7 +84479,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Abre la llave solo lo necesario para mojar todo tu cuerpo r\xE1pidamente."
+  m_text: Limpia los restos de comida con una servilleta en la basura antes de lavar.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -84676,8 +84671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -55.435}
+  m_SizeDelta: {x: 479.1971, y: 315.1201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944419416
 MonoBehaviour:
@@ -84699,7 +84694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Frota bien el jab\xF3n para crear espuma durante al menos 20 segundos."
+  m_text: Usa lavados cortos para prendas que solo tienen un uso y no manchas.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -85913,8 +85908,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -112.9}
-  m_SizeDelta: {x: 479.1971, y: 430.05}
+  m_AnchoredPosition: {x: 14.5996, y: -68.99728}
+  m_SizeDelta: {x: 479.1971, y: 268.0978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1970263312
 MonoBehaviour:
@@ -85936,7 +85931,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retira toda la espuma con agua corriente y seca tus manos completamente.
+  m_text: Usa el agua sobrante del remojo para regar las plantas de tu hogar.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -86223,10 +86218,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Meta: 5 Minutos'
+  m_text: Protege hojas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -86360,10 +86355,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Control de fugas
+  m_text: Goteo casero
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -86497,7 +86492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 3
+  m_text: TRUCO 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -86849,10 +86844,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Botella lastre
+  m_text: Cuida filtros
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -87582,7 +87577,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 2
+  m_text: TRUCO 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -88500,8 +88495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Trata de completar todo el proceso en menos de 5 minutos para un ahorro
-    \xF3ptimo."
+  m_text: Evitas que el sol queme las hojas mojadas por el efecto lupa solar.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -88615,8 +88609,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -84.66861}
-  m_SizeDelta: {x: 479.1971, y: 486.5071}
+  m_AnchoredPosition: {x: 14.5996, y: -94.127655}
+  m_SizeDelta: {x: 479.1971, y: 467.589}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2034433749
 MonoBehaviour:
@@ -88638,8 +88632,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usa solo la cantidad necesaria de pasta dental. No exageres, con el tamano
-    de un guisante es suficiente.
+  m_text: "Compra plantas propias de tu regi\xF3n; est\xE1n adaptadas al clima y
+    lluvia local."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -88666,8 +88660,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.88
-  m_fontSizeBase: 50.88
+  m_fontSize: 51.8
+  m_fontSizeBase: 51.8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -89928,8 +89922,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.5996, y: -112.9}
-  m_SizeDelta: {x: 479.1971, y: 430.05}
+  m_AnchoredPosition: {x: 14.5996, y: -54.630703}
+  m_SizeDelta: {x: 479.1971, y: 313.5114}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046728144
 MonoBehaviour:
@@ -89951,8 +89945,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hazlo un habito: llave cerrada durante todo el cepillado. Ahorras litros
-    en cada sesion.'
+  m_text: "Vierte los baldes directo en la taza del ba\xF1o para ahorrar descargas."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -90402,7 +90395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000022888, y: -143}
+  m_AnchoredPosition: {x: -0.000022888, y: -232.1}
   m_SizeDelta: {x: 942.4431, y: 328.0642}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2058834513
@@ -90425,10 +90418,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sigue estos pasos para maximizar tu ahorro en cada ducha.
+  m_text: "Sigue estos trucos para elegir los programas m\xE1s ecol\xF3gicos de lavado."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -91105,10 +91098,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 101692600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 474.17004, y: -42.20745}
-  m_SizeDelta: {x: 40, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2077419954
 MonoBehaviour:
@@ -91527,7 +91520,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 3
+  m_text: TRUCO 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -91664,7 +91657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PASO 1
+  m_text: TRUCO 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
   m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
@@ -92254,9 +92247,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1178692412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 263.32797, y: -68.48205}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 245.0825, y: 79.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2103079019
@@ -93325,10 +93318,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cero basura
+  m_text: Mira abajo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93713,10 +93706,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Carga doble
+  m_text: Lee indicaciones
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
-  m_sharedMaterial: {fileID: -3664203842249624504, guid: d0d4833b2418f5e4d839eabd63b08afb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
+  m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -94003,8 +93996,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mientras te enjabonas y aplicas shampoo, mant\xE9n la llave completamente
-    cerrada."
+  m_text: "Regar al mediod\xEDa evapora el agua de inmediato, perdiendo el setenta
+    por ciento."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -94267,7 +94260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5609494936979248714, guid: 91bf2b41ce912894494068eda74ff93f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5609494936979248714, guid: 91bf2b41ce912894494068eda74ff93f, type: 3}
       propertyPath: m_AnchorMin.x
@@ -94275,7 +94268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5609494936979248714, guid: 91bf2b41ce912894494068eda74ff93f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5609494936979248714, guid: 91bf2b41ce912894494068eda74ff93f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -94315,11 +94308,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5609494936979248714, guid: 91bf2b41ce912894494068eda74ff93f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 120.08
       objectReference: {fileID: 0}
     - target: {fileID: 5609494936979248714, guid: 91bf2b41ce912894494068eda74ff93f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 5609494936979248714, guid: 91bf2b41ce912894494068eda74ff93f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
