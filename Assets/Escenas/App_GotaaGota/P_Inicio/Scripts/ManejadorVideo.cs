@@ -53,6 +53,9 @@ public class ControladorVideoGota : MonoBehaviour
         // --- NUEVO: Evita que la pantalla se apague mientras ve el video ---
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
+        // --- SOLUCIÓN: Pausamos la música de fondo de la app al abrir el video ---
+        if (ManejadorMusica.instance != null) ManejadorMusica.instance.PausarMusica();
+
         panelVideo.SetActive(true);
         LeanTween.scale(rectTransformPanel.gameObject, Vector3.one, 0.5f).setEaseOutBack();
 
@@ -74,6 +77,9 @@ public class ControladorVideoGota : MonoBehaviour
     {
         // --- NUEVO: Devuelve el control de la pantalla a la configuración normal del celular ---
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
+
+        // --- SOLUCIÓN: Reanudamos la música de fondo al cerrar el video ---
+        if (ManejadorMusica.instance != null) ManejadorMusica.instance.ReanudarMusica();
 
         videoPlayer.Stop();
         LeanTween.scale(rectTransformPanel.gameObject, Vector3.zero, 0.4f).setEaseInBack().setOnComplete(() => {
