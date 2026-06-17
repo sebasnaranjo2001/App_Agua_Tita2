@@ -557,48 +557,6 @@ MonoBehaviour:
   - {fileID: 835512386}
   fondoPregunta: {fileID: 1678519343}
   barraProgreso: {fileID: 1269261992}
-  gotaVictoria1: {fileID: 1887377518}
-  gotaVictoria2: {fileID: 2077176385}
-  gotaVictoria3: {fileID: 116680358}
-  gotaIntermedio1: {fileID: 753960598}
-  gotaIntermedio2: {fileID: 2041540890}
-  gotaIntermedio3: {fileID: 134115608}
-  gotaDerrota1: {fileID: 693395948}
-  gotaDerrota2: {fileID: 40919203}
-  gotaDerrota3: {fileID: 22962531}
-  elementosVictoria:
-  - {fileID: 1507777673}
-  - {fileID: 1535221890}
-  - {fileID: 1710537372}
-  - {fileID: 1341596844}
-  - {fileID: 533829977}
-  - {fileID: 1320123634}
-  elementosIntermedio:
-  - {fileID: 1623681109}
-  - {fileID: 1219204064}
-  - {fileID: 1291691031}
-  - {fileID: 1969857159}
-  - {fileID: 2008234938}
-  - {fileID: 2131868421}
-  elementosDerrota:
-  - {fileID: 1451579101}
-  - {fileID: 1557399466}
-  - {fileID: 530031258}
-  - {fileID: 442509015}
-  - {fileID: 1760687017}
-  - {fileID: 1756712944}
-  elementosGameplay:
-  - {fileID: 1603241006}
-  - {fileID: 1678519342}
-  - {fileID: 1308240641}
-  - {fileID: 1269261990}
-  - {fileID: 835202392}
-  textoTiempoVictoria: {fileID: 540011944}
-  textoTiempoIntermedio: {fileID: 1116962586}
-  textoTiempoDerrota: {fileID: 2075990673}
-  musicaVictoria: {fileID: 8300000, guid: f3f01ffd773ffc5428ccd17a39baa7ad, type: 3}
-  musicaIntermedio: {fileID: 8300000, guid: f3f01ffd773ffc5428ccd17a39baa7ad, type: 3}
-  musicaDerrota: {fileID: 8300000, guid: 8cc3e85aec2e0e94a998edfee5895199, type: 3}
   tiempoMaximo: 60
   fillReloj: {fileID: 1184733157}
   textoTiempo: {fileID: 1471251455}
@@ -610,13 +568,6 @@ MonoBehaviour:
   sonidoAcierto: {fileID: 8300000, guid: ac8b41cc69ad0374cbc0c4bbf63235e6, type: 3}
   sonidoError: {fileID: 8300000, guid: be9203f7acb3f2345b6295836d07ef94, type: 3}
   sonidoTick: {fileID: 8300000, guid: c127af30accf3cf4ebddad0bdda3e904, type: 3}
-  alarmaTiempo: {fileID: 8300000, guid: 957aa452e1e29e5448eb16b6998f32e0, type: 3}
-  panelVictoria: {fileID: 403756201}
-  panelIntermedio: {fileID: 946915315}
-  panelDerrota: {fileID: 1079331442}
-  textoAciertosVictoria: {fileID: 144653380}
-  textoAciertosIntermedio: {fileID: 646208045}
-  textoAciertosDerrota: {fileID: 598166943}
 --- !u!4 &91173975
 Transform:
   m_ObjectHideFlags: 0
