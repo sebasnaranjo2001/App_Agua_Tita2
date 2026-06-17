@@ -82,6 +82,28 @@ public class SpotWaterManager : MonoBehaviour
     [Header("Barra de Progreso")]
     public ProgressBarUI barraProgreso;
 
+    [Header("Audio")]
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
+
+    [Header("Musicas")]
+    public AudioClip musicaGameplay;
+    public AudioClip musicaTension;
+    public AudioClip musicaVictoria;
+    public AudioClip musicaIntermedio;
+    public AudioClip musicaDerrota;
+
+    [Header("Efectos")]
+    public AudioClip ticTacReloj;
+    public AudioClip alarmaTiempo;
+    public AudioClip sonidoAcierto;
+    public AudioClip sonidoError;
+
+    private bool musicaTensionActiva = false;
+    private bool alarmaReproducida = false;
+
+
+
     // =========================
     // ERRORES POR NIVEL
     // =========================
@@ -119,6 +141,28 @@ public class SpotWaterManager : MonoBehaviour
 
     // Orden aleatorio ya implementado
     int[] randomOrder;
+
+    void CambiarMusica(AudioClip nuevaMusica, bool loop)
+    {
+        if (musicSource == null || nuevaMusica == null)
+            return;
+
+        if (musicSource.clip == nuevaMusica && musicSource.isPlaying)
+            return;
+
+        musicSource.Stop();
+        musicSource.clip = nuevaMusica;
+        musicSource.loop = loop;
+        musicSource.Play();
+    }
+
+    void ReproducirSFX(AudioClip clip)
+    {
+        if (sfxSource == null || clip == null)
+            return;
+
+        sfxSource.PlayOneShot(clip);
+    }
 
     void Start()
     {
@@ -240,6 +284,7 @@ public class SpotWaterManager : MonoBehaviour
             ).setEaseOutBack();
         }
 
+        CambiarMusica(musicaGameplay, true);
         LoadLevel(0);
     }
 
@@ -343,6 +388,7 @@ public class SpotWaterManager : MonoBehaviour
     public void CorrectClick(Button btn)
     {
         Debug.Log("CLICK EN: " + btn.gameObject.name);
+        ReproducirSFX(sonidoAcierto);
 
         btn.interactable = false;
 
@@ -370,6 +416,8 @@ public class SpotWaterManager : MonoBehaviour
     public void WrongClick()
     {
         erroresCometidos++;
+
+        ReproducirSFX(sonidoError);
 
         if (feedbackRed != null)
             feedbackRed.gameObject.SetActive(true);
@@ -501,6 +549,7 @@ public class SpotWaterManager : MonoBehaviour
         }
         else if (aciertos <= 1)
         {
+            resultadoMostrado = true;
             AnimarPanelDerrota();
 
             if (textoAciertosDerrota != null)
@@ -558,6 +607,10 @@ public class SpotWaterManager : MonoBehaviour
 
         if (segundoActual != ultimoSegundoMostrado)
         {
+            if (tiempoActual <= 10f && tiempoActual > 0f)
+            {
+                ReproducirSFX(ticTacReloj);
+            }
             ultimoSegundoMostrado = segundoActual;
 
             if (relojTransform != null)
@@ -576,7 +629,12 @@ public class SpotWaterManager : MonoBehaviour
                 });
             }
         }
+        if (tiempoActual <= 10f && !musicaTensionActiva)
+        {
+            musicaTensionActiva = true;
 
+            CambiarMusica(musicaTension, true);
+        }
         if (tiempoActual <= 5f && relojTransform != null)
         {
             float shake =
@@ -594,38 +652,59 @@ public class SpotWaterManager : MonoBehaviour
 
         if (tiempoActual <= 0)
         {
-            tiempoActivo = false;
-
-            MostrarTiempoEnPaneles();
-
-            foreach (GameObject obj in elementosGameplay)
+            if (!alarmaReproducida)
             {
-                if (obj != null)
-                    obj.SetActive(false);
+                alarmaReproducida = true;
+
+                // Congelar cronómetro
+                tiempoActivo = false;
+
+                MostrarTiempoEnPaneles();
+
+                // Detener música de gameplay/tensión
+                if (musicSource != null)
+                    musicSource.Stop();
+
+                if (sfxSource != null)
+                    sfxSource.Stop();
+
+                // Reproducir alarma completa
+                ReproducirSFX(alarmaTiempo);
+
+                // Esperar a que termine la alarma
+                LeanTween.delayedCall(alarmaTiempo.length, () =>
+                {
+                    // Ocultar gameplay
+                    foreach (GameObject obj in elementosGameplay)
+                    {
+                        if (obj != null)
+                            obj.SetActive(false);
+                    }
+
+                    // Asegurar que otros paneles estén ocultos
+                    if (panelVictoria != null)
+                        panelVictoria.SetActive(false);
+
+                    if (panelIntermedio != null)
+                        panelIntermedio.SetActive(false);
+
+                    // Mostrar derrota
+                    AnimarPanelDerrota();
+
+                    if (textoAciertosDerrota != null)
+                    {
+                        textoAciertosDerrota.text =
+                            "Aciertos: " +
+                            aciertos +
+                            "/" +
+                            levels.Length;
+                    }
+                });
             }
 
-            if (panelVictoria != null)
-                panelVictoria.SetActive(false);
-
-            if (panelIntermedio != null)
-                panelIntermedio.SetActive(false);
-
-            if (panelDerrota != null)
-                panelDerrota.SetActive(true);
-
-            AnimarPanelDerrota();
-
-            if (textoAciertosDerrota != null)
-            {
-                textoAciertosDerrota.text =
-                    "Aciertos: " +
-                    aciertos +
-                    "/" +
-                    levels.Length;
-            }
+            return;
         }
     }
-
     void MostrarTiempoEnPaneles()
     {
         int tiempoUsado =
@@ -703,6 +782,7 @@ public class SpotWaterManager : MonoBehaviour
 
     void AnimarPanelVictoria()
     {
+        CambiarMusica(musicaVictoria, false);
         panelVictoria.SetActive(true);
 
         foreach (GameObject obj in elementosVictoria)
@@ -737,6 +817,7 @@ public class SpotWaterManager : MonoBehaviour
 
     void AnimarPanelIntermedio()
     {
+        CambiarMusica(musicaIntermedio, false);
         panelIntermedio.SetActive(true);
 
         foreach (GameObject obj in elementosIntermedio)
@@ -771,6 +852,7 @@ public class SpotWaterManager : MonoBehaviour
 
     void AnimarPanelDerrota()
     {
+        CambiarMusica(musicaDerrota, false);
         panelDerrota.SetActive(true);
 
         foreach (GameObject obj in elementosDerrota)

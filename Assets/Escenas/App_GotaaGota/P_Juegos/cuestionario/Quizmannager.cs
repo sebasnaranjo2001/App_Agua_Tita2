@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
@@ -9,202 +8,71 @@ public class QuizManager : MonoBehaviour
     public class Pregunta
     {
         public string pregunta;
-
-        // Respuestas originales
         public string[] respuestas;
-
-        // Índice correcto ORIGINAL
         public int respuestaCorrecta;
-
         public Sprite imagen;
     }
 
     [Header("Preguntas")]
     public Pregunta[] preguntas;
 
-    [Header("UI Pregunta")]
+    [Header("UI")]
     public TMP_Text textoPregunta;
     public TMP_Text textoAciertos;
+    public TMP_Text textoProgresoPreguntas;
     public Image imagenPregunta;
     public Button[] botones;
-    public TMP_Text tituloPregunta;
     public RectTransform fondoPregunta;
     public ProgressBarUI barraProgreso;
 
-    [Header("ELEMENTOS A OCULTAR AL FINAL")]
-    public GameObject[] elementosGameplay;
-
-    [Header("Panels Finales")]
-    public GameObject panelVictoria;
-    public GameObject panelIntermedio;
-    public GameObject panelDerrota;
-
-    [Header("Textos de Aciertos por Panel")]
-    public TMP_Text textoAciertosVictoria;
-    public TMP_Text textoAciertosIntermedio;
-    public TMP_Text textoAciertosDerrota;
-    [Header("Gotas Victoria")]
-    public GameObject gotaVictoria1;
-    public GameObject gotaVictoria2;
-    public GameObject gotaVictoria3;
-
-    [Header("Gotas Intermedio")]
-    public GameObject gotaIntermedio1;
-    public GameObject gotaIntermedio2;
-    public GameObject gotaIntermedio3;
-
-    [Header("Gotas Derrota")]
-    public GameObject gotaDerrota1;
-    public GameObject gotaDerrota2;
-    public GameObject gotaDerrota3;
-
-    [Header("Elementos Panel Victoria")]
-    public GameObject[] elementosVictoria;
-
-    [Header("Elementos Panel Intermedio")]
-    public GameObject[] elementosIntermedio;
-
-    [Header("Elementos Panel Derrota")]
-    public GameObject[] elementosDerrota;
-
-    [Header("Cronometro")]
+    [Header("Timer")]
     public float tiempoMaximo = 60f;
-    private float tiempoActual;
-    private bool tiempoActivo = true;
+    float tiempoActual;
+    bool tiempoActivo = true;
 
     public Image fillReloj;
     public TMP_Text textoTiempo;
-
-    [Header("Tiempo en Paneles")]
-    public TMP_Text textoTiempoVictoria;
-    public TMP_Text textoTiempoIntermedio;
-    public TMP_Text textoTiempoDerrota;
-
-    [Header("Animacion Reloj")]
     public RectTransform relojTransform;
 
-    private Vector3 posicionOriginalReloj;
-    private int ultimoSegundoMostrado;
+    [Header("Audio")]
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
+    public AudioClip musicaGameplay;
+    public AudioClip musicaTension;
+    public AudioClip sonidoAcierto;
+    public AudioClip sonidoError;
+    public AudioClip sonidoTick;
 
-    private int indicePregunta = 0;
-    private int aciertos = 0;
+    int indicePregunta = 0;
+    int aciertos = 0;
+    int respuestaCorrectaActual;
 
-    private Vector2 posicionOriginalTitulo;
-    private Vector2 posicionOriginalFondo;
-
-    // RESPUESTA CORRECTA ACTUAL
-    private int respuestaCorrectaActual;
+    Vector2 posFondoOriginal;
+    Vector3 posRelojOriginal;
 
     void Start()
     {
-        
-
-       // Mezclar preguntas aleatoriamente
-        MezclarPreguntas();
-
-        // Desactivar panels finales
-        if (panelVictoria != null)
-            panelVictoria.SetActive(false);
-
-        if (panelIntermedio != null)
-            panelIntermedio.SetActive(false);
-
-        if (panelDerrota != null)
-            panelDerrota.SetActive(false);
-
-        // Mostrar gameplay
-        if (elementosGameplay != null)
-        {
-            foreach (GameObject obj in elementosGameplay)
-            {
-                if (obj != null)
-                    obj.SetActive(true);
-            }
-        }
-
-        // =====================================
-        // ANIMACIÓN DEL TÍTULO (SOLO UNA VEZ)
-        // =====================================
-
-        if (tituloPregunta != null)
-        {
-            posicionOriginalTitulo =
-                tituloPregunta.rectTransform.anchoredPosition;
-
-            // Lo colocamos más arriba temporalmente
-            tituloPregunta.rectTransform.anchoredPosition =
-                new Vector2(
-                    posicionOriginalTitulo.x,
-                    posicionOriginalTitulo.y + 300f
-                );
-
-            // Lo animamos hacia su posición real
-            LeanTween.move(
-                tituloPregunta.rectTransform,
-                posicionOriginalTitulo,
-                0.6f
-            ).setEaseOutBack();
-        }
-        else
-        {
-            Debug.LogWarning("Falta el Titulo Pregunta en el Inspector");
-        }
-
-        if (fondoPregunta != null)
-        {
-            // Guardar posición original del fondo
-            posicionOriginalFondo =
-                fondoPregunta.anchoredPosition;
-        }
-        else
-        {
-            Debug.LogWarning("Falta el Fondo Pregunta en el Inspector");
-        }
-
-        // Actualizar contador
-        ActualizarTextoAciertos();
-
         tiempoActual = tiempoMaximo;
-        ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
 
-        if (fillReloj != null)
+        if (musicSource != null && musicaGameplay != null)
         {
-            fillReloj.fillAmount = 0f;
+            musicSource.clip = musicaGameplay;
+            musicSource.loop = true;
+            musicSource.Play();
         }
 
-        if (textoTiempo != null)
-        {
-            int minutos = Mathf.FloorToInt(tiempoActual / 60);
-            int segundos = Mathf.FloorToInt(tiempoActual % 60);
+        posFondoOriginal = fondoPregunta.anchoredPosition;
 
-            textoTiempo.text =
-                string.Format("{0:00}:{1:00}", minutos, segundos);
-        }
+        // 🎬 ANIMACIÓN RELOJ ENTRADA
+        posRelojOriginal = relojTransform.localPosition;
+        relojTransform.localScale = Vector3.zero;
 
-        if (relojTransform != null)
-        {
-            posicionOriginalReloj = relojTransform.localPosition;
+        LeanTween.scale(relojTransform.gameObject, Vector3.one, 0.5f)
+            .setEaseOutBack();
 
-            relojTransform.localScale = Vector3.zero;
-
-            LeanTween.scale(
-                relojTransform.gameObject,
-                Vector3.one,
-                0.4f
-            ).setEaseOutBack();
-        }
-
-        // Mostrar primera pregunta
         MostrarPregunta();
-
-        barraProgreso.ReiniciarBarra();
-
-        if (barraProgreso.textoEstado != null)
-        {
-            barraProgreso.textoEstado.text =
-                "Pregunta 1 de " + preguntas.Length;
-        }
+        ActualizarTextoAciertos();
     }
 
     void Update()
@@ -212,606 +80,143 @@ public class QuizManager : MonoBehaviour
         ActualizarCronometro();
     }
 
+    // ================= TIMER =================
     void ActualizarCronometro()
     {
-        if (!tiempoActivo)
-            return;
+        if (!tiempoActivo) return;
 
         tiempoActual -= Time.deltaTime;
+        if (tiempoActual < 0) tiempoActual = 0;
 
-        if (tiempoActual < 0)
-            tiempoActual = 0;
+        float p = tiempoActual / tiempoMaximo;
 
-        int minutos = Mathf.FloorToInt(tiempoActual / 60);
-        int segundos = Mathf.FloorToInt(tiempoActual % 60);
+        if (fillReloj) fillReloj.fillAmount = p;
+        if (textoTiempo) textoTiempo.text = Mathf.CeilToInt(tiempoActual).ToString();
 
-        if (textoTiempo != null)
+        if (tiempoActual <= 10f && musicSource.clip != musicaTension)
         {
-            textoTiempo.text =
-                string.Format("{0:00}:{1:00}", minutos, segundos);
+            musicSource.clip = musicaTension;
+            musicSource.loop = true;
+            musicSource.Play();
         }
 
-        if (fillReloj != null)
+        // 🔥 SHAKE RELOJ
+        if (tiempoActual <= 5f)
         {
-            fillReloj.fillAmount =
-                1f - (tiempoActual / tiempoMaximo);
+            float shake = Mathf.Sin(Time.time * 40f) * 3f;
+            relojTransform.localPosition = posRelojOriginal + new Vector3(shake, 0, 0);
         }
-
-        int segundoActual = Mathf.CeilToInt(tiempoActual);
-
-        if (segundoActual != ultimoSegundoMostrado)
+        else
         {
-            ultimoSegundoMostrado = segundoActual;
-
-            if (relojTransform != null)
-            {
-                LeanTween.scale(
-                    relojTransform.gameObject,
-                    Vector3.one * 1.12f,
-                    0.1f
-                ).setOnComplete(() =>
-                {
-                    LeanTween.scale(
-                        relojTransform.gameObject,
-                        Vector3.one,
-                        0.1f
-                    );
-                });
-            }
-        }
-
-        if (tiempoActual <= 5f && relojTransform != null)
-        {
-            float shake =
-                Mathf.Sin(Time.time * 40f) * 3f;
-
-            relojTransform.localPosition =
-                posicionOriginalReloj +
-                new Vector3(shake, 0, 0);
-        }
-        else if (relojTransform != null)
-        {
-            relojTransform.localPosition =
-                posicionOriginalReloj;
-        }
-
-        if (tiempoActual <= 0)
-        {
-            tiempoActivo = false;
-
-            MostrarTiempoEnPaneles();
-
-            foreach (GameObject obj in elementosGameplay)
-            {
-                if (obj != null)
-                    obj.SetActive(false);
-            }
-
-            if (panelDerrota != null)
-            {
-                panelDerrota.SetActive(true);
-
-                panelDerrota.transform.localScale =
-                    Vector3.zero;
-
-                LeanTween.scale(
-                    panelDerrota,
-                    Vector3.one,
-                    0.5f
-                ).setEaseOutBack();
-            }
-
-            if (textoAciertosDerrota != null)
-            {
-                textoAciertosDerrota.text =
-                    "Aciertos: " + aciertos + "/" + preguntas.Length;
-            }
-
-            AnimarPanelDerrota();
+            relojTransform.localPosition = posRelojOriginal;
         }
     }
 
-    // =========================
-    // MEZCLAR PREGUNTAS
-    // =========================
-    void MezclarPreguntas()
-    {
-        for (int i = 0; i < preguntas.Length; i++)
-        {
-            int randomIndex = Random.Range(i, preguntas.Length);
-
-            Pregunta temp = preguntas[i];
-            preguntas[i] = preguntas[randomIndex];
-            preguntas[randomIndex] = temp;
-        }
-    }
-
-    // =========================
-    // MOSTRAR PREGUNTA
-    // =========================
+    // ================= PREGUNTA =================
     void MostrarPregunta()
     {
-        Pregunta p = preguntas[indicePregunta];
+        var p = preguntas[indicePregunta];
 
-        // Texto pregunta
-        if (textoPregunta != null)
-            textoPregunta.text = p.pregunta;
+        textoPregunta.text = p.pregunta;
 
-        // Animación fondo + texto
-        if (fondoPregunta != null)
-        {
-            LeanTween.cancel(fondoPregunta.gameObject);
+        // 📊 progreso
+        if (textoProgresoPreguntas != null)
+            textoProgresoPreguntas.text = (indicePregunta + 1) + " / " + preguntas.Length;
 
-            fondoPregunta.anchoredPosition =
-                new Vector2(
-                    posicionOriginalFondo.x - 1200f,
-                    posicionOriginalFondo.y
-                );
+        if (barraProgreso != null)
+            barraProgreso.Actualizar(
+    indicePregunta + 1,
+    preguntas.Length,
+    "Pregunta"
+);
 
-            LeanTween.move(
-                fondoPregunta,
-                posicionOriginalFondo,
-                0.5f
-            ).setEaseOutCubic();
-        }
-
-        // Imagen
-        if (p.imagen != null)
-        {
+        if (imagenPregunta != null)
             imagenPregunta.sprite = p.imagen;
-            imagenPregunta.gameObject.SetActive(true);
 
-            imagenPregunta.transform.localScale = Vector3.zero;
+        // 🎬 FONDO ANIMACIÓN ENTRADA
+        fondoPregunta.anchoredPosition =
+            new Vector2(posFondoOriginal.x - 1200, posFondoOriginal.y);
 
-            LeanTween.scale(
-                imagenPregunta.gameObject,
-                Vector3.one,
-                0.4f
-            ).setEaseOutBack();
-        }
-        else
-        {
-            if (imagenPregunta != null)
-                imagenPregunta.gameObject.SetActive(false);
-        }
+        LeanTween.move(fondoPregunta, posFondoOriginal, 0.5f)
+            .setEaseOutCubic();
 
-        // =========================
-        // MEZCLAR RESPUESTAS
-        // =========================
-
-        string[] respuestasMezcladas = (string[])p.respuestas.Clone();
-
-        // Guardar índices
-        int[] indices = new int[respuestasMezcladas.Length];
-
-        for (int i = 0; i < indices.Length; i++)
-        {
-            indices[i] = i;
-        }
-
-        // Fisher-Yates Shuffle
-        for (int i = 0; i < respuestasMezcladas.Length; i++)
-        {
-            int randomIndex = Random.Range(i, respuestasMezcladas.Length);
-
-            // Intercambiar respuestas
-            string tempRespuesta = respuestasMezcladas[i];
-            respuestasMezcladas[i] = respuestasMezcladas[randomIndex];
-            respuestasMezcladas[randomIndex] = tempRespuesta;
-
-            // Intercambiar índices
-            int tempIndex = indices[i];
-            indices[i] = indices[randomIndex];
-            indices[randomIndex] = tempIndex;
-        }
-
-        // Encontrar nueva posición correcta
-        for (int i = 0; i < indices.Length; i++)
-        {
-            if (indices[i] == p.respuestaCorrecta)
-            {
-                respuestaCorrectaActual = i;
-                break;
-            }
-        }
-
-        // =========================
-        // CONFIGURAR BOTONES
-        // =========================
-
+        // 🎬 BOTONES
         for (int i = 0; i < botones.Length; i++)
         {
-            botones[i].GetComponentInChildren<TMP_Text>().text =
-                respuestasMezcladas[i];
-
-            int index = i;
-
-            botones[i].onClick.RemoveAllListeners();
-            botones[i].onClick.AddListener(() => Responder(index));
-
             botones[i].image.color = Color.white;
             botones[i].interactable = true;
-            // Animación botón
+
+            int idx = i;
+
+            if (i < p.respuestas.Length)
+            {
+                botones[i].gameObject.SetActive(true);
+                botones[i].GetComponentInChildren<TMP_Text>().text = p.respuestas[i];
+            }
+            else
+            {
+                botones[i].gameObject.SetActive(false);
+                continue;
+            }
+
+            botones[i].onClick.RemoveAllListeners();
+            botones[i].onClick.AddListener(() => Responder(idx));
+
+            // 🎬 STAGGER ANIMACIÓN
             botones[i].transform.localScale = Vector3.zero;
 
-            LeanTween.scale(
-                botones[i].gameObject,
-                Vector3.one,
-                0.3f
-            )
-            .setDelay(i * 0.1f)
-            .setEaseOutBack();
+            LeanTween.scale(botones[i].gameObject, Vector3.one, 0.3f)
+                .setDelay(i * 0.1f)
+                .setEaseOutBack();
         }
+
+        respuestaCorrectaActual = p.respuestaCorrecta;
     }
 
-    // =========================
-    // RESPONDER
-    // =========================
-    void Responder(int index)
+    // ================= RESPUESTA =================
+    void Responder(int i)
     {
-        // Correcta
-        if (index == respuestaCorrectaActual)
+        foreach (var b in botones) b.interactable = false;
+
+        if (i == respuestaCorrectaActual)
         {
-            botones[index].image.color =
-    new Color32(76, 175, 80, 255); 
-            LeanTween.scale(
-    botones[index].gameObject,
-    Vector3.one * 1.2f,
-    0.15f
-).setLoopPingPong(1);
-
             aciertos++;
+            if (sfxSource) sfxSource.PlayOneShot(sonidoAcierto);
 
-            ActualizarTextoAciertos();
+            // 💚 animación acierto
+            LeanTween.scale(botones[i].gameObject, Vector3.one * 1.2f, 0.15f)
+                .setLoopPingPong(1);
         }
-        // Incorrecta
         else
         {
-            botones[index].image.color =
-    new Color32(244, 67, 54, 255); // #FFCDD2
-            Vector3 posOriginal =
-    botones[index].transform.localPosition;
+            if (sfxSource) sfxSource.PlayOneShot(sonidoError);
 
-            LeanTween.moveLocalX(
-                botones[index].gameObject,
-                posOriginal.x + 20f,
-                0.05f
-            ).setLoopPingPong(4);
-            botones[respuestaCorrectaActual].image.color =
-     new Color32(76, 175, 80, 255); // #C8E6C9
+            // ❤️ shake error
+            Vector3 pos = botones[i].transform.localPosition;
+
+            LeanTween.moveLocalX(botones[i].gameObject, pos.x + 20f, 0.05f)
+                .setLoopPingPong(4);
+
+            botones[respuestaCorrectaActual].image.color = Color.green;
         }
 
-        // Desactivar botones
-        foreach (Button b in botones)
-        {
-            b.interactable = false;
-        }
-
-        // Esperar
-        Invoke("SiguientePregunta", 1.5f);
+        ActualizarTextoAciertos();
+        Invoke(nameof(SiguientePregunta), 1.2f);
     }
 
-    // =========================
-    // SIGUIENTE PREGUNTA
-    // =========================
     void SiguientePregunta()
     {
         indicePregunta++;
 
         if (indicePregunta < preguntas.Length)
-        {
-            barraProgreso.Actualizar(
-                indicePregunta,
-                preguntas.Length,
-                "Pregunta"
-            );
-
-            barraProgreso.textoEstado.text =
-                "Pregunta " + (indicePregunta + 1) +
-                " de " + preguntas.Length;
-
             MostrarPregunta();
-        }
         else
-        {
-            barraProgreso.Actualizar(
-                preguntas.Length,
-                preguntas.Length,
-                "Pregunta"
-            );
-
-            if (barraProgreso.textoEstado != null)
-            {
-                barraProgreso.textoEstado.text =
-                    "Pregunta " + preguntas.Length +
-                    " de " + preguntas.Length;
-            }
-
-            LeanTween.delayedCall(0.5f, () =>
-            {
-                MostrarResultado();
-            });
-        }
+            Debug.Log("FIN QUIZ");
     }
 
-    void MostrarTiempoEnPaneles()
-    {
-        int tiempoUsado =
-            Mathf.RoundToInt(tiempoMaximo - tiempoActual);
-
-        string textoFinal =
-            tiempoUsado + " segundos";
-
-        if (textoTiempoVictoria != null)
-            textoTiempoVictoria.text = textoFinal;
-
-        if (textoTiempoIntermedio != null)
-            textoTiempoIntermedio.text = textoFinal;
-
-        if (textoTiempoDerrota != null)
-            textoTiempoDerrota.text = textoFinal;
-    }
-
-    // =========================
-    // ACTUALIZAR TEXTO ACIERTOS
-    // =========================
     void ActualizarTextoAciertos()
     {
         if (textoAciertos != null)
-        {
-            textoAciertos.text =
-                "Aciertos: " + aciertos;
-        }
-    }
-
-    // =========================
-    // MOSTRAR RESULTADO FINAL
-    // =========================
-    void MostrarResultado()
-    {
-        tiempoActivo = false;
-
-        MostrarTiempoEnPaneles();
-        // =========================
-        // OCULTAR GAMEPLAY
-        // =========================
-
-        if (elementosGameplay != null)
-        {
-            foreach (GameObject obj in elementosGameplay)
-            {
-                if (obj != null)
-                    obj.SetActive(false);
-            }
-        }
-
-        // =========================
-        // DESACTIVAR PANELES
-        // =========================
-
-        if (panelVictoria != null)
-            panelVictoria.SetActive(false);
-
-        if (panelIntermedio != null)
-            panelIntermedio.SetActive(false);
-
-        if (panelDerrota != null)
-            panelDerrota.SetActive(false);
-
-        // Resultado final
-        string resultadoFinal =
-            "Aciertos: " + aciertos + "/" + preguntas.Length;
-
-        // =========================
-        // VICTORIA → 5 ACIERTOS
-        // =========================
-
-        if (aciertos == 5)
-        {
-            if (panelVictoria != null)
-                panelVictoria.SetActive(true);
-
-            panelVictoria.transform.localScale =
-                Vector3.zero;
-
-            LeanTween.scale(
-                panelVictoria,
-                Vector3.one,
-                0.5f
-            ).setEaseOutBack();
-
-            if (textoAciertosVictoria != null)
-                textoAciertosVictoria.text = resultadoFinal;
-            AnimarPanelVictoria();
-        }
-
-        // =========================
-        // DERROTA → 0 o 1 ACIERTO
-        // =========================
-
-        else if (aciertos <= 1)
-        {
-            if (panelDerrota != null)
-                panelDerrota.SetActive(true);
-
-            panelDerrota.transform.localScale =
-                Vector3.zero;
-
-            LeanTween.scale(
-                panelDerrota,
-                Vector3.one,
-                0.5f
-            ).setEaseOutBack();
-
-            if (textoAciertosDerrota != null)
-                textoAciertosDerrota.text = resultadoFinal;
-            AnimarPanelDerrota();
-
-        }
-
-        // =========================
-        // INTERMEDIO → 2,3,4
-        // =========================
-
-        else
-        {
-            if (panelIntermedio != null)
-                panelIntermedio.SetActive(true);
-
-            panelIntermedio.transform.localScale =
-                Vector3.zero;
-
-            LeanTween.scale(
-                panelIntermedio,
-                Vector3.one,
-                0.5f
-            ).setEaseOutBack();
-
-            if (textoAciertosIntermedio != null)
-                textoAciertosIntermedio.text = resultadoFinal;
-            AnimarPanelIntermedio();
-        }
-    }
-
-    // =========================
-    // BOTONES
-    // =========================
-    void AnimarElemento(GameObject obj, float delay)
-    {
-        if (obj == null) return;
-
-        obj.transform.localScale = Vector3.zero;
-
-        LeanTween.scale(
-            obj,
-            Vector3.one,
-            0.35f
-        )
-        .setDelay(delay)
-        .setEaseOutBack();
-    }
-
-    void AnimarElementosPanel(GameObject[] elementos)
-    {
-        if (elementos == null) return;
-
-        for (int i = 0; i < elementos.Length; i++)
-        {
-            if (elementos[i] == null)
-                continue;
-
-            elementos[i].SetActive(true);
-
-            elementos[i].transform.localScale = Vector3.zero;
-
-            LeanTween.scale(
-                elementos[i],
-                Vector3.one,
-                0.3f
-            )
-            .setDelay(i * 0.1f)
-            .setEaseOutBack();
-        }
-    }
-
-    void AnimarPanelDerrota()
-    {
-        if (elementosDerrota != null)
-        {
-            foreach (GameObject obj in elementosDerrota)
-            {
-                if (obj != null)
-                    obj.SetActive(false);
-            }
-        }
-
-        AnimarElemento(gotaDerrota1, 0.1f);
-
-        LeanTween.delayedCall(
-            0.6f,
-            () =>
-            {
-                AnimarElementosPanel(elementosDerrota);
-            });
-    }
-
-    void AnimarPanelIntermedio()
-    {
-        if (elementosIntermedio != null)
-        {
-            foreach (GameObject obj in elementosIntermedio)
-            {
-                if (obj != null)
-                    obj.SetActive(false);
-            }
-        }
-
-        // Ocultar las gotas al iniciar
-        if (gotaIntermedio1 != null) gotaIntermedio1.SetActive(false);
-        if (gotaIntermedio2 != null) gotaIntermedio2.SetActive(false);
-        if (gotaIntermedio3 != null) gotaIntermedio3.SetActive(false);
-
-        // Primera gota
-        if (gotaIntermedio1 != null)
-        {
-            gotaIntermedio1.SetActive(true);
-            AnimarElemento(gotaIntermedio1, 0f);
-        }
-
-        // Segunda gota
-        if (gotaIntermedio2 != null)
-        {
-            gotaIntermedio2.SetActive(true);
-            AnimarElemento(gotaIntermedio2, 0.4f);
-        }
-
-        // Tercera gota (apagada)
-        if (gotaIntermedio3 != null)
-        {
-            gotaIntermedio3.SetActive(true);
-            AnimarElemento(gotaIntermedio3, 0.8f);
-        }
-
-        // Mostrar resto de elementos después
-        LeanTween.delayedCall(
-            1.3f,
-            () =>
-            {
-                AnimarElementosPanel(elementosIntermedio);
-            });
-    }
-
-    void AnimarPanelVictoria()
-    {
-        if (elementosVictoria != null)
-        {
-            foreach (GameObject obj in elementosVictoria)
-            {
-                if (obj != null)
-                    obj.SetActive(false);
-            }
-        }
-
-        AnimarElemento(gotaVictoria1, 0.1f);
-        AnimarElemento(gotaVictoria2, 0.5f);
-        AnimarElemento(gotaVictoria3, 0.9f);
-
-        LeanTween.delayedCall(
-            1.4f,
-            () =>
-            {
-                AnimarElementosPanel(elementosVictoria);
-            });
-    }
-    public void ReiniciarQuiz()
-    {
-        SceneManager.LoadScene(
-            SceneManager.GetActiveScene().buildIndex
-        );
-    }
-
-    public void VolverAlMenu()
-    {
-        SceneManager.LoadScene("Menu");
+            textoAciertos.text = "Aciertos: " + aciertos;
     }
 }

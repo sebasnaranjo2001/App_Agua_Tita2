@@ -71,6 +71,27 @@ public class GameManagerDrag : MonoBehaviour
     public Button botonComprobar;
     [Header("Barra de Progreso")]
     public ProgressBarUI barraProgreso;
+
+    [Header("Audio")]
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
+
+    [Header("Musicas")]
+    public AudioClip musicaGameplay;
+    public AudioClip musicaTension;
+    public AudioClip musicaVictoria;
+    public AudioClip musicaIntermedio;
+    public AudioClip musicaDerrota;
+
+    [Header("Efectos")]
+    public AudioClip ticTacReloj;
+    public AudioClip alarmaTiempo;
+    public AudioClip sonidoAcierto;
+    public AudioClip sonidoError;
+
+    private bool musicaTensionActiva = false;
+    private bool alarmaReproducida = false;
+
     [Header("Cronometro")]
     public float tiempoMaximo = 60f;
     private float tiempoActual;
@@ -96,6 +117,28 @@ public class GameManagerDrag : MonoBehaviour
 
     private int faseActual = 0;
     private int aciertos = 0;
+
+    void CambiarMusica(AudioClip nuevaMusica, bool loop)
+    {
+        if (musicSource == null || nuevaMusica == null)
+            return;
+
+        if (musicSource.clip == nuevaMusica && musicSource.isPlaying)
+            return;
+
+        musicSource.Stop();
+        musicSource.clip = nuevaMusica;
+        musicSource.loop = loop;
+        musicSource.Play();
+    }
+
+    void ReproducirSFX(AudioClip clip)
+    {
+        if (sfxSource == null || clip == null)
+            return;
+
+        sfxSource.PlayOneShot(clip);
+    }
 
     void Start()
     {
@@ -167,7 +210,10 @@ public class GameManagerDrag : MonoBehaviour
                 Vector3.one,
                 0.4f
             ).setEaseOutBack();
+
+            CambiarMusica(musicaGameplay, true);
         }
+
 
         CargarFase(false);
     }
@@ -293,6 +339,11 @@ public class GameManagerDrag : MonoBehaviour
 
         if (segundoActual != ultimoSegundoMostrado)
         {
+            if (tiempoActual <= 10f && tiempoActual > 0f)
+            {
+                ReproducirSFX(ticTacReloj);
+            }
+
             ultimoSegundoMostrado = segundoActual;
 
             if (relojTransform != null)
@@ -326,29 +377,55 @@ public class GameManagerDrag : MonoBehaviour
             relojTransform.localPosition = posicionOriginalReloj;
         }
 
+        if (tiempoActual <= 10f && !musicaTensionActiva)
+        {
+            musicaTensionActiva = true;
+            CambiarMusica(musicaTension, true);
+        }
+
         if (tiempoActual <= 0)
         {
-            tiempoActivo = false;
-
-            MostrarTiempoEnPaneles();
-
-            foreach (GameObject obj in elementosGameplay)
+            if (!alarmaReproducida)
             {
-                if (obj != null)
-                    obj.SetActive(false);
+                alarmaReproducida = true;
+
+                tiempoActivo = false;
+
+                MostrarTiempoEnPaneles();
+
+                if (musicSource != null)
+                    musicSource.Stop();
+
+                if (sfxSource != null)
+                    sfxSource.Stop();
+
+                ReproducirSFX(alarmaTiempo);
+
+                LeanTween.delayedCall(alarmaTiempo.length, () =>
+                {
+                    foreach (GameObject obj in elementosGameplay)
+                    {
+                        if (obj != null)
+                            obj.SetActive(false);
+                    }
+
+                    if (textoAciertosDerrota != null)
+                    {
+                        textoAciertosDerrota.text =
+                            "Aciertos: " + aciertos + "/" + fases.Length;
+                    }
+
+                    AnimarPanelDerrota();
+                });
             }
 
-            if (textoAciertosDerrota != null)
-            {
-                textoAciertosDerrota.text =
-                    "Aciertos: " + aciertos + "/" + fases.Length;
-            }
-
-            AnimarPanelDerrota();
+            return;
         }
     }
 
-   public void Comprobar()
+
+
+    public void Comprobar()
 {
     bool todoCorrecto = true;
 
@@ -383,14 +460,21 @@ public class GameManagerDrag : MonoBehaviour
         }
     }
 
-    if (todoCorrecto)
-    {
-        aciertos++;
-        ActualizarTextoAciertos();
-    }
+        if (todoCorrecto)
+        {
+            aciertos++;
 
-    Invoke("SiguienteFase", 1.5f);
-}
+            ReproducirSFX(sonidoAcierto);
+
+            ActualizarTextoAciertos();
+        }
+        else
+        {
+            ReproducirSFX(sonidoError);
+        }
+
+        Invoke("SiguienteFase", 1.5f);
+    }
 
     void SiguienteFase()
     {
@@ -535,6 +619,7 @@ public class GameManagerDrag : MonoBehaviour
 
     void AnimarPanelVictoria()
     {
+        CambiarMusica(musicaVictoria, false);
         foreach (GameObject obj in elementosGameplay)
         {
             if (obj != null)
@@ -571,6 +656,7 @@ public class GameManagerDrag : MonoBehaviour
 
     void AnimarPanelIntermedio()
     {
+        CambiarMusica(musicaIntermedio, false);
         foreach (GameObject obj in elementosGameplay)
         {
             if (obj != null)
@@ -620,7 +706,8 @@ public class GameManagerDrag : MonoBehaviour
     }
 
     void AnimarPanelDerrota()
-    {
+{
+    CambiarMusica(musicaDerrota, false);
         foreach (GameObject obj in elementosGameplay)
         {
             if (obj != null)
