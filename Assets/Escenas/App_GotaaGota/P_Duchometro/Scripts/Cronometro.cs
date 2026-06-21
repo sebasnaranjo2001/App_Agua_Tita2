@@ -189,6 +189,13 @@ public class Cronometro : MonoBehaviour
 
             if (Avisos.instance != null) Avisos.instance.ActualizarInterfazSegunContador(false);
 
+            // --- SOLUCIÓN: Obligamos al panel de Ranking a actualizarse instantáneamente ---
+            ManejadorRanking ranking = UnityEngine.Object.FindFirstObjectByType<ManejadorRanking>();
+            if (ranking != null)
+            {
+                ranking.GenerarRanking();
+            }
+
             ManejadorNavegacion nav = UnityEngine.Object.FindFirstObjectByType<ManejadorNavegacion>();
             if (nav != null) nav.IrARanking();
         });
