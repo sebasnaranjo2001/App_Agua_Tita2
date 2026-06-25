@@ -1412,7 +1412,7 @@ MonoBehaviour:
   - {fileID: 301575719}
   - {fileID: 159313534}
   feedbackRed: {fileID: 76816130}
-  tiempoMaximo: 60
+  tiempoMaximo: 120
   fillReloj: {fileID: 1364745274}
   textoTiempo: {fileID: 488608704}
   textoTiempoVictoria: {fileID: 454281500}

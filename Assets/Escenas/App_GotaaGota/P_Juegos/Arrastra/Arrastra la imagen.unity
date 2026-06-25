@@ -820,9 +820,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: c127af30accf3cf4ebddad0bdda3e904, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1629,41 +1629,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerDrag
   fases:
   - textos:
-    - Cerrar el grifo mientras te lavas las manos
-    - Usar la lavadora solo con carga completa
-    - Reutilizar el agua de lavar frutas y verduras para regar plantas
+    - "Mientras se enjabonan las manos, evitar\xE1s que muchas gotas se pierdan."
+    - Esperar a reunir suficiente ropa permite aprovechar mejor cada lavado.
+    - "El agua que limpi\xF3 frutas y verduras a\xFAn puede ayudar a crecer algo
+      verde."
     imagenes:
     - {fileID: 4084148893081383880, guid: b9976bd0b56d0bd469a29c18e9fbe6b8, type: 3}
     - {fileID: -1604835014188566973, guid: a8dbcc52b46c1e44ba507d904d289a64, type: 3}
     - {fileID: 6467721386649028742, guid: 34768f8a6fe96864e93f6f2e001cfcbb, type: 3}
   - textos:
-    - Instalar regaderas ahorradoras
-    - "Reparar fugas en grifos y tuber\xEDas  "
-    - Colocar una botella llena dentro del tanque del inodoro para reducir consumo
+    - Ayudo a que cada ducha use menos agua.
+    - "Aunque parezca peque\xF1a, una gota que no se detiene desperdicia mucha agua."
+    - Oculta en el tanque del inodoro, ayudo a ahorrar agua en cada descarga.
     imagenes:
     - {fileID: 21300000, guid: caaa5cc95030ed64a828fdc7270789c5, type: 3}
     - {fileID: 21300000, guid: 4cb899e618be843418abb910c81c830d, type: 3}
     - {fileID: 4259314548535319307, guid: 9957ca75f288f7b48aa7e009cc69d1a5, type: 3}
   - textos:
-    - "Regar las plantas temprano en la ma\xF1ana o al atardecer"
-    - Usar un balde en lugar de la manguera para lavar el auto
-    - "Acumular agua de lluvia para uso dom\xE9stico"
+    - Si riego cuando hace menos calor, aprovecho mejor cada gota.
+    - No lanzo agua sin control al lavar el auto.
+    - "Recojo el agua que trae la lluvia para usarla despu\xE9s en casa."
     imagenes:
     - {fileID: -5438089872657478894, guid: b4d857d9f5e267047944507ab7caffc8, type: 3}
     - {fileID: -5926332241297552561, guid: 847362af9f92335419f0740df30c6bd4, type: 3}
     - {fileID: 21300000, guid: b319432f01d993045bad7125a26665ee, type: 3}
   - textos:
-    - Descongelar los alimentos para evitar usar agua
-    - Barrer calles ayuda a evitar utilizar agua
-    - Utilizar un tazon para lavar frutas y evitar desperdicio de agua
+    - Planificar con tiempo evita usar agua para descongelar
+    - Para limpiar el patio sin gastar agua.
+    - "Al lavar frutas ayuda a evitar que el agua se vaya por el desag\xFCe"
     imagenes:
     - {fileID: -3877566605634787203, guid: f0c84189f95862749ab38d3a0a19e06d, type: 3}
     - {fileID: 1327610316918547544, guid: 1bbde23de8626df489953e4ab1d52e25, type: 3}
     - {fileID: 5537007264794611617, guid: 4063e389d38a9914e9a42854649f18c9, type: 3}
   - textos:
-    - Usar una cubeta ayuda a controlar el uso del agua
-    - Un vaso es suficiente para lavarse los dientes
-    - Instalar y revisar medidores ayuda a descubrir fugas ocultas
+    - "Ayuda a medir cada gota y evitar gastar m\xE1s de lo necesario."
+    - Basta para cepillarte los dientes sin desperdiciar agua.
+    - "Revisa cu\xE1nta agua se usa en casa y avisa si algo se est\xE1 escapando."
     imagenes:
     - {fileID: 21300000, guid: 3680eaa04a316504b863f0d639055e70, type: 3}
     - {fileID: 1256048416073334640, guid: 14669ca50911fba41a11543b7eef273f, type: 3}
@@ -1750,7 +1751,7 @@ MonoBehaviour:
   alarmaTiempo: {fileID: 8300000, guid: 957aa452e1e29e5448eb16b6998f32e0, type: 3}
   sonidoAcierto: {fileID: 8300000, guid: ac8b41cc69ad0374cbc0c4bbf63235e6, type: 3}
   sonidoError: {fileID: 8300000, guid: be9203f7acb3f2345b6295836d07ef94, type: 3}
-  tiempoMaximo: 60
+  tiempoMaximo: 120
   fillReloj: {fileID: 1988281721}
   textoTiempo: {fileID: 1241355586}
   textoTiempoVictoria: {fileID: 708505519}

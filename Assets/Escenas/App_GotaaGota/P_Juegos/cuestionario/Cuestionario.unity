@@ -599,7 +599,7 @@ MonoBehaviour:
   musicaVictoria: {fileID: 8300000, guid: f3f01ffd773ffc5428ccd17a39baa7ad, type: 3}
   musicaIntermedio: {fileID: 8300000, guid: f3f01ffd773ffc5428ccd17a39baa7ad, type: 3}
   musicaDerrota: {fileID: 8300000, guid: 8cc3e85aec2e0e94a998edfee5895199, type: 3}
-  tiempoMaximo: 60
+  tiempoMaximo: 120
   fillReloj: {fileID: 1184733157}
   textoTiempo: {fileID: 1471251455}
   relojTransform: {fileID: 835202393}
@@ -4847,7 +4847,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: c127af30accf3cf4ebddad0bdda3e904, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1

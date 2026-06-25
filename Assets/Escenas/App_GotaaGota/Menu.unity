@@ -15638,7 +15638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 684.05994, y: -1796.2996}
+  m_AnchoredPosition: {x: 676.7086, y: -1796.2996}
   m_SizeDelta: {x: 1100, y: 625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &347111322
@@ -23095,7 +23095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 684.05994, y: -352.29956}
+  m_AnchoredPosition: {x: 676.7086, y: -352.29956}
   m_SizeDelta: {x: 1100, y: 625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &521839298
@@ -27095,7 +27095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Detecta los malos usos del agua.
+  m_text: Detecta los malos usos del agua en las imagenes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -48630,7 +48630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 684.05994, y: -1074.2996}
+  m_AnchoredPosition: {x: 676.7086, y: -1074.2996}
   m_SizeDelta: {x: 1100, y: 625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1097998185
@@ -64965,7 +64965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Conecta la imagen con su enunciado.
+  m_text: 'Conecta el texto con la imagen.
 
 '
   m_isRightToLeft: 0
@@ -85029,7 +85029,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 443.7149, y: -68.48205}
+  m_AnchoredPosition: {x: 436.3636, y: -68.48205}
   m_SizeDelta: {x: 809.6984, y: 79.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1947919163

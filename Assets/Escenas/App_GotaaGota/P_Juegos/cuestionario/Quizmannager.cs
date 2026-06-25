@@ -184,7 +184,9 @@ public class QuizManager : MonoBehaviour
     // ================= TIMER =================
     void ActualizarCronometro()
     {
-        if (!tiempoActivo) return;
+        if (juegoTerminado || !tiempoActivo)
+            return;
+
 
         tiempoActual -= Time.deltaTime;
         if (tiempoActual < 0) tiempoActual = 0;
@@ -212,8 +214,7 @@ public class QuizManager : MonoBehaviour
 
         if (segundoActual != ultimoSegundoMostrado)
         {
-            if (tiempoActual <= 10f &&
-                tiempoActual > 0f)
+            if (!juegoTerminado && tiempoActual > 0f && tiempoActual <= 10f)
             {
                 sfxSource?.PlayOneShot(sonidoTick);
             }
@@ -278,6 +279,7 @@ public class QuizManager : MonoBehaviour
 
             musicSource?.Stop();
 
+            // 🔴 cortar TODO SFX activo antes de la alarma
             sfxSource?.Stop();
 
             sfxSource?.PlayOneShot(alarmaTiempo);
@@ -474,31 +476,19 @@ public class QuizManager : MonoBehaviour
             "/" +
             preguntas.Length;
 
-        float porcentaje =
-            (float)aciertos /
-            preguntas.Length;
-
-        if (porcentaje >= 0.8f)
+        if (aciertos == preguntas.Length) // 5/5
         {
-            textoAciertosVictoria.text =
-                resultadoFinal;
-
+            textoAciertosVictoria.text = resultadoFinal;
             AnimarPanelVictoria();
         }
-        else if (porcentaje >= 0.5f)
+        else if (aciertos >= 2 && aciertos <= 4) // 2/5, 3/5, 4/5
         {
-            textoAciertosIntermedio.text =
-                resultadoFinal;
-
+            textoAciertosIntermedio.text = resultadoFinal;
             AnimarPanelIntermedio();
         }
-        else
+        else // 0/5 o 1/5
         {
-            textoAciertosDerrota.text =
-                resultadoFinal;
-
-            juegoTerminado = true;
-
+            textoAciertosDerrota.text = resultadoFinal;
             AnimarPanelDerrota();
         }
     }

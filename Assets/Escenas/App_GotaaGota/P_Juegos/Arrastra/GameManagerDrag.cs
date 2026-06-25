@@ -315,6 +315,8 @@ public class GameManagerDrag : MonoBehaviour
         if (!tiempoActivo)
             return;
 
+        
+
         tiempoActual -= Time.deltaTime;
 
         if (tiempoActual < 0)
@@ -339,7 +341,7 @@ public class GameManagerDrag : MonoBehaviour
 
         if (segundoActual != ultimoSegundoMostrado)
         {
-            if (tiempoActual <= 10f && tiempoActual > 0f)
+            if (tiempoActual <= 10f && tiempoActual > 0f && tiempoActivo)
             {
                 ReproducirSFX(ticTacReloj);
             }
@@ -393,11 +395,11 @@ public class GameManagerDrag : MonoBehaviour
 
                 MostrarTiempoEnPaneles();
 
-                if (musicSource != null)
-                    musicSource.Stop();
-
                 if (sfxSource != null)
                     sfxSource.Stop();
+
+                if (musicSource != null)
+                    musicSource.Stop();
 
                 ReproducirSFX(alarmaTiempo);
 
@@ -547,29 +549,28 @@ public class GameManagerDrag : MonoBehaviour
     void MostrarResultadoFinal()
     {
         tiempoActivo = false;
-
         MostrarTiempoEnPaneles();
 
         string resultadoFinal =
             "Aciertos: " + aciertos + "/" + fases.Length;
 
-        float porcentaje = (float)aciertos / fases.Length;
+        int total = fases.Length;
 
-        if (porcentaje >= 0.8f)
+        if (aciertos == total) // 5/5
         {
             if (textoAciertosVictoria != null)
                 textoAciertosVictoria.text = resultadoFinal;
 
             AnimarPanelVictoria();
         }
-        else if (porcentaje >= 0.5f)
+        else if (aciertos >= 2 && aciertos <= 4) // 2/5, 3/5, 4/5
         {
             if (textoAciertosIntermedio != null)
                 textoAciertosIntermedio.text = resultadoFinal;
 
             AnimarPanelIntermedio();
         }
-        else
+        else // 0/5 o 1/5
         {
             if (textoAciertosDerrota != null)
                 textoAciertosDerrota.text = resultadoFinal;
