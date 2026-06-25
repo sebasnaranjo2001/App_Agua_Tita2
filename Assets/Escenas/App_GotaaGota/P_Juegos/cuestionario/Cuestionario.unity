@@ -514,37 +514,37 @@ MonoBehaviour:
   preguntas:
   - pregunta: Elige la forma que usa menos agua al lavar los dientes.
     respuestas:
-    - "Usar m\xE1s agua al limpiar"
-    - Cepillarse rapido sin cerrar la llave
-    - Usar un vaso con agua
+    - "Usar m\xE1s agua al limpiar."
+    - "Cepillarse r\xE1pido sin cerrar la llave."
+    - Usar un vaso con agua.
     respuestaCorrecta: 2
     imagen: {fileID: -2818508387909137594, guid: e2e8ae81a24a54b47928c1a2674114d3, type: 3}
-  - pregunta: Marca la respuesta que indique ahorro en la ducha
+  - pregunta: Marca la respuesta que indique ahorro en la ducha.
     respuestas:
-    - Tomar duchas largas
-    - 'Cerrar la llave mientras me enjabono '
-    - Usar agua muy caliente
+    - Tomar duchas largas.
+    - Cerrar la llave mientras me enjabono.
+    - Usar agua muy caliente.
     respuestaCorrecta: 1
     imagen: {fileID: -4514525785095426119, guid: c594b322f521e56459a2d4e295c51c33, type: 3}
-  - pregunta: Marca la mejor forma para regar plantas
+  - pregunta: Marca la mejor forma para regar plantas.
     respuestas:
-    - "Regar al mediod\xEDa"
-    - Usar manguera sin control
-    - "Regar en la noche o temprano en la ma\xF1ana"
+    - "Regar al mediod\xEDa."
+    - Usar manguera sin control.
+    - "Regar en la noche o temprano en la ma\xF1ana."
     respuestaCorrecta: 2
     imagen: {fileID: -3140310628992395850, guid: 5cf38fb4b62c6024c9ab066b5f8ecab4, type: 3}
   - pregunta: Si hay una fuga de agua en casa, indica la mejor respuesta.
     respuestas:
-    - Repararla lo antes posible
-    - "Usar m\xE1s agua para tapar la fuga"
-    - Ignorarla
+    - Repararla lo antes posible.
+    - "Usar m\xE1s agua para tapar la fuga."
+    - Ignorarla.
     respuestaCorrecta: 0
     imagen: {fileID: 21300000, guid: 0dfa914f510b4e4468c956f691d129ca, type: 3}
   - pregunta: Marca la mejor forma de usar la lavadora.
     respuestas:
-    - Usar con poca ropa
-    - Usarla en la noche
-    - Usarla con carga llena
+    - Usar con poca ropa.
+    - Usarla en la noche.
+    - Usarla con carga llena.
     respuestaCorrecta: 2
     imagen: {fileID: -8934854926745692040, guid: 458fda3dfeae30c41b54c4d7f5b9d25a, type: 3}
   textoPregunta: {fileID: 2113703432}

@@ -1629,14 +1629,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerDrag
   fases:
   - textos:
-    - "Mientras se enjabonan las manos, evitar\xE1s que muchas gotas se pierdan."
-    - Esperar a reunir suficiente ropa permite aprovechar mejor cada lavado.
+    - "Mientras se enjabonan las manos, evitar\xE1s que muchas gotas se pierdan. "
+    - 'Esperar a reunir suficiente ropa permite aprovechar mejor cada lavado.  '
     - "El agua que limpi\xF3 frutas y verduras a\xFAn puede ayudar a crecer algo
       verde."
     imagenes:
-    - {fileID: 4084148893081383880, guid: b9976bd0b56d0bd469a29c18e9fbe6b8, type: 3}
-    - {fileID: -1604835014188566973, guid: a8dbcc52b46c1e44ba507d904d289a64, type: 3}
-    - {fileID: 6467721386649028742, guid: 34768f8a6fe96864e93f6f2e001cfcbb, type: 3}
+    - {fileID: 21300000, guid: b9976bd0b56d0bd469a29c18e9fbe6b8, type: 3}
+    - {fileID: 21300000, guid: a8dbcc52b46c1e44ba507d904d289a64, type: 3}
+    - {fileID: 21300000, guid: 34768f8a6fe96864e93f6f2e001cfcbb, type: 3}
   - textos:
     - Ayudo a que cada ducha use menos agua.
     - "Aunque parezca peque\xF1a, una gota que no se detiene desperdicia mucha agua."
@@ -1644,30 +1644,30 @@ MonoBehaviour:
     imagenes:
     - {fileID: 21300000, guid: caaa5cc95030ed64a828fdc7270789c5, type: 3}
     - {fileID: 21300000, guid: 4cb899e618be843418abb910c81c830d, type: 3}
-    - {fileID: 4259314548535319307, guid: 9957ca75f288f7b48aa7e009cc69d1a5, type: 3}
+    - {fileID: 21300000, guid: 9957ca75f288f7b48aa7e009cc69d1a5, type: 3}
   - textos:
     - Si riego cuando hace menos calor, aprovecho mejor cada gota.
     - No lanzo agua sin control al lavar el auto.
     - "Recojo el agua que trae la lluvia para usarla despu\xE9s en casa."
     imagenes:
-    - {fileID: -5438089872657478894, guid: b4d857d9f5e267047944507ab7caffc8, type: 3}
-    - {fileID: -5926332241297552561, guid: 847362af9f92335419f0740df30c6bd4, type: 3}
+    - {fileID: 21300000, guid: b4d857d9f5e267047944507ab7caffc8, type: 3}
+    - {fileID: 21300000, guid: 847362af9f92335419f0740df30c6bd4, type: 3}
     - {fileID: 21300000, guid: b319432f01d993045bad7125a26665ee, type: 3}
   - textos:
     - Planificar con tiempo evita usar agua para descongelar
     - Para limpiar el patio sin gastar agua.
     - "Al lavar frutas ayuda a evitar que el agua se vaya por el desag\xFCe"
     imagenes:
-    - {fileID: -3877566605634787203, guid: f0c84189f95862749ab38d3a0a19e06d, type: 3}
-    - {fileID: 1327610316918547544, guid: 1bbde23de8626df489953e4ab1d52e25, type: 3}
-    - {fileID: 5537007264794611617, guid: 4063e389d38a9914e9a42854649f18c9, type: 3}
+    - {fileID: 21300000, guid: f0c84189f95862749ab38d3a0a19e06d, type: 3}
+    - {fileID: 21300000, guid: 1bbde23de8626df489953e4ab1d52e25, type: 3}
+    - {fileID: 21300000, guid: 4063e389d38a9914e9a42854649f18c9, type: 3}
   - textos:
     - "Ayuda a medir cada gota y evitar gastar m\xE1s de lo necesario."
     - Basta para cepillarte los dientes sin desperdiciar agua.
     - "Revisa cu\xE1nta agua se usa en casa y avisa si algo se est\xE1 escapando."
     imagenes:
     - {fileID: 21300000, guid: 3680eaa04a316504b863f0d639055e70, type: 3}
-    - {fileID: 1256048416073334640, guid: 14669ca50911fba41a11543b7eef273f, type: 3}
+    - {fileID: 21300000, guid: 14669ca50911fba41a11543b7eef273f, type: 3}
     - {fileID: 21300000, guid: e5a4917fb7f7b4c479d21bb2b9ca1373, type: 3}
   zonas:
   - {fileID: 1487581962}
