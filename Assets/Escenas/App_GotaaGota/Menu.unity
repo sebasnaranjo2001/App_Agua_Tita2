@@ -2344,7 +2344,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -32}
+  m_AnchoredPosition: {x: 0, y: -20.3}
   m_SizeDelta: {x: 591.826, y: 183.11829}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &39113870
@@ -4455,7 +4455,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -91.99999}
+  m_AnchoredPosition: {x: 0, y: -77.3}
   m_SizeDelta: {x: 558.2004, y: 274.5194}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &88036905
@@ -13404,7 +13404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -92}
+  m_AnchoredPosition: {x: 0, y: -85.4}
   m_SizeDelta: {x: 558.2003, y: 276.97}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &293246918
@@ -22947,8 +22947,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -81.65684}
-  m_SizeDelta: {x: 621.7877, y: 677.1761}
+  m_AnchoredPosition: {x: 0, y: -82.6}
+  m_SizeDelta: {x: 621.7877, y: 599.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &521392098
 MonoBehaviour:
@@ -22972,9 +22972,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Estudios ambientales demuestran que la contaminaci\xF3n del r\xEDo Mach\xE1ngara
     es cr\xEDtica debido a los desechos urbanos de la ciudad. El agua que desperdiciamos
-    en las actividades diarias del hogar termina saturando el sistema de alcantarillado
-    p\xFAblico, colapsando este ecosistema vital. Moderar el consumo en casa es indispensable
-    para reducir el volumen de agua afectada."
+    en las actividades diarias del hogar termina saturando el alcantarillado p\xFAblico,
+    colapsando este ecosistema vital. Moderar el consumo en casa es indispensable
+    para reducir el volumen de agua afectada y salvar el r\xEDo."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -40774,7 +40774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -32}
+  m_AnchoredPosition: {x: 0, y: -24.1}
   m_SizeDelta: {x: 591.826, y: 183.11829}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &892260821
@@ -51900,8 +51900,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -81.65684}
-  m_SizeDelta: {x: 621.7877, y: 677.1761}
+  m_AnchoredPosition: {x: 0, y: -81.425705}
+  m_SizeDelta: {x: 621.7877, y: 639.4055}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1186683169
 MonoBehaviour:
@@ -51923,12 +51923,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "La falta de lluvias en las zonas de captaci\xF3n ha puesto en alerta al
-    sistema el\xE9ctrico nacional. Menos agua en los embalses significa menor capacidad
-    para generar energ\xEDa limpia y eficiente. Esta situaci\xF3n nos demuestra que
-    el agua y la electricidad est\xE1n conectadas; apagar los grifos a tiempo y reducir
-    los minutos en la ducha es el primer paso para proteger los recursos de todo
-    el pa\xEDs."
+  m_text: "La falta de lluvias en los embalses tiene en alerta al sistema el\xE9ctrico
+    nacional. Menos agua en los r\xEDos significa menor capacidad para generar energ\xEDa
+    limpia, lo que provoca graves crisis energ\xE9ticas y apagones. Esta situaci\xF3n
+    demuestra que el agua y la luz est\xE1n conectadas; reducir los minutos en la
+    ducha es el primer paso para proteger la energ\xEDa de todo el pa\xEDs."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -71285,8 +71284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -56.17}
-  m_SizeDelta: {x: 266.7057, y: 426.9431}
+  m_AnchoredPosition: {x: 0, y: -33.18}
+  m_SizeDelta: {x: 266.7057, y: 378.4308}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1608254816
 MonoBehaviour:
@@ -74272,7 +74271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 98.7, y: 181.3}
+  m_AnchoredPosition: {x: 98.7, y: 161.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699605448
@@ -80747,8 +80746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -81.65684}
-  m_SizeDelta: {x: 621.7877, y: 677.1761}
+  m_AnchoredPosition: {x: 0, y: -87.3}
+  m_SizeDelta: {x: 621.7877, y: 599.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854634590
 MonoBehaviour:
@@ -80770,11 +80769,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "En 2018, la ciudad enfrent\xF3 una sequ\xEDa hist\xF3rica. Los grifos
-    estuvieron a punto de secarse, obligando a los ciudadanos a vivir con solo 50
-    litros de agua al d\xEDa. Fue una llamada de atenci\xF3n global sobre lo que
-    pasa cuando ignoramos la gesti\xF3n del agua. Cuidar el agua hoy es la \xFAnica
-    forma de asegurar que el \"D\xEDa Cero\" nunca llegue a nuestros hogares."
+  m_text: "En 2018, una hist\xF3rica sequ\xEDa oblig\xF3 a una gran ciudad a vivir
+    con solo 50 litros de agua al d\xEDa por persona, quedando al borde de quedarse
+    sin una sola gota. Este colapso, conocido como el \"D\xEDa Cero\", es una advertencia
+    global. Si no frenamos el desperdicio en casa hoy, este peligroso escenario llegar\xE1
+    muy pronto a nuestros propios hogares."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
   m_sharedMaterial: {fileID: 463160518951139114, guid: b6acfca66ee5d4d43ad28e51854f6d10, type: 2}
@@ -83222,7 +83221,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -89.549}
+  m_AnchoredPosition: {x: 0, y: -80.9}
   m_SizeDelta: {x: 558.2003, y: 279.3813}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1921394753
@@ -88234,8 +88233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -32}
-  m_SizeDelta: {x: 591.826, y: 183.11829}
+  m_AnchoredPosition: {x: 0, y: -22.1}
+  m_SizeDelta: {x: 558.6277, y: 183.1183}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2023747188
 MonoBehaviour:
