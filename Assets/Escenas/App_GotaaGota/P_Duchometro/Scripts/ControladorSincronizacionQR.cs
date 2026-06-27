@@ -267,7 +267,6 @@ public class ControladorSincronizacionQR : MonoBehaviour
             local.mejorTiempo = mejor;
         }
 
-        // --- NUEVO: Sincroniza el último reto aceptado sin afectar nada más ---
         if (!string.IsNullOrEmpty(entrante.ultimoRetoAceptado))
         {
             local.ultimoRetoAceptado = entrante.ultimoRetoAceptado;
@@ -388,13 +387,11 @@ public class ControladorSincronizacionQR : MonoBehaviour
                 itemSeleccionadoMap.Add(nuevoItem, false);
                 itemDatosMap.Add(nuevoItem, miembro);
 
-                // --- SOLUCIÓN APLICADA AQUÍ ---
                 Button btn = nuevoItem.GetComponent<Button>();
                 if (btn == null) btn = nuevoItem.AddComponent<Button>();
 
-                btn.onClick.RemoveAllListeners(); // Limpiamos cualquier función vieja
+                btn.onClick.RemoveAllListeners();
 
-                // Congelamos las variables para evitar bugs en el foreach
                 GameObject itemGuardado = nuevoItem;
                 SeleccionMiembros uiGuardada = uiTarjeta;
                 ManejadorRegistro.DatosMiembro miembroGuardado = miembro;
@@ -435,6 +432,17 @@ public class ControladorSincronizacionQR : MonoBehaviour
     public void Action_GuardarMiembrosSeleccionados()
     {
         if (ManejadorRegistro.instance == null) return;
+
+        // --- SOLUCIÓN: Verificación silenciosa de elementos seleccionados ---
+        int seleccionados = 0;
+        foreach (var estado in itemSeleccionadoMap.Values)
+        {
+            if (estado) seleccionados++;
+        }
+
+        // Si el usuario no ha tocado ninguna tarjeta, la función se detiene aquí sin cerrar el panel.
+        // Podrá seguir intentando hasta que seleccione a alguien o use el botón cancelar.
+        if (seleccionados == 0) return;
 
         foreach (var item in itemSeleccionadoMap)
         {
