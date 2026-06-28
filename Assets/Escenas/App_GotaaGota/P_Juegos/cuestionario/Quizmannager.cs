@@ -52,6 +52,9 @@ public class QuizManager : MonoBehaviour
     [Header("Elementos Gameplay")]
     public GameObject[] elementosGameplay;
 
+    [Header("Tutorial")]
+    public bool iniciarConTutorial = true;
+
     [Header("Tiempo en Paneles")]
     public TMP_Text textoTiempoVictoria;
     public TMP_Text textoTiempoIntermedio;
@@ -67,7 +70,7 @@ public class QuizManager : MonoBehaviour
     [Header("Timer")]
     public float tiempoMaximo = 60f;
     float tiempoActual;
-    bool tiempoActivo = true;
+    bool tiempoActivo = false;
 
     public Image fillReloj;
     public TMP_Text textoTiempo;
@@ -110,7 +113,9 @@ public class QuizManager : MonoBehaviour
 
     void Start()
     {
-        tiempoActual = tiempoMaximo;
+      
+
+    tiempoActual = tiempoMaximo;
         ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
 
         if (barraProgreso != null)
@@ -156,6 +161,61 @@ public class QuizManager : MonoBehaviour
         gotaDerrota3?.SetActive(false);
 
 
+if (!iniciarConTutorial)
+{
+    if (musicSource != null && musicaGameplay != null)
+    {
+        musicSource.clip = musicaGameplay;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+}
+
+posFondoOriginal = fondoPregunta.anchoredPosition;
+
+// 🎬 ANIMACIÓN RELOJ ENTRADA
+posRelojOriginal = relojTransform.localPosition;
+relojTransform.localScale = Vector3.zero;
+
+        if (iniciarConTutorial)
+        {
+            ActivarGameplay();
+        }
+
+        if (!iniciarConTutorial)
+{
+    LeanTween.scale(relojTransform.gameObject, Vector3.one, 0.5f)
+        .setEaseOutBack();
+}
+if (!iniciarConTutorial)
+        {
+            MostrarPregunta();
+            ActualizarTextoAciertos();
+        }
+    }
+
+    public void IniciarJuego()
+    {
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+
+        tiempoActual = tiempoMaximo;
+        ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
+
+        tiempoActivo = true;
+        juegoTerminado = false;
+        musicaTensionActiva = false;
+        alarmaReproducida = false;
+
+        tiempoActivo = true;
+        juegoTerminado = false;
+
+        MostrarPregunta();
+        ActualizarTextoAciertos();
+
         if (musicSource != null && musicaGameplay != null)
         {
             musicSource.clip = musicaGameplay;
@@ -163,17 +223,32 @@ public class QuizManager : MonoBehaviour
             musicSource.Play();
         }
 
-        posFondoOriginal = fondoPregunta.anchoredPosition;
+        if (relojTransform != null)
+        {
+            relojTransform.localScale = Vector3.zero;
+            relojTransform.localPosition = posRelojOriginal;
 
-        // 🎬 ANIMACIÓN RELOJ ENTRADA
-        posRelojOriginal = relojTransform.localPosition;
-        relojTransform.localScale = Vector3.zero;
+            LeanTween.scale(relojTransform.gameObject, Vector3.one, 0.5f)
+                .setEaseOutBack();
+        }
+    }
 
-        LeanTween.scale(relojTransform.gameObject, Vector3.one, 0.5f)
-            .setEaseOutBack();
+    public void ActivarGameplay()
+    {
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+    }
 
-        MostrarPregunta();
-        ActualizarTextoAciertos();
+    public void DesactivarGameplay()
+    {
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
     }
 
     void Update()
@@ -214,9 +289,13 @@ public class QuizManager : MonoBehaviour
 
         if (segundoActual != ultimoSegundoMostrado)
         {
-            if (!juegoTerminado && tiempoActual > 0f && tiempoActual <= 10f)
+            if (!juegoTerminado && tiempoActivo && tiempoActual > 0f && tiempoActual <= 10f)
             {
-                sfxSource?.PlayOneShot(sonidoTick);
+                if (sfxSource != null && sonidoTick != null)
+                {
+                    if (!sfxSource.isPlaying)
+                        sfxSource.PlayOneShot(sonidoTick);
+                }
             }
 
             if (relojTransform != null)
@@ -270,6 +349,11 @@ public class QuizManager : MonoBehaviour
 
             tiempoActivo = false;
 
+            if (sfxSource != null)
+            {
+                sfxSource.Stop();
+            }
+
             foreach (Button b in botones)
             {
                 b.interactable = false;
@@ -283,16 +367,13 @@ public class QuizManager : MonoBehaviour
             sfxSource?.Stop();
 
             sfxSource?.PlayOneShot(alarmaTiempo);
+            sfxSource.Stop();
 
             LeanTween.delayedCall(
                 alarmaTiempo.length,
                 () =>
                 {
-                    foreach (GameObject obj in elementosGameplay)
-                    {
-                        if (obj != null)
-                            obj.SetActive(false);
-                    }
+                    DesactivarGameplay();
 
                     textoAciertosDerrota.text =
                         "Aciertos: "
@@ -464,11 +545,7 @@ public class QuizManager : MonoBehaviour
 
         MostrarTiempoEnPaneles();
 
-        foreach (GameObject obj in elementosGameplay)
-        {
-            if (obj != null)
-                obj.SetActive(false);
-        }
+        DesactivarGameplay();
 
         string resultadoFinal =
             "Aciertos: " +
