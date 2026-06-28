@@ -341,45 +341,44 @@ if (!iniciarConTutorial)
             relojTransform.localPosition = posRelojOriginal;
         }
 
-        // 🚨 Alarma al acabar el tiempo
+        // 🚨 ALARMA AL ACABAR EL TIEMPO
         if (tiempoActual <= 0 && !alarmaReproducida)
         {
             alarmaReproducida = true;
             juegoTerminado = true;
-
             tiempoActivo = false;
 
-            if (sfxSource != null)
-            {
-                sfxSource.Stop();
-            }
-
+            // 🧊 bloquear input inmediato
             foreach (Button b in botones)
             {
                 b.interactable = false;
             }
 
-            MostrarTiempoEnPaneles();
-
+            // ❌ detener música y cualquier sonido anterior (incluye tick)
             musicSource?.Stop();
-
-            // 🔴 cortar TODO SFX activo antes de la alarma
             sfxSource?.Stop();
 
-            sfxSource?.PlayOneShot(alarmaTiempo);
-            sfxSource.Stop();
+            // 🔊 reproducir alarma inmediatamente
+            if (alarmaTiempo != null && sfxSource != null)
+            {
+                sfxSource.PlayOneShot(alarmaTiempo);
+            }
 
+            // ⏳ Esperar a que termine la alarma
             LeanTween.delayedCall(
                 alarmaTiempo.length,
                 () =>
                 {
+                    // Ahora sí ocultar gameplay
                     DesactivarGameplay();
 
+                    MostrarTiempoEnPaneles();
+
                     textoAciertosDerrota.text =
-                        "Aciertos: "
-                        + aciertos
-                        + "/"
-                        + preguntas.Length;
+                        "Aciertos: " +
+                        aciertos +
+                        "/" +
+                        preguntas.Length;
 
                     AnimarPanelDerrota();
                 });
