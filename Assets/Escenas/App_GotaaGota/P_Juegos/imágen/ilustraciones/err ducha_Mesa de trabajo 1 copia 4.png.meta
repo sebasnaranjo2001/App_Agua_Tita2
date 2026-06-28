@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 229259899f1a89d4c93c967e884a3af0
+guid: 402ea0ac8b6f3114cb0f953f55a36e2d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2482708804663252109
-    second: errores ducha_Mesa de trabajo 1_0
+      213: -283222846949455844
+    second: err ducha_Mesa de trabajo 1 copia 4_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: errores ducha_Mesa de trabajo 1_0
+      name: err ducha_Mesa de trabajo 1 copia 4_0
       rect:
         serializedVersion: 2
-        x: 148
-        y: 186
-        width: 2531
-        height: 2225
+        x: 608
+        y: 1553
+        width: 10579
+        height: 9271
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8410bef08a547220800000000000000
-      internalID: 2482708804663252109
+      spriteID: c188d4f325ac11cf0800000000000000
+      internalID: -283222846949455844
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      errores ducha_Mesa de trabajo 1_0: 2482708804663252109
+      err ducha_Mesa de trabajo 1 copia 4_0: -283222846949455844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

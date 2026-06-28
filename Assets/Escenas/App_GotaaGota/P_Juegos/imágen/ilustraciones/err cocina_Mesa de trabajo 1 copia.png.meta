@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3e508a76d4422fc46b55a4278d599202
+guid: f2aa90544114df04d9da31f02d3660ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6428043885129688519
-    second: salir_0
+      213: -1888702279581029162
+    second: err cocina_Mesa de trabajo 1 copia_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: salir_0
+      name: err cocina_Mesa de trabajo 1 copia_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2580
-        height: 2638
+        x: 608
+        y: 1553
+        width: 10579
+        height: 9271
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c5e6c53bdff43950800000000000000
-      internalID: 6428043885129688519
+      spriteID: 6dc2a13984bf9c5e0800000000000000
+      internalID: -1888702279581029162
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      salir_0: 6428043885129688519
+      err cocina_Mesa de trabajo 1 copia_0: -1888702279581029162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

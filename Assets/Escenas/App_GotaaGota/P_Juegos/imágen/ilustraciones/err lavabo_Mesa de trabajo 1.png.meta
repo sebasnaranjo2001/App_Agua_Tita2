@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 20e397b41e88f6f4484625b361095e14
+guid: 4f2e26b8a6fb78a4780b9d64c90162bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2929504776695966963
-    second: errores lavadora_Mesa de trabajo 1_Mesa de trabajo 1_0
+      213: 6899046480642478097
+    second: err lavabo_Mesa de trabajo 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: errores lavadora_Mesa de trabajo 1_Mesa de trabajo 1_0
+      name: err lavabo_Mesa de trabajo 1_0
       rect:
         serializedVersion: 2
-        x: 243
-        y: 184
-        width: 2537
-        height: 2231
+        x: 608
+        y: 1553
+        width: 10579
+        height: 9271
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fce5ceb211b7a820800000000000000
-      internalID: 2929504776695966963
+      spriteID: 1109a9fa8365ebf50800000000000000
+      internalID: 6899046480642478097
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      errores lavadora_Mesa de trabajo 1_Mesa de trabajo 1_0: 2929504776695966963
+      err lavabo_Mesa de trabajo 1_0: 6899046480642478097
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

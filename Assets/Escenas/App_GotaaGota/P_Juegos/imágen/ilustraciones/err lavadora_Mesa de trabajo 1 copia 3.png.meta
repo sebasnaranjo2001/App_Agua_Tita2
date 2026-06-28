@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b835674e0a77d8340a88d2de821250a3
+guid: 660bc341302161142b79143c146d3dfd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4518277267505284796
-    second: errores en cocina_Mesa de trabajo 1_0
+      213: 1397854272027364537
+    second: err lavadora_Mesa de trabajo 1 copia 3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: errores en cocina_Mesa de trabajo 1_0
+      name: err lavadora_Mesa de trabajo 1 copia 3_0
       rect:
         serializedVersion: 2
-        x: 273
-        y: 236
-        width: 2537
-        height: 2224
+        x: 609
+        y: 1553
+        width: 10578
+        height: 9271
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 449ff9993cadb41c0800000000000000
-      internalID: -4518277267505284796
+      spriteID: 9bc04f3ed0d266310800000000000000
+      internalID: 1397854272027364537
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      errores en cocina_Mesa de trabajo 1_0: -4518277267505284796
+      err lavadora_Mesa de trabajo 1 copia 3_0: 1397854272027364537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
