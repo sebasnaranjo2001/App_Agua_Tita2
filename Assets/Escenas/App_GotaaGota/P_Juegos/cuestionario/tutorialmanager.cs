@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -14,8 +15,8 @@ public class TutorialManager : MonoBehaviour
     [Header("Gameplay")]
     public GameObject[] elementosGameplay;
 
-    [Header("Referencias")]
-    public QuizManager quizManager;
+    [Header("Evento al iniciar")]
+    public UnityEvent alIniciarJuego;
 
     [Header("Animaciones")]
     public float animTime = 0.5f;
@@ -33,9 +34,9 @@ public class TutorialManager : MonoBehaviour
         else
         {
             panelTutorial.SetActive(false);
-            
 
-            ActivarQuiz();
+
+            alIniciarJuego?.Invoke();
         }
     }
 
@@ -61,21 +62,11 @@ public class TutorialManager : MonoBehaviour
                      panelTutorial.SetActive(false);
 
                      SetGameplay(true);
-                     ActivarQuiz();
+                     alIniciarJuego?.Invoke();
                  });
     }
 
-    // -------------------------
-    // INICIO DEL JUEGO
-    // -------------------------
-    void ActivarQuiz()
-    {
-        if (quizManager != null)
-        {
-            quizManager.gameObject.SetActive(true);
-            quizManager.IniciarJuego();
-        }
-    }
+    
 
     // -------------------------
     // GAMEPLAY CONTROL

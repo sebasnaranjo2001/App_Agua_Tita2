@@ -24,6 +24,9 @@ public class GameManagerDrag : MonoBehaviour
     [Header("Elementos Gameplay")]
     public GameObject[] elementosGameplay;
 
+    [Header("Tutorial")]
+    public bool iniciarConTutorial = true;
+
     [Header("Panels Finales")]
     public GameObject panelVictoria;
     public GameObject panelIntermedio;
@@ -140,6 +143,24 @@ public class GameManagerDrag : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
 
+    public void ActivarGameplay()
+    {
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+    }
+
+    public void DesactivarGameplay()
+    {
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+    }
+
     void Start()
     {
         
@@ -149,41 +170,30 @@ public class GameManagerDrag : MonoBehaviour
         if (panelIntermedio != null) panelIntermedio.SetActive(false);
         if (panelDerrota != null) panelDerrota.SetActive(false);
 
-        foreach (GameObject obj in elementosGameplay)
+        if (iniciarConTutorial)
         {
-            if (obj != null) obj.SetActive(true);
+            DesactivarGameplay();
+        }
+        else
+        {
+            ActivarGameplay();
         }
 
-       
 
-        // Animación categoría
+
+        // Guardamos posiciones para reutilizarlas al iniciar el juego
         posicionOriginalCategoria = fondoCategoria.anchoredPosition;
 
-        fondoCategoria.anchoredPosition =
-            new Vector2(
-                posicionOriginalCategoria.x,
-                posicionOriginalCategoria.y + 200f
-            );
-
-        LeanTween.move(
-            fondoCategoria,
-            posicionOriginalCategoria,
-            0.7f
-        ).setDelay(0.15f).setEaseOutBack();
-
-        // Animación botón
         RectTransform botonRect = botonComprobar.GetComponent<RectTransform>();
         posicionOriginalBoton = botonRect.anchoredPosition;
-        botonRect.anchoredPosition = new Vector2(posicionOriginalBoton.x, posicionOriginalBoton.y - 250f);
-        LeanTween.move(botonRect, posicionOriginalBoton, 0.6f).setDelay(0.3f).setEaseOutBack();
+
+        tiempoActual = tiempoMaximo;
+        ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
 
         if (barraProgreso != null)
         {
             barraProgreso.ReiniciarBarra();
         }
-
-        tiempoActual = tiempoMaximo;
-        ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
 
         if (fillReloj != null)
         {
@@ -202,6 +212,35 @@ public class GameManagerDrag : MonoBehaviour
         if (relojTransform != null)
         {
             posicionOriginalReloj = relojTransform.localPosition;
+        }
+
+        if (!iniciarConTutorial)
+        {
+            // Animación categoría
+            fondoCategoria.anchoredPosition =
+                new Vector2(
+                    posicionOriginalCategoria.x,
+                    posicionOriginalCategoria.y + 200f
+                );
+
+            LeanTween.move(
+                fondoCategoria,
+                posicionOriginalCategoria,
+                0.7f
+            ).setDelay(0.15f).setEaseOutBack();
+
+            // Animación botón
+            botonRect.anchoredPosition =
+                new Vector2(
+                    posicionOriginalBoton.x,
+                    posicionOriginalBoton.y - 250f
+                );
+
+            LeanTween.move(
+                botonRect,
+                posicionOriginalBoton,
+                0.6f
+            ).setDelay(0.3f).setEaseOutBack();
 
             relojTransform.localScale = Vector3.zero;
 
@@ -214,6 +253,76 @@ public class GameManagerDrag : MonoBehaviour
             CambiarMusica(musicaGameplay, true);
         }
 
+
+        if (!iniciarConTutorial)
+        {
+            CargarFase(false);
+        }
+    }
+
+    public void IniciarJuego()
+    {
+        ActivarGameplay();
+
+        tiempoActual = tiempoMaximo;
+        ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
+
+        tiempoActivo = true;
+        musicaTensionActiva = false;
+        alarmaReproducida = false;
+
+        if (fillReloj != null)
+            fillReloj.fillAmount = 0f;
+
+        if (textoTiempo != null)
+        {
+            int minutos = Mathf.FloorToInt(tiempoActual / 60);
+            int segundos = Mathf.FloorToInt(tiempoActual % 60);
+
+            textoTiempo.text =
+                string.Format("{0:00}:{1:00}", minutos, segundos);
+        }
+
+        if (relojTransform != null)
+        {
+            relojTransform.localScale = Vector3.zero;
+            relojTransform.localPosition = posicionOriginalReloj;
+
+            LeanTween.scale(
+                relojTransform.gameObject,
+                Vector3.one,
+                0.4f
+            ).setEaseOutBack();
+        }
+
+        CambiarMusica(musicaGameplay, true);
+
+        fondoCategoria.anchoredPosition =
+            new Vector2(
+                posicionOriginalCategoria.x,
+                posicionOriginalCategoria.y + 200f
+            );
+
+        LeanTween.move(
+            fondoCategoria,
+            posicionOriginalCategoria,
+            0.7f
+        ).setDelay(0.15f).setEaseOutBack();
+
+        RectTransform botonRect =
+            botonComprobar.GetComponent<RectTransform>();
+
+        botonRect.anchoredPosition =
+            new Vector2(
+                posicionOriginalBoton.x,
+                posicionOriginalBoton.y - 250f
+            );
+
+        LeanTween.move(
+            botonRect,
+            posicionOriginalBoton,
+            0.6f
+        ).setDelay(0.3f).setEaseOutBack();
 
         CargarFase(false);
     }
@@ -343,7 +452,12 @@ public class GameManagerDrag : MonoBehaviour
         {
             if (tiempoActual <= 10f && tiempoActual > 0f && tiempoActivo)
             {
-                ReproducirSFX(ticTacReloj);
+                if (!panelVictoria.activeSelf &&
+    !panelIntermedio.activeSelf &&
+    !panelDerrota.activeSelf)
+                {
+                    ReproducirSFX(ticTacReloj);
+                }
             }
 
             ultimoSegundoMostrado = segundoActual;
@@ -392,6 +506,30 @@ public class GameManagerDrag : MonoBehaviour
                 alarmaReproducida = true;
 
                 tiempoActivo = false;
+
+                // Bloquear zonas de destino
+                foreach (DropZone zona in zonas)
+                {
+                    if (zona != null)
+                    {
+                        zona.enabled = false;
+                    }
+                }
+
+                // Bloquear objetos arrastrables
+                foreach (DragItem item in items)
+                {
+                    if (item != null)
+                    {
+                        item.enabled = false;
+                    }
+                }
+
+                // Desactivar botón Comprobar
+                if (botonComprobar != null)
+                {
+                    botonComprobar.interactable = false;
+                }
 
                 MostrarTiempoEnPaneles();
 
@@ -548,6 +686,11 @@ public class GameManagerDrag : MonoBehaviour
 
     void MostrarResultadoFinal()
     {
+        tiempoActivo = false;
+
+        if (sfxSource != null)
+            sfxSource.Stop();
+
         tiempoActivo = false;
         MostrarTiempoEnPaneles();
 
