@@ -50,6 +50,10 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void RefrescarPanel()
     {
+        // CORRECCIÓN AQUÍ: Siempre reiniciar el índice lógico a 0 al refrescar,
+        // ya que el contenedor visual siempre se regresa a la posición inicial más abajo.
+        indexActual = 0;
+
         // En lugar de confiar en una variable externa, revisamos la fuente real de datos
         bool tenemosUnLiderValido = CargarLiderMenu();
 
@@ -62,7 +66,6 @@ public class ManejadorSwiper2 : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             if (tarjetaRanking != null) tarjetaRanking.SetActive(false);
             totalTarjetasActivas = 1;
-            indexActual = 0; // Forzamos el regreso a la tarjeta principal
         }
 
         if (contenedor != null)
