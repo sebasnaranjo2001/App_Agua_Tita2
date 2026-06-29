@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4cb899e618be843418abb910c81c830d
+guid: 737549c20607a46439c6776f5370852e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2129374663082138233
-    second: arr tuberia_0
+      213: -5966233018029722109
+    second: TUTTRIVIA2_Mesa de trabajo 1 copia_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arr tuberia_0
+      name: TUTTRIVIA2_Mesa de trabajo 1 copia_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 6764
-        height: 4106
+        x: 65
+        y: 43
+        width: 748
+        height: 808
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 785a54d9601f272e0800000000000000
-      internalID: -2129374663082138233
+      spriteID: 306b1293eaea33da0800000000000000
+      internalID: -5966233018029722109
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arr tuberia_0: -2129374663082138233
+      TUTTRIVIA2_Mesa de trabajo 1 copia_0: -5966233018029722109
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

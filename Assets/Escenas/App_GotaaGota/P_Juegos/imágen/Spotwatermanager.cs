@@ -57,6 +57,9 @@ public class SpotWaterManager : MonoBehaviour
     // fondo y panels finales
     public GameObject[] elementosGameplay;
 
+    [Header("Tutorial")]
+    public bool iniciarConTutorial = true;
+
     [Header("Feedback")]
     public Image feedbackRed;
 
@@ -142,6 +145,50 @@ public class SpotWaterManager : MonoBehaviour
     // Orden aleatorio ya implementado
     int[] randomOrder;
 
+    public void ActivarGameplay()
+    {
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(true);
+        }
+    }
+
+    public void DesactivarGameplay()
+    {
+        foreach (GameObject obj in elementosGameplay)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+    }
+
+    public void IniciarJuego()
+    {
+        tiempoActual = tiempoMaximo;
+        ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
+
+        tiempoActivo = true;
+        alarmaReproducida = false;
+        musicaTensionActiva = false;
+        resultadoMostrado = false;
+
+        CambiarMusica(musicaGameplay, true);
+
+        if (relojTransform != null)
+        {
+            relojTransform.localScale = Vector3.zero;
+
+            LeanTween.scale(
+                relojTransform.gameObject,
+                Vector3.one,
+                0.4f
+            ).setEaseOutBack();
+        }
+
+        LoadLevel(0);
+    }
+
     void CambiarMusica(AudioClip nuevaMusica, bool loop)
     {
         if (musicSource == null || nuevaMusica == null)
@@ -184,17 +231,20 @@ public class SpotWaterManager : MonoBehaviour
         // MOSTRAR GAMEPLAY
         // =========================
 
-        foreach (GameObject obj in elementosGameplay)
+        if (iniciarConTutorial)
         {
-            if (obj != null)
-                obj.SetActive(true);
+            DesactivarGameplay();
+        }
+        else
+        {
+            ActivarGameplay();
         }
 
         // =========================
         // ANIMACIONES INICIALES
         // =========================
 
-        
+
         if (fondoCategoria != null)
         {
             fondoCategoria.transform.localScale =
@@ -284,8 +334,11 @@ public class SpotWaterManager : MonoBehaviour
             ).setEaseOutBack();
         }
 
-        CambiarMusica(musicaGameplay, true);
-        LoadLevel(0);
+        if (!iniciarConTutorial)
+        {
+            CambiarMusica(musicaGameplay, true);
+            LoadLevel(0);
+        }
     }
 
     void Update()
@@ -501,6 +554,9 @@ public class SpotWaterManager : MonoBehaviour
         tiempoActivo = false;
         MostrarTiempoEnPaneles();
 
+        if (sfxSource != null)
+            sfxSource.Stop();
+
         Debug.Log("MOSTRAR RESULTADO FINAL");
 
         if (resultadoMostrado)
@@ -529,38 +585,32 @@ public class SpotWaterManager : MonoBehaviour
             "/" +
             levels.Length;
 
-        if (aciertos == levels.Length)
+        if (aciertos == 5)
         {
             AnimarPanelVictoria();
-            Debug.Log("VICTORIA");
 
             foreach (GameObject obj in elementosVictoria)
             {
                 if (obj != null)
-                {
                     obj.SetActive(false);
-                }
             }
-
-            
 
             if (textoAciertosVictoria != null)
                 textoAciertosVictoria.text = resultadoFinal;
         }
-        else if (aciertos <= 1)
-        {
-            resultadoMostrado = true;
-            AnimarPanelDerrota();
-
-            if (textoAciertosDerrota != null)
-                textoAciertosDerrota.text = resultadoFinal;
-        }
-        else
+        else if (aciertos >= 2 && aciertos <= 4)
         {
             AnimarPanelIntermedio();
 
             if (textoAciertosIntermedio != null)
                 textoAciertosIntermedio.text = resultadoFinal;
+        }
+        else
+        {
+            AnimarPanelDerrota();
+
+            if (textoAciertosDerrota != null)
+                textoAciertosDerrota.text = resultadoFinal;
         }
     }
     // =========================
@@ -660,6 +710,20 @@ public class SpotWaterManager : MonoBehaviour
                 tiempoActivo = false;
 
                 MostrarTiempoEnPaneles();
+
+                foreach (GameObject[] nivel in levels)
+                {
+                    foreach (GameObject obj in nivel)
+                    {
+                        if (obj == null)
+                            continue;
+
+                        Button boton = obj.GetComponent<Button>();
+
+                        if (boton != null)
+                            boton.interactable = false;
+                    }
+                }
 
                 // Detener música de gameplay/tensión
                 if (musicSource != null)
