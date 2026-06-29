@@ -291,6 +291,13 @@ public class ControladorSincronizacionQR : MonoBehaviour
             miembroQRNuevo.textoEdad.text = parActual.Item2.edad + " años";
             miembroQRNuevo.textoDuchas.text = "Duchas:\n" + (parActual.Item2.historialBanos?.Count ?? 0);
             miembroQRNuevo.AplicarTema(parActual.Item2.indiceTemaColor);
+
+            // CORRECCIÓN: Desactivar los botones en la tarjeta de similitud para evitar la animación pequeña
+            Button btnLocal = miembroLocalReferencia.GetComponent<Button>();
+            if (btnLocal != null) btnLocal.interactable = false;
+
+            Button btnNuevo = miembroQRNuevo.GetComponent<Button>();
+            if (btnNuevo != null) btnNuevo.interactable = false;
         }
     }
 
@@ -324,8 +331,8 @@ public class ControladorSincronizacionQR : MonoBehaviour
             nuevoNombre = nombreBase + " " + contador;
         }
 
+        // CORRECCIÓN: Solo cambiamos el nombre. No hacemos .Add porque ya existe en la lista recibida.
         par.Item2.nombre = nuevoNombre;
-        listaRecibidaQR.Add(par.Item2);
 
         AvanzarEnConflictos();
     }
@@ -381,41 +388,45 @@ public class ControladorSincronizacionQR : MonoBehaviour
                 uiTarjeta.textoDuchas.text = "Duchas:\n" + (miembro.historialBanos?.Count ?? 0);
 
                 uiTarjeta.AplicarTema(miembro.indiceTemaColor);
-                Color col = uiTarjeta.imagenFondo.color;
-                uiTarjeta.imagenFondo.color = new Color(col.r * 0.4f, col.g * 0.4f, col.b * 0.4f, col.a);
+
+                // CORRECCIÓN VISUAL: Usamos CanvasGroup para opacar el botón entero (se ve mucho mejor)
+                CanvasGroup cg = nuevoItem.GetComponent<CanvasGroup>();
+                if (cg == null) cg = nuevoItem.AddComponent<CanvasGroup>();
+                cg.alpha = 0.4f; // Estado visual inactivo al inicio
 
                 itemSeleccionadoMap.Add(nuevoItem, false);
                 itemDatosMap.Add(nuevoItem, miembro);
 
                 Button btn = nuevoItem.GetComponent<Button>();
                 if (btn == null) btn = nuevoItem.AddComponent<Button>();
-
+                btn.interactable = true; // Aseguramos que se pueda hacer clic
                 btn.onClick.RemoveAllListeners();
 
                 GameObject itemGuardado = nuevoItem;
-                SeleccionMiembros uiGuardada = uiTarjeta;
                 ManejadorRegistro.DatosMiembro miembroGuardado = miembro;
 
-                btn.onClick.AddListener(() => AlHacerClicEnMiembroDeLista(itemGuardado, uiGuardada, miembroGuardado));
+                btn.onClick.AddListener(() => AlHacerClicEnMiembroDeLista(itemGuardado, miembroGuardado));
             }
         }
     }
 
-    private void AlHacerClicEnMiembroDeLista(GameObject goItem, SeleccionMiembros uiRef, ManejadorRegistro.DatosMiembro datos)
+    private void AlHacerClicEnMiembroDeLista(GameObject goItem, ManejadorRegistro.DatosMiembro datos)
     {
         bool estaIncluido = !itemSeleccionadoMap[goItem];
         itemSeleccionadoMap[goItem] = estaIncluido;
 
+        // Recuperamos el CanvasGroup para la animación visual
+        CanvasGroup cg = goItem.GetComponent<CanvasGroup>();
+        if (cg == null) cg = goItem.AddComponent<CanvasGroup>();
+
         if (estaIncluido)
         {
-            uiRef.AplicarTema(datos.indiceTemaColor);
+            cg.alpha = 1f; // Se ilumina al 100%
             LeanTween.scale(goItem, Vector3.one * 1.03f, 0.1f).setLoopPingPong(1);
         }
         else
         {
-            uiRef.AplicarTema(datos.indiceTemaColor);
-            Color col = uiRef.imagenFondo.color;
-            uiRef.imagenFondo.color = new Color(col.r * 0.4f, col.g * 0.4f, col.b * 0.4f, col.a);
+            cg.alpha = 0.4f; // Vuelve a ponerse opaco si lo deseleccionan
         }
 
         ActualizarTextoSeleccionados();
@@ -433,15 +444,12 @@ public class ControladorSincronizacionQR : MonoBehaviour
     {
         if (ManejadorRegistro.instance == null) return;
 
-        // --- SOLUCIÓN: Verificación silenciosa de elementos seleccionados ---
         int seleccionados = 0;
         foreach (var estado in itemSeleccionadoMap.Values)
         {
             if (estado) seleccionados++;
         }
 
-        // Si el usuario no ha tocado ninguna tarjeta, la función se detiene aquí sin cerrar el panel.
-        // Podrá seguir intentando hasta que seleccione a alguien o use el botón cancelar.
         if (seleccionados == 0) return;
 
         foreach (var item in itemSeleccionadoMap)
