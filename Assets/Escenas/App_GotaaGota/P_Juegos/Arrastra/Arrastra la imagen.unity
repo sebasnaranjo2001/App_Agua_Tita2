@@ -882,6 +882,7 @@ MonoBehaviour:
   elementosGameplay:
   - {fileID: 1575434405}
   - {fileID: 2091445469}
+  - {fileID: 1133495244}
   alIniciarJuego:
     m_PersistentCalls:
       m_Calls:
@@ -13403,7 +13404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2045491649
 RectTransform:
   m_ObjectHideFlags: 0
