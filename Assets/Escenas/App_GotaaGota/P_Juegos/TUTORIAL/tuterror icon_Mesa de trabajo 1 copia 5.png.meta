@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a079e0760e3d5f847a355e1801ce2f89
+guid: d9f95bf169c6c564daa0273417d9911b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7238133493650835804
-    second: TUTIMG1_Mesa de trabajo 1 copia 4_0
+      213: -4822342589179826195
+    second: tuterror icon_Mesa de trabajo 1 copia 5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TUTIMG1_Mesa de trabajo 1 copia 4_0
+      name: tuterror icon_Mesa de trabajo 1 copia 5_0
       rect:
         serializedVersion: 2
-        x: 66
-        y: 68
-        width: 749
-        height: 811
+        x: 267
+        y: 324
+        width: 308
+        height: 307
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c594aed2014037460800000000000000
-      internalID: 7238133493650835804
+      spriteID: defe2ba07f8931db0800000000000000
+      internalID: -4822342589179826195
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TUTIMG1_Mesa de trabajo 1 copia 4_0: 7238133493650835804
+      tuterror icon_Mesa de trabajo 1 copia 5_0: -4822342589179826195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
