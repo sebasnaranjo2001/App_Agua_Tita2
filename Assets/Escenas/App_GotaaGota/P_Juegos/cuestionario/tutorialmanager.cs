@@ -47,26 +47,50 @@ public class TutorialManager : MonoBehaviour
     {
         panelTutorial.SetActive(true);
 
-        panelTutorial.transform.localScale = Vector3.zero;
+        CanvasGroup canvasGroup = panelTutorial.GetComponent<CanvasGroup>();
 
-        LeanTween.scale(panelTutorial, Vector3.one, animTime)
-                 .setEaseOutBack();
+        if (canvasGroup == null)
+            canvasGroup = panelTutorial.AddComponent<CanvasGroup>();
+
+        canvasGroup.alpha = 0f;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+
+        LeanTween.alphaCanvas(canvasGroup, 1f, animTime)
+                 .setEaseOutQuad();
     }
 
     public void CerrarTutorial()
     {
-        LeanTween.scale(panelTutorial, Vector3.zero, animTime)
-                 .setEaseInBack()
+        CanvasGroup canvasGroup = panelTutorial.GetComponent<CanvasGroup>();
+
+        if (canvasGroup == null)
+            canvasGroup = panelTutorial.AddComponent<CanvasGroup>();
+
+        canvasGroup.alpha = 1f;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+
+        LeanTween.alphaCanvas(canvasGroup, 0f, animTime)
+                 .setEaseOutQuad()
                  .setOnComplete(() =>
                  {
                      panelTutorial.SetActive(false);
 
+                     // Restaurar para la próxima vez
+                     canvasGroup.alpha = 1f;
+                     canvasGroup.interactable = true;
+                     canvasGroup.blocksRaycasts = true;
+
+                     // Activar gameplay
                      SetGameplay(true);
+
+                     // Ejecutar el método configurado en el Inspector
                      alIniciarJuego?.Invoke();
                  });
     }
 
-    
+
 
     // -------------------------
     // GAMEPLAY CONTROL
