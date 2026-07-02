@@ -11573,7 +11573,6 @@ MonoBehaviour:
   elementosGameplay:
   - {fileID: 453635595}
   - {fileID: 1333916486}
-  - {fileID: 1299087210}
   alIniciarJuego:
     m_PersistentCalls:
       m_Calls:

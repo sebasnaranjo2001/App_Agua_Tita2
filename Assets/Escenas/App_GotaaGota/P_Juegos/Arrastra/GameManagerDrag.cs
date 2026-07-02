@@ -24,6 +24,9 @@ public class GameManagerDrag : MonoBehaviour
     [Header("Elementos Gameplay")]
     public GameObject[] elementosGameplay;
 
+    [Header("UI Global (NO gameplay)")]
+    public GameObject barraSuperior;
+
     [Header("Tutorial")]
     public bool iniciarConTutorial = true;
 
@@ -161,15 +164,39 @@ public class GameManagerDrag : MonoBehaviour
         }
     }
 
+    void IniciarAnimacionesEntrada()
+    {
+        fondoCategoria.anchoredPosition =
+            new Vector2(posicionOriginalCategoria.x, posicionOriginalCategoria.y + 200f);
+
+        LeanTween.move(fondoCategoria, posicionOriginalCategoria, 0.7f)
+            .setDelay(0.15f)
+            .setEaseOutBack();
+
+        RectTransform botonRect = botonComprobar.GetComponent<RectTransform>();
+
+        botonRect.anchoredPosition =
+            new Vector2(posicionOriginalBoton.x, posicionOriginalBoton.y - 250f);
+
+        LeanTween.move(botonRect, posicionOriginalBoton, 0.6f)
+            .setDelay(0.3f)
+            .setEaseOutBack();
+
+        relojTransform.localScale = Vector3.zero;
+
+        LeanTween.scale(relojTransform.gameObject, Vector3.one, 0.4f)
+            .setEaseOutBack();
+    }
+
     void Start()
     {
-        
         MezclarFases();
 
         if (panelVictoria != null) panelVictoria.SetActive(false);
         if (panelIntermedio != null) panelIntermedio.SetActive(false);
         if (panelDerrota != null) panelDerrota.SetActive(false);
 
+        // 🔥 MISMO SISTEMA QUE QUIZMANAGER
         if (iniciarConTutorial)
         {
             DesactivarGameplay();
@@ -179,9 +206,6 @@ public class GameManagerDrag : MonoBehaviour
             ActivarGameplay();
         }
 
-
-
-        // Guardamos posiciones para reutilizarlas al iniciar el juego
         posicionOriginalCategoria = fondoCategoria.anchoredPosition;
 
         RectTransform botonRect = botonComprobar.GetComponent<RectTransform>();
@@ -191,71 +215,25 @@ public class GameManagerDrag : MonoBehaviour
         ultimoSegundoMostrado = Mathf.CeilToInt(tiempoActual);
 
         if (barraProgreso != null)
-        {
             barraProgreso.ReiniciarBarra();
-        }
 
         if (fillReloj != null)
-        {
             fillReloj.fillAmount = 0f;
-        }
-
-        if (textoTiempo != null)
-        {
-            int minutos = Mathf.FloorToInt(tiempoActual / 60);
-            int segundos = Mathf.FloorToInt(tiempoActual % 60);
-
-            textoTiempo.text =
-                string.Format("{0:00}:{1:00}", minutos, segundos);
-        }
 
         if (relojTransform != null)
-        {
             posicionOriginalReloj = relojTransform.localPosition;
-        }
 
-        if (!iniciarConTutorial)
+        if (iniciarConTutorial)
         {
-            // Animación categoría
-            fondoCategoria.anchoredPosition =
-                new Vector2(
-                    posicionOriginalCategoria.x,
-                    posicionOriginalCategoria.y + 200f
-                );
+            barraSuperior.SetActive(true); // o visible siempre
+            DesactivarGameplay();
+        }
+        else
+        {
+            barraSuperior.SetActive(true);
 
-            LeanTween.move(
-                fondoCategoria,
-                posicionOriginalCategoria,
-                0.7f
-            ).setDelay(0.15f).setEaseOutBack();
-
-            // Animación botón
-            botonRect.anchoredPosition =
-                new Vector2(
-                    posicionOriginalBoton.x,
-                    posicionOriginalBoton.y - 250f
-                );
-
-            LeanTween.move(
-                botonRect,
-                posicionOriginalBoton,
-                0.6f
-            ).setDelay(0.3f).setEaseOutBack();
-
-            relojTransform.localScale = Vector3.zero;
-
-            LeanTween.scale(
-                relojTransform.gameObject,
-                Vector3.one,
-                0.4f
-            ).setEaseOutBack();
-
+            IniciarAnimacionesEntrada();
             CambiarMusica(musicaGameplay, true);
-        }
-
-
-        if (!iniciarConTutorial)
-        {
             CargarFase(false);
         }
     }
@@ -776,6 +754,7 @@ public class GameManagerDrag : MonoBehaviour
                 obj.SetActive(false);
         }
 
+        barraSuperior.SetActive(false);
         panelVictoria.SetActive(true);
 
         panelVictoria.transform.localScale = Vector3.zero;
@@ -813,6 +792,7 @@ public class GameManagerDrag : MonoBehaviour
                 obj.SetActive(false);
         }
 
+        barraSuperior.SetActive(false);
         panelIntermedio.SetActive(true);
 
         panelIntermedio.transform.localScale = Vector3.zero;
@@ -864,6 +844,7 @@ public class GameManagerDrag : MonoBehaviour
                 obj.SetActive(false);
         }
 
+        barraSuperior.SetActive(false);
         panelDerrota.SetActive(true);
 
         panelDerrota.transform.localScale = Vector3.zero;
