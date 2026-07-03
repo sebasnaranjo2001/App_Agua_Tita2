@@ -13,6 +13,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private Vector2 posicionInicial;
     private Transform padreInicial;
+    public DropZone zonaActual;
     private Color colorOriginalTexto;
     private Color colorOriginalImagen;
 
@@ -104,6 +105,12 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         transform.SetParent(padreInicial);
         rectTransform.anchoredPosition = posicionInicial;
+
+        if (zonaActual != null)
+        {
+            zonaActual.objetoActual = null;
+            zonaActual = null;
+        }
     }
     public void MarcarCorrecto()
     {

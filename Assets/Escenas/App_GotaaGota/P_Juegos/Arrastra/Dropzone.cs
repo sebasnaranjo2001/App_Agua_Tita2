@@ -24,6 +24,12 @@ public class DropZone : MonoBehaviour, IDropHandler
 
         DragItem item = eventData.pointerDrag.GetComponent<DragItem>();
 
+        // Si el objeto ya estaba colocado en otra zona, la liberamos.
+        if (item.zonaActual != null && item.zonaActual != this)
+        {
+            item.zonaActual.objetoActual = null;
+        }
+
         if (item != null)
         {
             // 2. Si ya había un objeto aquí, lo mandamos a su posición original
@@ -48,6 +54,7 @@ public class DropZone : MonoBehaviour, IDropHandler
             rect.localScale = Vector3.one;
 
             objetoActual = item;
+            item.zonaActual = this;
             Debug.Log($"<color=green>OBJETO SOLTADO:</color> {item.name} entró en {gameObject.name}");
         }
     }
