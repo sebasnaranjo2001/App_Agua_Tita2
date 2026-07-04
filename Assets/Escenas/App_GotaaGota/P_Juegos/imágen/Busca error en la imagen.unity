@@ -2147,8 +2147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: 507.32}
-  m_SizeDelta: {x: 559.2194, y: 100.646}
+  m_AnchoredPosition: {x: 0.0000038147, y: 519}
+  m_SizeDelta: {x: 653.4, y: 100.646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293112517
 MonoBehaviour:
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Vuelve a intentarlo
+  m_text: "INT\xC9NTALO DE NUEVO"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca3992242476e0448b9861695a76b14d, type: 2}
   m_sharedMaterial: {fileID: -7459242394496512106, guid: ca3992242476e0448b9861695a76b14d, type: 2}
@@ -2307,7 +2307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA1Eres un gran conocedor de metodos de ahorro de agua!"
+  m_text: "\xA1Eres un gran conocedor de m\xE9todos de ahorro de agua!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ec09545e8c3289c438d2507d6c7cf809, type: 2}
   m_sharedMaterial: {fileID: 7732710627188662083, guid: ec09545e8c3289c438d2507d6c7cf809, type: 2}
