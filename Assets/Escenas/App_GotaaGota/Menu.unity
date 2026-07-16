@@ -73866,9 +73866,9 @@ MonoBehaviour:
   textoGastoFinal: {fileID: 1000169643}
   tiempoCierrePanel: 3
   litrosPorMinuto: 9.5
-  minutosAlertaVerde: 5
-  minutosParaAmarillo: 7
-  minutosParaRojo: 10
+  minutosAlertaVerde: 0.5
+  minutosParaAmarillo: 1
+  minutosParaRojo: 1.5
   colorVerde:
     serializedVersion: 2
     rgba: 4292076994
